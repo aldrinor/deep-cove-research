@@ -4,7 +4,7 @@
 
 # Reports
 
-All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001–050 are in Chinese, 051–100 in English. Each page shows the benchmark prompt, followed by the report text exactly as submitted in [`data/deep-cove-research.jsonl`](../data/deep-cove-research.jsonl).
+All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001–050 are in Chinese, 051–100 in English. Each page shows the benchmark prompt, followed by the full report.
 
 **[Chinese tasks](#chinese-tasks) · [English tasks](#english-tasks) · [Notes](#notes)**
 
@@ -121,4 +121,4 @@ All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001�
 ## Notes
 
 - **Report title:** the report's own first heading, unchanged. **Characters:** Unicode characters in the report. **Sources:** distinct web addresses that the report links to or embeds.
-- On each report page, the `article` field is exactly the text after the newline that ends the `article:start` marker line, up to but not including the newline before the `article:end` marker line; the page states the SHA-256 of that text.
+- Report pages are formatted for GitHub, including typeset formulas. The submitted text of every report is the `article` field of its record in [`data/deep-cove-research.jsonl`](../data/deep-cove-research.jsonl).

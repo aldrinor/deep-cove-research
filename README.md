@@ -23,17 +23,17 @@
 
 <div align="center">
 
-| Reports | Languages | Writer | Average cost per report |
-|:-:|:-:|:-:|:-:|
-| **100** | 50 Chinese · 50 English | GPT-5.6 Luna, maximum reasoning | **≈ US$0.45** |
+| Reports | Chinese | English | Writer | Cost per report |
+|:-:|:-:|:-:|:-:|:-:|
+| **100** | 50 | 50 | GPT-5.6 Luna | **≈ US$0.45** |
 
-<sub>Average model and search usage per report, priced at public API list prices.</sub>
+<sub>Cost: average model and search usage per report, at public API list prices.</sub>
 
 </div>
 
 ## Reports
 
-Every report has its own page: the benchmark prompt, then the report text exactly as submitted.
+Every report has its own page: the benchmark prompt, then the full report.
 
 **[Browse all 100 reports →](reports/README.md)**
 
@@ -109,22 +109,20 @@ deep-cove-research/
 └── LICENSE                        terms (proprietary)
 ```
 
-- [`data/deep-cove-research.jsonl`](data/deep-cove-research.jsonl): 100 lines, one JSON object per line (UTF-8), in the official DeepResearch Bench format with the fields `id`, `prompt` and `article`. Tasks 1–50 are Chinese, 51–100 English. 8,010,129 bytes; SHA-256 `2578948bbb4555c30c3dc9c1bc245a59e2c1575f0c2a8fd5c3f7c3ccad3c12e3`. Field details: [data/README.md](data/README.md).
-- Each page in [`reports/`](reports/README.md) contains its report's `article` text byte for byte and states the SHA-256 of that text.
+- [`data/deep-cove-research.jsonl`](data/deep-cove-research.jsonl): the 100 reports in the official DeepResearch Bench format, one JSON object per line with the fields `id`, `prompt` and `article`. Details: [data/README.md](data/README.md).
+- [`reports/`](reports/README.md): one page per report.
 
 ## Reproducing the evaluation
 
 1. Get the official evaluation code from the [DeepResearch Bench repository](https://github.com/Ayanami0730/deep_research_bench) at commit `852f4022`.
-2. Copy `data/deep-cove-research.jsonl` into that copy of the code as `data/test_data/raw_data/deep-cove-research.jsonl`.
+2. Copy `data/deep-cove-research.jsonl` into the benchmark's `data/test_data/raw_data/` folder.
 3. Add `deep-cove-research` to `TARGET_MODELS` in `run_benchmark.sh`.
 4. Set up access to the evaluator as the benchmark's README describes, keeping the default evaluator settings.
-5. Run `run_benchmark.sh`. The RACE summary is written to `results/race/deep-cove-research/race_result.txt`.
+5. Run `run_benchmark.sh`. The RACE summary is written to `results/race/deep-cove-research/`.
 
 ## Citation
 
-If you refer to these reports, please cite this repository and the DeepResearch Bench paper.
-
-**This repository**
+If you refer to these reports, please cite this repository:
 
 ```bibtex
 @misc{deepcoveresearch2026,
@@ -136,20 +134,7 @@ If you refer to these reports, please cite this repository and the DeepResearch 
 }
 ```
 
-**DeepResearch Bench**
-
-```bibtex
-@inproceedings{ICLR2026_465f22be,
-  author = {Du, Mingxuan and Xu, Benfeng and Zhu, Chiwei and Zhang, Licheng and Wang, Xiaorui and Mao, Zhendong},
-  booktitle = {International Conference on Learning Representations},
-  editor = {C. Vondrick and B. Hariharan and C. Raffel and L. Pinto and D. Yang and A. Faust},
-  pages = {42414--42448},
-  title = {DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents},
-  url = {https://proceedings.iclr.cc/paper_files/paper/2026/file/465f22be10e07b301c6ed58f0472f704-Paper-Conference.pdf},
-  volume = {2026},
-  year = {2026},
-}
-```
+Please also cite the benchmark: Du et al., [*DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents*](https://proceedings.iclr.cc/paper_files/paper/2026/file/465f22be10e07b301c6ed58f0472f704-Paper-Conference.pdf), ICLR 2026.
 
 ## License
 
