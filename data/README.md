@@ -12,4 +12,4 @@
 - Size: 8,010,129 bytes.
 - SHA-256: `2578948bbb4555c30c3dc9c1bc245a59e2c1575f0c2a8fd5c3f7c3ccad3c12e3`
 
-The file may be too large to preview in the browser; open the raw file or download it. A readable page for every report is in [`reports/`](../reports/README.md).
+A readable page for every report is in [`reports/`](../reports/README.md).

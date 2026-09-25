@@ -55,10 +55,6 @@ Every report has its own page: the benchmark prompt, then the report text exactl
 
 </details>
 
-**Excerpt** from the report for task [067](reports/en/067.md):
-
-> These questions overlap in applications, but they are not equivalent. A novelty bonus can increase visitation while driving the agent toward irrelevant or dangerous states. Conversely, a safe policy can avoid violations by becoming stationary or excessively conservative without discovering a route to the goal.
-
 ## How it works
 
 <p align="center">
