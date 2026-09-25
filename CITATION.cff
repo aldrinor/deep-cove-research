@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you refer to these reports or results, please cite this repository and the DeepResearch Bench paper listed under references."
+title: "deep-cove-research: DeepResearch Bench Reports and Evaluation Results"
+type: dataset
+authors:
+  - name: "deep-cove-research"
+date-released: "2026-09-25"
+url: "https://github.com/aldrinor/deep-cove-research"
+repository: "https://github.com/aldrinor/deep-cove-research"
+abstract: "100 research reports (50 Chinese, 50 English) written by deep-cove-research, a proprietary deep-research system, for the DeepResearch Bench tasks, with RACE scores from a local run of the official evaluation code (commit 852f4022). Official verification is pending."
+keywords:
+  - deep research
+  - DeepResearch Bench
+  - RACE
+  - research reports
+references:
+  - type: conference-paper
+    title: "DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents"
+    authors:
+      - family-names: Du
+        given-names: Mingxuan
+      - family-names: Xu
+        given-names: Benfeng
+      - family-names: Zhu
+        given-names: Chiwei
+      - family-names: Zhang
+        given-names: Licheng
+      - family-names: Wang
+        given-names: Xiaorui
+      - family-names: Mao
+        given-names: Zhendong
+    collection-title: "International Conference on Learning Representations"
+    year: 2026
+    url: "https://proceedings.iclr.cc/paper_files/paper/2026/file/465f22be10e07b301c6ed58f0472f704-Paper-Conference.pdf"

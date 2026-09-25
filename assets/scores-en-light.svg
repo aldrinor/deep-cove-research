@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" width="960" height="450" role="img" aria-labelledby="t d" font-family="system-ui, sans-serif">
+<title id="t">Per-task RACE overall score</title><desc id="d">Two dot plots of the per-task RACE overall scores, sorted. Chinese tasks: verified-cleaning scores from 52.17 to 64.35, mean 55.49. English tasks: from 52.92 to 58.25, mean 54.97. The 10 re-cleaned Chinese tasks also show their lower single-pass score; the largest change is task 019, from 41.06 to 54.26.</desc>
+<rect x="0.5" y="0.5" width="959" height="449" rx="12" fill="#f6f8fa" stroke="#d1d9e0"/>
+<text x="32" y="40" font-size="16" font-weight="600" fill="#1f2328">Per-task RACE overall score</text>
+<text x="32" y="62" font-size="12" fill="#59636e">Sorted within each language · local run of the official evaluation code, commit 852f4022 · official verification pending</text>
+<circle cx="37" cy="86" r="4.5" fill="#2a78d6"/>
+<text x="48" y="90" font-size="12" fill="#59636e">Verified cleaning</text>
+<circle cx="196.0" cy="86" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"/>
+<text x="207.0" y="90" font-size="12" fill="#59636e">Single pass, before the cleaning re-run (10 tasks)</text>
+<path d="M581.0 86 H599.0" stroke="#59636e" stroke-width="1"/>
+<text x="605.0" y="90" font-size="12" fill="#59636e">Language mean</text>
+<text x="58" y="402.0" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">40</text>
+<path d="M72 398.0 H488" stroke="#e1e5ea" stroke-width="1"/>
+<path d="M520 398.0 H936" stroke="#e1e5ea" stroke-width="1"/>
+<text x="58" y="352.0" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">45</text>
+<path d="M72 348.0 H488" stroke="#e1e5ea" stroke-width="1"/>
+<path d="M520 348.0 H936" stroke="#e1e5ea" stroke-width="1"/>
+<text x="58" y="302.0" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">50</text>
+<path d="M72 298.0 H488" stroke="#e1e5ea" stroke-width="1"/>
+<path d="M520 298.0 H936" stroke="#e1e5ea" stroke-width="1"/>
+<text x="58" y="252.0" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">55</text>
+<path d="M72 248.0 H488" stroke="#e1e5ea" stroke-width="1"/>
+<path d="M520 248.0 H936" stroke="#e1e5ea" stroke-width="1"/>
+<text x="58" y="202.0" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">60</text>
+<path d="M72 198.0 H488" stroke="#e1e5ea" stroke-width="1"/>
+<path d="M520 198.0 H936" stroke="#e1e5ea" stroke-width="1"/>
+<text x="58" y="152.0" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">65</text>
+<path d="M72 148.0 H488" stroke="#e1e5ea" stroke-width="1"/>
+<path d="M520 148.0 H936" stroke="#e1e5ea" stroke-width="1"/>
+<text x="72" y="124" font-size="13" font-weight="600" fill="#1f2328">Chinese tasks (001–050)</text>
+<path d="M72 398 H488" stroke="#c8d1da" stroke-width="1"/>
+<path d="M72 243.1 H488" stroke="#59636e" stroke-width="1"/>
+<text x="74" y="237.1" font-size="11" fill="#59636e" style="font-variant-numeric: tabular-nums">mean 55.49</text>
+<path d="M117.8 305.4 V270.6" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="117.8" cy="309.4" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>008: 48.86</title></circle>
+<path d="M134.4 273.7 V268.9" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="134.4" cy="277.7" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>050: 52.03</title></circle>
+<path d="M151.0 318.4 V265.2" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="151.0" cy="322.4" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>017: 47.56</title></circle>
+<path d="M201.0 288.0 V259.8" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="201.0" cy="292.0" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>047: 50.60</title></circle>
+<path d="M209.3 383.4 V259.4" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="209.3" cy="387.4" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>019: 41.06</title></circle>
+<path d="M359.0 273.5 V243.3" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="359.0" cy="277.5" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>005: 52.05</title></circle>
+<path d="M384.0 256.3 V242.2" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="384.0" cy="260.3" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>035: 53.77</title></circle>
+<path d="M450.6 228.0 V219.1" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="450.6" cy="232.0" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>011: 56.60</title></circle>
+<path d="M467.2 212.5 V195.9" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="467.2" cy="216.5" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>020: 58.15</title></circle>
+<path d="M475.5 205.2 V179.1" stroke="#8c959f" stroke-width="1.5"/>
+<circle cx="475.5" cy="209.2" r="4" fill="#f6f8fa" stroke="#eb6834" stroke-width="2"><title>016: 58.88</title></circle>
+<circle cx="76.2" cy="276.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>044: 52.17</title></circle>
+<circle cx="84.5" cy="272.5" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>009: 52.55</title></circle>
+<circle cx="92.8" cy="271.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>048: 52.62</title></circle>
+<circle cx="101.1" cy="268.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>036: 52.92</title></circle>
+<circle cx="109.4" cy="268.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>003: 52.97</title></circle>
+<circle cx="117.8" cy="266.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>008: 53.14</title></circle>
+<circle cx="126.1" cy="264.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>024: 53.31</title></circle>
+<circle cx="134.4" cy="264.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>050: 53.31</title></circle>
+<circle cx="142.7" cy="262.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>039: 53.59</title></circle>
+<circle cx="151.0" cy="261.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>017: 53.68</title></circle>
+<circle cx="159.4" cy="261.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>037: 53.70</title></circle>
+<circle cx="167.7" cy="259.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>027: 53.90</title></circle>
+<circle cx="176.0" cy="257.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>022: 54.08</title></circle>
+<circle cx="184.3" cy="256.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>030: 54.17</title></circle>
+<circle cx="192.6" cy="256.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>018: 54.20</title></circle>
+<circle cx="201.0" cy="255.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>047: 54.22</title></circle>
+<circle cx="209.3" cy="255.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>019: 54.26</title></circle>
+<circle cx="217.6" cy="252.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>033: 54.58</title></circle>
+<circle cx="225.9" cy="250.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>040: 54.71</title></circle>
+<circle cx="234.2" cy="249.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>002: 54.89</title></circle>
+<circle cx="242.6" cy="248.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>041: 54.93</title></circle>
+<circle cx="250.9" cy="247.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>006: 55.03</title></circle>
+<circle cx="259.2" cy="247.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>046: 55.07</title></circle>
+<circle cx="267.5" cy="247.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>031: 55.09</title></circle>
+<circle cx="275.8" cy="247.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>007: 55.10</title></circle>
+<circle cx="284.2" cy="246.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>023: 55.11</title></circle>
+<circle cx="292.5" cy="246.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>010: 55.12</title></circle>
+<circle cx="300.8" cy="245.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>043: 55.22</title></circle>
+<circle cx="309.1" cy="244.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>042: 55.38</title></circle>
+<circle cx="317.4" cy="243.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>028: 55.49</title></circle>
+<circle cx="325.8" cy="242.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>015: 55.51</title></circle>
+<circle cx="334.1" cy="241.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>032: 55.69</title></circle>
+<circle cx="342.4" cy="240.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>034: 55.72</title></circle>
+<circle cx="350.7" cy="240.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>021: 55.80</title></circle>
+<circle cx="359.0" cy="239.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>005: 55.87</title></circle>
+<circle cx="367.4" cy="238.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>004: 55.92</title></circle>
+<circle cx="375.7" cy="238.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>025: 55.93</title></circle>
+<circle cx="384.0" cy="238.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>035: 55.98</title></circle>
+<circle cx="392.3" cy="237.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>013: 56.09</title></circle>
+<circle cx="400.6" cy="233.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>038: 56.44</title></circle>
+<circle cx="409.0" cy="231.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>026: 56.68</title></circle>
+<circle cx="417.3" cy="225.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>045: 57.28</title></circle>
+<circle cx="425.6" cy="224.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>049: 57.36</title></circle>
+<circle cx="433.9" cy="222.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>001: 57.58</title></circle>
+<circle cx="442.2" cy="221.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>012: 57.64</title></circle>
+<circle cx="450.6" cy="215.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>011: 58.29</title></circle>
+<circle cx="458.9" cy="207.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>029: 59.03</title></circle>
+<circle cx="467.2" cy="191.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>020: 60.61</title></circle>
+<circle cx="475.5" cy="175.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>016: 62.29</title></circle>
+<circle cx="483.8" cy="154.5" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>014: 64.35</title></circle>
+<text x="487.8" y="144.5" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">014 · 64.35</text>
+<text x="218.3" y="391.4" font-size="11" fill="#59636e" style="font-variant-numeric: tabular-nums">019 · single pass 41.06</text>
+<text x="520" y="124" font-size="13" font-weight="600" fill="#1f2328">English tasks (051–100)</text>
+<path d="M520 398 H936" stroke="#c8d1da" stroke-width="1"/>
+<path d="M520 248.3 H936" stroke="#59636e" stroke-width="1"/>
+<text x="522" y="242.3" font-size="11" fill="#59636e" style="font-variant-numeric: tabular-nums">mean 54.97</text>
+<circle cx="524.2" cy="268.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>070: 52.92</title></circle>
+<circle cx="532.5" cy="268.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>084: 52.97</title></circle>
+<circle cx="540.8" cy="266.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>088: 53.17</title></circle>
+<circle cx="549.1" cy="265.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>069: 53.23</title></circle>
+<circle cx="557.4" cy="261.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>075: 53.63</title></circle>
+<circle cx="565.8" cy="261.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>052: 53.66</title></circle>
+<circle cx="574.1" cy="261.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>059: 53.69</title></circle>
+<circle cx="582.4" cy="260.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>073: 53.79</title></circle>
+<circle cx="590.7" cy="259.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>100: 53.82</title></circle>
+<circle cx="599.0" cy="259.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>055: 53.84</title></circle>
+<circle cx="607.4" cy="259.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>096: 53.84</title></circle>
+<circle cx="615.7" cy="259.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>062: 53.90</title></circle>
+<circle cx="624.0" cy="258.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>093: 53.99</title></circle>
+<circle cx="632.3" cy="257.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>054: 54.06</title></circle>
+<circle cx="640.6" cy="257.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>076: 54.08</title></circle>
+<circle cx="649.0" cy="256.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>085: 54.13</title></circle>
+<circle cx="657.3" cy="256.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>094: 54.13</title></circle>
+<circle cx="665.6" cy="256.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>078: 54.20</title></circle>
+<circle cx="673.9" cy="255.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>077: 54.26</title></circle>
+<circle cx="682.2" cy="255.3" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>087: 54.27</title></circle>
+<circle cx="690.6" cy="253.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>098: 54.42</title></circle>
+<circle cx="698.9" cy="253.2" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>091: 54.48</title></circle>
+<circle cx="707.2" cy="252.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>099: 54.53</title></circle>
+<circle cx="715.5" cy="251.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>058: 54.64</title></circle>
+<circle cx="723.8" cy="250.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>053: 54.72</title></circle>
+<circle cx="732.2" cy="249.7" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>064: 54.83</title></circle>
+<circle cx="740.5" cy="247.5" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>051: 55.05</title></circle>
+<circle cx="748.8" cy="247.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>095: 55.06</title></circle>
+<circle cx="757.1" cy="246.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>072: 55.11</title></circle>
+<circle cx="765.4" cy="245.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>082: 55.29</title></circle>
+<circle cx="773.8" cy="244.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>057: 55.32</title></circle>
+<circle cx="782.1" cy="243.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>074: 55.44</title></circle>
+<circle cx="790.4" cy="243.1" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>097: 55.49</title></circle>
+<circle cx="798.7" cy="242.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>060: 55.51</title></circle>
+<circle cx="807.0" cy="242.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>071: 55.52</title></circle>
+<circle cx="815.4" cy="242.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>066: 55.54</title></circle>
+<circle cx="823.7" cy="242.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>068: 55.54</title></circle>
+<circle cx="832.0" cy="239.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>080: 55.82</title></circle>
+<circle cx="840.3" cy="239.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>081: 55.86</title></circle>
+<circle cx="848.6" cy="238.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>092: 55.91</title></circle>
+<circle cx="857.0" cy="237.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>086: 56.02</title></circle>
+<circle cx="865.3" cy="235.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>090: 56.24</title></circle>
+<circle cx="873.6" cy="233.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>063: 56.41</title></circle>
+<circle cx="881.9" cy="232.6" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>083: 56.54</title></circle>
+<circle cx="890.2" cy="229.4" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>065: 56.86</title></circle>
+<circle cx="898.6" cy="228.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>089: 56.91</title></circle>
+<circle cx="906.9" cy="228.0" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>079: 57.00</title></circle>
+<circle cx="915.2" cy="227.9" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>061: 57.01</title></circle>
+<circle cx="923.5" cy="219.8" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>067: 57.82</title></circle>
+<circle cx="931.8" cy="215.5" r="4.5" fill="#2a78d6" stroke="#f6f8fa" stroke-width="1.5"><title>056: 58.25</title></circle>
+<text x="935.8" y="205.5" font-size="11" text-anchor="end" fill="#59636e" style="font-variant-numeric: tabular-nums">056 · 58.25</text>
+<text x="480.0" y="432" font-size="12" text-anchor="middle" fill="#59636e">Each dot is one task, sorted from lowest to highest score</text>
+</svg>
