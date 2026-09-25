@@ -1,12 +1,10 @@
 <!-- Generated from data/deep-cove-research.jsonl. Do not edit by hand. -->
 
-<sub>[deep-cove-research](../README.md) › Reports &nbsp;·&nbsp; [中文说明](../README_zh.md#reports)</sub>
+<sub>[deep-cove-research](../README.md) › Reports</sub>
 
 # Reports
 
 All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001–050 are in Chinese, 051–100 in English. Each page shows the benchmark prompt, followed by the report text exactly as submitted in [`data/deep-cove-research.jsonl`](../data/deep-cove-research.jsonl).
-
-全部 100 篇报告：任务 001–050 为中文，051–100 为英文。每个页面依次列出基准题目，以及与提交内容完全一致的报告原文。
 
 **[Chinese tasks](#chinese-tasks) · [English tasks](#english-tasks) · [Notes](#notes)**
 

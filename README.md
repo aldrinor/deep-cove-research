@@ -4,19 +4,28 @@
 
 <p align="center">
   A proprietary deep-research system.<br>
-  This repository publishes its 100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.
+  This repository publishes its 100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.<br>
+  Made in North Vancouver, Canada.
 </p>
 
 <p align="center">
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="Benchmark: DeepResearch Bench, 100 tasks"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="Reports: 50 Chinese and 50 English"></a>
+  <a href="#at-a-glance"><img src="assets/badges/cost.svg" height="20" alt="Average cost per report: about US$0.45"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="License: proprietary"></a>
 </p>
 
 <p align="center">
-  <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
-  &nbsp;|&nbsp; <b>English</b> · <a href="README_zh.md">中文</a>
+  <a href="#at-a-glance">At a glance</a> · <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
 </p>
+
+## At a glance
+
+| Reports | Languages | Writer | Average cost per report |
+|--:|:--|:--|--:|
+| 100 | 50 Chinese · 50 English | GPT-5.6 Luna, maximum reasoning | **≈ US$0.45** |
+
+<sub>Average model and search usage per report, priced at public API list prices.</sub>
 
 ## Reports
 
@@ -87,8 +96,7 @@ Characters are Unicode characters in the report text; words are whitespace-separ
 
 ```text
 deep-cove-research/
-├── README.md                      overview (English)
-├── README_zh.md                   overview (Chinese)
+├── README.md                      overview
 ├── data/
 │   ├── README.md                  field descriptions
 │   └── deep-cove-research.jsonl   the 100 reports as submitted, official format
