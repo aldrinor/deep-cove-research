@@ -79,18 +79,18 @@ The reports are written by **GPT-5.6 Luna** at its maximum reasoning setting.
 
 ## Report statistics
 
-| | Chinese (001–050) | English (051–100) | All 100 |
-|:--|--:|--:|--:|
-| Median length, characters | 29,832.5 | 91,564 | 50,479 |
-| Shortest – longest, characters | 12,558 – 48,775 | 52,183 – 124,994 | 12,558 – 124,994 |
-| Median length, words | – | 12,238 | – |
-| Median source links per report | 58 | 61 | 58.5 |
-| Median distinct sources per report | 38.5 | 43 | 41 |
-| Distinct source addresses, all reports | 1,935 | 2,078 | 4,007 |
-| Median sections (level-2 headings) | 8 | 9 | 8.5 |
-| Reports with at least one table | 50 of 50 | 50 of 50 | 100 of 100 |
+<div align="center">
 
-<sub>Characters: Unicode characters in the report text. Words: whitespace-separated tokens, English reports only. Source links: web addresses a report links to, counted each time they appear. Distinct sources: different addresses within one report.</sub>
+| | Chinese reports (001–050) | English reports (051–100) |
+|:--|:-:|:-:|
+| Median length | 29,833 characters | 12,238 words |
+| Median distinct sources cited | 39 | 43 |
+| Median sections | 8 | 9 |
+| Reports with tables | 50 of 50 | 50 of 50 |
+
+**4,007** distinct sources cited across all 100 reports.
+
+</div>
 
 ## Data
 
