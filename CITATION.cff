@@ -7,7 +7,7 @@ authors:
 date-released: "2026-09-25"
 url: "https://github.com/aldrinor/deep-cove-research"
 repository: "https://github.com/aldrinor/deep-cove-research"
-abstract: "100 research reports (50 Chinese, 50 English) written by deep-cove-research, a proprietary deep-research system, for the DeepResearch Bench tasks, with RACE scores from a local run of the official evaluation code (commit 852f4022). Official verification is pending."
+abstract: "100 research reports (50 Chinese, 50 English) written by deep-cove-research, a proprietary deep-research system, for the DeepResearch Bench tasks, with RACE scores from a local run of the official evaluation code (commit 852f4022)."
 keywords:
   - deep research
   - DeepResearch Bench

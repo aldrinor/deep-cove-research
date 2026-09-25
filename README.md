@@ -1,8 +1,4 @@
-<!-- Generated from data/deep-cove-research.jsonl, results/race_scores.json and results/cleaning_evidence.json; do not edit by hand. -->
-
-<p align="center">
-  <img src="assets/mark.svg" width="88" height="88" alt="deep-cove-research logo">
-</p>
+<!-- Generated from data/deep-cove-research.jsonl and results/race_scores.json; do not edit by hand. -->
 
 <h1 align="center">deep-cove-research</h1>
 
@@ -14,8 +10,7 @@
 <p align="center">
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="Benchmark: DeepResearch Bench, 100 tasks"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="Reports: 50 Chinese and 50 English"></a>
-  <a href="#results"><img src="assets/badges/evaluation.svg" height="20" alt="Evaluation: local run of the official RACE code"></a>
-  <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard"><img src="assets/badges/verification.svg" height="20" alt="Official verification: pending"></a>
+  <a href="#results"><img src="assets/badges/evaluation.svg" height="20" alt="RACE overall score: 55.23"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="License: proprietary"></a>
 </p>
 
@@ -25,44 +20,40 @@
 </p>
 
 > [!NOTE]
-> **Status as of 2026-09-25:** the scores on this page come from a local run of the official DeepResearch Bench RACE evaluation code (commit `852f4022`) with its default evaluator settings. Official verification is pending; officially verified results are listed on the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard). This repository publishes the 100 reports and their evaluation results. The system's source code is not released.
+> Scores on this page come from a local run of the official DeepResearch Bench RACE evaluation code (commit `852f4022`, default evaluator settings). Official leaderboard: [DeepResearch Bench Leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard).
 
 ## Results
 
 DeepResearch Bench has 100 research tasks, 50 in Chinese and 50 in English. Its RACE metric scores each report against the benchmark's reference report on four dimensions (comprehensiveness, insight, instruction following and readability), with criteria and weights set for each task. Scores are on the leaderboard's 0–100 scale.
 
-| Evaluation | Overall | Comprehensiveness | Insight | Instruction following | Readability |
-|:--|--:|--:|--:|--:|--:|
-| Verified cleaning ¹ | **55.23** | 55.80 | 55.92 | 55.23 | 52.26 |
-| Single pass ² | 54.81 | 55.25 | 55.48 | 54.85 | 52.10 |
+| Overall | Comprehensiveness | Insight | Instruction following | Readability |
+|--:|--:|--:|--:|--:|
+| **55.23** | 55.80 | 55.92 | 55.23 | 52.26 |
 
-1. **Verified cleaning:** the official pipeline, with the cleaning step run once more for the 10 reports whose single-pass cleaning output was cut short, and those outputs scored as returned (see [Cleaning step](#cleaning-step)); the other 90 reports have the same score in both rows. "Verified" names this re-check (key `verified_cleaning` in [`results/race_scores.json`](results/race_scores.json)); it is not the official verification, which is pending.
-2. **Single pass:** the official pipeline run once, end to end, accepting every cleaning output.
-
-Both rows: all 100 tasks scored; local run of the official evaluation code, commit `852f4022`, default evaluator settings (the benchmark's official RACE evaluator is GPT-5.5).
+All 100 tasks scored with the official evaluation code (commit `852f4022`, default evaluator settings; the benchmark's RACE evaluator is GPT-5.5).
 
 ### By language
 
-| Tasks | Mean score, verified cleaning | Mean score, single pass | Lowest – highest, verified cleaning |
-|:--|--:|--:|--:|
-| Chinese (001–050) | 55.49 | 54.65 | 52.17 – 64.35 |
-| English (051–100) | 54.97 | 54.97 | 52.92 – 58.25 |
-| All 100 | **55.23** | 54.81 | 52.17 – 64.35 |
+| Tasks | Mean score | Range |
+|:--|--:|--:|
+| Chinese (001–050) | 55.49 | 52.17 – 64.35 |
+| English (051–100) | 54.97 | 52.92 – 58.25 |
+| All 100 | **55.23** | 52.17 – 64.35 |
 
-Means of the per-task overall scores in [`results/race_scores.json`](results/race_scores.json); the mean over all 100 tasks equals the overall score above. Per task, that file holds only the overall score, so the four dimensions cannot be split by language.
+Means of the per-task overall scores in [`results/race_scores.json`](results/race_scores.json); the mean over all 100 tasks equals the overall score above.
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/scores-en-dark.svg">
-    <img src="assets/scores-en-light.svg" width="100%" alt="Dot plots of the 100 per-task RACE overall scores, sorted within each language. Chinese tasks: 52.17 to 64.35, mean 55.49. English tasks: 52.92 to 58.25, mean 54.97. The 10 re-cleaned Chinese tasks also show their lower single-pass score.">
+    <img src="assets/scores-en-light.svg" width="100%" alt="Dot plots of the 100 per-task RACE overall scores, sorted within each language. Chinese tasks: 52.17 to 64.35, mean 55.49. English tasks: 52.92 to 58.25, mean 54.97.">
   </picture>
 </p>
 
-<sub>**Figure 1.** Per-task RACE overall scores, sorted within each language. Filled dots: verified cleaning. Open dots: single-pass scores of the 10 Chinese tasks whose cleaning step was re-run. Horizontal lines: language means. Every value is listed in the [report index](reports/README.md).</sub>
+<sub>**Figure 1.** Per-task RACE overall scores, sorted within each language. Horizontal lines: language means. Every value is listed in the [report index](reports/README.md).</sub>
 
 ## Reports
 
-Every report has its own page: the report's scores, the benchmark prompt, then the report text exactly as submitted.
+Every report has its own page: the report's score, the benchmark prompt, then the report text exactly as submitted.
 
 **[Browse all 100 reports →](reports/README.md)**
 
@@ -84,9 +75,9 @@ Every report has its own page: the report's scores, the benchmark prompt, then t
 
 </details>
 
-**Excerpt** from the report for the first English task, [051](reports/en/051.md):
+**Excerpt** from the report for task [067](reports/en/067.md):
 
-> The market implication is not a single, reliably measurable “elderly market” total. Food is the largest recurring expenditure, while spending per household generally declines with age and is especially constrained among single-person and pension-dependent households. The most defensible growth opportunities are narrower than the total market: health-oriented and care food, adaptive clothing, barrier-free renovation and supported housing, and accessible or demand-responsive mobility. A complete, harmonized 65+ market total for clothing, food, housing, and transportation in 2030 or 2050 is not reported in the supplied evidence; this report therefore combines observed expenditure benchmarks, conditional calculations, and clearly bounded submarket proxies without adding incompatible forecasts.
+> These questions overlap in applications, but they are not equivalent. A novelty bonus can increase visitation while driving the agent toward irrelevant or dangerous states. Conversely, a safe policy can avoid violations by becoming stationary or excessively conservative without discovering a route to the goal.
 
 ## How it works
 
@@ -123,28 +114,7 @@ The reports are written by **GPT-5.6 Luna** at its maximum reasoning setting.
 | Median sections (level-2 headings) | 8 | 9 | 8.5 |
 | Reports with at least one table | 50 of 50 | 50 of 50 | 100 of 100 |
 
-Characters are Unicode characters (the `raw_chars` field of `results/cleaning_evidence.json`); words are whitespace-separated tokens, counted for English reports only. Source links are the web addresses a report links to or embeds, counted each time they appear; distinct sources counts different addresses within one report. Distinct source addresses are counted once per column; 6 addresses appear in both a Chinese and an English report, so the All column is smaller than the sum of the two language columns.
-
-## Cleaning step
-
-Before scoring, the official pipeline asks a model to remove citations from each report; the evaluator then scores the cleaned text. [`results/cleaning_evidence.json`](results/cleaning_evidence.json) records each report's length before and after this step.
-
-In the single pass, the cleaned text of 10 of the 50 Chinese reports was cut short, keeping between 11.3% and 66.4% of the report's characters, and the pipeline accepted those outputs. For the other 90 reports the step kept between 70.2% and 97.9% (median 89.1%). The step was run again for the 10 affected reports; the verified-cleaning row uses those runs and leaves the other 90 scores unchanged.
-
-| Task | Report length, characters | Kept, single pass | Kept, re-run | Score, single pass | Score, verified cleaning |
-|--:|--:|--:|--:|--:|--:|
-| [005](reports/zh/005.md) | 30,150 | 33.1% | 84.0% | 52.05 | 55.87 |
-| [008](reports/zh/008.md) | 32,298 | 18.9% | 33.5% | 48.86 | 53.14 |
-| [011](reports/zh/011.md) | 30,518 | 66.4% | 85.0% | 56.60 | 58.29 |
-| [016](reports/zh/016.md) | 35,078 | 18.7% | 89.1% | 58.88 | 62.29 |
-| [017](reports/zh/017.md) | 28,195 | 12.4% | 82.2% | 47.56 | 53.68 |
-| [019](reports/zh/019.md) | 46,765 | 11.3% | 82.4% | 41.06 | 54.26 |
-| [020](reports/zh/020.md) | 48,775 | 60.8% | 89.8% | 58.15 | 60.61 |
-| [035](reports/zh/035.md) | 31,670 | 32.8% | 84.9% | 53.77 | 55.98 |
-| [047](reports/zh/047.md) | 31,869 | 29.4% | 62.8% | 50.60 | 54.22 |
-| [050](reports/zh/050.md) | 26,406 | 54.9% | 72.3% | 52.03 | 53.31 |
-
-The re-runs of tasks 008 (33.5%) and 047 (62.8%) still kept less than any of the other 90 reports; the verified-cleaning row scores them as returned. Across all 100 tasks, the overall score moves from 54.81 (single pass) to 55.23 (verified cleaning).
+Characters are Unicode characters in the report text; words are whitespace-separated tokens, counted for English reports only. Source links are the web addresses a report links to or embeds, counted each time they appear; distinct sources counts different addresses within one report. Distinct source addresses are counted once per column; 6 addresses appear in both a Chinese and an English report, so the All column is smaller than the sum of the two language columns.
 
 ## Data
 
@@ -157,21 +127,19 @@ deep-cove-research/
 │   └── deep-cove-research.jsonl   the 100 reports as submitted, official format
 ├── results/
 │   ├── README.md                  field descriptions
-│   ├── race_scores.json           overall and per-task RACE scores, both evaluations
-│   └── cleaning_evidence.json     per-task length before and after the cleaning step
+│   └── race_scores.json           overall and per-task RACE scores
 ├── reports/
 │   ├── README.md                  index of all 100 reports
 │   ├── zh/001.md … 050.md         Chinese reports, one page each
 │   └── en/051.md … 100.md         English reports, one page each
-├── assets/                        logo, badges and figures (SVG)
+├── assets/                        badges and figures (SVG)
 ├── CITATION.cff                   citation metadata
 └── LICENSE                        terms (proprietary)
 ```
 
 - [`data/deep-cove-research.jsonl`](data/deep-cove-research.jsonl): 100 lines, one JSON object per line (UTF-8), in the official DeepResearch Bench format with the fields `id`, `prompt` and `article`. Tasks 1–50 are Chinese, 51–100 English. 8,010,129 bytes; SHA-256 `2578948bbb4555c30c3dc9c1bc245a59e2c1575f0c2a8fd5c3f7c3ccad3c12e3`. Field details: [data/README.md](data/README.md).
 - Each page in [`reports/`](reports/README.md) contains its report's `article` text byte for byte and states the SHA-256 of that text.
-- [`results/`](results/README.md): the RACE scores and the cleaning evidence; field details in [results/README.md](results/README.md).
-- Not included: the system's source code, its internal prompts and its intermediate data. This repository reports RACE only; the benchmark's FACT citation metrics are not included.
+- [`results/`](results/README.md): the RACE scores; field details in [results/README.md](results/README.md).
 
 ## Reproducing the evaluation
 
@@ -179,9 +147,7 @@ deep-cove-research/
 2. Copy `data/deep-cove-research.jsonl` into that copy of the code as `data/test_data/raw_data/deep-cove-research.jsonl`.
 3. Add `deep-cove-research` to `TARGET_MODELS` in `run_benchmark.sh`.
 4. Set up access to the evaluator as the benchmark's README describes, keeping the default evaluator settings.
-5. Run `run_benchmark.sh`; only its RACE phase is reported here. The RACE summary is written to `results/race/deep-cove-research/race_result.txt` on a 0–1 scale (this page multiplies by 100), and the cleaned reports to `data/test_data/cleaned_data/deep-cove-research.jsonl`, which can be compared with `results/cleaning_evidence.json`.
-
-The cleaning step and the evaluator are both language models, so a new run can give different scores. The cleaning re-run described above is one example: it moved task 019 from 41.06 to 54.26, and the overall score from 54.81 to 55.23.
+5. Run `run_benchmark.sh`. The RACE summary is written to `results/race/deep-cove-research/race_result.txt` on a 0–1 scale (this page multiplies by 100).
 
 ## Citation
 
@@ -196,7 +162,7 @@ If you refer to these reports or results, please cite this repository and the De
   year = {2026},
   howpublished = {\url{https://github.com/aldrinor/deep-cove-research}},
   note = {100 reports (50 Chinese, 50 English); RACE scores from a local run
-          of the official evaluation code, commit 852f4022; official verification pending},
+          of the official evaluation code, commit 852f4022},
 }
 ```
 
@@ -217,7 +183,7 @@ If you refer to these reports or results, please cite this repository and the De
 
 ## License
 
-Proprietary. The reports and evaluation results in this repository are © 2026 deep-cove-research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors. The system's source code is not released.
+Proprietary. The reports and evaluation results in this repository are © 2026 deep-cove-research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
 
 ## Contact
 

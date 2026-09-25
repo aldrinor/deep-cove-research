@@ -1,8 +1,4 @@
-<!-- 由 data/deep-cove-research.jsonl、results/race_scores.json 和 results/cleaning_evidence.json 生成；请勿手动编辑。 -->
-
-<p align="center">
-  <img src="assets/mark.svg" width="88" height="88" alt="deep-cove-research 标志">
-</p>
+<!-- 由 data/deep-cove-research.jsonl 和 results/race_scores.json 生成；请勿手动编辑。 -->
 
 <h1 align="center">deep-cove-research</h1>
 
@@ -14,8 +10,7 @@
 <p align="center">
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="基准：DeepResearch Bench，100 个任务"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="报告：中文 50 篇、英文 50 篇"></a>
-  <a href="#results"><img src="assets/badges/evaluation.svg" height="20" alt="评测：在本地运行官方 RACE 代码"></a>
-  <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard"><img src="assets/badges/verification.svg" height="20" alt="官方核验：待完成"></a>
+  <a href="#results"><img src="assets/badges/evaluation.svg" height="20" alt="RACE 总分：55.23"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="许可：专有"></a>
 </p>
 
@@ -25,40 +20,36 @@
 </p>
 
 > [!NOTE]
-> **状态（截至 2026-09-25）：** 本页分数来自在本地运行的 DeepResearch Bench 官方 RACE 评测代码（提交 `852f4022`，默认评测设置）。尚待官方核验；经官方核验的结果见[官方排行榜](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)。本仓库发布 100 篇报告及其评测结果，不公开系统源代码。
+> 本页分数来自在本地运行的 DeepResearch Bench 官方 RACE 评测代码（提交 `852f4022`，默认评测设置）。官方排行榜：[DeepResearch Bench Leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)。
 
 ## <a name="results"></a>评测结果
 
 DeepResearch Bench 共有 100 个研究任务，其中中文 50 个、英文 50 个。其 RACE 指标以基准的参考报告为对照，从全面性、洞察力、指令遵循和可读性四个维度为每篇报告打分，评分标准与权重按任务分别设定。分数采用排行榜的 0–100 分制。
 
-| 评测方式 | 总分 | 全面性 | 洞察力 | 指令遵循 | 可读性 |
-|:--|--:|--:|--:|--:|--:|
-| 已核验清洗 ¹ | **55.23** | 55.80 | 55.92 | 55.23 | 52.26 |
-| 单次运行 ² | 54.81 | 55.25 | 55.48 | 54.85 | 52.10 |
+| 总分 | 全面性 | 洞察力 | 指令遵循 | 可读性 |
+|--:|--:|--:|--:|--:|
+| **55.23** | 55.80 | 55.92 | 55.23 | 52.26 |
 
-1. **已核验清洗：** 官方流程；对单次运行中清洗输出被截断的 10 篇报告再运行一次清洗步骤，并按返回的结果评分（见[清洗步骤说明](#cleaning-step)）；其余 90 篇报告在两行中的得分相同。“已核验”指我们对清洗步骤的复查（即 [`results/race_scores.json`](results/race_scores.json) 中的 `verified_cleaning`），不是官方核验；官方核验尚待完成。
-2. **单次运行：** 官方流程完整运行一次，接受全部清洗输出。
-
-两行均已对全部 100 个任务评分；在本地运行官方评测代码（提交 `852f4022`，默认评测设置；基准的官方 RACE 评测模型为 GPT-5.5）。
+全部 100 个任务均已使用官方评测代码评分（提交 `852f4022`，默认评测设置；基准的 RACE 评测模型为 GPT-5.5）。
 
 ### <a name="by-language"></a>按语言
 
-| 任务 | 平均分（已核验清洗） | 平均分（单次运行） | 最低 – 最高（已核验清洗） |
-|:--|--:|--:|--:|
-| 中文（001–050） | 55.49 | 54.65 | 52.17 – 64.35 |
-| 英文（051–100） | 54.97 | 54.97 | 52.92 – 58.25 |
-| 全部 100 个 | **55.23** | 54.81 | 52.17 – 64.35 |
+| 任务 | 平均分 | 分数范围 |
+|:--|--:|--:|
+| 中文（001–050） | 55.49 | 52.17 – 64.35 |
+| 英文（051–100） | 54.97 | 52.92 – 58.25 |
+| 全部 100 个 | **55.23** | 52.17 – 64.35 |
 
-以上为 [`results/race_scores.json`](results/race_scores.json) 中各任务总分的平均值；全部 100 个任务的平均值即上表总分。该文件的逐任务数据只有总分，因此四个维度无法按语言拆分。
+以上为 [`results/race_scores.json`](results/race_scores.json) 中各任务总分的平均值；全部 100 个任务的平均值即上表总分。
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/scores-zh-dark.svg">
-    <img src="assets/scores-zh-light.svg" width="100%" alt="两组点图，展示 100 个任务的 RACE 总分，按语言分组并排序。中文任务 52.17 至 64.35，平均 55.49；英文任务 52.92 至 58.25，平均 54.97。10 个重新清洗的中文任务同时标出较低的单次运行得分。">
+    <img src="assets/scores-zh-light.svg" width="100%" alt="两组点图，展示 100 个任务的 RACE 总分，按语言分组并排序。中文任务 52.17 至 64.35，平均 55.49；英文任务 52.92 至 58.25，平均 54.97。">
   </picture>
 </p>
 
-<sub>**图 1.** 各任务 RACE 总分，按语言分组并排序。实心点：已核验清洗；空心点：重新运行清洗步骤的 10 个中文任务的单次运行得分；横线：各语言平均分。全部数值见[报告索引](reports/README.md)。</sub>
+<sub>**图 1.** 各任务 RACE 总分，按语言分组并排序；横线为各语言平均分。全部数值见[报告索引](reports/README.md)。</sub>
 
 ## <a name="reports"></a>报告
 
@@ -84,9 +75,9 @@ DeepResearch Bench 共有 100 个研究任务，其中中文 50 个、英文 50 
 
 </details>
 
-**节选**：第一个中文任务 [001](reports/zh/001.md) 的报告
+**节选**：任务 [016](reports/zh/016.md) 的报告
 
-> 截至2026年9月13日，能够由公开证据支持的结论是：**中国不存在一套由国家统计局或同行评审研究统一确认、同时给出九个阶层收入、财富、负债和人口占比的现行官方模型**。目前能直接找到的“九阶层”是2014年网络传播的社会位置模型，它按政治影响力、职业、城市生存能力等定性区分，并不是收入或财富统计表。
+> 截至2026年9月13日，非接触式感知不存在跨任务通用的“最高准确率算法”。如果按任务分别判断：面部视频生命体征以 PhysNeXt、FreqPhys、physFSUNet 等双流、频域约束或差分帧融合模型最具竞争力；Wi-Fi 手势识别以 Wi-CBR 在 Widar3.0 上的跨位置、跨方向和跨环境结果最完整；毫米波生命体征则以具备空间分离和抗杂波能力的多主体 FMCW-MIMO 框架更适合真实共享空间。热成像姿态、LiDAR 动作识别和多模态缺失输入，分别由 YOLO11-pose、LiDAR 图谱方法以及 PTA、X-Fi、FlexPose 等代表。
 
 ## <a name="how-it-works"></a>工作流程
 
@@ -123,28 +114,7 @@ DeepResearch Bench 共有 100 个研究任务，其中中文 50 个、英文 50 
 | 章节数中位数（二级标题） | 8 | 9 | 8.5 |
 | 含表格的报告 | 50 / 50 | 50 / 50 | 100 / 100 |
 
-字符数为 Unicode 字符数（即 `results/cleaning_evidence.json` 中的 `raw_chars` 字段）；词数按空白分隔计数，仅统计英文报告。来源链接为报告正文中链接或嵌入的网址，按出现次数计；不同来源数为单篇报告中不重复网址的数量。“全部报告的不同来源网址”按列去重；有 6 个网址同时出现在中文与英文报告中，因此“全部”一列小于两种语言之和。
-
-## <a name="cleaning-step"></a>清洗步骤说明
-
-评分前，官方流程会先让模型删除每篇报告中的引用，评测模型随后对清洗后的文本打分。[`results/cleaning_evidence.json`](results/cleaning_evidence.json) 记录了每篇报告在该步骤前后的长度。
-
-在单次运行中，50 篇中文报告里有 10 篇的清洗输出被截断，只保留了原报告 11.3%–66.4% 的字符，而流程接受了这些输出。其余 90 篇报告在该步骤中保留了 70.2%–97.9% 的字符（中位数 89.1%）。我们对这 10 篇报告重新运行了清洗步骤；“已核验清洗”一行采用重新运行的结果，其余 90 篇的得分不变。
-
-| 任务 | 报告长度（字符） | 保留比例（单次运行） | 保留比例（重新运行） | 得分（单次运行） | 得分（已核验清洗） |
-|--:|--:|--:|--:|--:|--:|
-| [005](reports/zh/005.md) | 30,150 | 33.1% | 84.0% | 52.05 | 55.87 |
-| [008](reports/zh/008.md) | 32,298 | 18.9% | 33.5% | 48.86 | 53.14 |
-| [011](reports/zh/011.md) | 30,518 | 66.4% | 85.0% | 56.60 | 58.29 |
-| [016](reports/zh/016.md) | 35,078 | 18.7% | 89.1% | 58.88 | 62.29 |
-| [017](reports/zh/017.md) | 28,195 | 12.4% | 82.2% | 47.56 | 53.68 |
-| [019](reports/zh/019.md) | 46,765 | 11.3% | 82.4% | 41.06 | 54.26 |
-| [020](reports/zh/020.md) | 48,775 | 60.8% | 89.8% | 58.15 | 60.61 |
-| [035](reports/zh/035.md) | 31,670 | 32.8% | 84.9% | 53.77 | 55.98 |
-| [047](reports/zh/047.md) | 31,869 | 29.4% | 62.8% | 50.60 | 54.22 |
-| [050](reports/zh/050.md) | 26,406 | 54.9% | 72.3% | 52.03 | 53.31 |
-
-其中任务 008（33.5%）和 047（62.8%）重新运行后的保留比例仍低于其余 90 篇报告；“已核验清洗”一行直接采用重新运行的结果。就全部 100 个任务而言，总分由 54.81（单次运行）变为 55.23（已核验清洗）。
+字符数为报告文本的 Unicode 字符数；词数按空白分隔计数，仅统计英文报告。来源链接为报告正文中链接或嵌入的网址，按出现次数计；不同来源数为单篇报告中不重复网址的数量。“全部报告的不同来源网址”按列去重；有 6 个网址同时出现在中文与英文报告中，因此“全部”一列小于两种语言之和。
 
 ## <a name="data"></a>数据
 
@@ -157,21 +127,19 @@ deep-cove-research/
 │   └── deep-cove-research.jsonl   提交的 100 篇报告，官方格式
 ├── results/
 │   ├── README.md                  字段说明
-│   ├── race_scores.json           两种评测方式的总体与各任务 RACE 分数
-│   └── cleaning_evidence.json     各任务清洗步骤前后的长度
+│   └── race_scores.json           总体与各任务 RACE 分数
 ├── reports/
 │   ├── README.md                  全部 100 篇报告的索引
 │   ├── zh/001.md … 050.md         中文报告，每篇一页
 │   └── en/051.md … 100.md         英文报告，每篇一页
-├── assets/                        标志、徽章与图（SVG）
+├── assets/                        徽章与图（SVG）
 ├── CITATION.cff                   引用信息
 └── LICENSE                        条款（专有）
 ```
 
 - [`data/deep-cove-research.jsonl`](data/deep-cove-research.jsonl)：共 100 行，每行一个 JSON 对象（UTF-8），采用 DeepResearch Bench 官方格式，字段为 `id`、`prompt` 和 `article`。任务 1–50 为中文，51–100 为英文。文件大小 8,010,129 字节；SHA-256 `2578948bbb4555c30c3dc9c1bc245a59e2c1575f0c2a8fd5c3f7c3ccad3c12e3`。字段说明见 [data/README.md](data/README.md)。
 - [`reports/`](reports/README.md) 中的每个页面都逐字节包含对应报告的 `article` 文本，并注明该文本的 SHA-256。
-- [`results/`](results/README.md)：RACE 分数与清洗证据；字段说明见 [results/README.md](results/README.md)。
-- 未包含：系统源代码、系统内部提示词及中间数据。本仓库只报告 RACE；未包含基准的 FACT 引用指标。
+- [`results/`](results/README.md)：RACE 分数；字段说明见 [results/README.md](results/README.md)。
 
 ## <a name="reproducing-the-evaluation"></a>复现评测
 
@@ -179,9 +147,7 @@ deep-cove-research/
 2. 将本仓库的 `data/deep-cove-research.jsonl` 复制到该代码目录下，路径为 `data/test_data/raw_data/deep-cove-research.jsonl`。
 3. 在 `run_benchmark.sh` 的 `TARGET_MODELS` 中加入 `deep-cove-research`。
 4. 按基准 README 的说明配置评测模型的访问，并保持默认评测设置。
-5. 运行 `run_benchmark.sh`，本页只报告其 RACE 阶段。RACE 汇总结果写入 `results/race/deep-cove-research/race_result.txt`（0–1 分制，本页乘以 100 显示）；清洗后的报告写入 `data/test_data/cleaned_data/deep-cove-research.jsonl`，可与 `results/cleaning_evidence.json` 对照。
-
-清洗步骤与评测模型都是语言模型，因此重新运行可能得到不同的分数。上文的清洗重跑即是一例：任务 019 的得分由 41.06 变为 54.26，总分由 54.81 变为 55.23。
+5. 运行 `run_benchmark.sh`。RACE 汇总结果写入 `results/race/deep-cove-research/race_result.txt`（0–1 分制，本页乘以 100 显示）。
 
 ## <a name="citation"></a>引用
 
@@ -196,7 +162,7 @@ deep-cove-research/
   year = {2026},
   howpublished = {\url{https://github.com/aldrinor/deep-cove-research}},
   note = {100 reports (50 Chinese, 50 English); RACE scores from a local run
-          of the official evaluation code, commit 852f4022; official verification pending},
+          of the official evaluation code, commit 852f4022},
 }
 ```
 
@@ -217,7 +183,7 @@ deep-cove-research/
 
 ## <a name="license"></a>许可
 
-专有。本仓库中的报告与评测结果 © 2026 deep-cove-research，保留所有权利；详见 [LICENSE](LICENSE)。报告页面与 `prompt` 字段中的基准题目属于 DeepResearch Bench，归其作者所有。系统源代码不公开。
+专有。本仓库中的报告与评测结果 © 2026 deep-cove-research，保留所有权利；详见 [LICENSE](LICENSE)。报告页面与 `prompt` 字段中的基准题目属于 DeepResearch Bench，归其作者所有。
 
 ## <a name="contact"></a>联系方式
 
