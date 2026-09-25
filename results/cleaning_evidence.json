@@ -1,0 +1,722 @@
+[
+ {
+  "task": 1,
+  "raw_chars": 23572,
+  "cleaned_chars": 20019,
+  "kept": 0.849,
+  "official_score": 57.58
+ },
+ {
+  "task": 2,
+  "raw_chars": 30494,
+  "cleaned_chars": 24990,
+  "kept": 0.82,
+  "official_score": 54.89
+ },
+ {
+  "task": 3,
+  "raw_chars": 27500,
+  "cleaned_chars": 20053,
+  "kept": 0.729,
+  "official_score": 52.97
+ },
+ {
+  "task": 4,
+  "raw_chars": 26001,
+  "cleaned_chars": 22049,
+  "kept": 0.848,
+  "official_score": 55.92
+ },
+ {
+  "task": 5,
+  "raw_chars": 30150,
+  "cleaned_chars": 9984,
+  "kept": 0.331,
+  "official_score": 52.05,
+  "recleaned_kept": 0.84,
+  "recleaned_score": 55.87
+ },
+ {
+  "task": 6,
+  "raw_chars": 38940,
+  "cleaned_chars": 27784,
+  "kept": 0.714,
+  "official_score": 55.03
+ },
+ {
+  "task": 7,
+  "raw_chars": 21530,
+  "cleaned_chars": 16941,
+  "kept": 0.787,
+  "official_score": 55.1
+ },
+ {
+  "task": 8,
+  "raw_chars": 32298,
+  "cleaned_chars": 6116,
+  "kept": 0.189,
+  "official_score": 48.86,
+  "recleaned_kept": 0.335,
+  "recleaned_score": 53.14
+ },
+ {
+  "task": 9,
+  "raw_chars": 28505,
+  "cleaned_chars": 20341,
+  "kept": 0.714,
+  "official_score": 52.55
+ },
+ {
+  "task": 10,
+  "raw_chars": 23796,
+  "cleaned_chars": 19372,
+  "kept": 0.814,
+  "official_score": 55.12
+ },
+ {
+  "task": 11,
+  "raw_chars": 30518,
+  "cleaned_chars": 20264,
+  "kept": 0.664,
+  "official_score": 56.6,
+  "recleaned_kept": 0.85,
+  "recleaned_score": 58.29
+ },
+ {
+  "task": 12,
+  "raw_chars": 30251,
+  "cleaned_chars": 24601,
+  "kept": 0.813,
+  "official_score": 57.64
+ },
+ {
+  "task": 13,
+  "raw_chars": 29507,
+  "cleaned_chars": 24896,
+  "kept": 0.844,
+  "official_score": 56.09
+ },
+ {
+  "task": 14,
+  "raw_chars": 39046,
+  "cleaned_chars": 33711,
+  "kept": 0.863,
+  "official_score": 64.35
+ },
+ {
+  "task": 15,
+  "raw_chars": 33411,
+  "cleaned_chars": 30472,
+  "kept": 0.912,
+  "official_score": 55.51
+ },
+ {
+  "task": 16,
+  "raw_chars": 35078,
+  "cleaned_chars": 6546,
+  "kept": 0.187,
+  "official_score": 58.88,
+  "recleaned_kept": 0.891,
+  "recleaned_score": 62.29
+ },
+ {
+  "task": 17,
+  "raw_chars": 28195,
+  "cleaned_chars": 3506,
+  "kept": 0.124,
+  "official_score": 47.56,
+  "recleaned_kept": 0.822,
+  "recleaned_score": 53.68
+ },
+ {
+  "task": 18,
+  "raw_chars": 30865,
+  "cleaned_chars": 26194,
+  "kept": 0.849,
+  "official_score": 54.2
+ },
+ {
+  "task": 19,
+  "raw_chars": 46765,
+  "cleaned_chars": 5284,
+  "kept": 0.113,
+  "official_score": 41.06,
+  "recleaned_kept": 0.824,
+  "recleaned_score": 54.26
+ },
+ {
+  "task": 20,
+  "raw_chars": 48775,
+  "cleaned_chars": 29634,
+  "kept": 0.608,
+  "official_score": 58.15,
+  "recleaned_kept": 0.898,
+  "recleaned_score": 60.61
+ },
+ {
+  "task": 21,
+  "raw_chars": 31338,
+  "cleaned_chars": 23705,
+  "kept": 0.756,
+  "official_score": 55.8
+ },
+ {
+  "task": 22,
+  "raw_chars": 35014,
+  "cleaned_chars": 26463,
+  "kept": 0.756,
+  "official_score": 54.08
+ },
+ {
+  "task": 23,
+  "raw_chars": 38636,
+  "cleaned_chars": 32670,
+  "kept": 0.846,
+  "official_score": 55.11
+ },
+ {
+  "task": 24,
+  "raw_chars": 24713,
+  "cleaned_chars": 22127,
+  "kept": 0.895,
+  "official_score": 53.31
+ },
+ {
+  "task": 25,
+  "raw_chars": 23248,
+  "cleaned_chars": 20984,
+  "kept": 0.903,
+  "official_score": 55.93
+ },
+ {
+  "task": 26,
+  "raw_chars": 16872,
+  "cleaned_chars": 15398,
+  "kept": 0.913,
+  "official_score": 56.68
+ },
+ {
+  "task": 27,
+  "raw_chars": 27098,
+  "cleaned_chars": 22151,
+  "kept": 0.817,
+  "official_score": 53.9
+ },
+ {
+  "task": 28,
+  "raw_chars": 30300,
+  "cleaned_chars": 26461,
+  "kept": 0.873,
+  "official_score": 55.49
+ },
+ {
+  "task": 29,
+  "raw_chars": 30831,
+  "cleaned_chars": 25933,
+  "kept": 0.841,
+  "official_score": 59.03
+ },
+ {
+  "task": 30,
+  "raw_chars": 26907,
+  "cleaned_chars": 20954,
+  "kept": 0.779,
+  "official_score": 54.17
+ },
+ {
+  "task": 31,
+  "raw_chars": 33295,
+  "cleaned_chars": 25709,
+  "kept": 0.772,
+  "official_score": 55.09
+ },
+ {
+  "task": 32,
+  "raw_chars": 33481,
+  "cleaned_chars": 28445,
+  "kept": 0.85,
+  "official_score": 55.69
+ },
+ {
+  "task": 33,
+  "raw_chars": 29515,
+  "cleaned_chars": 24588,
+  "kept": 0.833,
+  "official_score": 54.58
+ },
+ {
+  "task": 34,
+  "raw_chars": 29136,
+  "cleaned_chars": 26176,
+  "kept": 0.898,
+  "official_score": 55.72
+ },
+ {
+  "task": 35,
+  "raw_chars": 31670,
+  "cleaned_chars": 10376,
+  "kept": 0.328,
+  "official_score": 53.77,
+  "recleaned_kept": 0.849,
+  "recleaned_score": 55.98
+ },
+ {
+  "task": 36,
+  "raw_chars": 24281,
+  "cleaned_chars": 20367,
+  "kept": 0.839,
+  "official_score": 52.92
+ },
+ {
+  "task": 37,
+  "raw_chars": 33925,
+  "cleaned_chars": 25759,
+  "kept": 0.759,
+  "official_score": 53.7
+ },
+ {
+  "task": 38,
+  "raw_chars": 33654,
+  "cleaned_chars": 26951,
+  "kept": 0.801,
+  "official_score": 56.44
+ },
+ {
+  "task": 39,
+  "raw_chars": 35615,
+  "cleaned_chars": 27323,
+  "kept": 0.767,
+  "official_score": 53.59
+ },
+ {
+  "task": 40,
+  "raw_chars": 21588,
+  "cleaned_chars": 17443,
+  "kept": 0.808,
+  "official_score": 54.71
+ },
+ {
+  "task": 41,
+  "raw_chars": 23580,
+  "cleaned_chars": 18389,
+  "kept": 0.78,
+  "official_score": 54.93
+ },
+ {
+  "task": 42,
+  "raw_chars": 23600,
+  "cleaned_chars": 19435,
+  "kept": 0.824,
+  "official_score": 55.38
+ },
+ {
+  "task": 43,
+  "raw_chars": 30562,
+  "cleaned_chars": 21460,
+  "kept": 0.702,
+  "official_score": 55.22
+ },
+ {
+  "task": 44,
+  "raw_chars": 21912,
+  "cleaned_chars": 16432,
+  "kept": 0.75,
+  "official_score": 52.17
+ },
+ {
+  "task": 45,
+  "raw_chars": 25456,
+  "cleaned_chars": 20664,
+  "kept": 0.812,
+  "official_score": 57.28
+ },
+ {
+  "task": 46,
+  "raw_chars": 29179,
+  "cleaned_chars": 24295,
+  "kept": 0.833,
+  "official_score": 55.07
+ },
+ {
+  "task": 47,
+  "raw_chars": 31869,
+  "cleaned_chars": 9364,
+  "kept": 0.294,
+  "official_score": 50.6,
+  "recleaned_kept": 0.628,
+  "recleaned_score": 54.22
+ },
+ {
+  "task": 48,
+  "raw_chars": 12558,
+  "cleaned_chars": 10002,
+  "kept": 0.796,
+  "official_score": 52.62
+ },
+ {
+  "task": 49,
+  "raw_chars": 25352,
+  "cleaned_chars": 20894,
+  "kept": 0.824,
+  "official_score": 57.36
+ },
+ {
+  "task": 50,
+  "raw_chars": 26406,
+  "cleaned_chars": 14501,
+  "kept": 0.549,
+  "official_score": 52.03,
+  "recleaned_kept": 0.723,
+  "recleaned_score": 53.31
+ },
+ {
+  "task": 51,
+  "raw_chars": 83317,
+  "cleaned_chars": 73873,
+  "kept": 0.887,
+  "official_score": 55.05
+ },
+ {
+  "task": 52,
+  "raw_chars": 86070,
+  "cleaned_chars": 79196,
+  "kept": 0.92,
+  "official_score": 53.66
+ },
+ {
+  "task": 53,
+  "raw_chars": 104558,
+  "cleaned_chars": 97793,
+  "kept": 0.935,
+  "official_score": 54.72
+ },
+ {
+  "task": 54,
+  "raw_chars": 81373,
+  "cleaned_chars": 76664,
+  "kept": 0.942,
+  "official_score": 54.06
+ },
+ {
+  "task": 55,
+  "raw_chars": 87494,
+  "cleaned_chars": 64635,
+  "kept": 0.739,
+  "official_score": 53.84
+ },
+ {
+  "task": 56,
+  "raw_chars": 59759,
+  "cleaned_chars": 52752,
+  "kept": 0.883,
+  "official_score": 58.25
+ },
+ {
+  "task": 57,
+  "raw_chars": 124994,
+  "cleaned_chars": 97028,
+  "kept": 0.776,
+  "official_score": 55.32
+ },
+ {
+  "task": 58,
+  "raw_chars": 92514,
+  "cleaned_chars": 86518,
+  "kept": 0.935,
+  "official_score": 54.64
+ },
+ {
+  "task": 59,
+  "raw_chars": 78126,
+  "cleaned_chars": 73904,
+  "kept": 0.946,
+  "official_score": 53.69
+ },
+ {
+  "task": 60,
+  "raw_chars": 92481,
+  "cleaned_chars": 85119,
+  "kept": 0.92,
+  "official_score": 55.51
+ },
+ {
+  "task": 61,
+  "raw_chars": 80328,
+  "cleaned_chars": 73449,
+  "kept": 0.914,
+  "official_score": 57.01
+ },
+ {
+  "task": 62,
+  "raw_chars": 91517,
+  "cleaned_chars": 86322,
+  "kept": 0.943,
+  "official_score": 53.9
+ },
+ {
+  "task": 63,
+  "raw_chars": 82274,
+  "cleaned_chars": 77190,
+  "kept": 0.938,
+  "official_score": 56.41
+ },
+ {
+  "task": 64,
+  "raw_chars": 89558,
+  "cleaned_chars": 84813,
+  "kept": 0.947,
+  "official_score": 54.83
+ },
+ {
+  "task": 65,
+  "raw_chars": 92629,
+  "cleaned_chars": 89122,
+  "kept": 0.962,
+  "official_score": 56.86
+ },
+ {
+  "task": 66,
+  "raw_chars": 84971,
+  "cleaned_chars": 65329,
+  "kept": 0.769,
+  "official_score": 55.54
+ },
+ {
+  "task": 67,
+  "raw_chars": 110375,
+  "cleaned_chars": 105649,
+  "kept": 0.957,
+  "official_score": 57.82
+ },
+ {
+  "task": 68,
+  "raw_chars": 88047,
+  "cleaned_chars": 84048,
+  "kept": 0.955,
+  "official_score": 55.54
+ },
+ {
+  "task": 69,
+  "raw_chars": 79980,
+  "cleaned_chars": 77721,
+  "kept": 0.972,
+  "official_score": 53.23
+ },
+ {
+  "task": 70,
+  "raw_chars": 99256,
+  "cleaned_chars": 89287,
+  "kept": 0.9,
+  "official_score": 52.92
+ },
+ {
+  "task": 71,
+  "raw_chars": 85535,
+  "cleaned_chars": 82227,
+  "kept": 0.961,
+  "official_score": 55.52
+ },
+ {
+  "task": 72,
+  "raw_chars": 101422,
+  "cleaned_chars": 96120,
+  "kept": 0.948,
+  "official_score": 55.11
+ },
+ {
+  "task": 73,
+  "raw_chars": 93822,
+  "cleaned_chars": 81653,
+  "kept": 0.87,
+  "official_score": 53.79
+ },
+ {
+  "task": 74,
+  "raw_chars": 111687,
+  "cleaned_chars": 106231,
+  "kept": 0.951,
+  "official_score": 55.44
+ },
+ {
+  "task": 75,
+  "raw_chars": 74953,
+  "cleaned_chars": 70758,
+  "kept": 0.944,
+  "official_score": 53.63
+ },
+ {
+  "task": 76,
+  "raw_chars": 66864,
+  "cleaned_chars": 60850,
+  "kept": 0.91,
+  "official_score": 54.08
+ },
+ {
+  "task": 77,
+  "raw_chars": 52183,
+  "cleaned_chars": 49284,
+  "kept": 0.944,
+  "official_score": 54.26
+ },
+ {
+  "task": 78,
+  "raw_chars": 80467,
+  "cleaned_chars": 78070,
+  "kept": 0.97,
+  "official_score": 54.2
+ },
+ {
+  "task": 79,
+  "raw_chars": 107956,
+  "cleaned_chars": 87448,
+  "kept": 0.81,
+  "official_score": 57.0
+ },
+ {
+  "task": 80,
+  "raw_chars": 77623,
+  "cleaned_chars": 74311,
+  "kept": 0.957,
+  "official_score": 55.82
+ },
+ {
+  "task": 81,
+  "raw_chars": 97135,
+  "cleaned_chars": 90149,
+  "kept": 0.928,
+  "official_score": 55.86
+ },
+ {
+  "task": 82,
+  "raw_chars": 105314,
+  "cleaned_chars": 94696,
+  "kept": 0.899,
+  "official_score": 55.29
+ },
+ {
+  "task": 83,
+  "raw_chars": 96002,
+  "cleaned_chars": 87449,
+  "kept": 0.911,
+  "official_score": 56.54
+ },
+ {
+  "task": 84,
+  "raw_chars": 72462,
+  "cleaned_chars": 69276,
+  "kept": 0.956,
+  "official_score": 52.97
+ },
+ {
+  "task": 85,
+  "raw_chars": 105968,
+  "cleaned_chars": 101472,
+  "kept": 0.958,
+  "official_score": 54.13
+ },
+ {
+  "task": 86,
+  "raw_chars": 111009,
+  "cleaned_chars": 101852,
+  "kept": 0.918,
+  "official_score": 56.02
+ },
+ {
+  "task": 87,
+  "raw_chars": 113910,
+  "cleaned_chars": 104702,
+  "kept": 0.919,
+  "official_score": 54.27
+ },
+ {
+  "task": 88,
+  "raw_chars": 52335,
+  "cleaned_chars": 45540,
+  "kept": 0.87,
+  "official_score": 53.17
+ },
+ {
+  "task": 89,
+  "raw_chars": 97894,
+  "cleaned_chars": 92858,
+  "kept": 0.949,
+  "official_score": 56.91
+ },
+ {
+  "task": 90,
+  "raw_chars": 124954,
+  "cleaned_chars": 117700,
+  "kept": 0.942,
+  "official_score": 56.24
+ },
+ {
+  "task": 91,
+  "raw_chars": 110399,
+  "cleaned_chars": 108087,
+  "kept": 0.979,
+  "official_score": 54.48
+ },
+ {
+  "task": 92,
+  "raw_chars": 91611,
+  "cleaned_chars": 87759,
+  "kept": 0.958,
+  "official_score": 55.91
+ },
+ {
+  "task": 93,
+  "raw_chars": 110099,
+  "cleaned_chars": 99899,
+  "kept": 0.907,
+  "official_score": 53.99
+ },
+ {
+  "task": 94,
+  "raw_chars": 98713,
+  "cleaned_chars": 92843,
+  "kept": 0.941,
+  "official_score": 54.13
+ },
+ {
+  "task": 95,
+  "raw_chars": 100105,
+  "cleaned_chars": 94466,
+  "kept": 0.944,
+  "official_score": 55.06
+ },
+ {
+  "task": 96,
+  "raw_chars": 106055,
+  "cleaned_chars": 100688,
+  "kept": 0.949,
+  "official_score": 53.84
+ },
+ {
+  "task": 97,
+  "raw_chars": 86303,
+  "cleaned_chars": 76447,
+  "kept": 0.886,
+  "official_score": 55.49
+ },
+ {
+  "task": 98,
+  "raw_chars": 87155,
+  "cleaned_chars": 81668,
+  "kept": 0.937,
+  "official_score": 54.42
+ },
+ {
+  "task": 99,
+  "raw_chars": 89740,
+  "cleaned_chars": 66937,
+  "kept": 0.746,
+  "official_score": 54.53
+ },
+ {
+  "task": 100,
+  "raw_chars": 86206,
+  "cleaned_chars": 81856,
+  "kept": 0.95,
+  "official_score": 53.82
+ }
+]
