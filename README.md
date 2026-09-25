@@ -1,59 +1,26 @@
-<!-- Generated from data/deep-cove-research.jsonl and results/race_scores.json; do not edit by hand. -->
+<!-- Generated from data/deep-cove-research.jsonl; do not edit by hand. -->
 
 <h1 align="center">deep-cove-research</h1>
 
 <p align="center">
   A proprietary deep-research system.<br>
-  This repository publishes its 100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting, and their RACE evaluation.
+  This repository publishes its 100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.
 </p>
 
 <p align="center">
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="Benchmark: DeepResearch Bench, 100 tasks"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="Reports: 50 Chinese and 50 English"></a>
-  <a href="#results"><img src="assets/badges/evaluation.svg" height="20" alt="RACE overall score: 55.23"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="License: proprietary"></a>
 </p>
 
 <p align="center">
-  <a href="#results">Results</a> · <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
+  <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
   &nbsp;|&nbsp; <b>English</b> · <a href="README_zh.md">中文</a>
 </p>
 
-> [!NOTE]
-> Scores on this page come from a local run of the official DeepResearch Bench RACE evaluation code (commit `852f4022`, default evaluator settings). Official leaderboard: [DeepResearch Bench Leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard).
-
-## Results
-
-DeepResearch Bench has 100 research tasks, 50 in Chinese and 50 in English. Its RACE metric scores each report against the benchmark's reference report on four dimensions (comprehensiveness, insight, instruction following and readability), with criteria and weights set for each task. Scores are on the leaderboard's 0–100 scale.
-
-| Overall | Comprehensiveness | Insight | Instruction following | Readability |
-|--:|--:|--:|--:|--:|
-| **55.23** | 55.80 | 55.92 | 55.23 | 52.26 |
-
-All 100 tasks scored with the official evaluation code (commit `852f4022`, default evaluator settings; the benchmark's RACE evaluator is GPT-5.5).
-
-### By language
-
-| Tasks | Mean score | Range |
-|:--|--:|--:|
-| Chinese (001–050) | 55.49 | 52.17 – 64.35 |
-| English (051–100) | 54.97 | 52.92 – 58.25 |
-| All 100 | **55.23** | 52.17 – 64.35 |
-
-Means of the per-task overall scores in [`results/race_scores.json`](results/race_scores.json); the mean over all 100 tasks equals the overall score above.
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/scores-en-dark.svg">
-    <img src="assets/scores-en-light.svg" width="100%" alt="Dot plots of the 100 per-task RACE overall scores, sorted within each language. Chinese tasks: 52.17 to 64.35, mean 55.49. English tasks: 52.92 to 58.25, mean 54.97.">
-  </picture>
-</p>
-
-<sub>**Figure 1.** Per-task RACE overall scores, sorted within each language. Horizontal lines: language means. Every value is listed in the [report index](reports/README.md).</sub>
-
 ## Reports
 
-Every report has its own page: the report's score, the benchmark prompt, then the report text exactly as submitted.
+Every report has its own page: the benchmark prompt, then the report text exactly as submitted.
 
 **[Browse all 100 reports →](reports/README.md)**
 
@@ -88,7 +55,7 @@ Every report has its own page: the report's score, the benchmark prompt, then th
   </picture>
 </p>
 
-<sub>**Figure 2.** The six stages deep-cove-research runs for each question.</sub>
+<sub>**Figure 1.** The six stages deep-cove-research runs for each question.</sub>
 
 For each question, deep-cove-research:
 
@@ -125,9 +92,6 @@ deep-cove-research/
 ├── data/
 │   ├── README.md                  field descriptions
 │   └── deep-cove-research.jsonl   the 100 reports as submitted, official format
-├── results/
-│   ├── README.md                  field descriptions
-│   └── race_scores.json           overall and per-task RACE scores
 ├── reports/
 │   ├── README.md                  index of all 100 reports
 │   ├── zh/001.md … 050.md         Chinese reports, one page each
@@ -139,7 +103,6 @@ deep-cove-research/
 
 - [`data/deep-cove-research.jsonl`](data/deep-cove-research.jsonl): 100 lines, one JSON object per line (UTF-8), in the official DeepResearch Bench format with the fields `id`, `prompt` and `article`. Tasks 1–50 are Chinese, 51–100 English. 8,010,129 bytes; SHA-256 `2578948bbb4555c30c3dc9c1bc245a59e2c1575f0c2a8fd5c3f7c3ccad3c12e3`. Field details: [data/README.md](data/README.md).
 - Each page in [`reports/`](reports/README.md) contains its report's `article` text byte for byte and states the SHA-256 of that text.
-- [`results/`](results/README.md): the RACE scores; field details in [results/README.md](results/README.md).
 
 ## Reproducing the evaluation
 
@@ -147,22 +110,21 @@ deep-cove-research/
 2. Copy `data/deep-cove-research.jsonl` into that copy of the code as `data/test_data/raw_data/deep-cove-research.jsonl`.
 3. Add `deep-cove-research` to `TARGET_MODELS` in `run_benchmark.sh`.
 4. Set up access to the evaluator as the benchmark's README describes, keeping the default evaluator settings.
-5. Run `run_benchmark.sh`. The RACE summary is written to `results/race/deep-cove-research/race_result.txt` on a 0–1 scale (this page multiplies by 100).
+5. Run `run_benchmark.sh`. The RACE summary is written to `results/race/deep-cove-research/race_result.txt`.
 
 ## Citation
 
-If you refer to these reports or results, please cite this repository and the DeepResearch Bench paper.
+If you refer to these reports, please cite this repository and the DeepResearch Bench paper.
 
 **This repository**
 
 ```bibtex
 @misc{deepcoveresearch2026,
-  title = {deep-cove-research: DeepResearch Bench Reports and Evaluation Results},
+  title = {deep-cove-research: DeepResearch Bench Reports},
   author = {{deep-cove-research}},
   year = {2026},
   howpublished = {\url{https://github.com/aldrinor/deep-cove-research}},
-  note = {100 reports (50 Chinese, 50 English); RACE scores from a local run
-          of the official evaluation code, commit 852f4022},
+  note = {100 reports (50 Chinese, 50 English)},
 }
 ```
 
@@ -183,7 +145,7 @@ If you refer to these reports or results, please cite this repository and the De
 
 ## License
 
-Proprietary. The reports and evaluation results in this repository are © 2026 deep-cove-research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
+Proprietary. The reports in this repository are © 2026 deep-cove-research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
 
 ## Contact
 

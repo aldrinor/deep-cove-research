@@ -1,11 +1,10 @@
-deep-cove-research: DeepResearch Bench reports and evaluation results
+deep-cove-research: DeepResearch Bench reports
 
 Copyright (c) 2026 deep-cove-research. All rights reserved.
 
 The reports (data/deep-cove-research.jsonl and the pages in reports/), the
-evaluation results (results/), the figures (assets/) and the text of this
-repository are proprietary. They are published so that they can be read and
-checked. No license is granted to copy, modify or redistribute them, except
+figures (assets/) and the text of this repository are proprietary. They are
+published so that they can be read and checked. No license is granted to copy, modify or redistribute them, except
 as the law allows without a license or with prior written permission from
 the copyright holder.
 

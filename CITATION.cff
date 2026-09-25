@@ -1,17 +1,16 @@
 cff-version: 1.2.0
-message: "If you refer to these reports or results, please cite this repository and the DeepResearch Bench paper listed under references."
-title: "deep-cove-research: DeepResearch Bench Reports and Evaluation Results"
+message: "If you refer to these reports, please cite this repository and the DeepResearch Bench paper listed under references."
+title: "deep-cove-research: DeepResearch Bench Reports"
 type: dataset
 authors:
   - name: "deep-cove-research"
 date-released: "2026-09-25"
 url: "https://github.com/aldrinor/deep-cove-research"
 repository: "https://github.com/aldrinor/deep-cove-research"
-abstract: "100 research reports (50 Chinese, 50 English) written by deep-cove-research, a proprietary deep-research system, for the DeepResearch Bench tasks, with RACE scores from a local run of the official evaluation code (commit 852f4022)."
+abstract: "100 research reports (50 Chinese, 50 English) written by deep-cove-research, a proprietary deep-research system, for the DeepResearch Bench tasks."
 keywords:
   - deep research
   - DeepResearch Bench
-  - RACE
   - research reports
 references:
   - type: conference-paper

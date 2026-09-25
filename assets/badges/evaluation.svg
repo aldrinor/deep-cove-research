@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="118.4" height="20" viewBox="0 0 118.4 20" role="img" aria-label="RACE overall: 55.23">
-<title>RACE overall: 55.23</title>
-<clipPath id="r"><rect width="118.4" height="20" rx="3"/></clipPath>
-<g clip-path="url(#r)"><rect width="77.5" height="20" fill="#555555"/><rect x="77.5" width="40.9" height="20" fill="#0e6380"/></g>
-<g fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">
-<text x="38.8" y="14">RACE overall</text>
-<text x="98.0" y="14">55.23</text>
-</g>
-</svg>

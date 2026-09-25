@@ -1,59 +1,26 @@
-<!-- 由 data/deep-cove-research.jsonl 和 results/race_scores.json 生成；请勿手动编辑。 -->
+<!-- 由 data/deep-cove-research.jsonl 生成；请勿手动编辑。 -->
 
 <h1 align="center">deep-cove-research</h1>
 
 <p align="center">
   专有深度研究系统。<br>
-  本仓库发布其在 DeepResearch Bench 上的全部 100 篇报告（由 GPT-5.6 Luna 以最高推理设置撰写）及 RACE 评测结果。
+  本仓库发布其在 DeepResearch Bench 上的全部 100 篇报告（由 GPT-5.6 Luna 以最高推理设置撰写）。
 </p>
 
 <p align="center">
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="基准：DeepResearch Bench，100 个任务"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="报告：中文 50 篇、英文 50 篇"></a>
-  <a href="#results"><img src="assets/badges/evaluation.svg" height="20" alt="RACE 总分：55.23"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="许可：专有"></a>
 </p>
 
 <p align="center">
-  <a href="#results">评测结果</a> · <a href="#reports">报告</a> · <a href="#how-it-works">工作流程</a> · <a href="#data">数据</a> · <a href="#reproducing-the-evaluation">复现评测</a> · <a href="#citation">引用</a>
+  <a href="#reports">报告</a> · <a href="#how-it-works">工作流程</a> · <a href="#data">数据</a> · <a href="#reproducing-the-evaluation">复现评测</a> · <a href="#citation">引用</a>
   &nbsp;|&nbsp; <a href="README.md">English</a> · <b>中文</b>
 </p>
 
-> [!NOTE]
-> 本页分数来自在本地运行的 DeepResearch Bench 官方 RACE 评测代码（提交 `852f4022`，默认评测设置）。官方排行榜：[DeepResearch Bench Leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)。
-
-## <a name="results"></a>评测结果
-
-DeepResearch Bench 共有 100 个研究任务，其中中文 50 个、英文 50 个。其 RACE 指标以基准的参考报告为对照，从全面性、洞察力、指令遵循和可读性四个维度为每篇报告打分，评分标准与权重按任务分别设定。分数采用排行榜的 0–100 分制。
-
-| 总分 | 全面性 | 洞察力 | 指令遵循 | 可读性 |
-|--:|--:|--:|--:|--:|
-| **55.23** | 55.80 | 55.92 | 55.23 | 52.26 |
-
-全部 100 个任务均已使用官方评测代码评分（提交 `852f4022`，默认评测设置；基准的 RACE 评测模型为 GPT-5.5）。
-
-### <a name="by-language"></a>按语言
-
-| 任务 | 平均分 | 分数范围 |
-|:--|--:|--:|
-| 中文（001–050） | 55.49 | 52.17 – 64.35 |
-| 英文（051–100） | 54.97 | 52.92 – 58.25 |
-| 全部 100 个 | **55.23** | 52.17 – 64.35 |
-
-以上为 [`results/race_scores.json`](results/race_scores.json) 中各任务总分的平均值；全部 100 个任务的平均值即上表总分。
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/scores-zh-dark.svg">
-    <img src="assets/scores-zh-light.svg" width="100%" alt="两组点图，展示 100 个任务的 RACE 总分，按语言分组并排序。中文任务 52.17 至 64.35，平均 55.49；英文任务 52.92 至 58.25，平均 54.97。">
-  </picture>
-</p>
-
-<sub>**图 1.** 各任务 RACE 总分，按语言分组并排序；横线为各语言平均分。全部数值见[报告索引](reports/README.md)。</sub>
-
 ## <a name="reports"></a>报告
 
-每篇报告都有独立页面：报告得分、基准题目，以及与提交内容完全一致的报告原文。
+每篇报告都有独立页面：基准题目，以及与提交内容完全一致的报告原文。
 
 **[浏览全部 100 篇报告 →](reports/README.md)**
 
@@ -88,7 +55,7 @@ DeepResearch Bench 共有 100 个研究任务，其中中文 50 个、英文 50 
   </picture>
 </p>
 
-<sub>**图 2.** deep-cove-research 处理每个问题的六个阶段。</sub>
+<sub>**图 1.** deep-cove-research 处理每个问题的六个阶段。</sub>
 
 对于每个问题，deep-cove-research 会：
 
@@ -125,9 +92,6 @@ deep-cove-research/
 ├── data/
 │   ├── README.md                  字段说明
 │   └── deep-cove-research.jsonl   提交的 100 篇报告，官方格式
-├── results/
-│   ├── README.md                  字段说明
-│   └── race_scores.json           总体与各任务 RACE 分数
 ├── reports/
 │   ├── README.md                  全部 100 篇报告的索引
 │   ├── zh/001.md … 050.md         中文报告，每篇一页
@@ -139,7 +103,6 @@ deep-cove-research/
 
 - [`data/deep-cove-research.jsonl`](data/deep-cove-research.jsonl)：共 100 行，每行一个 JSON 对象（UTF-8），采用 DeepResearch Bench 官方格式，字段为 `id`、`prompt` 和 `article`。任务 1–50 为中文，51–100 为英文。文件大小 8,010,129 字节；SHA-256 `2578948bbb4555c30c3dc9c1bc245a59e2c1575f0c2a8fd5c3f7c3ccad3c12e3`。字段说明见 [data/README.md](data/README.md)。
 - [`reports/`](reports/README.md) 中的每个页面都逐字节包含对应报告的 `article` 文本，并注明该文本的 SHA-256。
-- [`results/`](results/README.md)：RACE 分数；字段说明见 [results/README.md](results/README.md)。
 
 ## <a name="reproducing-the-evaluation"></a>复现评测
 
@@ -147,22 +110,21 @@ deep-cove-research/
 2. 将本仓库的 `data/deep-cove-research.jsonl` 复制到该代码目录下，路径为 `data/test_data/raw_data/deep-cove-research.jsonl`。
 3. 在 `run_benchmark.sh` 的 `TARGET_MODELS` 中加入 `deep-cove-research`。
 4. 按基准 README 的说明配置评测模型的访问，并保持默认评测设置。
-5. 运行 `run_benchmark.sh`。RACE 汇总结果写入 `results/race/deep-cove-research/race_result.txt`（0–1 分制，本页乘以 100 显示）。
+5. 运行 `run_benchmark.sh`。RACE 汇总结果写入 `results/race/deep-cove-research/race_result.txt`。
 
 ## <a name="citation"></a>引用
 
-如引用这些报告或结果，请同时引用本仓库与 DeepResearch Bench 论文。
+如引用这些报告，请同时引用本仓库与 DeepResearch Bench 论文。
 
 **本仓库**
 
 ```bibtex
 @misc{deepcoveresearch2026,
-  title = {deep-cove-research: DeepResearch Bench Reports and Evaluation Results},
+  title = {deep-cove-research: DeepResearch Bench Reports},
   author = {{deep-cove-research}},
   year = {2026},
   howpublished = {\url{https://github.com/aldrinor/deep-cove-research}},
-  note = {100 reports (50 Chinese, 50 English); RACE scores from a local run
-          of the official evaluation code, commit 852f4022},
+  note = {100 reports (50 Chinese, 50 English)},
 }
 ```
 
@@ -183,7 +145,7 @@ deep-cove-research/
 
 ## <a name="license"></a>许可
 
-专有。本仓库中的报告与评测结果 © 2026 deep-cove-research，保留所有权利；详见 [LICENSE](LICENSE)。报告页面与 `prompt` 字段中的基准题目属于 DeepResearch Bench，归其作者所有。
+专有。本仓库中的报告 © 2026 deep-cove-research，保留所有权利；详见 [LICENSE](LICENSE)。报告页面与 `prompt` 字段中的基准题目属于 DeepResearch Bench，归其作者所有。
 
 ## <a name="contact"></a>联系方式
 
