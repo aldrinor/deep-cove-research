@@ -4,7 +4,7 @@
 
 <p align="center">
   A proprietary deep-research system.<br>
-  This repository publishes its 100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.<br>
+  100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.<br>
   Made in North Vancouver, Canada.
 </p>
 
@@ -21,11 +21,15 @@
 
 ## At a glance
 
+<div align="center">
+
 | Reports | Languages | Writer | Average cost per report |
-|--:|:--|:--|--:|
-| 100 | 50 Chinese · 50 English | GPT-5.6 Luna, maximum reasoning | **≈ US$0.45** |
+|:-:|:-:|:-:|:-:|
+| **100** | 50 Chinese · 50 English | GPT-5.6 Luna, maximum reasoning | **≈ US$0.45** |
 
 <sub>Average model and search usage per report, priced at public API list prices.</sub>
+
+</div>
 
 ## Reports
 
@@ -90,7 +94,7 @@ The reports are written by **GPT-5.6 Luna** at its maximum reasoning setting.
 | Median sections (level-2 headings) | 8 | 9 | 8.5 |
 | Reports with at least one table | 50 of 50 | 50 of 50 | 100 of 100 |
 
-Characters are Unicode characters in the report text; words are whitespace-separated tokens, counted for English reports only. Source links are the web addresses a report links to or embeds, counted each time they appear; distinct sources counts different addresses within one report. Distinct source addresses are counted once per column; 6 addresses appear in both a Chinese and an English report, so the All column is smaller than the sum of the two language columns.
+<sub>Characters: Unicode characters in the report text. Words: whitespace-separated tokens, English reports only. Source links: web addresses a report links to, counted each time they appear. Distinct sources: different addresses within one report.</sub>
 
 ## Data
 

@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="137.8" height="20" viewBox="0 0 137.8 20" role="img" aria-label="cost per report: ≈ $0.45">
+<svg xmlns="http://www.w3.org/2000/svg" width="145.8" height="20" viewBox="0 0 145.8 20" role="img" aria-label="cost per report: ≈ $0.45">
 <title>cost per report: ≈ $0.45</title>
-<clipPath id="r"><rect width="137.8" height="20" rx="3"/></clipPath>
-<g clip-path="url(#r)"><rect width="87.8" height="20" fill="#555555"/><rect x="87.8" width="50.0" height="20" fill="#1a7f37"/></g>
+<clipPath id="r"><rect width="145.8" height="20" rx="3"/></clipPath>
+<g clip-path="url(#r)"><rect width="91.8" height="20" fill="#555555"/><rect x="91.8" width="54.0" height="20" fill="#1a7f37"/></g>
 <g fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">
-<text x="43.9" y="14">cost per report</text>
-<text x="112.8" y="14">≈ $0.45</text>
+<text x="45.9" y="14">cost per report</text>
+<text x="118.8" y="14">≈ $0.45</text>
 </g>
 </svg>

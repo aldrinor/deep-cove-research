@@ -8,10 +8,6 @@ All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001�
 
 **[Chinese tasks](#chinese-tasks) · [English tasks](#english-tasks) · [Notes](#notes)**
 
-| | Chinese (001–050) | English (051–100) | All 100 |
-|:--|--:|--:|--:|
-| Median length, characters | 29,832.5 | 91,564 | 50,479 |
-
 ## Chinese tasks
 
 | Task | Report title | Characters | Sources |
