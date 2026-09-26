@@ -27,7 +27,7 @@
 |:-:|:-:|:-:|:-:|:-:|
 | **100** | 50 | 50 | GPT-5.6 Luna | **≈ US$0.45** |
 
-<sub>Cost: average model and search usage per report, at public API list prices.</sub>
+<sub>Cost: estimated average model and search usage per report, at public API list prices.</sub>
 
 </div>
 
@@ -83,12 +83,12 @@ The reports are written by **GPT-5.6 Luna** at its maximum reasoning setting.
 
 | | Chinese reports (001–050) | English reports (051–100) |
 |:--|:-:|:-:|
-| Median length | 29,833 characters | 12,238 words |
-| Median distinct sources cited | 39 | 43 |
+| Median length | 29,832.5 characters | 12,238 words |
+| Median distinct sources cited | 38.5 | 43 |
 | Median sections | 8 | 9 |
 | Reports with tables | 50 of 50 | 50 of 50 |
 
-**4,007** distinct sources cited across all 100 reports.
+**4,006** distinct sources cited across all 100 reports.
 
 </div>
 
@@ -99,7 +99,7 @@ deep-cove-research/
 ├── README.md                      overview
 ├── data/
 │   ├── README.md                  field descriptions
-│   └── deep-cove-research.jsonl   the 100 reports as submitted, official format
+│   └── deep-cove-research.jsonl   the 100 reports, official format
 ├── reports/
 │   ├── README.md                  index of all 100 reports
 │   ├── zh/001.md … 050.md         Chinese reports, one page each
@@ -114,11 +114,20 @@ deep-cove-research/
 
 ## Reproducing the evaluation
 
-1. Get the official evaluation code from the [DeepResearch Bench repository](https://github.com/Ayanami0730/deep_research_bench) at commit `852f4022`.
+1. Get the official evaluation code from the [DeepResearch Bench repository](https://github.com/Ayanami0730/deep_research_bench) at commit `852f4022` and install its requirements as its README describes.
 2. Copy `data/deep-cove-research.jsonl` into the benchmark's `data/test_data/raw_data/` folder.
-3. Add `deep-cove-research` to `TARGET_MODELS` in `run_benchmark.sh`.
-4. Set up access to the evaluator as the benchmark's README describes, keeping the default evaluator settings.
-5. Run `run_benchmark.sh`. The RACE summary is written to `results/race/deep-cove-research/`.
+3. Set up access to the evaluator as the benchmark's README describes, keeping the default evaluator settings.
+4. From the benchmark folder, run RACE for this dataset:
+
+```bash
+python -u deepresearch_bench_race.py deep-cove-research \
+  --raw_data_dir data/test_data/raw_data \
+  --max_workers 10 \
+  --query_file data/prompt_data/query.jsonl \
+  --output_dir results/race/deep-cove-research
+```
+
+The RACE summary is written to `results/race/deep-cove-research/race_result.txt`.
 
 ## Citation
 

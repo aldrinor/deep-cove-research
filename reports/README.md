@@ -52,7 +52,7 @@ All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001�
 | [038](zh/038.md) | 2023—2026全球高级珠宝设计趋势：从自然叙事到可佩戴结构的品牌与拍卖比较 | 33,654 | 43 |
 | [039](zh/039.md) | 不同类型游戏用户群体画像：面向中国大陆与全球市场的比较分析 | 35,615 | 34 |
 | [040](zh/040.md) | 中国大陆死刑、死缓与终身监禁的可量化边界：刑罚执行数据、减刑率与废除死刑时间评估 | 21,588 | 41 |
-| [041](zh/041.md) | 中国内地影史票房前十：资料汇编、横向比较与未来高票房类型评估 | 23,580 | 40 |
+| [041](zh/041.md) | 中国内地影史票房前十：资料汇编、横向比较与未来高票房类型评估 | 23,580 | 39 |
 | [042](zh/042.md) | 从“每天两小时”到可核验的运动时间：中小学生体育活动现状、影响因素与政策保障 | 23,600 | 34 |
 | [043](zh/043.md) | 软件行业未来趋势与被AI替代的可能性：从代码自动化到任务重组 | 30,562 | 46 |
 | [044](zh/044.md) | 中国大陆城市轨道交通（以地铁为主）碳滑板年度用量、主要供应商份额与行业趋势分析 | 21,912 | 32 |
@@ -121,4 +121,4 @@ All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001�
 ## Notes
 
 - **Report title:** the report's own first heading, unchanged. **Characters:** Unicode characters in the report. **Sources:** distinct web addresses that the report links to or embeds.
-- Report pages are formatted for GitHub, including typeset formulas. The submitted text of every report is the `article` field of its record in [`data/deep-cove-research.jsonl`](../data/deep-cove-research.jsonl).
+- Report pages are formatted for GitHub, including typeset formulas. The original text of every report is the `article` field of its record in [`data/deep-cove-research.jsonl`](../data/deep-cove-research.jsonl).

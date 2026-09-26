@@ -1,6 +1,6 @@
 # Data
 
-[`deep-cove-research.jsonl`](deep-cove-research.jsonl) holds the 100 reports exactly as submitted, in the official DeepResearch Bench format: one JSON object per line, UTF-8.
+[`deep-cove-research.jsonl`](deep-cove-research.jsonl) holds the 100 reports, unchanged, in the official DeepResearch Bench format: one JSON object per line, UTF-8.
 
 | Field | Type | Content |
 |:--|:--|:--|
