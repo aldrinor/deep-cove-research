@@ -27,8 +27,6 @@
 |:-:|:-:|:-:|:-:|:-:|
 | **100** | 50 | 50 | GPT-5.6 Luna | **≈ US$0.45** |
 
-<sub>Estimated cost per report: about US$0.45.</sub>
-
 </div>
 
 ## Reports
@@ -153,7 +151,7 @@ Proprietary. The reports in this repository are © 2026 deep-cove-research, all 
 
 ## Contact
 
-aor@cpolartechnologies.com
+orchunyin@gmail.com
 
 ## Acknowledgements
 
