@@ -4,28 +4,43 @@
 
 <p align="center">
   A proprietary deep-research system.<br>
+  <b>#3 on the official DeepResearch Bench leaderboard (55.29), at about US$1 per report.</b><br>
   100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.<br>
   Made in North Vancouver, Canada.
 </p>
 
 <p align="center">
+  <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard"><img src="assets/badges/leaderboard.svg" height="20" alt="DeepResearch Bench leaderboard: #3, score 55.29"></a>
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="Benchmark: DeepResearch Bench, 100 tasks"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="Reports: 50 Chinese and 50 English"></a>
-  <a href="#at-a-glance"><img src="assets/badges/cost.svg" height="20" alt="Estimated cost per report: about US$0.45"></a>
+  <a href="#at-a-glance"><img src="assets/badges/cost.svg" height="20" alt="Cost per report at public API prices: about US$1.04"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="License: proprietary"></a>
 </p>
 
 <p align="center">
-  <a href="#at-a-glance">At a glance</a> · <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
+  <a href="#leaderboard">Leaderboard</a> · <a href="#at-a-glance">At a glance</a> · <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
 </p>
+
+## Leaderboard
+
+**#3 on the official [DeepResearch Bench leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)** · score **55.29** · about **US$1 per report**.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/score-vs-cost-dark.png">
+    <img src="assets/score-vs-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per task. Deep Cove Research: 55.29 at $1.04. Alibaba Voicepica DeepResearch: 55.99 at about $2.12. CellCog Max: 55.78 at up to $25. OpenAI GPT-6 Astra: about 54.59 at about $6.78. Anthropic Claude Fable 5.1: about 54.04 at about $5.57. xAI Grok 4.6: about 53.85 at about $0.80. Google Gemini 3.1 Pro: about 47.83 at about $2.07.">
+  </picture>
+</p>
+
+<sub>**Figure 1.** DeepResearch Bench score against cost per task.</sub>
 
 ## At a glance
 
 <div align="center">
 
-| Reports | Chinese | English | Writer | Cost per report |
-|:-:|:-:|:-:|:-:|:-:|
-| **100** | 50 | 50 | GPT-5.6 Luna | **≈ US$0.45** |
+| Leaderboard | Score | Reports | Chinese | English | Writer | Cost per report |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| **#3** | **55.29** | **100** | 50 | 50 | GPT-5.6 Luna | **≈ US$1.04** |
 
 </div>
 
@@ -62,7 +77,7 @@ Every report has its own page: the benchmark prompt, then the full report.
   </picture>
 </p>
 
-<sub>**Figure 1.** The six stages deep-cove-research runs for each question.</sub>
+<sub>**Figure 2.** The six stages deep-cove-research runs for each question.</sub>
 
 For each question, deep-cove-research:
 
@@ -102,7 +117,7 @@ deep-cove-research/
 │   ├── README.md                  index of all 100 reports
 │   ├── zh/001.md … 050.md         Chinese reports, one page each
 │   └── en/051.md … 100.md         English reports, one page each
-├── assets/                        badges and figures (SVG)
+├── assets/                        badges and figures (SVG, PNG)
 ├── CITATION.cff                   citation metadata
 └── LICENSE                        terms (proprietary)
 ```
