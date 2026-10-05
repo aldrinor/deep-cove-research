@@ -27,8 +27,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/score-vs-cost-dark.png">
-    <img src="assets/score-vs-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per task. Deep Cove Research: 55.29 at $1.04. Alibaba Voicepica DeepResearch: 55.99 at about $2.12. CellCog Max: 55.78 at up to $25. OpenAI GPT-6 Astra: about 54.59 at about $6.78. Anthropic Claude Fable 5.1: about 54.04 at about $5.57. xAI Grok 4.6: about 53.85 at about $0.80. Google Gemini 3.1 Pro: about 47.83 at about $2.07.">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/chart-score-cost-dark.png">
+    <img src="assets/chart-score-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per task. Deep Cove Research: 55.29 at $1.04. Alibaba Voicepica DeepResearch: 55.99 at $2.12. CellCog Max: 55.78 at up to $25. OpenAI GPT-6 Astra: 54.59 at $6.78. Anthropic Claude Fable 5.1: 54.04 at $5.57. xAI Grok 4.6: 53.85 at $0.80. Google Gemini 3.1 Pro: 47.83 at $2.07.">
   </picture>
 </p>
 
