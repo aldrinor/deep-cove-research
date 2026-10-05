@@ -13,7 +13,7 @@
   <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard"><img src="assets/badges/leaderboard.svg" height="20" alt="DeepResearch Bench leaderboard: #3, score 55.29"></a>
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="Benchmark: DeepResearch Bench, 100 tasks"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="Reports: 50 Chinese and 50 English"></a>
-  <a href="#at-a-glance"><img src="assets/badges/cost.svg" height="20" alt="Cost per report at public API prices: about US$1.04"></a>
+  <a href="#at-a-glance"><img src="assets/badges/cost-per-report.svg" height="20" alt="Cost per report at public API prices: about US$1.04"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="License: proprietary"></a>
 </p>
 
