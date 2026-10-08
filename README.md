@@ -99,7 +99,7 @@ Our engine handles the research process, so a light model is enough, at about 31
 | | Parameters | GPUs to Serve the Model | Cost |
 |:--|:-:|:-:|:-:|
 | Frontier-Scale Model | 2.8T | 16 × NVIDIA B200 | $109/hr |
-| **Light Model** | **117B** | **1 × NVIDIA H100** | **$3.50/hr** |
+| **Deep Cove Research Light Model** | **117B** | **1 × NVIDIA H100** | **$3.50/hr** |
 
 ## Reports
 
