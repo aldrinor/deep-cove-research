@@ -1,52 +1,109 @@
-<!-- Generated from data/deep-cove-research.jsonl; do not edit by hand. -->
+<p align="center">
+  <img src="assets/logo.png" width="64" height="64" alt="">
+</p>
 
-<h1 align="center">deep-cove-research</h1>
+<h1 align="center">Deep Cove Research</h1>
 
 <p align="center">
-  A proprietary deep-research system.<br>
-  <b>#3 on the official DeepResearch Bench leaderboard (55.29), at about US$1 per report.</b><br>
-  100 DeepResearch Bench reports, written by GPT-5.6 Luna at its maximum reasoning setting.<br>
-  Made in North Vancouver, Canada.
+  <b>A comprehension engine built on Read-Time Compute.</b><br>
+  #3 on DeepResearch Bench<sup><a href="#sources">1</a></sup> · Up to 93% lower cost than frontier deep research agents<sup><a href="#sources">2</a></sup>
 </p>
 
 <p align="center">
   <a href="https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard"><img src="assets/badges/leaderboard.svg" height="20" alt="DeepResearch Bench leaderboard: #3, score 55.29"></a>
   <a href="https://github.com/Ayanami0730/deep_research_bench"><img src="assets/badges/benchmark.svg" height="20" alt="Benchmark: DeepResearch Bench, 100 tasks"></a>
   <a href="reports/README.md"><img src="assets/badges/reports.svg" height="20" alt="Reports: 50 Chinese and 50 English"></a>
-  <a href="#at-a-glance"><img src="assets/badges/cost-per-report.svg" height="20" alt="Cost per report at public API prices: about US$1.04"></a>
+  <a href="#deepresearch-bench"><img src="assets/badges/cost-per-report.svg" height="20" alt="Cost per report at public API prices: about US$1.04"></a>
   <a href="LICENSE"><img src="assets/badges/license.svg" height="20" alt="License: proprietary"></a>
 </p>
 
 <p align="center">
-  <a href="#leaderboard">Leaderboard</a> · <a href="#at-a-glance">At a glance</a> · <a href="#reports">Reports</a> · <a href="#how-it-works">How it works</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#citation">Citation</a>
+  <a href="#deepresearch-bench">Benchmark</a> · <a href="#agents-spend-compute-looping-we-spend-it-on-comprehension">How It Works</a> · <a href="#inside-the-comprehension-engine">Engine</a> · <a href="#reports">Reports</a> · <a href="#data">Data</a> · <a href="#reproducing-the-evaluation">Reproduce</a> · <a href="#team">Team</a> · <a href="#contact">Contact</a>
 </p>
 
-## Leaderboard
+Deep Cove Research comprehends full sources, then turns them into research reports at the level of frontier models,<sup>[3](#sources)</sup> for much less cost.<sup>[2](#sources)</sup>
 
-**#3 on the official [DeepResearch Bench leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)** · score **55.29** · about **US$1 per report**.
+## DeepResearch Bench
+
+**#3 of 15** · **55.29** on the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup>
+
+A benchmark for deep research agents. It has 100 PhD-level research tasks, written by experts in 22 fields, in Chinese and English (ICLR 2026).<sup>[4](#sources)</sup>
+
+45 organizations evaluate performance based on it, including NVIDIA, Google, Microsoft, Amazon, Salesforce, Alibaba, Baidu, Tencent, ByteDance and Huawei.<sup>[5](#sources)</sup>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/chart-score-cost-dark.png">
-    <img src="assets/chart-score-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per task. Deep Cove Research: 55.29 at $1.04. Alibaba Voicepica DeepResearch: 55.99 at $2.12. CellCog Max: 55.78 at up to $25. OpenAI GPT-6 Astra: 54.59 at $6.78. Anthropic Claude Fable 5.1: 54.04 at $5.57. xAI Grok 4.6: 53.85 at $0.80. Google Gemini 3.1 Pro: 47.83 at $2.07.">
+    <img src="assets/chart-score-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per report. Official leaderboard: Alibaba Voicepica DeepResearch 55.99, cost not published; CellCog Max 55.78, up to $25; Deep Cove Research 55.29 at $1.04. Evaluation based on the official RACE method: OpenAI GPT-6 Astra Pro Deep Research 54.59 at $15.36; Anthropic Claude Fable 5.1 Max Research 54.04 at $8.05; xAI Grok Build 4.6 53.85, cost not published; Google Gemini 3.1 Pro Deep Research 47.83 at about $2.">
   </picture>
 </p>
 
-<sub>**Figure 1.** DeepResearch Bench score against cost per task.</sub>
+<p align="right"><sub>Score and cost sources: <a href="#sources">3</a>, <a href="#sources">6</a></sub></p>
 
-## At a glance
+## Agents spend compute looping. We spend it on comprehension.
 
-<div align="center">
+| Agentic Research | Read-Time Compute |
+|:--|:--|
+| **85%** of input tokens are rereading session history | **2%** of input tokens are rereading session history |
+| Frontier research agents work in a loop: search, open a page, take notes, repeat. Before each new step, they read all their old notes again. So most of their effort goes into rereading, not into new sources.<sup>[2](#sources)</sup> | Our state-of-the-art orchestrator handles the loop itself, so the model does not reread old notes. We spend the savings on research: 5X more searches,<sup>[2](#sources)</sup> and an engine built to read thousands of sources.<sup>[7](#sources)</sup> |
+| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research · Max Reasoning</sub> |
 
-| Leaderboard | Score | Reports | Chinese | English | Writer | Cost per report |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| **#3** | **55.29** | **100** | 50 | 50 | GPT-5.6 Luna | **≈ US$1.04** |
+## Looping has a price.
 
-</div>
+On average, frontier research agents cost $15.36 per task. Rereading their old notes is billed at a discount, but still costs $3.76, almost 4X our entire cost. Meanwhile, most of our cost goes to comprehending new sources.<sup>[2](#sources)</sup>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/chart-cost-per-task-dark.png">
+    <img src="assets/chart-cost-per-task-light.png" width="100%" alt="Cost per task. GPT-6 Astra Pro Deep Research: $15.36, split into rereading history, planning, searching and writing, and reading new material. Deep Cove Research: $0.99, 93% lower cost, spent mostly on reading new material.">
+  </picture>
+</p>
+
+## Agents search the tips. We comprehend the whole source.
+
+| Agentic Research | Read-Time Compute |
+|:--|:--|
+| **14** average searches per report | **68** average searches per report |
+| Frontier research agents have limited memory, and the loop uses most of it. So they only have room for about 14 searches per report. For many sources, they read only the short snippet, not the complete content, so details are easy to miss or misread.<sup>[2](#sources)</sup> | Our state-of-the-art context management keeps the model's memory clear. So it has room for about 68 searches per report, 5X more than frontier agents. We comprehend the whole page and turn it into evidence cards for deep comprehension.<sup>[2](#sources)</sup> |
+| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research · Max Reasoning</sub> |
+
+## Inside the comprehension engine.
+
+### A lighter model. A higher score.
+
+The comprehension engine works from real-time, post-training sources it comprehends at runtime, not from obsolete knowledge. That makes model size a minor factor. We run a model priced about 40X lower than GPT-6 Astra Pro and Claude Fable 5.1, and score higher.<sup>[8](#sources)</sup>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/chart-model-cost-dark.png">
+    <img src="assets/chart-model-cost-light.png" width="80%" alt="Model cost against DeepResearch Bench score. List price per 1M output tokens: GPT-6 Astra Pro $50, score 54.59; Claude Fable 5.1 $50, 54.04; Gemini 3.1 Pro $12, 47.83; Grok Build 4.6 $6, 53.85; Deep Cove Research $1.20, 55.29.">
+  </picture>
+</p>
+
+### Replicable
+
+Frontier agents decide every step on their own: what to search, what to open and when to stop. These decisions come from the model's pre-training, including its biases, so the same question can give a different report each time. Our engine runs every task through one research guardrail and builds every claim from post-training sources it has read. This reduces pre-training bias and makes reports more replicable.
+
+### Resumable
+
+Frontier agents keep all their progress in one long session with the model. If the session stops halfway, the progress is lost, and you have to run the task again from the start and pay again. Our engine splits research into stages. If a run stops, you can resume it from the last checkpoint or start a new fork from there, so you never pay for the same work twice.
+
+### Scalable
+
+You can freely scale up your deep research plan without cost pressure. Our state-of-the-art orchestrator saves the model's context window and dices the work into many small calls, so scaling up your plan makes the cost grow linearly. Meanwhile, frontier agents pay the looping cost on every extra step, so for them the same increase makes the cost grow non-linearly.<sup>[7](#sources)</sup>
+
+### Light Infrastructure
+
+Our engine handles the research process, so a light model is enough, at about 31X lower hardware cost.<sup>[9](#sources)</sup>
+
+| | Parameters | GPUs to Serve the Model | Cost |
+|:--|:-:|:-:|:-:|
+| Frontier-Scale Model | 2.8T | 16 × NVIDIA B200 | $109/hr |
+| **Light Model** | **117B** | **1 × NVIDIA H100** | **$3.50/hr** |
 
 ## Reports
 
-Every report has its own page: the benchmark prompt, then the full report.
+The 100 reports behind our official score: 50 in Chinese and 50 in English. Every report has its own page: the benchmark prompt, then the full report.
 
 **[Browse all 100 reports →](reports/README.md)**
 
@@ -68,29 +125,7 @@ Every report has its own page: the benchmark prompt, then the full report.
 
 </details>
 
-## How it works
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-en-dark.svg">
-    <img src="assets/pipeline-en-light.svg" width="100%" alt="Six stages from left to right: plan, search, read, extract, check coverage, write. The writing stage uses GPT-5.6 Luna at its maximum reasoning setting.">
-  </picture>
-</p>
-
-<sub>**Figure 2.** The six stages deep-cove-research runs for each question.</sub>
-
-For each question, deep-cove-research:
-
-1. plans the research: what must be answered and how the report should be structured;
-2. searches the open web and the scholarly literature;
-3. reads the full text of the selected sources;
-4. extracts cited findings from them;
-5. checks coverage against the question's requirements;
-6. writes a long-form report.
-
-The reports are written by **GPT-5.6 Luna** at its maximum reasoning setting.
-
-## Report statistics
+### Report statistics
 
 <div align="center">
 
@@ -117,7 +152,7 @@ deep-cove-research/
 │   ├── README.md                  index of all 100 reports
 │   ├── zh/001.md … 050.md         Chinese reports, one page each
 │   └── en/051.md … 100.md         English reports, one page each
-├── assets/                        badges and figures (SVG, PNG)
+├── assets/                        logo, badges and figures
 ├── CITATION.cff                   citation metadata
 └── LICENSE                        terms (proprietary)
 ```
@@ -144,29 +179,62 @@ python -u deepresearch_bench_race.py deep-cove-research \
 
 The RACE summary is written to `$eval_dir/results/race_result.txt`.
 
+## Team
+
+### Built in North Vancouver
+
+Deep Cove Research is a stealth team based in North Vancouver, BC. We build the comprehension engine and test it in public, on DeepResearch Bench.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/team-the-lions-dark.jpg">
+    <img src="assets/team-the-lions-light.jpg" width="100%" alt="Line drawing of The Lions from Capilano Lake, North Vancouver">
+  </picture>
+</p>
+
+<p align="right"><sub>The Lions from Capilano Lake, North Vancouver</sub></p>
+
+## Contact
+
+**Early access.** Deep Cove Research is opening in stages. To request an invitation for your team, email us. Available as a web app and as an MCP server for your own agents.
+
+| | |
+|:--|:--|
+| Email | [hello@deepcove.ai](mailto:hello@deepcove.ai) |
+| Phone | +1 (604) 764 6576 |
+| Address | 889 Harbourside Drive, North Vancouver, BC V7P 3S1, Canada |
+
 ## Citation
 
 If you refer to these reports, please cite this repository:
 
 ```bibtex
 @misc{deepcoveresearch2026,
-  title = {deep-cove-research: DeepResearch Bench Reports},
-  author = {{deep-cove-research}},
+  title = {Deep Cove Research: DeepResearch Bench Reports},
+  author = {{Deep Cove Research}},
   year = {2026},
   howpublished = {\url{https://github.com/aldrinor/deep-cove-research}},
   note = {100 reports (50 Chinese, 50 English)},
 }
 ```
 
-Please also cite the benchmark: Du et al., [*DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents*](https://proceedings.iclr.cc/paper_files/paper/2026/file/465f22be10e07b301c6ed58f0472f704-Paper-Conference.pdf), ICLR 2026.
+Please also cite the benchmark: Du et al., [*DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents*](https://arxiv.org/abs/2506.11763), ICLR 2026.
 
 ## License
 
-Proprietary. The reports in this repository are © 2026 deep-cove-research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
+Proprietary. The reports in this repository are © 2026 Deep Cove Research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
 
-## Contact
+## Sources
 
-orchunyin@gmail.com
+1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 7 Oct 2026. Deep Cove Research 55.29, rank 3 of 15.
+2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; Deep Cove Research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices.
+3. **Deep Cove evaluation.** Official RACE method and GPT-5.5 judge, DeepResearch Bench tasks 10, 20, 30, 70 and 90, 3 judgments each, Sep 2026. Scores use the same scale as the official leaderboard.
+4. **DeepResearch Bench paper.** ICLR 2026, arXiv 2506.11763: 100 PhD-level tasks in 22 fields, Chinese and English.
+5. **Published DeepResearch Bench results.** Papers, model cards and leaderboard entries, Oct 2026.
+6. **Cost per report.** Deep Cove Research $1.04, average of the 100 official reports at public API prices. GPT-6 Astra Pro, Claude Fable 5.1: billed usage on DeepResearch Bench II tasks 7, 28 and 50. Gemini 3.1 Pro: list price, $1 to $3. CellCog: published price, up to $25.
+7. **Engine design.** Each source is comprehended in its own model call, in parallel, so capacity grows with the number of calls. Current setting: up to 384 pages per report.
+8. **Public list prices.** Per 1M output tokens, 8 Oct 2026: our model $1.20; GPT-6 Astra Pro $50; Claude Fable 5.1 $50; Gemini 3.1 Pro $12; Grok Build 4.6 $6. Scores: notes 1 and 3.
+9. **GPU estimates.** Kimi K3 model card: 2.8T parameters, MXFP4 weights, about 1.5 TB, which needs 2 servers of 8 NVIDIA B200 (192 GB each). gpt-oss-120b model card: 117B parameters, fits a single 80 GB GPU. On-demand prices, RunPod, 8 Oct 2026: B200 $6.79 per hour, H100 SXM $3.49 per hour.
 
 ## Acknowledgements
 

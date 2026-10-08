@@ -2,16 +2,16 @@ cff-version: 1.2.0
 message: >-
   If you refer to these reports, please cite this repository and the
   DeepResearch Bench paper listed under references.
-title: "deep-cove-research: DeepResearch Bench Reports"
+title: "Deep Cove Research: DeepResearch Bench Reports"
 type: dataset
 authors:
-  - name: "deep-cove-research"
+  - name: "Deep Cove Research"
 date-released: "2026-09-25"
 url: "https://github.com/aldrinor/deep-cove-research"
 repository: "https://github.com/aldrinor/deep-cove-research"
 abstract: >-
   100 research reports (50 Chinese, 50 English) written by
-  deep-cove-research, a proprietary deep-research system, for the
+  Deep Cove Research, a comprehension engine built on Read-Time Compute, for the
   DeepResearch Bench tasks.
 keywords:
   - deep research

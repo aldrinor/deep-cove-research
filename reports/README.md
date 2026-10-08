@@ -1,10 +1,10 @@
 <!-- Generated from data/deep-cove-research.jsonl. Do not edit by hand. -->
 
-<sub>[deep-cove-research](../README.md) › Reports</sub>
+<sub>[Deep Cove Research](../README.md) › Reports</sub>
 
 # Reports
 
-All 100 reports that deep-cove-research wrote for DeepResearch Bench: tasks 001–050 are in Chinese, 051–100 in English. Each page shows the benchmark prompt, followed by the full report.
+All 100 reports that Deep Cove Research wrote for DeepResearch Bench: tasks 001–050 are in Chinese, 051–100 in English. Each page shows the benchmark prompt, followed by the full report.
 
 **[Chinese tasks](#chinese-tasks) · [English tasks](#english-tasks) · [Notes](#notes)**
 
