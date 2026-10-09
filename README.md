@@ -183,7 +183,7 @@ The RACE summary is written to `$eval_dir/results/race_result.txt`.
 
 ### Built in North Vancouver
 
-Deep Cove Research is a stealth team based in North Vancouver, BC. We build the comprehension engine and test it in public, on DeepResearch Bench.
+Deep Cove Research is a stealth team based in North Vancouver, British Columbia. We build the comprehension engine and test it in public, on DeepResearch Bench.
 
 <p align="center">
   <picture>
