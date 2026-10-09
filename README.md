@@ -200,7 +200,7 @@ Deep Cove Research is a stealth team based in North Vancouver, BC. We build the 
 
 - **Email:** [hello@deepcove.tech](mailto:hello@deepcove.tech)
 - **Phone:** +1 (604) 764 6576
-- **Address:** 889 Harbourside Drive, North Vancouver, BC V7P 3S1, Canada
+- **Address:** North Vancouver, British Columbia
 
 ## Citation
 
