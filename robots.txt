@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://deepcove.tech/sitemap.xml
