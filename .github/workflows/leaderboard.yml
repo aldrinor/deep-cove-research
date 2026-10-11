@@ -1,0 +1,56 @@
+# Keeps the DeepResearch Bench rank current on main (README) and on gh-pages (deepcove.tech: leaderboard.json and the
+# static values in index.html), from the official leaderboard. Commits only when something changed.
+name: Leaderboard rank
+
+on:
+  schedule:
+    - cron: "23 */2 * * *"   # every 2 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leaderboard-rank
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out main
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6.1.0
+        with:
+          ref: main
+          path: main
+
+      - name: Check out gh-pages
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6.1.0
+        with:
+          ref: gh-pages
+          path: site
+
+      - name: Read the official leaderboard and update files
+        run: >
+          python3 main/.github/scripts/update_leaderboard.py
+          --readme main/README.md
+          --badge main/assets/badges/leaderboard.svg
+          --site site
+          --message-file "$RUNNER_TEMP/message.txt"
+
+      - name: Commit and push changes
+        run: |
+          set -euo pipefail
+          for dir in site main; do
+            cd "$GITHUB_WORKSPACE/$dir"
+            if [ -z "$(git status --porcelain)" ]; then
+              echo "$dir: no change"
+              continue
+            fi
+            git add -A
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit --quiet -F "$RUNNER_TEMP/message.txt"
+            git push --quiet origin HEAD
+            echo "$dir: pushed $(git rev-parse --short HEAD)"
+          done
