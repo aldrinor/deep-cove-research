@@ -27,7 +27,7 @@ Deep Cove Research comprehends full sources, then turns them into research repor
 
 <!-- leaderboard:start -->
 
-**#5 of 17** · **55.29** on the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup> · as of 11 Oct 2026
+**#5 of 17** · **55.29** on the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup> · as of 21 Oct 2026
 
 <!-- leaderboard:end -->
 
@@ -228,7 +228,7 @@ Proprietary. The reports in this repository are © 2026 Deep Cove Research, all 
 
 ## Sources
 
-1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 11 Oct 2026. Deep Cove Research 55.29, rank 5 of 17.
+1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 21 Oct 2026. Deep Cove Research 55.29, rank 5 of 17.
 2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; Deep Cove Research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices.
 3. **Deep Cove evaluation.** Official RACE method and GPT-5.5 judge, DeepResearch Bench tasks 10, 20, 30, 70 and 90, 3 judgments each, Sep 2026. Scores use the same scale as the official leaderboard.
 4. **DeepResearch Bench paper.** ICLR 2026, arXiv 2506.11763: 100 PhD-level tasks in 22 fields, Chinese and English.
