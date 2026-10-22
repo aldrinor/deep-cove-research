@@ -72,9 +72,9 @@ On average, frontier research agents cost $15.36 per task. Rereading their old n
 
 | Agentic Research | Read-Time Compute |
 |:--|:--|
-| **14** average searches per report | **68** (Deep Cove Research) and **67** (Deep Cove Research Pro) average searches per report |
-| Frontier research agents have limited memory, and the loop uses most of it. So they only have room for about 14 searches per report. For many sources, they read only the short snippet, not the complete content, so details are easy to miss or misread.<sup>[2](#sources)</sup> | Our state-of-the-art context management keeps the model's memory clear. So our two entries have room for about 67 to 68 searches per report, 5X more than frontier agents. We comprehend the whole page and turn it into evidence cards for deep comprehension.<sup>[2](#sources)</sup> |
-| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research and Deep Cove Research Pro · Max Reasoning</sub> |
+| **14** average searches per report | **68** average searches per report |
+| Frontier research agents have limited memory, and the loop uses most of it. So they only have room for about 14 searches per report. For many sources, they read only the short snippet, not the complete content, so details are easy to miss or misread.<sup>[2](#sources)</sup> | Our state-of-the-art context management keeps the model's memory clear. So it has room for about 68 searches per report, 5X more than frontier agents. We comprehend the whole page and turn it into evidence cards for deep comprehension.<sup>[2](#sources)</sup> |
+| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research · Max Reasoning</sub> |
 
 ## Inside the comprehension engine.
 
