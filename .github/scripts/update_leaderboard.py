@@ -43,7 +43,8 @@ PRO = 'deep-cove-research-pro'
 # missing), data-lbs fields hold deep-cove-research's row. This repo's badge keeps its own row (MODEL); its README block
 # lists both entries.
 SITE_MODELS = (PRO, MODEL)
-COST = {PRO: '$2.50', MODEL: '$1.04'}  # average cost per report of each entry's 100 official reports, public API prices
+COST = {PRO: '$2.50', MODEL: '$1.04'}
+NAME = {PRO: 'Deep Cove Research Pro', MODEL: 'Deep Cove Research'}  # names shown to readers  # average cost per report of each entry's 100 official reports, public API prices
 UA = 'deep-cove-research-leaderboard-sync (+https://github.com/aldrinor/deep-cove-research)'
 
 MON_EN = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
@@ -190,8 +191,8 @@ def readme_block(d, d2=None):
                 f'<sup>[1](#sources)</sup> · as of {v["date"]}\n\n{END}')
     v2 = values(d2)
     return (f'{START}\n\n| Entry | Rank | Score | Cost per Report |\n|:--|:-:|:-:|:-:|\n'
-            f'| [{PRO}](https://github.com/aldrinor/{PRO}) | **#{v2["rank"]} of {v2["total"]}** | **{v2["score"]}** | {COST[PRO]} |\n'
-            f'| {MODEL} (this repository) | **#{v["rank"]} of {v["total"]}** | **{v["score"]}** | {COST[MODEL]} |\n\n'
+            f'| [{NAME[PRO]}](https://github.com/aldrinor/{PRO}) | **#{v2["rank"]} of {v2["total"]}** | **{v2["score"]}** | {COST[PRO]} |\n'
+            f'| {NAME[MODEL]} (this repository) | **#{v["rank"]} of {v["total"]}** | **{v["score"]}** | {COST[MODEL]} |\n\n'
             f'On the [official leaderboard]({BOARD_URL})<sup>[1](#sources)</sup> · as of {v["date"]}\n\n{END}')
 
 
@@ -217,9 +218,9 @@ def patch_readme(text, d, d2=None):
     if d2 is not None:
         v2 = values(d2)
         # tagline "deep-cove-research-pro #4 and deep-cove-research #6 on DeepResearch Bench"; note 1 with both rows
-        text = re.sub(r'(' + re.escape(PRO) + r' #)\d+', lambda m: m.group(1) + v2['rank'], text)
+        text = re.sub(r'(' + re.escape(NAME[PRO]) + r' #)\d+', lambda m: m.group(1) + v2['rank'], text)
         text = re.sub(r'(\*\*DeepResearch Bench official leaderboard\.\*\* GPT-5\.5 judge, )\d{1,2} [A-Z][a-z]{2} \d{4}'
-                      r'(\. ' + re.escape(PRO) + r' )\d+\.\d+(, rank )\d+( of )\d+(; ' + re.escape(MODEL) + r' )\d+\.\d+(, rank )\d+( of )\d+(\.)',
+                      r'(\. ' + re.escape(NAME[PRO]) + r' )\d+\.\d+(, rank )\d+( of )\d+(; ' + re.escape(NAME[MODEL]) + r' )\d+\.\d+(, rank )\d+( of )\d+(\.)',
                       lambda m: (m.group(1) + v['date'] + m.group(2) + v2['score'] + m.group(3) + v2['rank'] + m.group(4) + v2['total']
                                  + m.group(5) + v['score'] + m.group(6) + v['rank'] + m.group(7) + v['total'] + m.group(8)), text)
     return text
