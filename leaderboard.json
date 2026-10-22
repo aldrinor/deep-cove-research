@@ -1,9 +1,9 @@
 {
-  "model": "deep-cove-research",
-  "rank": 5,
-  "total": 17,
-  "score": 55.29,
-  "date": "2026-10-21",
+  "model": "deep-cove-research-pro",
+  "rank": 4,
+  "total": 18,
+  "score": 55.71,
+  "date": "2026-10-22",
   "leaderboard": "https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard",
   "source": "https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard/raw/main/data_gpt55/leaderboard.csv"
 }
