@@ -1,1055 +1,797 @@
-# Allocating Liability in Shared Human–Machine Driving: ADAS Accidents in the United States, European Union, and United Kingdom
+# Liability in the Loop: Allocating Responsibility for Level 1–2 ADAS Crashes
 
-For current SAE Levels 1 and 2, liability normally begins with the human driver because the driver retains the dynamic driving task, must supervise the system, and must remain ready to intervene. That starting point is not conclusive: a manufacturer, software provider, owner, operator, or infrastructure authority may share liability when a design defect, inadequate warning, ineffective driver monitoring, unsafe operational design domain, software update, cybersecurity weakness, maintenance failure, or operational decision materially contributed to the crash. At Level 3, responsibility shifts more substantially to the automated system while it performs the driving task within its approved operational design domain, although the human may still have duties to remain available and respond to a valid takeover request. [NHTSA’s current safety guidance](https://www.nhtsa.gov/vehicle-safety/automated-vehicle-safety) and the NTSB’s Level 2 investigations therefore support a combined-cause analysis rather than an automatic driver-only rule.
+For SAE Levels 1 and 2, engaging advanced driver-assistance technology does not transfer the dynamic driving task from the human driver to the vehicle. The driver remains responsible for supervision, situational awareness, and immediate intervention. That baseline does not immunize the vehicle or its suppliers: defective perception, planning, control, operational-domain restrictions, driver monitoring, warnings, software, cybersecurity, or updates can create manufacturer or system responsibility and produce shared causation. The sound allocation model is functional and evidence-led: identify who controlled the relevant risk, preserve immediate compensation through applicable insurance, and assign recourse using control-state and lifecycle-safety evidence.
 
-The most defensible legal approach is to allocate responsibility according to actual control, technical capability, preventability, and access to evidence. The United States presently relies mainly on state negligence and product-liability law; the European Union combines type approval with no-fault product liability for software and connected products; and the United Kingdom combines ordinary driver responsibility for assistance systems with an insurer-first model for vehicles legally “driving themselves.” The principal cases and investigations show why neither automation labels nor driver warnings alone can resolve liability: Hsu v. Tesla produced no damages, while Benavides v. Tesla produced a substantial verdict assigning 33% of compensatory responsibility to Tesla despite substantial driver misconduct.
+## Shared-control crash allocation at a glance
 
-## Roadmap and analytical method
-
-The analysis first defines the technical boundary between assistance, shared control, and conditional automation. It then explains how perception, planning, control, driver monitoring, takeover design, operational limits, software updates, and cybersecurity create distinct causal questions. The legal comparison follows across the United States, European Union, United Kingdom, and Germany as a concrete Member State example.
-
-The case section separates court verdicts, criminal outcomes, and official accident investigations. The central allocation section then applies a driver-versus-system matrix to the main accident types and identifies the evidence needed to determine whether the driver, the system, or both caused the loss. The final sections compare the strengths and gaps of the three regional approaches and propose regulatory guidelines.
-
-The discussion concerns road vehicles using ADAS or shared human-machine operation, particularly SAE Levels 1–3. Higher automation is included only where it clarifies the transition to Level 3, the United Kingdom’s authorised self-driving framework, or the European Union’s rules for fully automated vehicles. SAE levels are treated as a functional vocabulary, not as a legal conclusion or safety ranking. The supplied authorities do not provide a complete jurisdiction-by-jurisdiction map of insurer subrogation, damages, or published United Kingdom, European Union, and German Level 2 or Level 3 accident decisions. Those limits are identified where they affect the conclusion.
-
-## 1. Scope, definitions, and the shared-control model
-
-### ADAS is not a single legal or technical category
-
-“Advanced driver-assistance system” describes a family of functions with very different control authority. Automatic emergency braking may intervene for a brief collision-avoidance event. Adaptive cruise control may control speed and following distance. Lane-keeping assistance may apply steering. A combined adaptive-cruise and lane-centering system may control both longitudinal and lateral motion while still requiring the human to monitor the road continuously.
-
-NHTSA describes currently available consumer technology as active safety or driver-assistance technology, not fully automated driving. It states that no vehicle currently available for sale in the United States is fully automated or “self-driving,” and that every vehicle currently for sale requires the driver’s full attention for safe operation. [NHTSA’s automated-vehicle safety guidance](https://www.nhtsa.gov/vehicle-safety/automated-vehicle-safety) also emphasizes that drivers will continue to share driving responsibilities with technology for the foreseeable future.
-
-The legal question is therefore not simply whether “Autopilot,” “highway assist,” “hands-free driving,” or another commercial label was displayed. It is:
-
-1. What function was active?
-2. What part of the dynamic driving task did it perform?
-3. What did the driver still have to monitor or control?
-4. What were the approved operating conditions?
-5. How did control authority change immediately before the crash?
-
-### SAE levels describe control allocation, not liability
-
-SAE J3016 defines six functional levels. The NTSB applied the taxonomy to Tesla Autopilot by treating Traffic-Aware Cruise Control, which supplied longitudinal control, and Autosteer, which supplied lateral control, as Level 1 functions when considered separately. When combined, they supplied both lateral and longitudinal control and constituted Level 2 partial driving automation. [The NTSB’s Mountain View report](https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR2001.pdf) states that the Level 2 driver remained responsible for monitoring the automation, maintaining situational awareness, understanding its limitations, and being ready to take full control.
-
-| Level | System function | Human role during operation | Typical legal starting point |
-|---|---|---|---|
-| 0 | Warnings or momentary assistance without sustained vehicle control | Performs the dynamic driving task and monitors the road | Driver-centered negligence and traffic duties |
-| 1 | Sustained lateral or longitudinal control, but not both simultaneously | Performs the remaining driving task and supervises the system | Driver remains primary, with possible system liability for defects |
-| 2 | Sustained lateral and longitudinal control within limited conditions | Continuously monitors the road and system and remains ready to intervene | Shared technical control, but generally driver-centered legal responsibility |
-| 3 | System performs the dynamic driving task within an ODD and requests takeover when necessary | Need not continuously monitor while the system is operating, but must remain able to respond | System responsibility during valid operation, subject to takeover and availability duties |
-| 4–5 | System performs the driving task within a defined ODD, or across all conditions at Level 5 | Passenger or fallback occupant, depending on level and design | Manufacturer, authorised entity, operator, and insurer become central |
-
-The levels do not rank safety. A Level 2 system may be safer than a poorly designed Level 3 system in a particular environment, and a Level 3 designation does not establish that a system can safely handle every foreseeable event. [Widen and Koopman’s proposed liability framework](http://users.ece.cmu.edu/~koopman/pubs/Widen2023_AwkwardMiddle.pdf) stresses that J3016 is an information taxonomy rather than a safety standard. The same point appears in the [2023 Jurimetrics analysis](https://www.americanbar.org/groups/science_technology/resources/jurimetrics/2023-fall/automated-vehicles-liability-attribution-rules-driving/).
-
-A court should therefore use the level as evidence of the intended distribution of control, not as a conclusive allocation of fault. A manufacturer cannot avoid responsibility for a foreseeable design defect merely by calling a function Level 2. Conversely, a driver cannot avoid responsibility merely because the vehicle performed steering and braking functions.
-
-### Shared control, traded control, and conditional takeover
-
-Human-machine driving has at least two different structures.
-
-In traded control, either the human or the automation controls the vehicle at a given time. Level 3 systems are usually described this way: the system performs the dynamic driving task within its ODD, then issues a takeover request and returns control.
-
-In shared control, the driver and system exert control inputs concurrently. A Level 2 lane-centering system may apply steering while the driver supervises, lightly resists, or overrides the system. The distinction matters because a Level 2 accident is not necessarily a sequential handover failure. The system may be actively steering while the driver is legally required to monitor it. [The Ergonomics discussion of traded and shared control](https://www.tandfonline.com/doi/full/10.1080/00140139.2022.2153175) identifies shared control as a concurrent human-machine input arrangement rather than a simple transfer from one controller to another.
-
-A legal rule that treats all accidents as either “driver-controlled” or “system-controlled” misses this concurrent period. It is possible for a driver to be inattentive, for the system to make an unsafe steering decision, and for an inadequate monitoring design to allow the combination to persist. The NTSB’s Mountain View finding illustrates precisely that structure.
-
-### Operational design domain
-
-An operational design domain (ODD) is the set of conditions in which a system is designed and approved to operate. It can include roadway type, lane markings, geography, speed range, weather, lighting, traffic conditions, map availability, and the presence or absence of cross traffic.
-
-ODD is a technical boundary and a legal boundary. If a manufacturer expressly limits lane-centering assistance to divided highways with clear lane markings but allows the function to activate on city streets or roads with cross traffic, the resulting question is not only whether the driver misused the vehicle. It is also whether the system was designed to permit a foreseeable misuse that could have been technically prevented.
-
-The NTSB found that Tesla Autopilot could be activated on roads where lane markings were detectable even though Tesla’s instructions described use on limited-access highways with no cross traffic and clear lane markings. In Delray Beach, the relevant highway was not limited access and had 34 intersecting roadways and private driveways within the surrounding five-mile area. The NTSB concluded that the environment was outside Autopilot’s ODD and criticized the absence of safeguards preventing operation there. [The NTSB’s Delray Beach findings](https://www.ntsb.gov/investigations/AccidentReports/Reports/HAB2001.pdf) treat that design choice as a contributor to foreseeable misuse.
-
-### Accident types that require different allocation questions
-
-The same legal label should not be applied to every ADAS crash.
-
-| Accident pattern | Function or transition | Central allocation question |
-|---|---|---|
-| Missed forward hazard | FCW, AEB, adaptive cruise control | Was the object within the system’s detection and braking capability, and did the driver receive a reasonable warning? |
-| Lane departure or wrong path | Lane keeping, lane centering, navigation assistance | Did perception or path prediction fail, were markings or infrastructure inadequate, and was the driver actually supervising? |
-| Cross-traffic collision | ACC or Level 2 combination on a non-limited-access road | Was cross traffic outside the ODD, and should the system have prevented activation or warned the driver? |
-| Takeover failure | Level 3 or ALKS transition | Was the request timely and comprehensible, was the driver available, and could the driver reasonably respond? |
-| Degraded or failed operation | Sensor failure, weather, map loss, software fault | Did the system degrade safely, issue a warning, execute a minimum-risk maneuver, or leave the driver with an impossible task? |
-| Post-update or cyber incident | OTA software, connected services, cybersecurity | Who controlled the update or vulnerability, and was the vehicle safe after the change? |
-| Test or fleet operation | Developmental ADS, safety driver, remote supervision | Did the operator provide adequate staffing, procedures, training, maintenance, and safety assurance? |
-| Combined external cause | Other road user, road markings, damaged barrier, weather | How should concurrent negligence and accident severity be apportioned? |
-
-This classification is the foundation for liability. It prevents a court from treating a driver’s inattention as dispositive when the system itself moved outside its designed path, or treating a system’s failure as dispositive when the driver ignored a timely and intelligible warning.
-
-## 2. ADAS technical principles, operating limits, and failure modes
-
-### The technical chain from sensing to actuation
-
-An ADAS function usually performs a chain of operations:
-
-1. Sensors observe the environment.
-2. Perception software detects, classifies, and tracks objects, lanes, signs, and road boundaries.
-3. Localization determines the vehicle’s position relative to a map, lane, or path.
-4. Planning selects a target path, speed, or maneuver.
-5. Control software converts that plan into steering, braking, acceleration, or motor-torque commands.
-6. Actuators execute the commands.
-7. The human-machine interface communicates system status, confidence, warnings, and requests for intervention.
-
-A failure at any stage can create a different legal theory. A dirty camera or failed radar may suggest maintenance or component fault. A camera that works but misclassifies a road edge may suggest an intended-function or perception limitation. A sound perception output may be converted into an unsafe path by planning software. A correct plan may be executed incorrectly by a steering or braking actuator. A safe system response may still fail legally if the warning was delayed, ambiguous, or inconsistent with the driver’s actual obligations.
-
-The Mountain View Tesla used cameras, radar, ultrasonic sensors, processing systems, and actuators. The NTSB concluded that a limitation in vision-system processing caused Autosteer to steer toward the gore area without warning. The system did not detect the crash attenuator, so forward-collision warning and automatic emergency braking did not activate, while adaptive cruise control accelerated after the system no longer detected a lead vehicle. [The NTSB’s technical analysis](https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR2001.pdf) shows how perception, planning, control, and collision-avoidance limitations can compound.
-
-The Uber Tempe vehicle illustrates a different architecture. Its developmental ADS used lidar, radar, camera imagery, GPS, and an inertial measurement unit. The system fused sensor inputs to classify objects and predict paths. It detected the pedestrian 5.6 seconds before impact but did not accurately classify her as a pedestrian or predict her path. The system exceeded its braking-response specifications, and its design did not provide emergency braking for collision mitigation. [The NTSB’s Uber vehicle-automation report](https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=.PDF&FileName=Vehicle+Automation+Report-Master.PDF&ID=40477717) records the relevant software version, calibration date, object classifications, predicted paths, and absence of a reported sensor or system failure.
-
-### Functional safety and SOTIF
-
-The technical distinction between a malfunction and an intended-function limitation matters to product liability.
-
-ISO 26262 addresses hazards caused by malfunctioning behavior of safety-related electrical and electronic systems, including system interactions. It does not address the nominal performance of a system. [ISO 26262-10:2018](https://www.iso.org/standard/68392.html) therefore provides a functional-safety framework for faults such as a failed sensor, corrupted signal, or defective control component.
-
-ISO 21448, commonly called Safety of the Intended Functionality or SOTIF, addresses unreasonable risk caused by functional insufficiency even when the components operate as designed. It includes inadequately specified functions, perception limitations, environmental disturbances, and reasonably foreseeable misuse. [ISO 21448:2022](https://www.iso.org/standard/77490.html) applies to situational-awareness-dependent functions across driving-automation Levels 1 through 5.
-
-The distinction can be expressed through examples:
-
-- If a camera stops transmitting because of an electrical failure, the issue may fall within functional safety.
-- If the camera transmits an image but the perception system cannot distinguish a faded lane line from a gore boundary, the issue may be SOTIF.
-- If the manufacturer knows that users activate a system on roads outside its stated ODD but does not technically restrict that use, the issue may involve foreseeable misuse and design responsibility.
-- If a malicious actor alters software or sensor inputs, the issue may involve cybersecurity rather than ordinary SOTIF, although the resulting safety consequences remain relevant to liability.
-
-SOTIF does not itself determine which party pays damages. It does, however, provide a technical vocabulary for asking whether the absence of a crash was reasonably assured for the intended function and foreseeable operating conditions. A manufacturer’s warning that a system may fail cannot automatically convert an unreasonable design limitation into a safe product.
-
-### Perception limits and unknown performance boundaries
-
-ADAS systems do not perceive the world in the same way as a human driver. They operate through sensor-specific fields of view, detection thresholds, object classes, confidence estimates, maps, and learned models. A system may be effective at recognizing the rear of a moving vehicle but less effective at recognizing a side profile, an unusual road barrier, a pedestrian emerging from darkness, a faded road line, or a hazard that is not in the expected lane geometry.
-
-The Mountain View crash involved a damaged crash attenuator that the Tesla’s collision-avoidance system was not designed to detect. The NTSB did not conclude that every failure to detect an attenuator is automatically a product defect. It found instead that the system’s design and testing did not cover a common highway hazard, that the driver received no warning, and that the national testing protocol did not require such capability. This evidence supports a design-defect inquiry, but the legal conclusion still depends on the applicable jurisdiction’s risk-utility, consumer-expectation, negligence, or statutory product-liability test.
-
-The same reasoning applies to speed. A system tested primarily against vehicle-shaped targets at moderate speeds may have a narrower demonstrated capability than a consumer understands from a general collision-avoidance label. The NTSB found that the Tesla crashes it reviewed involved speeds above 65 mph and targets such as a fire truck, crash attenuator, or side of a semitrailer, while the relevant testing protocols did not cover all those combinations. [The NTSB’s recommendations on collision-avoidance testing](https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR2001.pdf) call for high-speed testing and common roadside obstacles.
-
-The legal significance is not that a system must prevent every crash. It is that a manufacturer should be able to show:
-
-- what objects and conditions the function was designed to detect;
-- what confidence threshold causes warning, braking, or disengagement;
-- how the system behaves when confidence falls;
-- whether the ODD prevents operation outside those conditions;
-- what the user was told; and
-- whether the residual limitation was reasonably foreseeable.
-
-### Human-machine interfaces and mode awareness
-
-A human-machine interface communicates at least four legally important facts:
-
-1. Whether automation is active.
-2. Which function is active.
-3. What the system is currently doing.
-4. What the driver must do next.
-
-A warning such as “keep hands on wheel” does not necessarily communicate that a system has left its lane, reached the edge of its ODD, or requires immediate braking. A generic chime may be heard without being understood. A visual warning may be missed when the driver is looking away. A system that uses a commercial name suggesting autonomy may create a mental model inconsistent with the legal duty to supervise.
-
-The AAA Foundation simulator study compared a staged interface with a more specific simultaneous interface. The study included 54 licensed participants aged 18–40 and tested four simulated situations at a 65-mile-per-hour speed limit. The more specific multimodal interface improved some performance measures, including velocity and off-road glance frequency, but did not significantly improve every measure, including takeover time in the reported comparisons. The study was conducted in a simulator with a young participant sample and limited scenarios, so it supports design testing rather than a universal warning rule. [The AAA Foundation report](https://aaafoundation.org/wp-content/uploads/2026/01/AAAFTS-HMI-and-Vehicle-Automation.pdf) illustrates why HMI effectiveness must be measured by concrete driving outcomes rather than assumed from the presence of an alert.
-
-The 2021 Yu et al. simulator study similarly found that multimodal visual, auditory, and haptic warnings produced faster takeover responses than single-modality warnings in its experimental setting. In 641 takeover situations, 37 accidents occurred, or 5.8%. In the driver-availability experiment, the group receiving periodic requests to look forward had a 14% takeover failure rate compared with 37.2% without that intervention, and mean reaction time was 1.18 seconds compared with 2.09 seconds. Those results came from a simulator involving 39 participants and predefined scenarios; they are evidence about human factors, not a legally established performance threshold. [Yu et al.’s study](https://www.mdpi.com/2076-3417/11/15/6685) also found that heart rate and respiration were not reliable direct measures of driving concentration in that experiment.
-
-The United Kingdom’s 2026 evidence review synthesized 59 prioritized studies from 102 eligible papers and reported lower attention, situational awareness, monitoring, and vigilance among Level 2 users than in manual driving, although engagement and workload findings were mixed. Only one included study was conducted in the United Kingdom, which limits direct generalization. [The DfT/NatCen review](https://assets.publishing.service.gov.uk/media/69c643e4cdfd19de13d0f75b/understanding-human-factors-in-advanced-driver-assistance-systems-an-evidence-review.pdf) also reports that over-trust and misunderstanding of system capability were associated with reduced attention, monitoring, responsiveness, and secondary-task misuse.
-
-This evidence supports a legal distinction between:
-
-- a driver who deliberately ignores a clearly communicated and timely request;
-- a driver who reasonably misunderstands a misleading mode display;
-- a system that issues a warning too late for a normal driver to respond; and
-- a manufacturer that relies on steering-wheel torque as a substitute for actual attention.
-
-### Driver monitoring is not the same as driver readiness
-
-A driver-monitoring system may observe steering-wheel torque, eye direction, eyelid closure, head posture, body position, or other physiological or behavioral indicators. Each measures a different part of readiness.
-
-Steering-wheel torque may show that a hand is touching or lightly turning the wheel. It does not show that the driver is watching the road, understands the current mode, or can respond to an emerging hazard. The NTSB called steering-wheel torque an ineffective surrogate for engagement and reported that no United States performance standards then specified the appropriate metric, alert type, timing, or sensor redundancy for Level 2 driver monitoring. [NTSB Safety Recommendation H-20-004](https://data.ntsb.gov/carol-main-public/sr-details/H-20-004) recommends performance standards for Level 2 systems.
-
-The Mountain View report found that the driver’s hands were not detected on the wheel during the final seconds, but the more important finding was that the system did not effectively monitor engagement and allowed the driver to remain inattentive. In Delray Beach, the driver-monitoring system detected no steering-wheel torque for the final 7.7 seconds. NTSB reported that the first visual warning under the applicable logic would have taken about 25 seconds in the relevant circumstances, during which the vehicle would have traveled more than 2,530 feet at 69 miles per hour. That timing is evidence relevant to both driver inattention and system design.
-
-A regulator should therefore distinguish:
-
-- detection of physical contact;
-- detection of forward gaze;
-- detection of sustained monitoring;
-- detection of cognitive readiness; and
-- confirmation that the driver has understood a takeover request.
-
-No supplied authority establishes one universally valid quantitative threshold for all Level 2 or Level 3 systems. That absence matters in litigation: a manufacturer should not be able to treat the absence of an enacted numerical threshold as proof that any monitoring design was reasonable, but a court should also avoid converting one simulator result into a legal rule.
-
-### Takeover requests and response time
-
-A takeover is a sequence, not a single instant. The driver may need to:
-
-1. hear, see, or feel the request;
-2. redirect gaze from a secondary task;
-3. understand the reason for the request;
-4. return hands and feet to the controls;
-5. assess traffic and the hazard;
-6. select braking, steering, lane change, or another response; and
-7. stabilize the vehicle.
-
-The [2026 systematic review by Han et al.](https://www.tandfonline.com/doi/pdf/10.1080/10447318.2025.2552863) reports that a review of 25 articles found takeover-request lead times from 0 to 30 seconds, with a mean of 6.37 seconds and standard deviation of 5.36 seconds, while takeover reaction times ranged from 1.14 to 15 seconds, with a mean of 2.96 seconds and standard deviation of 1.96 seconds. The review also found inconsistent definitions and endpoints for “takeover time,” making cross-study comparisons difficult.
-
-A simple time-to-collision calculation is often used in human-factors analysis:
-
-\[
-TTC=\frac{\text{relative distance}}{\text{relative speed}}
-\]
-
-That expression assumes constant relative speed. It is not a legal causation test and becomes incomplete when the vehicle is accelerating, braking, turning, or facing an uncertain path. Expert reconstruction should therefore distinguish the time available when a hazard became detectable, the time when the system recognized it, the time when the warning was issued, the time when the driver became visually and physically ready, and the time when a safe maneuver remained possible.
-
-UNECE Regulation No. 157 provides a concrete regulatory example for Automated Lane Keeping Systems, but it should not be treated as a universal Level 2 rule. R157 requires the system to recognize driver availability using at least two criteria shown within the previous 30 seconds. If the driver is unavailable, it requires an immediate distinctive warning and a transition demand by 15 seconds if the condition persists. The transition demand must escalate within four seconds, and an unanswered demand generally leads to a minimum-risk maneuver no earlier than 10 seconds after the demand. R157 also distinguishes minimum-risk maneuvers from emergency maneuvers for imminent collision risk. [UN Regulation No. 157](https://eur-lex.europa.eu/eli/reg/2021/389/oj/eng) specifies the relevant timing and maneuver requirements for the regulated ALKS context.
-
-Those numbers are not a general rule that a driver has ten seconds to respond in every accident. They are requirements for a particular approved system and ODD. Empirical studies report much wider response ranges, and some hazards provide less than the time needed for a normal driver to understand and act. The proposed ten-second allocation rule discussed in [Jurimetrics](https://www.americanbar.org/groups/science_technology/resources/jurimetrics/2023-fall/automated-vehicles-liability-attribution-rules-driving/) is a proposed framework, not enacted law.
-
-### Fail-safe, degraded operation, minimum-risk, and emergency maneuvers
-
-A system should not respond identically to every limitation.
-
-A loss of confidence may permit continued operation at reduced speed. A known approach to the ODD boundary may permit a planned transition. A sudden sensor failure may require immediate disengagement or a minimum-risk maneuver. An imminent collision may require emergency braking or evasive steering even if the driver has not responded.
-
-The European Union’s ADS regulation distinguishes operational hazards without a component fault, such as fog, rain, sunlight, infrastructure, missed detection, and reasonably foreseeable misuse, from failure scenarios involving an ADS or vehicle component. [Commission Implementing Regulation (EU) 2022/1426](https://eur-lex.europa.eu/legal-content/EN/TXT/?qid=1774488161303&uri=CELEX%3A32022R1426) requires manufacturers seeking approval for fully automated vehicles to provide documentation showing no unreasonable safety risks across relevant scenarios and the ADS lifetime. The documentation covers the ODD, object and event detection, sensors, actuators, maps, positioning, HMI, stored data, cybersecurity, and software updates.
-
-For ALKS, R157 requires the activated system to perform the dynamic driving task, manage situations including failures, avoid reasonably foreseeable and preventable collisions, and bring the vehicle to a standstill after a detectable collision. By contrast, an ordinary Level 2 system may provide no autonomous fallback beyond warning the driver. The Uber Tempe system illustrates the danger of removing redundant safety systems: Uber had deactivated the Volvo factory forward-collision warning and automatic emergency braking without replacing their full capabilities. NTSB found that this removed a layer of safety redundancy and increased testing risk. [The NTSB Tempe report](https://www.ntsb.gov/investigations/accidentreports/reports/har1903.pdf) treats redundancy and organizational safety assessment as part of the causal chain.
-
-### Software updates and cybersecurity
-
-ADAS capability is not static. OTA updates may change perception software, ODD behavior, warning timing, sensor fusion, path prediction, or emergency braking. A crash involving a vehicle may therefore depend on:
-
-- the software version installed;
-- whether an update was offered, downloaded, or installed;
-- whether installation changed a safety-relevant function;
-- whether the manufacturer tested the update for the vehicle’s hardware;
-- whether the owner refused or failed to install a known safety-critical update;
-- whether a third-party modification altered the system; and
-- whether a cyber event changed sensor, control, or communication inputs.
-
-The Mountain View Tesla had a software update installed during service, and later update attempts failed because of poor connectivity. That fact did not by itself establish causation, but it shows why update history belongs in the accident record.
-
-Regulation (EU) 2019/2144 recognizes that connectivity and automation increase the possibility of unauthorized access and illegal modification of software over the air. It calls for cybersecurity and software-update rules while preserving access to diagnostic and relevant in-vehicle data. [Regulation (EU) 2019/2144](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R2144) therefore connects product safety, cybersecurity, repair access, and evidence.
-
-The 2024 EU Product Liability Directive is especially significant because it treats software as a product whether embedded, supplied through a network or cloud, or provided as software-as-a-service. It can treat a software developer or AI-system provider as a manufacturer, and it includes integrated digital services and updates within manufacturer control in specified circumstances. [Directive (EU) 2024/2853](https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng) also recognizes that a known cybersecurity vulnerability left unremedied, or a necessary update not supplied, may support a defect claim.
-
-The United States has no single federal civil-liability rule assigning responsibility to a standalone AI or software provider in a Level 2 or Level 3 crash. Liability will commonly depend on state product-liability doctrine, the provider’s role in the integrated vehicle, contract and indemnity arrangements, and proof that the software caused the injury. This is a significant gap between technical control and legal classification.
-
-## 3. Existing legal and regulatory frameworks
-
-### Historical transition from driver assistance to shared control
-
-The legal problem developed in stages.
-
-NHTSA’s technology history describes a progression from cruise control, seat belts, and anti-lock brakes between 1950 and 2000; to electronic stability control, blind-spot detection, forward-collision warning, and lane-departure warning between 2000 and 2010; to automatic emergency braking, pedestrian braking, lane-centering assistance, and related ADAS functions between 2010 and 2016; and to partially automated features such as lane keeping, adaptive cruise control, and traffic-jam assist from 2016 onward. [NHTSA’s technology overview](https://www.nhtsa.gov/vehicle-safety/automated-vehicle-safety) presents this as a transition from safety features that assist the driver to systems that increasingly perform portions of the driving task.
-
-Early legal analysis generally assumed that conventional negligence, no-fault, strict liability, and warranty rules could absorb vehicles with automation. Kalra, Anderson, and Wachs concluded in 2009 that owners and drivers would not face unusual liability concerns, while manufacturer product-liability exposure could increase for systems that aided the driver but left the human in partial control. Their AEB example was expressly illustrative, not a field estimate. [The USDOT review summarizing that analysis](https://www.nhtsa.gov/sites/nhtsa.gov/files/812043_hf-evaluationlevel2andlevel3automateddrivingconceptsv2.pdf) also records proposals for special insurance and mandatory data recorders.
-
-By the late 2010s, accident investigations exposed a “responsibility gap” within Level 2. The driver remained legally responsible, but the system controlled steering and speed, could encourage overreliance, and might operate outside the manufacturer’s stated conditions. Germany amended its Road Traffic Act in 2017 for highly and fully automated vehicles. The European Union adopted Regulation 2019/2144 in 2019, and UNECE Regulation No. 157 entered into force in 2021 for ALKS. The European Union then adopted a more detailed ADS type-approval regulation in 2022 and the Product Liability Directive in 2024. UNECE Regulation No. 171 on Driver Control Assistance Systems entered into force on 22 September 2024. [The United Nations status entry for R171](https://treaties.un.org/doc/Publication/MTDSG/Volume%20I/Chapter%20XI/XI-B-16-171.en.pdf) records its application by the European Union, France, Germany, Japan, and the United Kingdom from that date.
-
-The United Kingdom followed two tracks: ordinary driver assistance remained driver-centered, while the Automated and Electric Vehicles Act 2018 created an insurer-first route when an automated vehicle was legally driving itself. The Automated Vehicles Act 2024 then created authorised self-driving entities and user-in-charge concepts for qualifying authorised systems. The transition is therefore from a single human-driver model, through composite Level 2 responsibility, toward a regulated system-liability model for approved higher automation.
-
-### United States
-
-#### Traffic duties and federal safety regulation
-
-For ordinary consumer Level 1 and Level 2 operation, state traffic law continues to impose duties of reasonable care, attention, speed control, lane keeping, and response to hazards. NHTSA’s current public guidance expressly tells users that available systems do not remove the requirement for full driver attention.
-
-At the federal level, vehicle manufacturers must comply with Federal Motor Vehicle Safety Standards and certify compliance. The United States generally follows self-certification rather than the European Union’s pre-market type-approval model. [The European Transport Safety Council’s comparison](https://etsc.eu/comparative-overview-eu-us-vehicle-standards/) describes the difference: EU authorities verify compliance before marketing, while United States manufacturers may market vehicles after self-certifying compliance with applicable standards.
-
-NHTSA has used guidance, defect investigations, recalls, and incident reporting rather than a comprehensive Level 2 approval regime. Its June 2022 Standing General Order report covered Level 2 crashes in which the system was engaged at any time within 30 seconds before a crash involving a vulnerable road user, fatality, tow-away, airbag deployment, or hospital treatment. NHTSA reported 392 crashes from 12 reporting entities as of 15 May 2022, but warned that the figures were not exposure-adjusted, could include duplicate or incomplete reports, and did not reliably establish whether the system was engaged. [NHTSA’s Level 2 report](https://www.nhtsa.gov/sites/nhtsa.gov/files/2022-06/ADAS-L2-SGO-Report-June-2022.pdf) states that recording and telemetry capabilities vary widely among manufacturers.
-
-#### Negligence, product liability, and causation
-
-United States product-liability claims generally proceed through strict liability, negligence, or warranty theories, with state-by-state variation. [The ICLG United States product-liability overview](https://iclg.com/practice-areas/product-liability-laws-and-regulations/usa/) identifies those three principal routes and explains that plaintiffs generally must prove both cause-in-fact and proximate cause. [Cornell’s product-liability summary](https://www.law.cornell.edu/wex/products_liability) distinguishes design defects, manufacturing defects, and marketing defects, including inadequate instructions and warnings.
-
-An ADAS claim may therefore allege:
-
-- defective design because the system permits foreseeable use outside its ODD;
-- defective design because perception or collision avoidance does not handle common hazards;
-- manufacturing or software-version defect;
-- inadequate warning or instruction;
-- negligent testing, surveillance, or post-sale update;
-- negligent misrepresentation or misleading marketing;
-- breach of warranty; or
-- negligent maintenance or operation by an owner, fleet, or service provider.
-
-Causation remains separate from defect. A plaintiff must show not only that the system had an unreasonable risk or misleading warning but that the defect caused or materially contributed to the crash or injury. The difference is visible in Mountain View: the NTSB found a system limitation, driver distraction, ineffective monitoring, and a damaged crash attenuator. A civil jury would still have to determine which facts satisfy the jurisdiction’s causation test and how to apportion them.
-
-Comparative fault commonly reduces recovery by the plaintiff’s share of responsibility, but the details of pure comparative fault, modified comparative fault, joint and several liability, contribution, and indemnity differ by state. [The ICLG overview](https://iclg.com/practice-areas/product-liability-laws-and-regulations/usa/) explains that contribution is generally apportioned by relative culpability, while indemnity can shift liability completely, often up the distribution chain. The Benavides verdict illustrates an actual percentage allocation, but it does not create a national rule.
-
-#### Insurance and representative state legislation
-
-The United States lacks a uniform national compensation model for ADAS crashes. Mandatory motor insurance, direct-action rules, no-fault coverage, liability limits, subrogation, comparative fault, and punitive damages are mainly state matters.
-
-Florida provides one example rather than a national solution. Florida Statutes §627.749 requires a fully autonomous vehicle operating while logged on to an on-demand autonomous-vehicle network or engaged in a prearranged ride to carry at least $1 million in primary liability coverage for death, bodily injury, and property damage, with additional coverage requirements. [Florida Statutes §627.749](https://flsenate.gov/Laws/Statutes/2024/627.749) applies only under its stated fully autonomous and service conditions, not to every privately operated Level 2 vehicle.
-
-Earlier California testing law, as summarized in the USDOT review, required a manufacturer testing on public roads to provide evidence of $5 million in insurance and required the test driver to remain seated and capable of immediate manual takeover. [The USDOT review](https://www.nhtsa.gov/sites/nhtsa.gov/files/812043_hf-evaluationlevel2andlevel3automateddrivingconceptsv2.pdf) describes those testing requirements but does not establish a general deployed-vehicle compensation regime.
-
-#### Evidence and expert proof
-
-In federal civil litigation, Federal Rule of Civil Procedure 26 requires disclosure of documents, electronically stored information, and tangible things in a party’s possession, custody, or control that may support a claim or defense. Federal Rule of Evidence 702 governs expert testimony, with Daubert v. Merrell Dow Pharmaceuticals requiring judicial scrutiny of helpfulness, reliability, and support. [The ICLG procedural summary](https://iclg.com/practice-areas/product-liability-laws-and-regulations/usa/) describes those requirements, while state courts may apply different rules.
-
-Criminal access to EDR data remains constitutionally unsettled. A 2020 Columbia Law Review analysis identified two state decisions holding that downloading EDR data was not a Fourth Amendment search and four reaching the opposite conclusion, including Florida’s State v. Worsham, Georgia’s Mobley II, Missouri’s State v. West, and New York’s People v. Christmann. [The Columbia Law Review analysis](https://columbialawreview.org/content/automobile-event-data-recorders-and-the-future-of-the-fourth-amendment/) emphasizes that criminal-search doctrine does not answer every civil-discovery question, but it demonstrates the lack of uniformity surrounding vehicle data.
-
-### European Union
-
-#### Type approval and technical regulation
-
-Regulation (EU) 2019/2144 requires manufacturers to explain advanced systems and their limitations in clear, consumer-friendly language. It addresses driver availability monitoring, distraction and drowsiness warnings, emergency lane keeping, advanced emergency braking, event data recorders, cybersecurity, and software updates. [Regulation (EU) 2019/2144](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R2144) recognizes that systems may deactivate when road infrastructure prevents safe operation and that the driver should be informed.
-
-The regulation also requires EDRs in M1 and N1 vehicles for new types from 6 July 2022 and all new vehicles from 7 July 2024, with requirements concerning data elements, capture, overwriting, storage, survivability, retrieval, privacy, and security. [The European Commission’s delegated EDR rules](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=PI_COM:C(2022)395) provide for retrieval through a standardized serial data port or direct connection if the port is damaged.
-
-UNECE Regulation No. 157 governs ALKS in a specified context. It defines a driver-activated system for qualifying M1 vehicles that controls lateral and longitudinal movement for extended periods at speeds up to 60 kilometers per hour on specified roads. It places primary control with the activated system while preserving driver override and formal availability, transition-demand, minimum-risk, and emergency-maneuver requirements. [UNECE Regulation No. 157](https://eur-lex.europa.eu/eli/reg/2021/389/oj/eng) is therefore a technical approval instrument, not a general civil-liability statute.
-
-UNECE Regulation No. 171 addresses Driver Control Assistance Systems. Its regulatory significance is that it supplies more specific technical expectations for functions that assist the driver in vehicle dynamic control. It does not, by itself, transform an ordinary Level 2 system into a legally driverless vehicle.
-
-For fully automated vehicles, Commission Implementing Regulation (EU) 2022/1426 defines an ADS as hardware and software capable of performing the entire dynamic driving task on a sustained basis within a specific ODD. It requires safety documentation, safety-management systems, validation evidence, cybersecurity and software-update information, and in-use safety data. [Regulation (EU) 2022/1426](https://eur-lex.europa.eu/legal-content/EN/TXT/?qid=1774488161303&uri=CELEX%3A32022R1426) applies to approved fully automated use cases and should not be confused with the ordinary legal treatment of Level 2 driver assistance.
-
-#### Product liability and software
-
-Directive (EU) 2024/2853 modernizes European product liability by expressly treating software as a product whether embedded, downloaded, cloud-accessed, or supplied as a service. It can treat software developers and AI-system providers as manufacturers and can include integrated digital services, updates, and upgrades within the manufacturer’s control.
-
-The Directive assesses defectiveness by reference to the safety the public is entitled to expect, considering intended purpose, foreseeable use, presentation, expected lifespan, user group, safety requirements, recalls, and cybersecurity. It states that warnings cannot make an otherwise defective product safe. It also recognizes that a safety-relevant cybersecurity vulnerability or unexpected learned behavior may support liability. [Directive (EU) 2024/2853](https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng).
-
-For technically complex systems, the Directive permits rebuttable presumptions or court-ordered disclosure in specified circumstances, including excessive difficulty of proving defect or causation, non-disclosure of relevant evidence, non-compliance with mandatory safety requirements, or an obvious malfunction. A secondary analysis reports a standard ten-year liability period and a possible extension to 25 years for latent personal injuries, subject to the Directive’s conditions. [Reed Smith’s analysis](https://www.reedsmith.com/articles/the-new-eu-product-liability-key-implications-autonomous-vehicle/) states that Member States must transpose the Directive by 9 December 2026. As of the reporting cutoff, national implementation and the exact allocation among vehicle manufacturers, software developers, cloud providers, and integrators remained incomplete.
-
-The EU AI Act supplies risk-management, transparency, governance, and robustness obligations for high-risk systems, but it does not create a complete ADS civil-liability code. The proposed AI Liability Directive was withdrawn in early 2025 according to [the Jones Day comparative analysis](https://www.jonesday.com/-/media/files/publications/2025/10/civil-liability-and-risk-mitigation-strategies-for-autonomous-vehicles/files/who-is-liable-when-ai-takes-the-wheel-white-paper/fileattachment/who-is-liable-when-ai-takes-the-wheel-white-paper.pdf?rev=c3f3cde57338496d9c5015c13e586480). Regulatory non-compliance may be evidence relevant to fault or defect, but it is not automatically a civil verdict.
-
-#### Insurance, privacy, and evidence
-
-EU EDR rules emphasize anonymized, crash-related information for road-safety analysis and compliance with data-protection law. They require closed-loop storage and protection against manipulation. The official texts limit identifiability and define access through standardized interfaces, creating a tension between privacy and the need of an injured person or insurer to prove causation.
-
-That tension should not be resolved by assuming that all EDR data is either freely available or legally unusable in civil litigation. A technology commentary interprets the EU framework as barring use of EDR data to establish accident responsibility, while the official regulation describes access by national authorities for accident research and analysis and leaves other access questions to Union or national law. [The official EU text](https://www.legislation.gov.uk/eur/2019/2144/body/adopted/data.xht) is the stronger source for the regulatory scope; [the contrary commentary](https://ubuntu.com/blog/event-data-recorders-safety-and-software-considerations) demonstrates an interpretive disagreement rather than a settled continent-wide rule.
-
-The EU Data Act, effective from 12 September 2025, may give owners and temporary users of connected products access to generated data and allow controlled access to third parties. [Fenwick’s summary](https://www.fenwick.com/insights/publications/the-eu-data-act-what-u-s-tech-companies-need-to-know-about-the-eus-new-data-sharing-rules) describes its potential application to connected vehicles and extraterritorial reach, while noting trade-secret and enforcement limits.
-
-### Germany as a concrete Member State example
-
-Germany illustrates a hybrid model combining owner strict liability, driver fault, compulsory insurance, and manufacturer recourse.
-
-The 2017 amendment to the Straßenverkehrsgesetz addressed highly and fully automated vehicles, broadly corresponding to Levels 3 and 4, but not autonomous Level 5 vehicles. The human remains the statutory driver even while the automated system is active. Under §1b StVG, the driver may turn away from the traffic scene within the intended use of the function, but must maintain sufficient awareness and take over without undue delay if the system requests it or obvious circumstances show that the conditions for intended use no longer exist. [The German liability analysis](https://doi.org/10.1017/err.2018.35) explains that driver fault is presumed under §18 StVG but may be rebutted.
-
-The vehicle owner bears strict liability under §7 StVG, supported by compulsory motor third-party insurance. The source reports ordinary caps of €5 million for personal injury or death and €1 million for property damage from the same event, with both limits doubled for damage caused by a highly or fully automated driving function. The manufacturer is not directly placed into the StVG framework; the motor insurer is expected to pursue product-liability subrogation where an automated-driving defect caused the loss.
-
-Under the German Product Liability Act, the damaged party must prove defect, damage, and causation, although proving that the defect existed when the loss occurred eases the temporal and local proof burden. The source reports an €85 million cap for personal injury caused by identical products with the same defect and a €500 property-damage threshold. It also identifies unresolved issues concerning OTA updates, the time of “putting into circulation,” the absence of a general post-sale monitoring duty, the ten-year limitation period, and the state-of-scientific-knowledge defense.
-
-Germany’s data rules provide a more concrete example of operational evidence. A 2026 legal FAQ reports that §63a StVG requires certain automated vehicles to record position and time when control switches between human and automated operation. Public authorities may request the information, and the vehicle holder must provide it to third parties such as accident opponents or insurers when necessary to enforce post-accident rights. The reported retention period is six months without an accident and three years where an accident occurs. [Taylor Wessing’s data-access FAQ](https://www.taylorwessing.com/en/insights-and-events/insights/2026/01/faq-access-to-vehicle-data-and-data-governance) provides this statutory example.
-
-The supplied material identifies the German Federal Court of Justice judgment of 16 June 2009, VI ZR 107/08, NJW 2009, 2952, 2954, as an authority relevant to automated-driving civil liability. It does not provide the facts, automation mode, claims, defenses, holding, or reasoning. It would therefore be improper to present a holding-level conclusion about that case.
-
-### United Kingdom
-
-#### Ordinary ADAS
-
-The United Kingdom distinguishes ordinary driver-assistance technology from legally authorised self-driving. The 2024 Automated Vehicles Act Explanatory Notes state that with driver assistance the driver remains responsible, must monitor the vehicle, and must be ready to intervene. The March 2026 DfT/NatCen review similarly describes Level 2 as simultaneous steering and acceleration or deceleration control while the driver remains fully engaged and responsible. It states that driver liability remains unchanged for DCAS and System-Initiated Manoeuvres, even when the system can initiate or carry out some driving actions. [The DfT/NatCen review](https://assets.publishing.service.gov.uk/media/69c643e4cdfd19de13d0f75b/understanding-human-factors-in-advanced-driver-assistance-systems-an-evidence-review.pdf) is careful to distinguish these functions from authorised self-driving.
-
-#### Automated and Electric Vehicles Act 2018
-
-Sections 2 and 8 of the Automated and Electric Vehicles Act 2018 came into force on 21 April 2021. Section 2 makes the insurer liable where an insured automated vehicle causes an accident while driving itself on a road or public place in Great Britain. Section 7 defines “driving itself” as operation in a mode in which the vehicle is not controlled and does not need to be monitored by an individual. [The Act’s statutory text](https://www.legislation.gov.uk/ukpga/2018/18/part/1) therefore does not ordinarily cover a Level 2 mode in which the human must continuously supervise.
-
-Section 3 permits reduction for contributory negligence and removes the statutory insurer route to the person in charge where the accident was wholly due to that person negligently allowing the vehicle to begin driving itself when it was inappropriate. Section 4 allows an insurance policy to exclude or limit cover, and permits recovery from the insured, where the accident directly results from prohibited software alterations or failure to install safety-critical updates that the insured knew or ought reasonably to have known were safety-critical.
-
-The Act’s design is victim-first. The injured road user claims against the insurer, which may later pursue a responsible driver, manufacturer, software provider, or operator. The University of York analysis describes this as a direct strict-liability route that displaces much of the initial tort complexity onto insurers, while giving insurers a potentially important subrogated role. [The University of York analysis](https://pure.york.ac.uk/portal/en/publications/tort-and-autonomous-vehicle-accidents-the-automated-and-electric-/).
-
-#### Automated Vehicles Act 2024
-
-The Automated Vehicles Act 2024 creates an authorised self-driving entity responsible for how an authorised vehicle drives and for related regulatory obligations. It also creates the user-in-charge concept for qualifying features. While an authorised self-driving feature is engaged, the user-in-charge is not responsible for the dynamic driving task and need not monitor the driving environment, although the user retains duties concerning readiness, insurance, roadworthiness, loading, parking, and other matters.
-
-A no-user-in-charge feature requires a licensed operator responsible for oversight, maintenance, insurance, location monitoring, and general safe operations. The Act also provides for technical assessment, safety and cybersecurity approval, management systems, software updates, statutory inspectors, and independent no-blame safety investigations. [The Department for Transport Explanatory Notes](https://www.legislation.gov.uk/ukpga/2024/10/pdfs/ukpgaen_20240010_en.pdf) describe this framework.
-
-The Explanatory Notes are not themselves the Act and do not decide a particular civil claim. The March 2026 DfT/NatCen review reported that the relevant self-driving provisions were not yet in effect. The supplied material does not establish a later commencement date by 13 September 2026, so the operational status of every provision should be checked in a live case.
-
-## 4. Case law and accident-investigation precedents
-
-### Different kinds of authority
-
-Three kinds of evidence must be kept separate.
-
-A court judgment interprets law and may establish a binding or persuasive rule depending on court and jurisdiction. A jury verdict resolves the particular record but ordinarily does not create a detailed legal precedent. An accident investigation identifies probable causes and safety issues but does not determine civil fault.
-
-The NTSB expressly states that its investigations are fact-finding proceedings, not proceedings to determine rights or liabilities, and that federal law prohibits use of the report in a civil damages action concerning the reported matter. [The Mountain View report’s legal disclaimer](https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR2001.pdf) should accompany any use of NTSB findings.
-
-### Hsu v. Tesla, Los Angeles Superior Court, verdict 21 April 2023
-
-Justine Hsu sued Tesla over a 2020 complaint involving a Tesla Model S that allegedly swerved into a curb while Autopilot was engaged. She alleged Autopilot and airbag design defects and sought more than US$3 million. Tesla argued that she had used Autopilot on city streets despite a user-manual warning and denied liability.
-
-A Los Angeles Superior Court jury awarded zero damages. It found that the airbag did not fail to perform safely and that Tesla did not intentionally fail to disclose facts. Reuters reported that jurors considered Tesla’s warnings clear and attributed the result to driver distraction. [Reuters’ report on Hsu v. Tesla](https://www.reuters.com/legal/us-jury-set-decide-test-case-tesla-autopilot-crash-2023-04-21/) describes the verdict as a potential bellwether but not legally binding in other cases.
-
-The case’s significance is limited but important. A warning-based defense can succeed where jurors conclude that the driver ignored explicit limitations and the plaintiff cannot prove a defect or causal link. The case is not authority for the proposition that warnings always defeat design-defect claims. It was a fact-specific jury verdict, and the supplied material does not provide a published appellate holding or a detailed written legal analysis.
-
-### Benavides v. Tesla, S.D. Florida, 2019 crash and 2025–2026 proceedings
-
-#### Facts and automation mode
-
-On 25 April 2019, George McGee was driving a 2019 Tesla Model S equipped with Autopilot in Key Largo, Florida. The vehicle struck a parked Chevrolet Tahoe, which then struck Naibel Benavides Leon and Dillon Angulo. Benavides Leon died and Angulo suffered significant injuries. [The Southern District of Florida’s post-trial order](https://storage.courtlistener.com/recap/gov.uscourts.flsd.593426/gov.uscourts.flsd.593426.612.0.pdf) records the accident facts.
-
-The trial evidence, as summarized in supplied materials, included McGee’s excessive speed, failure to stop at a stop sign and flashing red light, and distraction while retrieving a cellphone. Plaintiffs nevertheless argued that Tesla bore independent responsibility because Autopilot could be engaged outside its intended ODD and because steering-torque monitoring did not ensure attention. Tesla argued that responsibility rested with McGee, that the vehicle warned drivers to keep their hands on the wheel and eyes on the road, and that a 2019 vehicle could not have prevented the crash if the driver failed to control it. [The defense-side account](https://www.wshblaw.com/experience-benavides-v-tesla-a-defense-side-perspective-on-floridas-landmark-autopilot-verdict) reports those competing arguments but is not a judicial holding.
-
-#### Claims and disposition
-
-The amended complaint asserted defective design, failure to warn, defective manufacture, and negligent misrepresentation. On 26 June 2025, the court dismissed the defective-manufacture and negligent-misrepresentation counts at summary judgment but allowed defective design, failure to warn, and punitive damages to proceed. The order therefore did not hold that Tesla’s design was defective; it held that the evidence permitted a jury to decide the surviving claims.
-
-The jury found Tesla 33% responsible for the plaintiffs’ injuries and McGee 67% responsible. The jury awarded gross compensatory damages of US$59 million to the estate and US$70 million to Angulo. The final judgment reduced those amounts to US$19.47 million and US$23.1 million to reflect Tesla’s 33% share and imposed US$200 million in punitive damages. The final judgment was entered in August 2025. [The final judgment](https://storage.courtlistener.com/recap/gov.uscourts.flsd.593426/gov.uscourts.flsd.593426.538.0_1.pdf) records the punitive award, and [the February 2026 post-trial order](https://storage.courtlistener.com/recap/gov.uscourts.flsd.593426/gov.uscourts.flsd.593426.612.0.pdf) records the percentage allocation and reduced compensatory amounts.
-
-On 19 February 2026, the court denied Tesla’s renewed Rule 50 motion and Rule 59 new-trial motion, finding that the trial evidence supported the verdict. Tesla challenged the admission of vehicle-data evidence, statements by Elon Musk, and other accident evidence; the court rejected those challenges. The supplied material reports Tesla’s expected appeal, but does not establish an appellate disposition.
-
-#### Significance and limits
-
-Benavides is important because a jury assigned manufacturer responsibility even where driver misconduct was substantial. It demonstrates that a Level 2 product-liability claim may survive when the plaintiff presents evidence of an unsafe ODD boundary, inadequate monitoring, or misleading system presentation. It does not establish that Tesla or every manufacturer is liable whenever a driver is distracted. Nor does the 33% figure create a general formula. The allocation was a verdict on a particular evidentiary record, and the detailed jury reasoning is not fully available in the supplied sources.
-
-The contrast with Hsu is instructive:
-
-| Issue | Hsu v. Tesla | Benavides v. Tesla |
-|---|---|---|
-| Court and date | Los Angeles Superior Court jury, 21 April 2023 | S.D. Florida federal jury, 2025; post-trial order February 2026 |
-| Mode and event | Model S allegedly swerved into a curb on Autopilot | Model S on Autopilot struck a parked vehicle, causing fatal and catastrophic third-party injuries |
-| Main defenses | Driver used system on city streets despite warnings; no airbag defect | Driver ignored traffic control and was distracted; warnings required attention and takeover |
-| Result | Zero damages; no airbag failure; no intentional nondisclosure | Tesla 33% responsible for compensatory injury and all punitive damages; driver 67% responsible |
-| Legal significance | Warning and proof failures can defeat a fact-specific jury claim | Driver misconduct does not preclude design, warning, or punitive findings where system contribution is proved |
-| Precedential force | Nonbinding jury verdict | Fact-specific federal jury verdict and post-trial order; appellate significance not established |
-
-### NTSB Mountain View, California, 23 March 2018
-
-The Mountain View Tesla Model X was using TACC and Autosteer on US-101. About 5.9 seconds before impact, Autosteer applied a left steering input toward a highway gore area. The vehicle did not detect driver-applied steering torque, the system did not warn that it was entering the gore, and TACC accelerated after the lead vehicle was no longer detected. FCW and AEB did not activate because the crash attenuator was not an object those systems were designed to detect. The vehicle struck the attenuator at approximately 70.8 miles per hour.
-
-The driver took no corrective or evasive action. NTSB found that a phone game was active and that the driver was likely distracted. It also found that the driver-monitoring design was ineffective, the system’s vision processing had limitations, the ODD was not technically enforced, the collision-avoidance system did not cover the object and speed combination, and the damaged attenuator increased injury severity. The probable cause was therefore combined: system limitations plus driver distraction and overreliance, with ineffective engagement monitoring contributing.
-
-The report’s most important responsibility insight is causal layering. The driver’s distraction did not erase the system’s unsafe steering behavior. The system’s limitation did not erase the driver’s failure to respond. The damaged road barrier did not cause the vehicle to leave its lane but increased the severity of the outcome. A civil court would analyze those facts under its own causation and apportionment rules; it could not simply convert the NTSB’s probable-cause narrative into a damages percentage.
-
-### NTSB Williston, Florida, 7 May 2016
-
-A Tesla Model S using TACC and Autosteer struck the side of a tractor-trailer that was turning across the highway. The truck driver failed to yield, while the Tesla driver did not react. NTSB attributed the crash to the truck driver’s failure to yield combined with the Tesla driver’s inattention caused by overreliance on automation. It identified as a contributing factor the system’s operational design, which permitted prolonged disengagement and use inconsistent with manufacturer warnings.
-
-The case is persuasive technical evidence that another road user’s traffic violation and a Level 2 driver’s inattention can coexist with a system-design contribution. It does not establish a civil product-liability verdict.
-
-### NTSB Culver City, California, 22 January 2018
-
-A Tesla Model S using Autopilot remained in the HOV lane and struck a stationary fire truck parked diagonally across it. A forward-collision warning occurred approximately 0.49 seconds before impact, but AEB did not activate. NTSB identified the driver’s inattention and overreliance, the Autopilot design that permitted disengagement, and use inconsistent with warnings as causes or contributors.
-
-This event shows why a warning’s existence is not enough. The legal question would include whether the warning was timely enough, whether the system should have braked, whether the object was within its tested capability, and whether the driver had a reasonable opportunity to respond.
-
-### NTSB Delray Beach, Florida, 1 March 2019
-
-A Tesla Model 3 using TACC and Autosteer collided with a tractor-trailer entering US-441 from a private driveway. The Tesla was traveling approximately 69 miles per hour. TACC was activated 12.3 seconds before impact, Autosteer 2.4 seconds later, and Autopilot 9.9 seconds before impact. The driver-monitoring system detected no steering-wheel torque during the final 7.7 seconds. FCW and AEB did not activate, and no pre-impact braking or steering was recorded.
-
-NTSB concluded that the truck driver failed to yield and that the Tesla driver was inattentive due to automation overreliance. It also identified the system’s design permitting driver disengagement, Tesla’s failure to limit use to its ODD, and NHTSA’s failure to develop a method to verify Level 2 safeguards. The report is especially relevant to foreseeable misuse: a manufacturer cannot necessarily rely on a driver’s theoretical ability to choose a safe operating environment when the system itself permits repeated operation outside the stated conditions.
-
-### NTSB Tempe, Arizona, 18 March 2018
-
-The Tempe crash involved a developmental Uber ADS rather than an ordinary consumer Level 2 system. A modified Volvo XC90 operating on a pre-mapped route detected a pedestrian 5.6 seconds before impact but did not classify or predict her path accurately. The system exceeded its braking-response specification and did not provide emergency braking for collision mitigation. Uber had disabled the Volvo’s factory FCW and AEB without replacing their full functions.
-
-NTSB identified inadequate safety-risk assessment, ineffective operator oversight, insufficient automation-complacency countermeasures, the pedestrian’s crossing outside a crosswalk, and inadequate state oversight as contributing factors. The backup operator had been streaming a television program on a cellphone throughout the trip. [The NTSB accident report](https://www.ntsb.gov/investigations/accidentreports/reports/har1903.pdf) supplies the technical and organizational findings.
-
-The criminal case produced a different kind of legal outcome. Maricopa County Superior Court accepted Rafaela Vasquez’s guilty plea to an undesignated felony endangerment charge and imposed three years of supervised probation. Uber was not criminally charged as a corporation. [The Associated Press account](https://apnews.com/article/autonomous-vehicle-death-uber-charge-backup-driver-1c711426a9cf020d3662c47c0dd64e35) reports that NTSB regarded the operator’s failure to monitor the road as the main cause while identifying Uber procedures and oversight as contributors.
-
-Tempe is not a civil product-liability holding. Its value lies in showing that operator staffing, safety culture, redundancy, and software limitations can be causally relevant even when the human safety operator is also plainly negligent.
-
-### Other relevant precedents and unavailable holdings
-
-A California DMV report concerning a Cruise robotaxi collision in June 2022 illustrates the potential for concurrent responsibility. Another vehicle struck a Cruise vehicle making an unprotected left turn. Cruise argued that the oncoming vehicle bore more blame but did not assert zero responsibility. The report did not produce a judicial verdict. [The Cruise collision filing](https://www.dmv.ca.gov/portal/file/cruise_060322-pdf/) is therefore an investigative or party account, not a liability holding.
-
-The Court of Justice of the European Union’s Carglass/A.T.U. v. FCA judgment of 5 October 2023 held that manufacturer-imposed conditions making regulated OBD and repair information access more difficult were impermissible. The supplied material identifies it as a data-access precedent, not an ADAS accident-liability decision. [Taylor Wessing’s summary](https://www.taylorwessing.com/en/insights-and-events/insights/2026/01/faq-access-to-vehicle-data-and-data-governance) should not be cited for a product-liability holding.
-
-The supplied authorities do not provide a full published United Kingdom, European Union, or German court decision applying negligence, product liability, comparative fault, or insurance rules to a specific SAE Level 2 or Level 3 crash with complete facts, claims, defenses, and holding. The German VI ZR 107/08 citation is insufficient to reconstruct the decision, and the comparative materials do not supply a complete holding for Tesla v. Banner. The absence of a supplied holding is not evidence that no such cases exist; it means that no holding-level proposition should be asserted here.
-
-## 5. Systematic allocation of responsibility between driver and system
-
-### The governing principle: allocate by controllable risk
-
-A workable rule has four parts:
-
-1. Identify who had control or the ability to prevent the relevant event.
-2. Identify what duty that actor owed under traffic law, product law, regulation, contract, or insurance law.
-3. Establish factual and legal causation.
-4. Apportion concurrent responsibility without converting a technical label into a percentage.
-
-This method recognizes that “the driver was responsible” may mean different things. It may mean the driver had the legal duty to supervise a Level 2 system. It may mean the driver negligently ignored a warning. It may mean the driver selected an unsuitable road. It does not necessarily mean the manufacturer is immune from liability for a system that encouraged foreseeable misuse or failed to perform within its design conditions.
-
-### Responsibility matrix
-
-| Actor | Sphere of control | Typical duties | Liability pathways |
-|---|---|---|---|
-| Driver or user | Attention, lawful operation, readiness, response, mode selection | Follow traffic law, supervise Level 1–2, remain available where required, respond reasonably to warnings, avoid prohibited distraction | Negligence, traffic offences, comparative fault, contributory negligence, misuse |
-| Owner or keeper | Maintenance, updates, calibration, loading, roadworthiness, authorized use | Maintain physical systems, install safety-critical updates, observe recalls, operate within disclosed conditions | Owner strict liability where enacted, negligence, negligent entrustment, policy exclusions, contribution |
-| Fleet or test operator | Staffing, training, routes, monitoring, maintenance, procedures | Provide competent safety drivers, supervise testing, preserve data, manage incidents and service | Operational negligence, statutory violations, contractual indemnity, employer liability |
-| Vehicle manufacturer or integrator | Design, system integration, ODD, HMI, DMS, warnings, validation, updates | Design against unreasonable foreseeable risk, contain ODD, warn accurately, maintain safety over product life | Design, manufacturing, warning, negligence, warranty, statutory product liability, punitive damages |
-| Software or AI provider | Algorithms, maps, cloud services, updates, cybersecurity | Supply safe software, support updates, manage vulnerabilities, preserve relevant logs, cooperate with integrator | Product liability where software is a product, negligence, contract, contribution, indemnity |
-| Insurer | First response, coverage, defense, recovery | Pay covered victims where statute requires, investigate fairly, preserve evidence, pursue recourse where appropriate | Usually not accident-causation liability; statutory payment duty, subrogation, indemnity |
-| Other road user or infrastructure authority | Right of way, road design, maintenance, warning devices | Drive lawfully, repair or mark hazards, maintain safety equipment | Concurrent negligence, contribution, severity allocation |
-
-The table describes a starting point, not an automatic result.
-
-### Driver responsibility
-
-#### Level 1 and Level 2
-
-The ordinary Level 2 driver standard is not “the driver must be perfect.” It is the standard of a reasonably attentive driver who understands the system’s stated limitations and remains able to intervene.
-
-Relevant questions include:
-
-- Was the driver looking at the road?
-- Was the driver engaged in a prohibited secondary task?
-- Was the driver’s hands-off behavior itself prohibited, or merely evidence of inattention?
-- Did the system provide an intelligible warning?
-- Could a reasonably attentive driver have recognized the system’s path error?
-- Was the driver operating the system outside its disclosed ODD?
-- Did the driver know or reasonably understand that the system was not autonomous?
-- Did the driver have enough time and space to correct the error?
-
-A driver who uses a Level 2 system while watching a video or playing a game may be negligent even if the system later malfunctions. The NTSB findings in Mountain View, Culver City, Williston, and Delray Beach support that conclusion.
-
-But the driver’s duty has limits. A driver should not be expected to have superhuman reaction time, extraordinary driving skill, or the ability to detect a non-obvious software limitation. [Widen and Koopman’s proposed framework](http://users.ece.cmu.edu/~koopman/pubs/Widen2023_AwkwardMiddle.pdf) states that a human supervisor should not be required to compensate for a computer-driver design defect. That is a persuasive policy principle, not current universal law.
-
-#### Mode confusion
-
-If the driver reasonably believes that a system is performing a function it is not performing, the system’s design may be relevant. The proposed frameworks by Widen and Koopman and the [Jurimetrics article](https://www.americanbar.org/groups/science_technology/resources/jurimetrics/2023-fall/automated-vehicles-liability-attribution-rules-driving/) would place responsibility on the computer driver when non-malicious mode confusion results from the system’s failure to make its mode clear.
-
-A court should examine the entire communication environment:
-
-- product name and advertising;
-- activation confirmation;
-- instrument-cluster display;
-- steering-wheel or pedal feedback;
-- audible and haptic signals;
-- owner’s manual;
-- training and onboarding;
-- prior system behavior; and
-- whether the system allowed operation in conditions inconsistent with its warnings.
-
-A small disclaimer may not overcome a broader design that invites reliance. The EU Product Liability Directive expressly states that warnings cannot make an otherwise defective product safe. In the United States, the effect of warnings depends on the state’s doctrine and the facts.
-
-#### Level 3 takeover
-
-Level 3 changes the driver’s monitoring duty. The driver may not need to monitor the environment continuously while the system is operating within its approved ODD, but must remain sufficiently available to respond to a valid transition demand. The driver’s failure to respond can be negligent if the demand was timely, distinctive, comprehensible, and physically possible to answer.
-
-The driver should not be liable merely because the vehicle eventually crashed after a takeover request. The analysis must ask:
-
-- When did the system recognize that it could no longer continue?
-- When did the hazard become detectable?
-- How much time remained for a normal driver?
-- Was the driver asleep, intoxicated, or performing an expressly permitted secondary task?
-- Did the system provide staged multimodal warnings?
-- Did it continue to control the vehicle during the transition?
-- Did it execute a minimum-risk maneuver when response was absent?
-- Was the request caused by an ODD limitation that the manufacturer should have contained?
-
-A driver’s physical ability to touch the controls is not the same as situational readiness. The takeover literature separates gaze readiness, motor readiness, cognitive understanding, and actual control input. Legal analysis should do the same.
-
-### Owner and keeper responsibility
-
-The owner is usually the actor who can maintain the vehicle but not redesign its algorithm. Owner duties should therefore be limited to risks within practical control:
-
-- physical maintenance;
-- sensor cleaning and calibration;
-- tire, brake, and steering condition;
-- compliance with recalls;
-- installation of safety-critical software updates;
-- avoiding prohibited modifications;
-- loading and passenger restraints;
-- operation within clearly disclosed conditions; and
-- preventing unauthorized drivers from using the vehicle.
-
-The United Kingdom’s AEVA expressly permits insurance consequences for prohibited software alterations and failure to install safety-critical updates where the insured knew or ought to have known of their importance. Germany’s hybrid model retains owner strict liability while expecting manufacturer recourse where system defects caused the crash.
-
-A fair framework should not treat the owner as the residual bearer of every software risk merely because the owner possesses the vehicle. If an update is invisible, forced, incompatible, or unavailable, the manufacturer or software provider may retain responsibility. Conversely, an owner who knowingly rejects a safety-critical update or uses an aftermarket system outside approved integration may bear a larger share.
-
-### Operator and fleet responsibility
-
-A commercial operator or testing entity may control risks that neither driver nor manufacturer controls:
-
-- selecting routes and operating conditions;
-- staffing and scheduling safety drivers;
-- training and monitoring personnel;
-- maintaining vehicles;
-- supervising remote operations;
-- ensuring that factory safety systems are not disabled without equivalent redundancy;
-- responding to warnings and incidents;
-- preserving operational data; and
-- complying with testing or service licenses.
-
-The Tempe investigation demonstrates that operator responsibility can be independent of product defect. Uber’s safety-risk assessment, operator oversight, automation-complacency measures, and decision to deactivate factory FCW/AEB were all technically distinct from the pedestrian’s conduct and the vehicle’s perception failure.
-
-For higher automation, the United Kingdom’s authorised self-driving entity concentrates responsibility for how the vehicle drives. That institutional allocation is useful because it avoids requiring an injured person to identify which supplier, algorithm, cloud service, or operator controlled a particular function. Internal recourse can later divide the loss according to contractual and technical control.
-
-### Manufacturer responsibility
-
-Manufacturer duties fall into at least six categories.
-
-#### Design and integration
-
-The manufacturer must integrate sensors, perception, planning, controls, HMI, driver monitoring, and fallback behavior so that the overall system is safe for its intended function. A system can be unsafe even if every component meets its individual specification. Mountain View illustrates a system-level interaction among lane prediction, driver monitoring, adaptive cruise control, collision avoidance, and road geometry.
-
-#### ODD containment
-
-A manufacturer that defines an ODD but allows activation outside it faces a stronger foreseeable-misuse argument. The NTSB’s criticism of Tesla was not simply that drivers ignored instructions. It was that the system permitted operation in conditions the manufacturer said it was not designed to handle and that such use was foreseeable.
-
-ODD enforcement need not always mean complete deactivation. It may involve speed reduction, explicit confirmation, additional warnings, restricted mode, or a transition to a minimum-risk maneuver. But the manufacturer should be able to show why the chosen safeguard was proportionate to the hazard.
-
-#### Warnings and consumer presentation
-
-The manufacturer must describe what the function does, what it does not do, and what the driver must do. A warning should match the actual system, not merely the legal position the manufacturer hopes to establish later. Marketing and product names may be relevant to whether the public’s safety expectations were reasonable.
-
-Hsu and Benavides show opposite outcomes from similar arguments. In Hsu, jurors credited the warnings and rejected damages. In Benavides, the jury found that warnings and driver misconduct did not eliminate independent Tesla responsibility.
-
-#### Driver monitoring
-
-If driver attention is an essential system component, monitoring is part of the product’s safety architecture. A manufacturer should not rely solely on a surrogate that is easy to satisfy but poorly correlated with attention. The NTSB’s steering-torque findings, the DfT review’s human-factors evidence, and the takeover studies support camera-based or multimodal assessment, although no single metric is yet universally validated.
-
-#### Software updates and post-sale safety
-
-The manufacturer or provider that controls OTA updates may have duties to test, document, deliver, and monitor safety-relevant changes. A post-sale update may correct an existing defect, introduce a new one, or materially change the vehicle’s ODD. The EU Product Liability Directive’s treatment of updates and cybersecurity is designed to prevent a manufacturer from treating digital capability as outside the product after sale.
-
-In the United States, the precise post-sale duty varies by state and theory. Evidence of a later update may be relevant to notice, feasibility, defect, or causation, but a later improvement alone does not prove that the earlier version was defective.
-
-#### Cybersecurity and connected services
-
-The manufacturer, software provider, cloud service, and operator may each control different parts of the cyber risk. The relevant questions are:
-
-- Who designed the security architecture?
-- Who controlled credentials and update signing?
-- Who knew of the vulnerability?
-- Who could patch it?
-- Was the vehicle safe if connectivity was lost?
-- Did the attack alter perception, planning, actuation, or warnings?
-- Were logs preserved?
-
-Liability should follow control and knowledge, not simply the identity of the vehicle brand.
-
-### Software-provider responsibility
-
-Software may be supplied by the vehicle manufacturer, a component supplier, an AI developer, a map provider, a cloud provider, or a service operator. The EU Product Liability Directive offers the clearest statutory route by treating software as a product and certain developers as manufacturers.
-
-In the United States and United Kingdom, the supplied materials do not establish a comprehensive enacted civil-liability regime for standalone software providers in ordinary shared Level 2 operation. A software provider may nevertheless face:
-
-- component or product liability;
-- negligent design or failure to warn;
-- contract-based indemnity;
-- contribution claims by the vehicle manufacturer;
-- cybersecurity or data-governance liability;
-- professional negligence;
-- misrepresentation claims; or
-- direct statutory responsibility where a sector-specific law applies.
-
-A court should ask whether the provider retained meaningful control over the safety-relevant function. A provider that merely supplies generic code is differently situated from one that controls perception models, OTA updates, safety constraints, or the cloud service that determines the vehicle’s path.
-
-### Insurer responsibility
-
-The insurer is usually not the actor that caused the crash. It is the institution that makes compensation practical.
-
-In the United Kingdom, the AEVA explicitly uses the insurer-first model for a vehicle driving itself. In Germany, compulsory motor insurance covers owner and driver liability, and the insurer may pursue manufacturer recourse. In the United States, the structure varies by state and policy, although ordinary motor insurance generally provides the first practical source of compensation.
-
-A victim-first model has three advantages:
-
-1. It avoids forcing an injured person to prove complex software defect before receiving compensation.
-2. It creates a financially stable institution with claims-handling capacity.
-3. It allows later subrogation among driver, owner, operator, manufacturer, and software provider.
-
-It also creates risks. Insurers may lack the technical expertise to litigate software defects, may have insufficient access to vehicle data, or may have a business incentive to preserve traditional motor-insurance premiums rather than pursue systematic recovery from manufacturers. The German analysis warns that widespread successful subrogation could change the motor-insurance business model and reduce insurers’ incentives to pursue it. [The German liability and insurance study](https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/reasonable-adequate-and-efficient-allocation-of-liability-costs-for-automated-vehicles-a-case-study-of-the-german-liability-and-insurance-framework/4FA30CEE6D78610EFB4237003D76B0E3).
-
-Insurance law should therefore distinguish external compensation from internal allocation. The victim should receive prompt payment under the applicable first-response system; manufacturers and providers should not escape ultimate responsibility merely because the insurer paid first.
-
-### Causation, apportionment, and damages
-
-#### Causal sequence
-
-A reliable reconstruction should identify at least these points:
-
-1. The system was activated.
-2. The system and driver’s respective control states changed.
-3. The relevant hazard became detectable.
-4. The system detected, classified, or missed the hazard.
-5. A warning or takeover request was generated and delivered.
-6. The driver perceived and understood it, or failed to do so.
-7. The driver or system applied steering, braking, or acceleration.
-8. The collision occurred.
-9. Secondary conditions affected injury severity.
-
-This sequence permits counterfactual questions:
-
-- Would the crash have occurred if the system had stayed within its ODD?
-- Would it have occurred if a reasonable warning had been issued?
-- Would it have occurred if the driver had been attentive?
-- Would it have occurred if AEB had detected the object?
-- Would the injury have been less severe if the barrier or restraint system had functioned?
-- Would the outcome have changed if an update had been installed?
-
-#### Concurrent causes
-
-The NTSB findings demonstrate several forms of concurrent causation:
-
-- Mountain View: system path error, driver distraction, ineffective monitoring, damaged barrier.
-- Delray Beach: truck driver’s failure to yield, Tesla driver inattention, system ODD and safeguard limitations, regulatory verification gap.
-- Tempe: pedestrian crossing, perception failure, disabled redundancy, operator distraction, organizational safety failures, state oversight.
-
-A court should not force the case into a single-cause narrative when evidence supports multiple substantial contributors. Comparative-fault rules may allocate percentages among actors, reduce the plaintiff’s recovery, or preserve joint-and-several recovery depending on jurisdiction.
-
-#### Damages
-
-Potential damages include death, bodily injury, medical expenses, lost income, pain and suffering, wrongful death, property loss, and sometimes punitive damages. The United States Benavides award illustrates the possibility of punitive damages where a jury finds conduct sufficiently blameworthy, but the result is fact-specific and subject to state and federal limits.
-
-Germany provides a statutory-cap example. The supplied analysis reports doubled StVG owner-liability caps for highly or fully automated driving and an €85 million product-liability cap for personal injury from identical products with the same defect. The United Kingdom AEVA excludes specified property categories and applies statutory limitations. The supplied evidence does not provide a complete comparative account of all damages caps, exclusions, or compensation funds across United States states, EU Member States, and the United Kingdom.
-
-### Burden of proof
-
-The burden of proof is often decisive because the manufacturer controls the system’s internal evidence.
-
-In ordinary United States product-liability litigation, the plaintiff generally must prove defect, injury, and causation. Federal discovery may require production of relevant electronic data, but state law, trade-secret objections, protective orders, and expert-gatekeeping remain important.
-
-Under the German Product Liability Act, the claimant must prove defect, damage, and causal relationship, with a limited easing concerning the existence of the defect at the time of loss. Under the EU Product Liability Directive, technically complex cases may trigger disclosure orders or rebuttable presumptions where the claimant faces excessive difficulty. The Directive does not make every technologically complex claim automatic.
-
-The United Kingdom’s AEVA reduces the victim’s initial burden for qualifying “driving itself” accidents by directing the claim to the insurer. The resulting dispute may occur later through insurer recourse or a redress process.
-
-A fair system should impose an adverse inference or rebuttable presumption when a manufacturer or provider unjustifiably fails to preserve or disclose safety-relevant data. That is a proposed procedural safeguard, not a universal existing rule.
-
-## 6. Evidence needed to determine whether the driver, system, or both caused the crash
-
-### Event data recorders and operational telemetry
-
-Traditional EDRs record information such as speed, braking, acceleration, and vehicle dynamics. United States federal regulations require at least 15 data points when an EDR is installed, and conventional systems generally preserve a short pre-crash period locally. [The Columbia Law Review note](https://columbialawreview.org/content/automobile-event-data-recorders-and-the-future-of-the-fourth-amendment/) reports that approximately 99% of registered United States vehicles had EDRs in 2020, but also emphasizes privacy and access disputes.
-
-Traditional EDR data is not enough for a Level 2 or Level 3 case. It may not show:
-
-- whether an automation function was active;
-- the duration of activation;
-- whether the driver was supervising;
-- the system’s confidence or ODD status;
-- whether a warning was delivered;
-- whether a takeover request escalated;
-- what the system perceived;
-- which software version controlled the vehicle; or
-- whether the driver or system applied the decisive steering or braking input.
-
-The NTSB used Tesla Carlog data because the ordinary EDR did not capture the necessary Level 2 engagement parameters. It concluded that manufacturers provided limited access and that retrievable data parameters were not standardized. NHTSA’s 2022 report likewise warned that engagement and crash telemetry vary widely and may be absent or incomplete.
-
-### Evidence matrix
-
-| Evidence | Main question answered | Important limitation |
-|---|---|---|
-| EDR and crash-triggered vehicle data | Speed, braking, acceleration, restraint and collision timing | Often short-window data; may not record ADAS engagement or perception |
-| DSSAD, Carlog, telemetry, and mode logs | Activation, control authority, warnings, takeover, driver inputs | Manufacturer-specific formats and access; possible overwrite or remote alteration |
-| Driver-monitoring and HMI logs | Gaze, head position, hands, warnings, acknowledgement, readiness | Torque is not attention; biometric data raises privacy and reliability issues |
-| Software, OTA, and cybersecurity records | Version, update offer, installation, patch status, attacks, signed logs | Cloud records may be incomplete; version alone does not prove defect |
-| Sensor, calibration, maintenance, and repair records | Physical condition, blocked sensors, calibration, servicing, recalls | Post-crash damage can destroy evidence; maintenance records may be incomplete |
-| Scene, video, roadway, weather, and infrastructure evidence | ODD, visibility, road markings, other road-user conduct, barrier condition | Does not by itself show system perception or driver mental state |
-| Expert reconstruction and simulation | Counterfactual timing, detectability, warnings, braking and survivability | Depends on validated models and complete underlying data |
-
-### Data retention and authentication
-
-Operational data should be preserved as soon as a serious crash is reported. The original file should be protected from alteration, with a documented extraction method, hash or equivalent integrity check, synchronized time source, device identity, software version, and chain of custody.
-
-A reconstruction should distinguish raw data from derived data. A manufacturer-generated playback may be useful, but investigators should also obtain the underlying sensor, control, and event records where technically and legally possible. A chart showing “Autopilot active” should be accompanied by the definition of activation, the sampling rate, and the method used to determine the state.
-
-The evidence should also identify clock drift. A warning generated at 12:00:01, a camera frame timestamped 12:00:02, and a brake input timestamped 12:00:03 cannot be compared without knowing whether the systems used synchronized clocks. This is especially important for takeover causation, where fractions of a second may determine whether the driver had a reasonable opportunity to avoid impact.
-
-### Software version and update history
-
-The record should include:
-
-- exact firmware and software identifiers;
-- hardware configuration;
-- maps and localization data;
-- update offer and installation times;
-- failed update attempts;
-- safety notices and recalls;
-- relevant service bulletins;
-- configuration changes;
-- aftermarket modifications;
-- sensor calibration;
-- cybersecurity alerts and patches; and
-- whether the vehicle was authorized for the relevant function after the update.
-
-The EU’s delegated EDR rules require protection against manipulation and invalid updates for covered systems. The [ABI and Thatcham insurer requirements](https://keystone-cms-production-amfyhhecavg8gneq.northeurope-01.azurewebsites.net/blob/keystoneproduction/publicFile/2026/03/abi-guide-insurer-requirements-automated-vehicles-april2024-cmmw05tc50bd8gapadxfq6bfp.pdf) call for visibility of authorized functions and software versions, timely insurer access, cybersecurity over the vehicle’s life, and a dynamic record linked to the vehicle identification number.
-
-### Privacy and access
-
-Driver-monitoring data may reveal faces, gaze, health-related indicators, habits, or secondary tasks. It should not be retained indefinitely merely because it might someday assist litigation. Conversely, privacy should not become a blanket basis for withholding the only evidence of a system’s operation.
-
-A proportionate access regime should distinguish:
-
-- anonymized population data for road-safety research;
-- identifiable data necessary for a specific claim;
-- sensitive biometric data requiring restricted access;
-- raw sensor data containing bystander information;
-- trade-secret algorithmic information; and
-- data relevant to regulatory investigation or criminal proceedings.
-
-The United States Fourth Amendment cases show that criminal acquisition rules are unsettled. EU rules emphasize anonymization and GDPR compliance. Germany’s §63a example provides specific post-accident access. The United Kingdom’s Law Commissions proposed 39 months of retention—three years for the personal-injury limitation period plus three months for retrieval and processing—but the supplied material states that the Automated Vehicles Act 2024 did not itself impose the recommended general disclosure duty. [The UK insurance analysis](https://www.hlc.com/en/publications/insurance-at-the-front-line-of-automated-vehicle-regulation) describes the proposal and its limits.
-
-### Expert reconstruction
-
-A competent reconstruction should combine:
-
-- scene measurements and photographs;
-- vehicle trajectories;
-- EDR and operational telemetry;
-- driver-monitoring records;
-- warning and HMI timing;
-- software and map versions;
-- sensor calibration;
-- weather and lighting;
-- roadway and ODD evidence;
-- other road-user conduct;
-- human-factors evidence on response time;
-- vehicle dynamics and braking capability; and
-- injury-severity or survivability analysis.
-
-The expert should not infer attention solely from the absence of steering torque, nor infer system defect solely from a crash. The expert should explain what the system could detect, when it could detect it, what it did, what the driver could see, what warning was delivered, and what a reasonable response would have been.
-
-## 7. Comparative synthesis, liability gaps, and policy trade-offs
-
-### Comparison across the United States, European Union, and United Kingdom
-
-| Axis | United States | European Union | United Kingdom | Comparative judgment |
+| Control state or scenario | Driver-side signal | System or manufacturer-side signal | Provisional legal path | Evidence to preserve |
 |---|---|---|---|---|
-| Control and monitoring | Level 2 guidance generally leaves full attention and supervision with the driver; no comprehensive federal Level 2 approval regime | Technical rules increasingly specify driver availability, HMI, ODD, fallback, and ADS safety documentation | Ordinary ADAS remains driver-centered; authorised self-driving can shift dynamic responsibility to the system | Legal responsibility should follow the actual control mode, not the marketing name |
-| ODD and failure handling | Federal guidance and recalls; NTSB criticized lack of ODD safeguards and proactive verification | R157, R171, GSR, and ADS rules provide more detailed approval and lifecycle requirements | AV Act authorisation is designed to determine when legal responsibility changes; ordinary DCAS/SIM does not | The EU and UK offer stronger ex ante structure, while United States law retains flexibility but fragmentation |
-| Product and software liability | State negligence, strict liability, and warranty doctrines; no uniform federal software rule | Directive 2024/2853 expressly reaches software, updates, cybersecurity, and complex proof | Ordinary product and negligence law supplemented by AEVA and AV Act structures | EU law most clearly recognizes software as a product; actual provider allocation still depends on implementation and proof |
-| Actor allocation | Driver, owner, manufacturer, supplier, operator, and insurer can all be joined under state law | Manufacturer, software provider, owner, operator, and insurer roles are increasingly regulated but remain nationally implemented | Insurer-first compensation and ASDE responsibility for authorised self-driving concentrate external accountability | A named responsible entity improves compensation, but internal recourse must preserve fair allocation |
-| Evidence | NHTSA reporting and federal discovery coexist with manufacturer-specific telemetry and state privacy rules | EDR and type-approval rules standardize some data but emphasize anonymization and GDPR | AEVA and AV Act create insurer, regulator, and inspector needs; disclosure duties remain incomplete | All regions need standardized operational data and controlled claim access |
-| Compensation | State insurance and comparative-fault variation; representative provisions only | Mandatory insurance and direct compensation vary by Member State; product liability is increasingly harmonized | Clear victim-first route for qualifying self-driving operation; contributory-negligence and update exceptions | First-response compensation should be separated from final fault allocation |
-| Enforcement | NHTSA surveillance, defect investigations, recalls, and state testing rules | Type approval, market surveillance, UNECE rules, cybersecurity and software requirements | Type approval, authorisation, in-use regulator, ASDE, and statutory inspectors | Cross-border vehicles require interoperable records and coordinated enforcement |
+| Level 1 feature engaged | Driver remains the dynamic-driving-task actor and must supervise the assisted function | Feature may still be defective within the task it undertook | Driver negligence and product-liability analysis proceed together | Feature activation, limits, driver inputs, warnings, sensor and software records |
+| Level 2 engaged within its ODD with an attentive driver | Driver is ready and properly positioned to intervene | Missed hazard, erroneous plan, control failure, weak monitoring, or inadequate warning may be causal | Begin with driver duty, then test system and manufacturer defect | ODD status, perception outputs, DMS state, warning timing, control commands |
+| Level 2 engaged with distraction, secondary task, sleep, or monitoring defeat | Strong evidence of driver breach or misuse | Permissive activation, misleading marketing, weak DMS, or foreseeable-misuse design may preserve manufacturer exposure | Comparative fault or shared causation | Gaze, posture, phone, camera, torque, warning, disengagement and suspension history |
+| Level 2 outside its ODD or facing a hazard beyond capability | Driver may have used the feature unsafely or failed to respond | Failure to gate activation, detect boundaries, warn, or prevent foreseeable misuse may support defect liability | Apportionment depends on foreseeability and intervention opportunity | Road geometry, speed, weather, ODD definition, activation logic, hazard visibility |
+| Mixed causation | Driver and system each contribute to the collision or its severity | NTSB combined-cause findings and the Benavides verdict illustrate concurrent responsibility | Fact-specific percentage allocation, with compensation followed by recourse | Complete timeline, neutral logs, design history, updates, expert reconstruction |
 
-### United States: flexibility with fragmented responsibility
+The comparative result is equally functional across jurisdictions, although the legal route differs.
 
-The United States retains a strong conventional legal toolkit. Negligence, strict product liability, warranty, comparative fault, contribution, indemnity, insurance, discovery, and expert evidence can address most fact patterns. Benavides shows that a jury can use those doctrines to assign manufacturer responsibility even in a Level 2 crash involving serious driver misconduct.
+| Jurisdiction | Governing trigger | First-instance compensation | Manufacturer or software path | Bottom line as of 13 September 2026 |
+|---|---|---|---|---|
+| United States | State negligence and product liability combined with federal NHTSA safety powers | State insurance and tort rules for Level 1–2 | Design, warning, software and foreseeable-misuse theories; software classification remains unsettled | Driver remains the DDT actor, but Benavides shows adjudicated shared allocation |
+| European Union | Type approval, General Safety Regulation and Product Liability Directive 2024/2853 | National motor-insurance and traffic regimes | Software, AI, updates and digital elements enter no-fault product liability | Driver-support duties remain, while software providers may be treated as manufacturers |
+| Germany | Level 2 remains under general traffic rules; higher automation has separate StVG rules | Owner strict liability, compulsory MTPL and direct insurer claims | ProdHG and insurer subrogation address system defects | Bavarian appellate authority places Level 2 outside the higher-automation driver-relief regime |
+| United Kingdom | Functional distinction between driver assistance and a vehicle “driving itself” | AEVA insurer-first liability applies when the vehicle is driving itself | AVA identifies ASDEs and operators for authorised higher automation; software is a vehicle part for specified road-law purposes | Ordinary Level 1–2 assistance leaves the driver responsible; authorised self-driving uses a different allocation model |
 
-The weakness is fragmentation. State standards vary, federal regulation is heavily self-certification-based, data access is inconsistent, insurance rules differ, and no uniform civil-liability statute identifies the responsible software or AI provider. The NTSB’s repeated recommendations concerning Level 2 driver monitoring, ODD safeguards, high-speed collision avoidance, and standardized data show the practical consequences.
+This report first establishes the technical control boundary, then reconstructs the operational facts that shift responsibility, applies the United States, European Union, German and United Kingdom frameworks, examines the principal cases and investigations, and ends with a regulatory package for terminology, monitoring, warnings, operational limits, data, software, certification, insurance and enforcement.
 
-### European Union: stronger ex ante regulation and digital product liability
+## Technical foundation of ADAS and shared human–machine driving
 
-The EU model begins earlier in the lifecycle. Type approval, UNECE regulations, driver availability requirements, EDR rules, cybersecurity, software updates, ADS documentation, and market surveillance address technical performance before a crash. The Product Liability Directive expressly brings software, updates, and certain digital services into no-fault product liability.
+### The engaged feature determines the responsibility baseline
 
-The difficulty is implementation and interaction. Member States retain important traffic, insurance, procedural, and civil-law differences. EDR rules may restrict identifiability for road-safety use while a claimant needs identifiable data. National courts must apply new software rules to complex causal chains, and the supplied material does not yet provide a mature body of Level 2 or Level 3 accident decisions.
+**ADAS is assistance, not a legal synonym for autonomy.** An advanced driver-assistance system uses sensors, software and vehicle actuators to assist a human with part of the driving task. The SAE taxonomy applies to the feature engaged in the particular driving instance, not to the vehicle’s maximum advertised capability. A vehicle may contain features operating at different levels, but the legally relevant question is which feature was active at the time of the event. [1]
 
-### United Kingdom: clear compensation architecture, conditional responsibility shift
+The dynamic driving task, or DDT, includes the sustained functions necessary to operate the vehicle: lateral and longitudinal control, perception of the roadway and other road users, response execution, manoeuvre planning and related functions. The taxonomy distinguishes the expected role of the human, the driving-automation system and other vehicle systems; it does not assume that an actor performed its assigned role correctly.
 
-The UK’s insurer-first model provides the clearest route for a victim when a vehicle is legally driving itself. It avoids making a seriously injured road user prove software defect before obtaining compensation. The Automated Vehicles Act then identifies an ASDE responsible for how an authorised vehicle drives.
+| SAE level | Sustained control | Human role during operation | Responsibility boundary |
+|---|---|---|---|
+| Level 0 | No sustained driving automation | Human performs the DDT | Ordinary driver responsibility |
+| Level 1 | Steering or speed control, separately | Human performs the rest of the DDT and supervises | Driver remains the DDT actor |
+| Level 2 | Steering and speed control simultaneously in defined conditions | Human continuously monitors and remains ready to intervene | Shared control, but the human remains responsible for the DDT |
+| Level 3 | Entire DDT within a defined ODD | Human responds to a valid takeover request | System performs the DDT until a lawful transition |
+| Level 4 | Entire DDT within a defined area or condition | No takeover-ready human is required during the authorised operation | System or operator responsibility becomes central |
+| Level 5 | Entire DDT in all conditions | Human is a passenger unless choosing to drive manually | Conventional driver allocation largely falls away |
 
-The limits are equally important. The AEVA trigger is “driving itself,” not merely performing steering and speed control. Ordinary Level 2 and DCAS operation remains driver-responsibility oriented. The AV Act’s user-in-charge and ASDE rules depend on authorisation and commencement, and the supplied evidence does not establish full operational implementation by the reporting cutoff. Insurance, data access, cyber attack, terrorism, and Motor Insurers’ Bureau responsibilities remain areas requiring detailed rules. [ABI and Thatcham](https://keystone-cms-production-amfyhhecavg8gneq.northeurope-01.azurewebsites.net/blob/keystoneproduction/publicFile/2026/03/abi-guide-insurer-requirements-automated-vehicles-april2024-cmmw05tc50bd8gapadxfq6bfp.pdf) identify particular concerns about simultaneous cyber attacks and gaps for uninsured automated vehicles.
+At Level 1, adaptive cruise control and lane centering are separate examples. At Level 2, they operate together. NHTSA describes Level 2 as simultaneous steering and braking or acceleration under some circumstances while requiring the human driver to remain fully and continuously engaged. [2]
 
-### Germany: claimant protection versus final cost allocation
+**Momentary intervention is different.** Automatic emergency braking, electronic stability control, lane-departure prevention and similar systems may intervene briefly without changing the driver’s role in the DDT. SAE excludes such momentary active-safety intervention from sustained driving automation, although its failure can still support a design, manufacturing or warning claim. [1]
 
-Germany demonstrates that a victim-friendly owner-strict-liability and compulsory-insurance system can coexist with driver and manufacturer recourse. It also demonstrates the danger of leaving the motor insurer to pursue technically complex product claims without clear incentives, data, or burden-shifting rules.
+**Level 3 and Level 4 clarify the boundary rather than replace the Level 2 analysis.** UNECE Regulation No. 157, for example, defines an Automated Lane Keeping System as controlling lateral and longitudinal movement for extended periods with the activated system in primary control. It requires a transition demand and a minimum-risk manoeuvre if the driver does not respond. The initial ALKS scope covered M1 vehicles on physically separated roads without pedestrians or cyclists, at speeds up to 60 km/h. [3]
 
-The German analysis proposes a rebuttable presumption of product defect where a vehicle causes a crash in automated-driving mode, subject to proof of owner or driver fault such as inadequate maintenance or unintended use. That is an academic proposal, not current German law. Its logic is nevertheless relevant across jurisdictions: the party controlling the software and possessing the operational data is generally better placed to explain why an automated system failed.
+Those rules are relevant because they show what a genuine transfer of the DDT entails: defined operating conditions, primary system control, a structured transition and fallback. They do not create a ten- or fifteen-second legal safe harbour for a Level 2 driver. At Level 2, the human is expected to remain immediately ready throughout operation.
 
-### Unresolved liability gaps
+Section references:
+[1] ISO/SAE PAS 22736:2021 <https://www.iso.org/standard/73766.html> Excerpt: "_Active safety systems_, such as electronic stability control (ESC) and automatic emergency braking (AEB), and certain types of _driver_ assistance systems, such as lane keeping assistance (LKA), are excluded from…"
+[2] NHTSA’s SAE-based definitions <https://www.nhtsa.gov/sites/nhtsa.gov/files/2023-04/Second-Amended-SGO-2021-01_2023-04-05_2.pdf> Excerpt: "Advanced Driver Assistance System means a Level 1 or Level 2 system. Automated Driving System means a Level 3, Level 4, or a Level 5 system and includes hardware and software that are collectively capable of perfo…"
+[3] UNECE Regulation No. 157 <https://eur-lex.europa.eu/eli/reg/2021/389/oj/eng> Excerpt: "2.1.‘Automated Lane Keeping System (ALKS)’ for low speed application is a system which is activated by the driver and which keeps the vehicle within its lane for travelling speed of 60 km/h or less by controlling…"
 
-The supplied evidence supports six principal gaps.
+### Operational design domains define where a feature is supposed to work
 
-First, ordinary Level 2 law often places ultimate responsibility on the driver even where the system controls the vehicle and the manufacturer controls the ODD, HMI, and monitoring design.
+**An operational design domain is a technical boundary with legal consequences.** An ODD describes the environmental, geographical, time-of-day, traffic and roadway conditions in which a system is designed to function. Relevant variables may include road category, lane markings, divided or undivided carriageways, speed, traffic direction, precipitation, lighting, fog, roadway geometry and the presence of cross traffic.
 
-Second, software-provider responsibility is clearer in the EU Product Liability Directive than in United States or ordinary UK shared-driving law, but the exact allocation among provider, integrator, manufacturer, and operator remains fact-dependent.
+EU Regulation 2022/1426 defines the ODD for a fully automated driving system and requires the system to recognise ODD conditions, detect when those conditions cease to exist, anticipate an exit and perform a minimum-risk manoeuvre when appropriate. Although that regulation principally concerns fully automated vehicles, its logic is transferable to Level 2: a manufacturer should know the feature’s intended environment, communicate it clearly, and prevent foreseeable operation outside it. [4]
 
-Third, no universal Level 2 driver-monitoring performance threshold exists. R157 timings are ALKS-specific, and empirical takeover studies use inconsistent definitions and wide response ranges.
+Leaving an ODD is not automatically driver fault. It creates several questions:
 
-Fourth, operational data is not uniformly recorded, standardized, disclosed, authenticated, or retained. The evidence available after a crash may depend more on manufacturer architecture than on the importance of the data.
+- Did the system prevent activation outside the ODD?
+- Did it recognise that conditions had changed?
+- Did it provide a clear warning?
+- Did the driver know the limitation and have a reasonable chance to respond?
+- Was out-of-domain use foreseeable because of marketing, feature availability or the absence of technical restrictions?
+- Did a software update change the ODD without adequate communication or approval?
 
-Fifth, compensation and subrogation rules are incomplete across United States states, EU Member States, and the United Kingdom. A victim may be compensated promptly in one jurisdiction but forced into technically complex litigation in another.
+The answer can move the case from driver misuse toward shared or manufacturer causation.
 
-Sixth, the published case law supplied here is sparse. Hsu and Benavides are fact-specific United States jury outcomes, while NTSB investigations are not civil precedents. The absence of a developed UK, EU, or German Level 2/3 accident case law makes regulatory clarity more important, not less.
+| Scenario | Road or hazard condition | ODD question | Allocation consequence |
+|---|---|---|---|
+| Mountain View, California | Tesla Model X entered a gore at a US-101 interchange at about 71 mph | Whether Autopilot was permitted to operate through the relevant lane geometry and whether it should have restricted use | NTSB attributed both system limitation and driver non-response |
+| Williston, Florida | Tesla using TACC and Autosteer struck a turning refrigerated semitrailer | Whether the system and driver were prepared for a crossing or turning hazard and whether the feature’s operating conditions covered it | NTSB attributed truck-driver failure to yield together with Tesla-driver inattention and overreliance |
+| Banner, Florida | Model 3 using TACC and Autosteer approached a left-turning semitrailer at 69 mph | The activation agreement described highway use with no cross traffic; the collision made that boundary central | Driver speed and non-response supported a driver-side case, while cross-traffic detection, AEB and monitoring were alleged system defects |
+| Benavides, Florida | Model S struck a parked Tahoe, which then struck pedestrians | Whether the engaged system was expected to detect the vehicle and whether its design and warnings were adequate for the hazard | Jury found Tesla design and warning liability and assigned Tesla 33% responsibility |
 
-### Policy trade-offs
+**ODD violation is a two-sided fact.** A driver who deliberately uses a feature on an unsuitable road after a clear warning has a strong negligence defense against the manufacturer. But a manufacturer that permits operation on roads it knows create predictable hazards, uses autonomy-suggesting marketing, or relies on a weak engagement check may have created the conditions for foreseeable misuse. NHTSA expressly identified driver overreliance and foreseeable misuse as potential safety-defect issues under the National Traffic and Motor Vehicle Safety Act. [2]
 
-#### Driver responsibility versus system responsibility
+Section references:
+[4] EU Regulation 2022/1426 <https://eur-lex.europa.eu/eli/reg_impl/2022/1426/oj/eng> Excerpt: "of Annex III Part 2 to Commission Implementing Regulation (EU) 2022/1426 of 5 August 2022 laying down rules for the application of Regulation (EU) 2019/2144 of the European Parliament and of the Council as regards uniform procedures and technical specifications for the type-approval of the automated driving system (ADS) of…"
+[2] NHTSA’s SAE-based definitions <https://www.nhtsa.gov/sites/nhtsa.gov/files/2023-04/Second-Amended-SGO-2021-01_2023-04-05_2.pdf> Excerpt: "accessible roads using ADS or Level 2 ADAS requires that NHTSA have timely information on incidents involving those vehicles. In carrying out the Safety Act, NHTSA may require, by general or special order, any person to file reports or answers to specific questions. Id. 30166(g)(1)(A). As set forth below, NHTSA is requiring…"
 
-Retaining driver responsibility for Level 2 is practical because it preserves existing traffic law and identifies a person physically present in the vehicle. But assigning all responsibility to the driver can under-incentivize manufacturers to design effective monitoring, ODD containment, warnings, and fallback systems.
+### Perception turns the physical world into a legal causation question
 
-A better rule preserves driver responsibility for conduct within the driver’s control while imposing system responsibility for technical risks within the manufacturer’s or provider’s control.
+**Perception is a chain, not a single sensor.** Cameras identify visual features such as lane markings, signs and obstacles. Radar measures distance and relative velocity. LiDAR estimates three-dimensional position and distance from reflected laser signals. Sensor fusion combines these inputs, but it does not remove uncertainty caused by range, occlusion, weather, roadway geometry, target shape or software classification. [5]
 
-#### Warnings versus technical containment
+The relevant sequence is:
 
-Warnings are less costly and preserve user choice, but they depend on attention, understanding, and realistic response time. Technical containment—preventing activation outside the ODD, reducing speed, or executing a safe fallback—may be more effective but can restrict functionality and create false deactivation or inconvenience.
+1. A sensor receives a physical signal.
+2. The system detects a possible object or roadway feature.
+3. Software classifies and tracks it.
+4. The system estimates motion, distance and collision risk.
+5. A warning, plan or control response is selected.
+6. Steering, braking or acceleration is executed.
 
-The Mountain View, Williston, and Delray Beach investigations support technical containment where misuse is foreseeable. A warning should not be treated as an adequate substitute when the system can reasonably prevent an unsafe mode.
+Each link creates a different liability question. A camera may fail to identify a lane boundary. Radar may track a stationary or large vehicle inconsistently. Sensor fusion may correctly detect an object but classify it as outside the path. The planner may recognise a hazard but choose an inadequate path. The controller may issue a brake command that the actuator fails to execute. The driver may receive a warning but fail to respond.
 
-#### Privacy versus evidentiary access
+**Stationary and large objects are recurring perception problems.** A 2026 technical review reports that even sensor-fusion systems remain subject to object-recognition uncertainty and that large commercial vehicles and stationary objects may be misdetected or tracked inconsistently. Those errors can delay forward-collision warning, adaptive cruise control or automatic emergency braking and reduce the time available for a stable response at speed. [5]
 
-Continuous recording of gaze, cabin activity, and raw sensor data creates significant privacy risks. Failure to record any data creates an information asymmetry in which the manufacturer controls the only evidence of system behavior.
+That mechanism matters in the principal cases. In Mountain View, NTSB found that the Tesla’s vision-processing software did not accurately maintain the lane through the gore. The collision attenuator was not detected, so forward-collision warning did not alert and automatic emergency braking did not activate. The technical limitation explains system causation; the driver’s distraction and overreliance explain why no corrective response followed.
 
-The appropriate compromise is purpose-limited, tamper-evident recording with access controls, anonymization for aggregate safety use, identifiable disclosure for a specific claim under judicial or regulatory supervision, and deletion after the relevant limitation period unless litigation is pending.
+In Banner, the Estate alleged that TACC used forward-looking cameras and radar to detect a same-lane vehicle but that the vehicle lacked an effective automatic emergency-braking system for the relevant risk. The appellate court treated those allegations as part of the punitive-damages record, not as established ordinary-liability findings. The distinction is important: an alleged sensor or AEB limitation must still be connected to the actual hazard, the applicable design standard and the collision sequence.
 
-#### Owner updates versus manufacturer post-sale duties
+**A missed hazard is not automatically a defect.** The legal question is whether the system was supposed to detect that hazard in the relevant conditions and whether a reasonable alternative design, algorithm, sensor arrangement, warning or control strategy would have reduced the risk. A hazard outside the feature’s declared and technically reasonable capability may support driver responsibility. A hazard within the expected operating environment, especially one repeatedly encountered in testing or field data, may support defect or warning liability.
 
-Owners should install safety-critical updates when they are clearly identified, available, compatible, and reasonably accessible. Manufacturers should remain responsible for supplying safe updates, notifying owners, monitoring vulnerabilities, and managing material changes.
+Section references:
+[5] Applied Sciences review of ADAS perception <https://doi.org/10.3390/app16157377> Excerpt: "Cameras primarily identify visual information, such as traffic signs, lane markings, and obstacles, whereas LiDAR estimates the three-dimensional position and distance of objects using reflected laser signals. Radar measures the distance and relative velocity of surrounding objects by analyzing reflected microwave signals based on the Doppler effect ( These sensors are used individually or through sensor-fusion architectures to improve the reliability of environmental perception. Nevertheless, even sensor-fusion systems remain subject to physical perception-range limitations and object-recognition unce…"
 
-A rule that automatically shifts every post-update risk to the owner would be unfair where the owner lacks technical knowledge or cannot understand the consequences. A rule that makes the manufacturer responsible for every owner’s refusal to update would weaken reasonable maintenance incentives.
+### Planning and control separate wrong decisions from wrong execution
 
-#### Individualized fault versus no-fault compensation
+**Planning selects the response; control executes it.** Motion-planning research treats planning through a dynamic environment and robust feedback control as distinct safety-critical tasks. The planner decides whether to maintain speed, brake, steer, change lanes or follow a trajectory. The controller converts that choice into commands to steering, braking and propulsion. [6]
 
-Fault-based litigation supports accountability and deterrence but is slow and expensive in technically complex cases. No-fault or insurer-first compensation is faster and protects victims but may weaken individualized responsibility.
+The distinction prevents imprecise blame:
 
-The UK AEVA and German MTPL structures suggest a practical compromise: compensate the victim first through compulsory insurance, then allocate ultimate cost through recourse using technical evidence and statutory presumptions. A no-fault fund funded by manufacturers and owners could address catastrophic or cyber-related losses, but it would need safeguards against eliminating accountability. [The comparative liability analysis](https://www.jonesday.com/-/media/files/publications/2025/10/civil-liability-and-risk-mitigation-strategies-for-autonomous-vehicles/files/who-is-liable-when-ai-takes-the-wheel-white-paper/fileattachment/who-is-liable-when-ai-takes-the-wheel-white-paper.pdf?rev=c3f3cde57338496d9c5015c13e586480) identifies both the compensation advantages and the accountability concern.
+- An erroneous perception can cause a correct planner to receive the wrong input.
+- An erroneous plan can choose continued travel when braking or evasive steering was required.
+- An erroneous control command can implement a correct plan too late, too strongly or in the wrong direction.
+- An actuator or integration failure can prevent a valid command from reaching the brakes or steering.
+- A human input can override, conflict with or fail to supplement the system’s command.
+- A warning can be omitted even though the system recognised its own limitation.
 
-## 8. Proposed regulatory guidelines and recommendations
+In a lane-centering event, for example, the system may steer toward a detected lane centre while the driver applies opposing torque. The legal analysis must ask whether the system was designed to permit safe driver override, whether the driver’s input was intentional, and whether the system’s deactivation logic left the vehicle without adequate lateral control. NHTSA’s EA22002 investigation identified 55 inadvertent-steering-override crashes, including 43 in which a crash occurred less than five seconds after torque overrode Autosteer while traffic-aware cruise control remained engaged and lane centering was lost. [7]
 
-The following recommendations are proposals, not descriptions of uniformly enacted law.
+**Shared control is a real engineering condition, even when law assigns a primary actor.** In shared control, the human and automation act on the same task at the same time. An arbitration system distributes authority according to driver inputs, environmental risk, driver-monitoring data and system confidence. A 2022 review distinguishes this from traded control, in which the task moves from one actor to another. [8]
 
-### 1. Regulate the function and ODD, not the marketing label
+The engineering concept does not itself create joint legal responsibility. It does, however, show why a binary question—“Was the driver or the car driving?”—is inadequate for causation. The driver may remain the legal DDT actor while the manufacturer controls the system’s trajectory, arbitration, override threshold and warning design.
 
-Every vehicle should have a regulator-verified record identifying:
+Section references:
+[6] Paden et al., A Survey of Motion Planning and Control Techniques <https://doi.org/10.1109/tiv.2016.2578706> Excerpt: "Safety-critical tasks that must be executed by a self-driving vehicle include planning of motions through a dynamic environment shared with ot…"
+[7] NHTSA EA22002 <https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf> Excerpt: "Almost all the incidents (43) were involved in a crash less than 5 seconds after Autopilot was overridden by a steering torque and the vehicle…"
+[8] Review of shared control <https://www.frontiersin.org/journals/control-engineering/articles/10.3389/fcteg.2022.1058923/full> Excerpt: "In the scope of this review, the first and only publication of an evaluation study of adaptive shared control with a significant driver sample…"
 
-- each assistance or automation function;
-- its SAE level and actual control authority;
-- the approved ODD;
-- whether the driver must monitor the road continuously;
-- whether the system can issue a takeover request;
-- whether the system can execute a minimum-risk or emergency maneuver;
-- the conditions that cause deactivation; and
-- the software and hardware versions associated with approval.
+### Driver monitoring, warnings and takeover mechanisms
 
-Consumer-facing names should not imply autonomy where the driver remains responsible. The vehicle should technically prevent or constrain operation outside the approved ODD unless the driver receives a clear, specific, and legally meaningful confirmation of the changed conditions. A generic disclaimer should not authorize a system to operate in a mode that its design cannot safely handle.
+**Driver monitoring is a control feature, not merely a convenience feature.** Monitoring may use steering-wheel torque, gaze direction, head and body position, eyelid closure, physiological signals, seat position, phone use or combinations of those inputs. Torque is evidence that a force was applied to the wheel; it is not reliable proof that the driver was watching the roadway or understood the situation.
 
-The record should follow the vehicle through registration, sale, lease, repair, OTA update, and cross-border operation. AAMVA guidance proposes including automation level in title or registration records and warns that OTA updates may increase or decrease automation capability. [AAMVA’s automated-vehicle guidelines](https://www.aamva.org/getmedia/c95fd480-5917-471a-b7ee-da88ec6cb7b5/Guidelines-for-Regulating-Vehicles-with-Automated-Driving-Systems-Ed-4_final.pdf) also identify the absence of a uniform ADS identifier as a practical problem.
+NHTSA characterised Tesla Autopilot as an outlier because it paired permissive operation with a weak driver-engagement system. Euro NCAP reported that the European Tesla cabin camera was not used for driver monitoring and that engagement relied on steering-wheel input. [7][9]
 
-### 2. Establish performance-based driver-monitoring and takeover rules
+A warning system should be evaluated across five questions:
 
-Level 2 systems should be required to use driver monitoring that assesses more than steering-wheel contact. The system should evaluate, as appropriate:
+- Was the warning directed at the actual risk?
+- Was its language clear about the feature’s capability?
+- Did it use visual, auditory and haptic channels suited to the driving environment?
+- Was it issued early enough for a properly positioned driver to respond?
+- Did it escalate, restrict operation or create a safe fallback when the driver did not respond?
 
-- forward gaze and head orientation;
-- eyelid or drowsiness indicators;
-- hands and feet readiness;
-- seat position and restraint status;
-- response to escalating prompts;
-- system confidence in the monitoring signal; and
-- the driver’s understanding of the current mode.
+The human-factors literature identifies mutual predictability, directability, a shared situation representation, and calibrated trust as conditions for successful cooperation. If the system’s display suggests that it sees the road more completely than it does, the driver’s reliance is not well calibrated. If the system abruptly disengages after a small steering input, the driver may reasonably experience the transition as a failure of control coordination. [10]
 
-Inconsistent signals should be treated as degraded confidence rather than confirmed readiness, consistent with the [2026 technical analysis of takeover-request systems](https://doi.org/10.3390/electronics15112446).
+**Level 2 is continuous supervision, not a formal handover.** Research on Levels 3 and 4 reports roughly 10 seconds for drivers without a secondary task and about 15 seconds for drivers using a handheld task in certain takeover studies. UNECE ALKS uses a transition demand and minimum-risk manoeuvre. Those findings are design inputs for systems that lawfully transfer control; they are not a universal Level 2 period during which the driver may disengage.
 
-Warnings should be multimodal where urgency requires it, specific about the action demanded, and staged according to available time. A regulator should require testing against distraction, drowsiness, poor lighting, noise, secondary tasks, older drivers, disability-related variation, and different traffic densities.
+A simulator study of 46 licensed drivers and 368 experiments found that a seven-second audiovisual warning reduced tested lateral and longitudinal collision risk relative to the other warning combinations in that study. The result supports multimodal, validated warning design, but its simulated setting does not establish a universal legal threshold for every Level 2 system. [11]
 
-The rules should not adopt a universal ten-second liability window. R157’s 15-second warning, four-second escalation, and minimum-risk timing are relevant examples for ALKS, but takeover periods must be calibrated to hazard severity, speed, visibility, traffic, and the vehicle’s actual fallback capability. Regulators should standardize terms such as warning time, gaze reacquisition, motor readiness, first control input, stable control, and safe maneuver completion. The [Han review](https://www.tandfonline.com/doi/pdf/10.1080/10447318.2025.2552863) demonstrates why inconsistent takeover definitions undermine both engineering and litigation.
+Section references:
+[7] NHTSA EA22002 <https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf> Excerpt: "that driver disengagement, coupled with the Autopilot system design, is the key contributor to these Almo…"
+[9] Euro NCAP summary <https://etsc.eu/us-agencies-investigate-tesla-autopilot-and-ford-blue-cruise-deaths/> Excerpt: "But in a 2020 report, Euro NCAP said: Tesla’s system name Autopilot is inappropriate as it suggests full…"
+[10] Peintner et al., How to Design Human-Vehicle Cooperation <https://www.mdpi.com/2414-4088/8/3/16> Excerpt: "Based on a literature review, they identified (1) Mutual Predictability , (2) Directability , (3) Shared…"
+[11] Takeover-warning study <https://doi.org/10.3390/su15097270> Excerpt: "= 0.011) shown in Figure 11 ( under the scenario of 5 s TORlt, A and A+V have little effect on lateral an…"
 
-### 3. Require lifecycle safety assurance and type approval
+## Operational facts that trigger responsibility
 
-Manufacturers and system providers should demonstrate safety across the vehicle’s lifecycle, not only at initial sale. The assurance case should address:
+### The before–during–after reconstruction
 
-- ISO 26262 functional safety;
-- ISO 21448 SOTIF;
-- cybersecurity risk management;
-- foreseeable misuse;
-- ODD enforcement;
-- driver monitoring;
-- HMI and mode awareness;
-- sensor degradation;
-- maps and localization;
-- software updates;
-- cloud and connected services;
-- supplier dependencies;
-- minimum-risk and emergency maneuvers;
-- recall and incident response; and
-- post-market safety monitoring.
+**A liability inquiry should begin with a control-state timeline.** A court, regulator or insurer should reconstruct the event in this order:
 
-The EU’s ADS approval model offers a useful structure by requiring documentation, safety management, validation evidence, cybersecurity information, and in-use safety data. The United States should supplement self-certification with mandatory performance requirements for Level 2 systems that materially control steering and speed. The United Kingdom should ensure that technical type approval, automated-vehicle authorisation, and in-use safety regulation are clearly separated but interoperable.
+1. Identify the engaged feature, its SAE level, software version and activation time.
+2. Establish the declared ODD and the actual road, traffic, speed, weather, lighting and roadway conditions.
+3. Determine what the sensors detected, classified and tracked.
+4. Identify the system’s plan, control commands, warnings, restrictions and override state.
+5. Establish the driver’s gaze, posture, hands, phone use, physical condition and inputs.
+6. Measure the time between hazard emergence, warning, driver response, system response and impact.
+7. Separate primary collision cause from factors that increased injury severity.
+8. Trace updates, maintenance, modifications, recalls, ownership and operator control.
+9. Apply the jurisdiction’s negligence, product-liability, traffic and insurance rules.
+10. Allocate fault or recourse only after the causal chain is complete.
 
-Material OTA changes should trigger a documented safety assessment and, where appropriate, repeat approval. Responsibility for the update should follow control: the manufacturer or provider that supplied, authorized, or consented to the safety-relevant change should not shift the resulting risk automatically to the owner.
+This sequence prevents a label such as “Autopilot engaged” from doing the work of factual reconstruction. Engagement establishes an important control state; it does not establish breach, defect or causation.
 
-### 4. Mandate standardized, tamper-evident operational records
+### Driver attention and supervision
 
-Every vehicle with Level 2 or higher control authority should record, in a standardized and machine-readable format:
+**The strongest driver-side evidence concerns attention and intervention opportunity.** In its detailed EA22002 review, NHTSA found that 59 of 109 crashes with sufficient hazard-visibility data involved hazards visible at least five seconds before impact, including 19 visible for more than ten seconds. In 135 incidents with driver-response data, 82% involved no braking or braking less than one second before impact, and 78% involved no steering or steering less than one second before impact. These are investigation subsets, not fleetwide crash rates. [7]
 
-- function activation and deactivation;
-- control authority and override events;
-- ODD status and boundary crossings;
-- system confidence or degraded state;
-- driver-monitoring status;
-- warnings and takeover requests;
-- warning delivery and acknowledgement;
-- steering, braking, acceleration, and pedal inputs;
-- sensor and actuator faults;
-- minimum-risk and emergency maneuvers;
-- software, map, and calibration versions;
-- OTA offers, installations, failures, and rollbacks;
-- cybersecurity events;
-- maintenance and recall status; and
-- relevant vehicle, road, and environmental parameters.
+The data support a practical distinction. A driver who sees a hazard, receives an intelligible warning, has time to respond and does nothing presents a strong negligence case. A driver who is asleep, looking at a phone, sitting outside the driving position or defeating the cabin camera has breached the continuous-supervision expectation even if the feature remains active.
 
-The record should be time synchronized, cryptographically protected, resistant to unauthorized alteration, and recoverable after severe collision damage. The European Commission’s EDR rules and UN Regulation No. 169 provide useful models for survivability, retrieval, software integrity, and protection against manipulation, although their existing scopes do not cover every Level 2 operational parameter.
+The driver’s duty is not reduced to keeping hands on the wheel. A driver can apply torque while watching a video, and can watch the road while the system’s torque sensor is satisfied. Attention, situational awareness and readiness to provide steering, braking and throttle are the relevant concepts. [12]
 
-Retention should last at least through the applicable personal-injury limitation period plus a retrieval buffer. The United Kingdom Law Commissions’ 39-month proposal—three years plus three months—offers one concrete model, but the period should be adapted to local limitation law and extended when litigation, a regulatory investigation, or a serious incident is pending.
+Section references:
+[7] NHTSA EA22002 <https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf> Excerpt: "In more than half (59) of these crashes, the hazard was visible five or more seconds prior to the impact, wit…"
+[12] NHTSA Level 2 guidance <https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting> Excerpt: "In a vehicle equipped with ADAS, the driver must continually monitor the driving environment, and always be p…"
 
-Access should be available promptly and neutrally to:
+### Automation complacency and foreseeable misuse
 
-- injured persons and their representatives;
-- insurers;
-- courts;
-- independent investigators;
-- safety regulators; and
-- manufacturers or providers defending a claim.
+**Human misuse and system design are distinguishable but connected hypotheses.** A 2026 Department for Transport review of 59 studies found that overestimation of Level 2 capability was associated with inappropriate trust, lower attention, reduced monitoring and responsiveness, and secondary-task misuse such as mobile-phone use. The evidence base contained 30 real-world studies, 21 simulator studies and 8 surveys. [13]
 
-Privacy protections should include data minimization, restricted access, redaction of irrelevant occupants and bystanders, secure processing, and separate rules for aggregate research. A manufacturer’s trade-secret interest should not justify withholding the factual event record necessary to determine whether the system or driver controlled the vehicle.
+The driver’s conduct remains relevant even when the system encouraged overtrust. But the manufacturer’s conduct becomes relevant when the system was marketed or designed in a way that made the misuse foreseeable and failed to address it through activation limits, DMS, warnings, cooperative steering or suspension rules.
 
-### 5. Create uniform serious-incident reporting and independent investigation
+NHTSA’s 2023 Standing General Order explains that Level 2 overreliance may be foreseeable misuse supporting a potential safety-defect inquiry. The EU Product Liability Directive similarly treats reasonably foreseeable use as including misuse that is not unreasonable in the circumstances, including behaviour resulting from a lack of concentration. [2][14]
 
-Manufacturers, software providers, operators, and insurers should report serious crashes and defined near misses involving active ADAS or automated functions. Reports should identify:
+This does not make every driver error a manufacturer defect. It requires a counterfactual inquiry: would a stronger monitoring system, less permissive activation rule, clearer name, more effective warning or safer deactivation have materially reduced the foreseeable risk?
 
-- vehicle and function;
-- software and hardware versions;
-- ODD and road conditions;
-- system activation duration;
-- warnings and takeover events;
-- driver-monitoring status;
-- system and driver control inputs;
-- injuries and fatalities;
-- sensor, calibration, and maintenance status; and
-- known cybersecurity or update issues.
+Section references:
+[13] DfT human-factors evidence review <https://assets.publishing.service.gov.uk/media/69c643e4cdfd19de13d0f75b/understanding-human-factors-in-advanced-driver-assISTANCE-systems-an-evidence-review.pdf> Excerpt: "Thirty studies were conducted using real-world driving methods, 21 using simul…"
+[2] NHTSA’s SAE-based definitions <https://www.nhtsa.gov/sites/nhtsa.gov/files/2023-04/Second-Amended-SGO-2021-01_2023-04-05_2.pdf> Excerpt: "2 This action does not affect the enforceability of NHTSA’s June 29, 2021 Stan…"
+[14] Directive (EU) 2024/2853 <https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng> Excerpt: "When determining the defectiveness of a product, reasonably foreseeable use al…"
 
-Reporting should be exposure-adjusted where possible by vehicle miles and time in enabled operation. NHTSA’s Level 2 experience shows why raw incident counts can be duplicated, incomplete, unverified, and unsuitable as a crash rate.
+### Takeover readiness and transition
 
-Independent safety investigators should have access to data and vehicles without determining civil fault. Their reports should identify technical and organizational causes, while courts and insurers separately decide legal liability. The UK Automated Vehicles Act model of no-blame statutory inspectors offers a useful institutional distinction. NTSB’s statutory separation between safety investigation and civil liability should be preserved.
+**Readiness depends on what the system has promised.** At Level 2, the driver is expected to remain ready continuously. A system that merely alerts a distracted driver cannot assume that the driver has been safely removed from the DDT. At higher levels, a valid transition demand may create a structured period in which the system must continue safe operation and give the human an adequate opportunity to resume control.
 
-### 6. Require accurate consumer disclosure and meaningful training
+This distinction matters in litigation. A manufacturer cannot simply import Level 3 takeover research to argue that a Level 2 driver had ten or fifteen seconds to recover from a secondary task. Conversely, a driver cannot characterize an ordinary Level 2 attention warning as permission to perform a task that makes immediate intervention impossible.
 
-Before activation, a driver should receive a concise, standardized explanation of:
+### Human–machine cooperation and legal agency
 
-- the function’s actual control authority;
-- the driver’s monitoring duty;
-- the ODD;
-- hazards the system cannot reliably detect;
-- the meaning and urgency of warnings;
-- the conditions that cause disengagement;
-- whether the system will perform a minimum-risk maneuver;
-- software-update obligations;
-- prohibited secondary tasks; and
-- the consequences of modifying or disabling safety systems.
+**A human–machine team needs predictable authority.** Research on cooperative driving identifies four practical requirements:
 
-The explanation should be tested for comprehension, not merely displayed as a legal acknowledgment. Training should include a practical demonstration of system limitations and takeover behavior. Marketing should not create a mental model inconsistent with the technical and legal limits.
+- Mutual predictability: each actor can anticipate what the other will do.
+- Directability: the human can communicate an intended correction.
+- Shared situation representation: both actors have a compatible understanding of the hazard.
+- Calibrated reliance: the human’s trust matches the system’s actual ability.
 
-The EU requirement for clear, consumer-friendly explanations and the United Kingdom’s distinction between driver assistance and self-driving provide useful foundations. The United States should treat misleading presentation as relevant to design and warning claims even where the owner’s manual contains a formal disclaimer.
+A system that resists ordinary steering input, abruptly cancels lateral support, or continues longitudinal control after a driver’s intervention can create a control conflict. NHTSA found that Tesla Autosteer resisted manual steering differently from peer Level 2 systems, where steering input could suspend lane centering and permit reactivation without an additional engagement action. [7]
 
-### 7. Preserve prompt victim compensation while allocating ultimate cost by control
+The legal implication is not that every conflict proves defect. It is that the system’s authority, override logic and feedback must be examined alongside the driver’s input. A driver who intentionally steers around an obstacle may be acting reasonably even if the feature disengages. A driver who unknowingly crosses the override threshold may have contributed to the collision, but the system’s design may also be causal if that result was foreseeable and inadequately signalled.
 
-All vehicles with meaningful automation should carry compulsory third-party liability insurance or an equivalent financial guarantee sufficient to cover occupants and other road users. The victim should have a direct claim against the insurer or designated compensation institution without first proving whether the driver, manufacturer, software provider, or operator was at fault.
+Section references:
+[7] NHTSA EA22002 <https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf> Excerpt: "its Autopilot1 system, which Tesla described as an SAE Level 2 (L2) Advanced Driver Assistance System (ADAS). Tesla concluded in its 23V838 filing that, in certain circumstances, Autopilot’s system controls may be insufficient for a driver assistan…"
 
-After payment, recovery should follow a standardized allocation procedure:
+## Existing legal and regulatory frameworks
 
-- driver responsibility for distraction, unlawful operation, unreasonable failure to respond, or deliberate misuse;
-- owner responsibility for maintenance, prohibited alteration, or knowingly missed safety-critical updates;
-- operator responsibility for staffing, supervision, route, testing, maintenance, or safety procedures;
-- manufacturer responsibility for design, ODD, HMI, monitoring, update, cybersecurity, or warning defects;
-- software-provider responsibility for software, cloud, map, update, or cyber risks within its control; and
-- infrastructure or other-road-user responsibility for independent concurrent causes.
+### United States: fragmented tort law with federal safety oversight
 
-Insurers should have defined rights and obligations to obtain operational data and pursue subrogation. Where a manufacturer or provider controls the relevant data and fails without adequate reason to preserve or disclose it, courts should be permitted to draw adverse inferences or apply a rebuttable presumption concerning defect or causation.
+**The U.S. baseline is state tort law plus federal safety regulation.** A Level 1–2 crash may support negligence, strict product liability, traffic-law, insurance and, in some cases, consumer-protection claims. NHTSA regulates vehicle safety and has reporting, information-request, defect-investigation and recall powers, but it does not assign civil damages percentages.
 
-For Level 2, the framework should not abolish ordinary driver insurance. It should add clear coverage for system-related loss and require transparent allocation between motor insurance and product or technology insurance. For Level 3 and higher authorised operation, the insurer-first model should remain available even when dynamic responsibility shifts to the automated entity.
+Negligence asks whether an actor breached a duty of reasonable care and caused harm. For a driver, that may mean failure to monitor, speed, respond or use the feature safely. For a manufacturer, it may mean unreasonable design, inadequate testing, weak monitoring, defective control logic, insufficient warnings or an unsafe update.
 
-### 8. Coordinate enforcement and cross-border recognition
+Product liability generally separates three categories:
 
-The United States, European Union, United Kingdom, UNECE contracting parties, and vehicle registries should coordinate on:
+- Manufacturing defect: the vehicle or component departed from its intended design.
+- Design defect: the design itself created an unreasonable risk under the applicable state test.
+- Warning defect: a reasonable instruction or warning could have reduced a foreseeable risk.
 
-- common function and ODD terminology;
-- interoperable software and automation identifiers;
-- minimum operational-data fields;
-- cybersecurity and update records;
-- recognition of type-approval evidence;
-- cross-border insurer access;
-- serious-incident reporting;
-- recall and de-authorisation notices;
-- independent investigation cooperation; and
-- procedures for resolving manufacturer, operator, and software-provider disputes.
+The U.S. design test differs by state. Consumer-expectation analysis asks whether the product was more dangerous than an ordinary consumer would expect. Risk–utility analysis asks whether a reasonable alternative design could have reduced or avoided the foreseeable risk. The U.S. ADAS literature identifies both approaches and cites *Branham v. Ford Motor Co.* in South Carolina and *Aubin v. Union Carbide Corp.* in Florida as contrasting examples. [15]
 
-UNECE Regulations 157 and 171 can serve as technical coordination points, but regulatory recognition should not allow a system approved for one ODD to operate under a broader ODD elsewhere without additional evidence. Cross-border fleets should identify the applicable driver, owner, operator, ASDE, manufacturer, software provider, insurer, and data controller before operation begins.
+**Software creates a classification problem.** Embedded software may be treated as part of a vehicle, but U.S. courts have treated software inconsistently as a product or service. That classification affects strict liability, the relevant defendant, economic-loss rules, warranty theories and the treatment of updates. Embedded software that directly controls steering or braking presents a stronger product-liability argument than a remote service that merely provides optional information, but the distinction remains jurisdiction-specific.
+
+Failure-to-warn claims also require a causal link. The claimant must show that a reasonable warning would have changed conduct or reduced harm. A warning that correctly states the limitation but is obscured by a feature name, permissive activation logic or inadequate monitoring may be legally insufficient in context. A warning cannot be evaluated separately from what the system allowed the driver to believe.
+
+**Federal compliance is evidence, not immunity.** The National Traffic and Motor Vehicle Safety Act uses manufacturer self-certification against Federal Motor Vehicle Safety Standards, with NHTSA enforcement and recall authority. Federal compliance may support a reasonableness or punitive-intent defense, but the Act preserves common-law liability in important respects. NHTSA’s 2025 EDR rule states that its minimum standard does not generally preempt a state tort theory seeking a higher common-law safety standard. [16]
+
+The same distinction appeared in *Tesla, Inc. v. Estate of Jeremy Banner*. The Florida appellate court treated Tesla’s claimed state-of-the-art and regulatory compliance as counterevidence against punitive liability, not as a general bar to ordinary negligence or product liability.
+
+**Insurance remains primarily state-governed for Level 1–2.** The examined U.S. authorities do not create a uniform Level 1–2 rule assigning first-instance responsibility to an insurer, owner, manufacturer or software provider. The injured person generally proceeds through ordinary motor-vehicle insurance and state tort rules; the insurer may later pursue subrogation or contribution according to the policy, statute and proof of defect. That result differs from the United Kingdom’s insurer-first model for vehicles driving themselves and Germany’s direct-insurer structure.
+
+**Reporting responsibility is separate from civil fault.** NHTSA’s General Order requires named manufacturers, developers and operators to report qualifying crashes when Level 2 ADAS was engaged at any time during the 30 seconds before the crash. Reportable Level 2 events include a vulnerable road user being struck, a fatality, airbag deployment or hospital treatment. The reporting obligation applies even when the reporting entity is not responsible for operation. [12]
+
+The third-amended order, effective 16 June 2025, requires severe reports within five days and less severe reports monthly. NHTSA may impose civil penalties, issue further information requests, inspect vehicles and crash sites, open defect investigations and request recalls. These powers improve safety evidence but do not decide the driver’s comparative fault or the manufacturer’s civil damages.
+
+Section references:
+[15] Duke Law & Technology Review <https://scholarship.law.duke.edu/cgi/viewcontent.cgi?article=1322&context=dltr> Excerpt: "41 The risk-utility test finds a product to be defective when that product’s foreseeable risk of harm could have been reduced or avoided by adopting a reasonable alternative design . . and not doing so renders the product not reasonably safe . . 42 The Restatement (Third) further explains th…"
+[16] NHTSA EDR final rule <https://thefederalregister.org/documents/2024-29862/event-data-recorders> Excerpt: "Because most NHTSA standards established by an FMVSS are minimum standards, a State common law tort cause of action that seeks to impose a higher standard on motor vehicle manufacturers will generally not be preempted. If and when such a conflict does exist—for example, when the standard at…"
+[12] NHTSA Level 2 guidance <https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting> Excerpt: "Level 2 ADAS: Entities named in the General Order must report a crash if Level 2 ADAS was in use at any time within 30 seconds of the crash and the crash involves a vulnerable road user being struck or results in a fatality, an air bag deployment, or any individual being transported to a hos…"
+
+### European Union: type approval, mandatory safety systems and software-inclusive product liability
+
+**The EU combines harmonised vehicle-safety rules with national tort and insurance law.** Regulation (EU) 2019/2144, the revised General Safety Regulation, applies mandatory systems including intelligent speed assistance, driver drowsiness and attention warning, advanced driver-distraction warning, emergency stop signal, reversing detection and an event data recorder. For M1 and N1 vehicles it also addresses advanced emergency braking and emergency lane keeping, while preserving driver override. [17]
+
+The EU’s event-data rules require protected, survivable and anonymised collision data concerning speed, braking, position and tilt, safety-system activation and relevant active-safety inputs. The recorder must not be deactivated, and access is limited through a standardised interface for accident research, analysis and type approval subject to data-protection rules. These requirements supply a common evidentiary floor, although they do not capture every DMS, perception or software-state variable needed for a Level 2 civil case.
+
+**Type approval regulates safety before sale; it does not decide every civil claim after a crash.** UNECE R157 and EU Regulation 2022/1426 require documentation, testing, ODD definition, transition or fallback performance, cybersecurity, software updates, conformity of production and in-use reporting for the higher-automation systems within their scope. A manufacturer’s compliance can be persuasive evidence of reasonable design, but a civil court may still ask whether the product was defective under the applicable liability regime or whether the actual vehicle departed from its approved configuration.
+
+Directive (EU) 2024/2853, adopted on 23 October 2024, modernises EU product liability. It repeals the earlier 1985 directive and extends no-fault liability to movables including embedded, standalone and cloud software, AI systems and software integrated into other products. A software developer or AI-system provider may be treated as a manufacturer. [14]
+
+**The software lifecycle becomes part of defect assessment.** The directive treats updates and upgrades as within manufacturer control when the manufacturer supplies, authorises or consents to them, and a product may remain within the manufacturer’s control when the manufacturer retains the ability to provide updates. Post-market learning, new features, unexpected behaviour and safety-relevant cybersecurity vulnerabilities may therefore support a defect claim after initial sale.
+
+The directive measures defectiveness against the safety the public is entitled to expect or that EU or national law requires. It considers intended purpose, reasonably foreseeable use, product presentation, objective characteristics, expected lifespan and the intended user group. It expressly states that warnings cannot make an otherwise defective product safe. That principle prevents a manufacturer from treating a warning as a complete substitute for safe design, effective ODD restriction or adequate monitoring.
+
+**The proof structure is more claimant-oriented than ordinary German product liability.** A claimant must establish defect, damage and causal connection, but the directive provides disclosure mechanisms and rebuttable presumptions where a defendant fails to disclose relevant evidence, mandatory safety requirements are breached, an obvious malfunction occurs, or technical and scientific complexity creates excessive difficulty. Jointly liable economic operators may face joint and several liability under the directive’s conditions. [18]
+
+The directive’s practical effect depends on national transposition. The transposition deadline is 9 December 2026. As of the report’s cutoff, public draft comparisons showed divergence: Finland’s draft did not retain the development-risk defence, while Germany and Sweden proposed retaining it. Sweden and Finland also proposed dropping the word “excessive” from the technical-complexity threshold for presumptions. These are implementation differences, not a settled EU-wide judicial rule. [19][20]
+
+Section references:
+[17] Regulation (EU) 2019/2144 <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02019R2144-20240707> Excerpt: "Commission Delegated Regulation (EU) 2021/1341 of 23 April 2021 supplementing Regulation (EU) 2019/2144 of the European Parliament and of the Coun…"
+[14] Directive (EU) 2024/2853 <https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng> Excerpt: "(6)In order to ensure that the Union’s product liability regime is comprehensive, no-fault liability for defective products should apply to all mo…"
+[18] PLD analysis and presumptions <https://www.reedsmith.com/articles/the-new-eu-product-liability-key-implications-autonomous-vehicle/> Excerpt: "- Defectiveness is presumed if the manufacturer fails to disclose relevant evidence, if the product does not comply with mandatory safety requirem…"
+[19] Member-State transposition comparison <https://www.jonesday.com/en/insights/2026/06/the-revised-eu-product-liability-directive-state-of-play-across-eu-member-states-and-evolving-risk-landscape> Excerpt: "EU PLD ), which must be transposed into the national laws of all EU Member States by December 9, 2026. The EU PLD represents a fundamental shift i…"
+[20] Technical-complexity proposals <https://www.faegredrinker.com/en/insights/publications/2026/6/transposing-the-eus-new-product-liability-directive-a-member-state-progress-report> Excerpt: "- In June 2026, we initially published this article, which provided a comprehensive country-by-country overview of how EU member states were progr…"
+
+### Germany: Level 2 remains an ordinary driver-control state
+
+**German law separates Level 2 from the higher-automation StVG regime.** Germany’s 2017 amendments to the Road Traffic Act, or StVG, permit certain highly or fully automated functions to operate under defined conditions while requiring driver vigilance and takeover readiness. Section 1b addresses the driver’s obligation to remain vigilant and resume control when prompted or when the conditions for intended use no longer exist.
+
+The framework also includes owner strict liability under §7 StVG, driver fault liability under §18, compulsory motor third-party liability insurance under the PflVG, direct claims against the insurer under §115 VVG, product liability under the ProdHG and control-change logging under §63a StVG. The German analysis identifies owner, driver, insurer and manufacturer as distinct parts of the compensation and recourse structure. [21]
+
+The owner-liability limits are €5 million for personal injury and death and €1 million for property loss for one event, doubled for highly or fully automated driving. The doubling produces €10 million and €2 million limits for that higher-automation category. The statutory structure is claimant-facing: the owner and motor insurer provide the first compensation route, while product liability and insurer subrogation address a proven system defect.
+
+**The Bavarian appellate court drew the Level 2 line directly.** In a decision of 21 October 2024, the Bayerisches Oberstes Landesgericht considered a Tesla Model 3 Performance whose driver attached steering-wheel weights, covered or taped the interior camera and slept for at least 8 km, nearly five minutes. The court classified the vehicle and operation as Level 2, rejected the driver’s legal appeal and left a €250 fine in place. [22]
+
+The court held that Level 2 falls outside §§1a and 1b StVG’s higher-automation relief. The driver could not turn away from vehicle control and had to remain able to intervene. Defeating the monitoring system did not transform the vehicle into a higher legal automation category.
+
+That reasoning matters beyond the extreme facts. It confirms that the legal category follows the feature’s designed control relationship, not the driver’s attempt to misuse it. A driver cannot create a higher-automation defence by attaching a weight to the wheel or covering a camera.
+
+**German product liability preserves a separate manufacturer route.** Under the ProdHG, the claimant generally proves defect, damage and causation, and damage to the defective product itself is excluded. The German literature also identifies gaps concerning OTA updates, post-sale monitoring, material software changes, subrogation incentives and the residual exposure of claimants whose damages exceed owner-liability limits. Germany’s draft implementation materials for the revised PLD treat connected navigation software and its data as possible related components, but those materials describe a draft rather than a decided accident rule. [23]
+
+Section references:
+[21] German liability and insurance framework <https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/reasonable-adequate-and-efficient-allocation-of-liability-costs-for-automated-vehicles-a-case-study-of-the-german-liability-and-insurance-framework/4FA30CEE6D78610EFB4237003D76B0E3> Excerpt: "While the StVG imposes strict liability on the owner of a vehicle (§ 7 StVG), the human driver is only liable based on fault (§ 18 StVG). This legal approach is coupled with the ob…"
+[22] Bayerisches Oberstes Landesgericht, 202 ObOWi 644/24 <https://de.openlegaldata.io/case/bayoblg-2024-10-21-202-obowi-64424> Excerpt: "a) Nach den Feststellungen des Amtsgerichts befuhr der Betroffene am 28.12.2022 zwischen 11:30 Uhr und 11:40 Uhr mit seinem Pkw Tesla Model „3 Performance die BAB 70 zwischen Eltma…"
+[23] German PLD implementation analysis <https://www.freshfields.com/en/our-thinking/blogs/risk-and-compliance/product-risks-today-the-draft-implementation-bill-of-the-eu-product-liability-di-102l4xa> Excerpt: "Rather than amending the existing German Product Liability Act, the Draft Bill introduces an entirely new statute, reflecting the Directive’s full harmonisation approach and substa…"
+
+### United Kingdom: driver assistance versus a vehicle driving itself
+
+**The United Kingdom uses a functional test rather than SAE labels as the statutory trigger.** The Automated and Electric Vehicles Act 2018 defines a vehicle as “driving itself” when it operates in a mode in which it is not controlled and does not need to be monitored by an individual. It expressly includes an accident partly caused by the automated vehicle, allowing shared causation within a chain of events. [24]
+
+That definition does not automatically encompass ordinary Level 1–2 driver assistance, because a Level 2 driver must monitor the environment and remain ready to control the vehicle. The Department for Transport’s explanatory notes state that driver assistance leaves responsibility with the driver, while self-driving changes the legal responsibility structure. [25]
+
+AEVA establishes an insurer-first route when an insured automated vehicle causes damage while driving itself. The insurer may reduce payment for claimant contributory negligence and pursue responsible parties. That route should not be casually extended to every Level 2 system, because the legal trigger is the vehicle driving itself without the need for individual monitoring.
+
+The Automated Vehicles Act 2024 creates an authorised self-driving entity, a user-in-charge and a no-user-in-charge operator. The ASDE has general responsibility for keeping the authorised vehicle within the self-driving test. A licensed NUiC operator has responsibility for detecting and responding to problems during a no-user-in-charge journey. Authorisation must identify the feature, its mode, its engagement and disengagement process, and the locations and circumstances in which it can travel safely and legally. [26]
+
+The Act’s user-in-charge provisions distinguish a person positioned to exercise control from the person actually controlling the vehicle. During an authorised feature’s operation, the user-in-charge may receive protection from responsibility for the dynamic driving task, subject to transition-demand and misuse exceptions. The displayed legislation records core provisions as prospective at Royal Assent, so the applicable result depends on the vehicle’s authorisation, commencement status and mode of operation.
+
+**Software is expressly treated as a vehicle part for specified road-law purposes.** Section 56 of the Act treats software as a vehicle part and installing or making software interact with a vehicle as fitting a vehicle part. The commencement instrument brought sections 55 and 56 into force on 1 January 2026. This supports enforcement against tampering or unsuitable software, but it does not by itself resolve every civil product-liability question. [27]
+
+The United Kingdom’s March 2026 pilot guidance illustrates the functional allocation. If a pilot vehicle has no safety driver controlling or overseeing it, liability may fall to the piloting organisation, with the insurer also potentially responsible. A person who manually controls the vehicle assumes liability for its movements until control is handed over; a safety driver who controls or oversees it is expected to bear driver liability under current law. The guidance says the allocation is case-specific. [28]
+
+The UK materials considered here are statutes, explanatory notes, insurer requirements and pilot guidance rather than a reported Level 1–2 civil merits judgment. Their significance is prospective: they show how insurer-first compensation, ASDE responsibility, operator duties, transition demands, data sharing and enforcement may apply once a system crosses from driver assistance into authorised self-driving.
+
+Section references:
+[24] Automated and Electric Vehicles Act 2018, section 8 <https://www.legislation.gov.uk/ukpga/2018/18/section/8/enacted> Excerpt: "(a)a vehicle is driving itself if it is operating in a mode in which it is not being controlled, and does not need to be monito…"
+[25] DfT explanatory notes to the Automated Vehicles Act 2024 <https://www.legislation.gov.uk/ukpga/2024/10/pdfs/ukpgaen_20240010_en.pdf> Excerpt: "Subsection (2) specifies that regulations made under subsection (1) must specify the purpose for which the information, items o…"
+[26] Automated Vehicles Act 2024 <https://www.legislation.gov.uk/ukpga/2024/10> Excerpt: "(1)An automated vehicle authorisation must identify the feature or features by virtue of which (in the opinion of the Secretary…"
+[27] AVA commencement regulations <https://www.legislation.gov.uk/uksi/2025/1339> Excerpt: "(2) The following provisions of the Act come into force on 1st January 2026, but only for the purpose of making regulations— (a…"
+[28] DfT self-driving pilot guidance <https://www.gov.uk/government/publications/self-driving-vehicle-pilot-scheme-information-for-first-responders/interacting-with-self-driving-vehicles-first-responders> Excerpt: "If a pilot vehicle is manually controlled by someone, for example a first responder, then the authorised person that takes manu…"
+
+## Case law, investigations, recalls and standards
+
+### Civil cases
+
+| Authority and date | Accident and ADAS mode | Outcome | Legal reasoning | Allocation significance |
+|---|---|---|---|---|
+| *SZ Huang v. Tesla*, California, 9 April 2024 | 23 March 2018 Model X left Highway 101 and crashed while Autopilot was engaged | Settled for an undisclosed amount and dismissed | No merits reasoning was issued | Marketing, defect and driver-fault positions remained disputed rather than precedent |
+| *Tesla v. Estate of Jeremy Banner*, Florida, 26 February 2025 | 2018 Model 3 using TACC and Autosteer struck a left-turning semitrailer at 69 mph | Punitive-damages order reversed | Criminal-manslaughter-level reckless disregard was not shown | State-of-the-art compliance defeated the punitive threshold, not ordinary liability |
+| *Benavides v. Tesla*, S.D. Fla., final judgment 3 August 2025; post-trial order 20 February 2026 | Model S struck a parked Tahoe, which struck two pedestrians | Tesla liable for design defect, failure to warn and punitive damages; Tesla assigned 33% responsibility | Post-trial court held the trial evidence more than supported the verdict | Concrete Level 2 design, warning and shared-apportionment example |
+| Bayerisches Oberstes Landesgericht, Germany, 21 October 2024 | Tesla Model 3 driver slept, defeated monitoring and used Level 2 Autopilot | €250 fine affirmed | Level 2 remains under general driver-control rules | Misuse does not convert Level 2 into higher automation |
+
+### *SZ Huang v. Tesla*
+
+**The Huang matter ended without a merits rule.** Walter Huang, a 38-year-old Apple engineer, died on 23 March 2018 when his Tesla Model X ran off Highway 101 while Autopilot was on. Plaintiffs alleged that Tesla marketed Autopilot as safer than human driving and knew of serious flaws. Tesla maintained that the driver was at fault. The California Superior Court matter settled for an undisclosed amount and was dismissed on 9 April 2024. [29]
+
+The case is still useful analytically. It presents the central Level 2 conflict in concentrated form: the driver’s actual attention and response versus the manufacturer’s marketing, feature capability and warnings. It supplies the accident scenario and competing legal theories, but no judicial allocation, software-provider rule or insurer-contribution principle.
+
+Section references:
+[29] Case disposition in SZ Huang v. Tesla <https://www.morelaw.com/verdicts/19cv346663/CA/179170/> Excerpt: "Thirty-eight year old Apple engineer Walter Huang was killed when his Tesla Model X ran off Highway 101 and crashed when on auto pilot. Tesla took…"
+
+### *Tesla v. Estate of Jeremy Banner*
+
+**Banner shows the difference between ordinary liability and punitive liability.** Jeremy Banner’s 2018 Model 3 was travelling southbound on US 441 in the early morning. About ten seconds before impact, he activated Enhanced Autopilot’s TACC at 69 mph, 14 mph above the speed limit, and Autosteer. Both remained active until collision, but the vehicle did not brake and detected no steering-wheel, brake or accelerator input during the final eight seconds. A left-turning semitrailer allegedly drove through a stop sign. [30]
+
+The Estate alleged inadequate cross-traffic detection, an ineffective AEB system, failure to restrict the feature to roads without cross traffic, misleading marketing and torque-only monitoring. Tesla relied on owner-manual warnings stating that TACC was not a collision-avoidance system, might not detect all objects above 50 mph, could cancel unexpectedly and required immediate driver action. The Autosteer agreement stated that the feature did not make the vehicle autonomous and required attention, hands on the wheel and readiness to take over.
+
+The Florida Fourth District Court of Appeal reversed an order allowing a punitive-damages claim. Applying *Chrysler Corp. v. Wolmer* and *Carraway v. Revell*, the court required conduct equivalent to criminal manslaughter: reckless disregard for human life or culpable negligence likely to cause death or great bodily injury. It concluded that the record did not show Tesla knew or reasonably should have known that its Level 2 features were likely to cause that degree of harm.
+
+**Banner does not decide ordinary fault.** The appellate court’s treatment of state-of-the-art evidence and regulatory compliance is counterevidence against punitive intent. It did not decide whether the design, warnings, AEB, monitoring or marketing satisfied ordinary negligence or strict product-liability standards. The case therefore limits punitive damages without creating a general civil-liability safe harbour.
+
+Section references:
+[30] Florida Fourth District Court of Appeal opinion <https://flcourts-media.flcourts.gov/content/download/2447924/opinion/Opinion_2023-3034.pdf?utm.com=> Excerpt: "Jeremy Banner was driving a 2018 Tesla Model 3 southbound on US 441 in the early morning hours when a semi-trailer truck driver, turning left to head northbound on US 441, allegedly drove through a stop sign. Banner’s vehicle struck the middle of the trailer. As his vehicle drove under the trailer, the top of his vehicle sheared off, killing him instantly. A crash invest…"
+
+### *Benavides v. Tesla*
+
+**Benavides supplies the clearest adjudicated shared-allocation example.** On 25 April 2019 in Key Largo, George McGee’s 2019 Tesla Model S struck a parked Chevrolet Tahoe. The Tahoe then struck Naibel Benavides Leon and Dillon Angulo, killing Benavides Leon and seriously injuring Angulo. The case concerned Tesla’s Autopilot design and warning obligations, and the court relied on vehicle data, Elon Musk statements and trial evidence concerning the system’s safety.
+
+The jury found Tesla liable for strict-products-liability defective design, failure to warn and punitive damages. It assigned Tesla 33% responsibility. The verdict stated compensatory awards of $59 million for the Estate and $70 million for Angulo before reduction. The final judgment reported $19.47 million and $23.1 million in compensatory awards, $200 million in punitive damages and a total of $242.57 million; the total is arithmetically $19.47 million + $23.1 million + $200 million. [31]
+
+The court denied Tesla’s renewed Rule 50 motion and alternative new-trial motion on 20 February 2026, holding that the admitted evidence more than supported the verdict. The judgment provides a concrete civil example of a jury treating system design and warnings as causal even though the vehicle’s operation also involved human conduct and other circumstances.
+
+The 33% figure is a case allocation, not a formula. An arithmetic estimate of the remainder is 67%—100% minus Tesla’s 33%—but that remainder should not be relabelled as a universal driver percentage. Its legal meaning depends on the verdict’s treatment of other causes, parties and comparative-fault rules.
+
+Section references:
+[31] Federal final judgment and post-trial order <https://www.govinfo.gov/content/pkg/USCOURTS-flsd-1_21-cv-21940/pdf/USCOURTS-flsd-1_21-cv-21940-14.pdf> Excerpt: "and Dillon Angulo $70,000,000.00 in compensatory damages, the jury found Tesla to be only 33% responsible for Plaintiffs’ injuries. As such, the compensatory award for each Plaintiff was reduced accordingly in the Final Judgment to reflect the jury’s findings. Case 1:21-cv-21940-BB Document 612 Entered o…"
+
+### Bayerisches Oberstes Landesgericht
+
+**The German decision fixes the Level 2 driver boundary through extreme misuse.** The driver operated a Tesla Model 3 Performance with Autopilot, fitted steering-wheel weights, covered the interior camera and slept for at least 8 km and nearly five minutes. The court held that the vehicle remained Level 2 because its tactile and optical safeguards were designed to keep the driver from turning away.
+
+The driver’s manipulation did not transform the feature into Level 3 or Level 4. Level 2 required continuing driver supervision and readiness to intervene. The €250 fine therefore rested on the driver’s failure to maintain control, not on a manufacturer’s civil defect. [22]
+
+The decision is important for courts outside Germany because it rejects a common conceptual error: a user’s misuse cannot manufacture a higher legal automation category. The vehicle’s designed control relationship remains the starting point.
+
+Section references:
+[22] Bayerisches Oberstes Landesgericht, 202 ObOWi 644/24 <https://de.openlegaldata.io/case/bayoblg-2024-10-21-202-obowi-64424> Excerpt: "- FeV 2010 § 2 Eingeschränkte Zulassung 4x - NZV 2001, 81, 82 1x (nicht zugeordnet) - OWiG 1968 § 71 Hauptverhandlung 1x - StPO § 260 Urteil 1x - NZV 2008, 584, 585 1x (n…"
+
+### NTSB accident investigations
+
+| Investigation | Technical sequence | Probable-cause finding | Responsibility significance |
+|---|---|---|---|
+| Mountain View, California, NTSB HAR-20/01, reissued 20 March 2020 | Model X on Autopilot entered a gore at about 71 mph; lane-keeping steered left; no alert, FCW or AEB response | System limitations plus driver distraction and overreliance; weak engagement monitoring contributed | Direct combined-cause evidence, but no civil damages allocation |
+| Williston, Florida, 7 May 2016 | Model S using TACC and Autosteer struck a refrigerated semitrailer; driver did not react | Truck driver failed to yield, combined with Tesla-driver inattention from overreliance | Shows third-party road-user fault and driver-system causation together |
+
+**Mountain View traces perception to injury.** On 23 March 2018, a Tesla Model X P100D entered the gore area near the US-101/SR-85 interchange in Mountain View, California, struck a crash attenuator at about 71 mph and then collided with a Mazda and Audi. The Tesla driver died, the Mazda driver sustained minor injuries and the Audi driver was uninjured. [32]
+
+NTSB found that Autopilot’s lane-keeping assist steered the vehicle left into the gore because limitations in vision-processing software prevented accurate lane maintenance. The attenuator was not detected, so forward-collision warning did not alert and automatic emergency braking did not activate. The driver’s lack of response was likely related to distraction from a cell-phone game and overreliance.
+
+NTSB attributed probable cause to system limitations together with driver distraction and overreliance. It also found ineffective engagement monitoring contributed by facilitating complacency and inattentiveness. The damaged, nonoperational attenuator worsened injury severity; that condition involved prior highway maintenance and reporting failures, showing why primary crash cause and injury-severity cause must be separated.
+
+The allocation lesson is mixed. Driver distraction supports comparative fault. The missed lane geometry, absent warning, absent braking response and permissive ODD support system and manufacturer scrutiny. The investigation did not assign a civil percentage, but it provides the technical causal chain a civil court would need.
+
+**Williston adds a third-party traffic violation.** On 7 May 2016, a Tesla Model S 70D travelling on US-27A near Williston, Florida, struck a refrigerated semitrailer. TACC and Autosteer were operating within Tesla’s Autopilot suite, which provided lateral and longitudinal control. The Tesla driver died; the truck driver was not injured. [33]
+
+NTSB attributed the crash to the truck driver’s failure to yield combined with the Tesla driver’s inattention caused by overreliance on automation. The finding does not make the truck driver, Tesla driver and manufacturer interchangeable. It establishes that a turning vehicle’s traffic violation, the driver’s failure to respond and the system’s engagement design may all occupy different links in the causal chain.
+
+Section references:
+[32] NTSB HAR-20/01 <https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR2001.pdf> Excerpt: "Automation and a Crash Attenuator, Mountain View, California, March 23, 2018. Highway Accident Report NTSB/HAR-20/01. Washington, DC. Abstract: On Friday, March 23, 2018, at 9:27 a.m., a 2017 Tesla Model X P100D electric-powered sport utility vehicle (SUV), occupied by a 38-year-o…"
+[33] Rustad’s analysis of the Williston investigation <https://gould.usc.edu/why/students/orgs/ilj/assets/docs/32-1-Rustad.pdf> Excerpt: "NEAR WILLISTON , FLORIDA , MAY 7, 2016, 27 (Sept. 12, 2017), accidentreports/reports/har1702.pdf NAT ’L HIGHWAY TRAFFIC SAFETY ADMIN ., NATURALISTIC STUDY OF LEVEL 2 DRIVING AUTOMATION FUNCTIONS , 4 (Nov. 2018), 812642_naturalistic-study-of-level-2-driving-automation-functions.pdf…"
+
+### NHTSA investigations and Recall 23V-838
+
+| Authority and date | Action | Key finding or event | Legal significance |
+|---|---|---|---|
+| PE21-020, 13 August 2021 | Preliminary evaluation opened after 11 first-responder-vehicle incidents | Tesla vehicles were using Autosteer near stationary emergency vehicles | Initiated engagement-control and ODD scrutiny |
+| EA22-002, 8 June 2022; update 25 April 2024 | Engineering analysis reviewed 956 alleged Autopilot crashes | 211 frontal-plane crashes included 13 fatal crashes, 14 deaths and 49 injuries; 53 low-traction and 55 inadvertent-override crashes were identified | Administrative safety evidence, not civil apportionment |
+| Recall 23V-838, 12 December 2023 | Tesla voluntarily recalled 2,031,220 potentially involved vehicles | Tesla estimated 100% of the covered population had the defect while not concurring with NHTSA’s analysis | Recall evidence supports design and foreseeable-misuse analysis |
+| RQ24009, 6 May 2024 | NHTSA examined remedy adequacy | 20 preliminary crashes involved vehicles with the remedy installed; warning-cascade differences were not identified in one camera-obscured test | Post-remedy performance remains relevant to continuing manufacturer duties |
+
+**The investigation identified a system-level mismatch.** NHTSA reviewed 956 crashes in which Autopilot was initially alleged to have been engaged. The detailed review covered 446 crashes from early 2018 through August 2022 using onboard video, EDRs, data logs and other information. A supplemental review covered 510 incidents reported through the Standing General Order from August 2022 through August 2023, with less complete supporting material in some cases. [7]
+
+The agency identified 211 frontal-plane crashes in which the Tesla struck a vehicle, object or person in its path, including 13 fatal crashes causing 14 deaths and 49 injuries. It also identified 53 low-traction loss-of-control crashes and 55 inadvertent-steering-override crashes. NHTSA concluded that, before the recall, Autopilot’s design was insufficient to maintain driver engagement and that warnings did not adequately ensure continued attention.
+
+The agency’s peer comparison characterized Tesla as an industry outlier because it paired permissive operating capability with weak engagement controls. It also criticised the name “Autopilot” as potentially encouraging drivers to believe that the system had greater capability than it did.
+
+**The recall illustrates the difference between a software remedy and a completed safety solution.** Tesla’s filing covered 2,031,220 vehicles and estimated the defect percentage at 100%. Tesla described the recall as voluntary and did not concur with NHTSA’s analysis. The remedy included stricter attentiveness near off-highway traffic controls, increased monitoring after engagement, larger alerts on some models, suspension after three or five forced disengagements depending on cabin-camera availability, and an optional single-pull configuration intended to disengage both Autosteer and TACC. [34]
+
+NHTSA’s May 2024 recall query identified 20 preliminary crashes in vehicles with the remedy installed: nine frontal-plane crashes, six yaw, spin or understeer crashes and five inadvertent-steering-override crashes. Preliminary testing found no difference in warning-cascade initiation in the camera-obscured comparison, so ODI continued evaluating remedy adequacy. That does not establish that the remedy failed generally; it shows why a manufacturer’s update or recall decision must remain subject to in-use monitoring.
+
+**Successive NHTSA positions must be read in scope and sequence.** On 19 January 2017, NHTSA closed its investigation of the Florida crash involving Joshua Brown’s Tesla Model S and stated that it found no design or performance defect in Autopilot or AEB and no failure to perform as designed. [35]
+
+Later EA22002 findings concerned a much broader crash population, engagement controls, ODD, peer comparisons and foreseeable driver misuse. The contrast is not necessarily a contradiction: one investigation examined a particular crash and system performance; the later analysis examined recurring design and engagement patterns. A 2018 FOIA decision also scrutinised the method underlying NHTSA’s reported 40% crash-rate reduction after Autosteer installation, illustrating the evidentiary importance of denominators, underlying data and statistical method. [36]
+
+Section references:
+[7] NHTSA EA22002 <https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf> Excerpt: "A detailed analysis covered 446 crashes occurring from early 2018 through August 2022 that relied on in-depth assessments of video from the subject vehicle onboard cameras, event data recorders (EDR)…"
+[34] Tesla Recall 23V-838 <https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V838-8276.PDF> Excerpt: "Address : 1 Tesla Road Estimated percentage with defect : 100 % Austin TX 78725 Company phone : 6506815000 Vehicle Information : Vehicle 1 : 2012-2023 Tesla Model S Vehicle Type : Body Style : Power…"
+[35] NHTSA’s 2017 closure as reported <https://thehill.com/policy/transportation/automobiles/315133-federal-regulators-close-tesla-autopilot-probe-wont-seek/> Excerpt: "— Elon Musk (@elonmusk) January 19, 2017 ( The NHTSA said it will continue to monitor other potential issues related to Tesla vehicles and reserves the right to take future action against the automak…"
+[36] Quality Control Systems Corp. v. U.S. Department of Transportation <https://safetyresearch.net/Library/Memorandum_Opinion_and_Order.pdf> Excerpt: "crash rate dropped by almost 40 percent after Autosteer installation. Id. Case 1:17-cv-01266-DLF Document 18 Filed 09/30/18 Page 4 of 13 A month after the NHTSA report was issued, Quality Control sub…"
+
+### UNECE and EU technical standards
+
+| Instrument | Operating scope | Principal controls | Liability relevance |
+|---|---|---|---|
+| UNECE R157, in force 22 January 2021 | ALKS, initially M1 vehicles on separated roads up to 60 km/h | Primary system control, transition demand, override, minimum-risk manoeuvre, data, cybersecurity and software updates | Supplies a technical benchmark for higher automation, not a Level 2 damages rule |
+| Regulation (EU) 2019/2144, adopted 27 November 2019 | New EU vehicles and mandatory safety systems | Attention and distraction warning, AEB, lane keeping, EDR and driver override | Regulatory compliance is evidence on safety, not a complete civil defence |
+| Regulation (EU) 2022/1426, adopted 5 August 2022 | Fully automated M and N vehicles within a defined ODD | ODD recognition, safety case, failure diagnosis, MRM/MRC, traffic-rule compliance and in-use reporting | Shows how control transfer and lifecycle evidence should be documented |
+| Regulation (EU) 2024/2853 | Defective products including software and digital elements | Disclosure, presumptions, software and update coverage, joint liability | Extends manufacturer and software-provider exposure under national transposition |
+
+The standards demonstrate an important transition in regulatory thinking. Early driver-assistance frameworks assumed that the human remained the fallback. Higher-automation rules instead require the system to define its ODD, detect failure, perform a minimum-risk manoeuvre and record the event. Level 2 remains between those models: the human remains the fallback, but the system has assumed enough control that its own design choices materially influence whether the driver can perform that role.
+
+## Systematic allocation among the actors
+
+### Post-crash evidence and liability checklist
+
+| Step | Question or action | Evidence to secure | Why it changes allocation |
+|---|---|---|---|
+| 1 | Freeze control state | Activation and deactivation times, feature name, software and firmware version, EDR and system logs | Separates Level 1–2 support from a different automation mode |
+| 2 | Reconstruct the DDT | Video, perception and diagnostic logs, control commands, warnings, DMS records | Tests system defect, causation and intervention opportunity |
+| 3 | Test driver response | Gaze, posture, torque, phone, seat, warning and roadway-condition records | Separates negligence from system failure and foreseeable misuse |
+| 4 | Trace the lifecycle | Version history, OTA records, recalls, cybersecurity, approval, maintenance and operator records | Identifies manufacturer, developer, owner and operator exposure |
+| 5 | Apply the jurisdiction and remedy | Policy, statutory framework, expert evidence and disclosure history | Determines compensation route, recourse and apportionment |
+
+### Actor and duty map
+
+| Actor and control state | Primary duty | Causation or fault trigger | Likely allocation | Proof | Remedy |
+|---|---|---|---|---|---|
+| Driver at Level 1–2 | Monitor, remain attentive and intervene immediately | Distraction, sleep, misuse, ignored warning or late response | Driver-dominant or shared | DMS, inputs, phone and timeline | Tort damages, comparative fault, traffic sanctions |
+| ADAS or vehicle system | Execute assigned steering or speed support safely | Missed hazard, wrong plan, failed control, unsafe override or silent failure | System-side contribution attributed through legal defendant | Logs, sensor state, commands and diagnostics | Defect claim, recall, feature restriction |
+| Vehicle manufacturer | Design, test, warn, monitor, update and restrict foreseeable use | Unreasonable design, weak DMS, misleading presentation, unsafe ODD or update | Manufacturer design or warning share | Design history, testing, marketing, updates and recalls | Damages, punitive claim where threshold met, recall |
+| Software provider or developer | Supply safe controlling software and lifecycle support where law applies | Algorithm, cybersecurity, update or data defect | EU manufacturer exposure; U.S. rule conditional; UK ASDE or vehicle-part route | Source/version records, contracts and update control | Contribution, strict liability where applicable, enforcement |
+| Owner or keeper | Maintain, insure and use vehicle lawfully | Defeated safeguards, unsafe maintenance, prohibited modifications or non-installation of critical update | Owner strict liability in Germany; ordinary keeper exposure elsewhere | Maintenance, modification and policy records | Direct compensation, recourse and statutory penalties |
+| Operator or piloting organisation | Control deployment, supervision and operational safety | Use outside authorisation, poor oversight or unsafe pilot operation | Higher-automation or pilot operator share | Operating records, permits and safety plans | Contribution, compliance notice, licence sanctions |
+| Insurer | Provide policy compensation and preserve recourse | Applicable insurer-first or MTPL trigger, subject to policy and causation | Compensation front door, not necessarily ultimate fault | Policy, control-state data and claim file | Payment, subrogation and contribution |
+
+### The driver
+
+**Driver responsibility attaches to the human role, not to the driver’s actual success.** Under SAE J3016, a driver who fails to monitor while Level 1 ACC is engaged remains the driver. At Level 2, the driver must continuously monitor the environment and remain able to provide steering, braking and throttle.
+
+Driver fault is strongest where the evidence shows:
+
+- the driver was looking away from the road;
+- the driver performed a prohibited secondary task;
+- the driver slept or moved from the driving position;
+- the driver defeated the DMS;
+- the driver activated the feature outside a clear operating restriction;
+- the driver ignored a warning;
+- the driver failed to respond to a visible hazard despite a fair opportunity;
+- the driver’s steering, braking or acceleration input caused or worsened the event.
+
+The German decision is an especially clear example: sleeping for nearly five minutes and defeating monitoring violated the Level 2 control relationship. The driver could not argue that Autopilot had assumed the legal task.
+
+Driver fault is weaker when the driver was attentive, the feature was operating within its stated conditions, the hazard was difficult to perceive, no warning was issued, the system silently failed or the driver had no reasonable time to respond. The driver’s continuing legal duty does not erase a manufacturer’s duty to provide a system that can be supervised and safely overridden.
+
+### The ADAS and vehicle system
+
+**The system is the technical source of causation even when it is not a separate legal person.** Civil claims usually attach to the manufacturer, seller, component supplier, software developer or operator rather than to the algorithm itself. The system’s role should nevertheless be stated precisely.
+
+A system-side causal finding may involve:
+
+- perception failure to detect, classify or track a hazard;
+- planning failure to choose braking, steering or speed reduction;
+- control failure to execute a valid command;
+- actuator or integration failure;
+- unsafe authority arbitration;
+- an override threshold that makes normal driver correction hazardous;
+- inadequate DMS logic;
+- delayed, ambiguous or absent warnings;
+- activation outside a known ODD;
+- failure to enter a safe fallback;
+- software, cybersecurity or OTA-update failure.
+
+A technical limitation becomes a legal defect only when it creates unreasonable risk under the applicable test. The fact that a sensor has a finite range is not itself a defect. A manufacturer may be responsible if it represents the system as capable of handling a hazard, allows activation in conditions where the hazard is predictable, fails to restrict use or fails to provide an adequate warning.
+
+### The vehicle manufacturer
+
+**The manufacturer controls the largest share of the lifecycle risk.** Design liability asks whether the manufacturer could have adopted a safer design, such as better sensor placement, more robust object classification, improved cross-traffic detection, cooperative steering, stronger DMS or safer fallback. Warning liability asks whether instructions and alerts could have reduced the foreseeable risk. Manufacturing liability asks whether the particular vehicle departed from the intended design.
+
+The manufacturer’s obligations do not end at sale. A software update can alter perception, planning, control authority, ODD, DMS thresholds or warning behaviour. A cybersecurity vulnerability can allow an external actor to affect vehicle control. A recall can reduce exposure if it promptly and effectively corrects the risk, but the existence of a recall does not eliminate claims for earlier crashes.
+
+The EU PLD’s treatment of post-market updates makes that lifecycle principle explicit. A product remains within manufacturer control when the manufacturer retains the ability to provide updates, and safety-relevant cybersecurity vulnerabilities or post-sale machine-learning changes can enter the defect analysis.
+
+U.S. evidence law may limit the use of subsequent remedial measures to prove a prior defect. Federal Rule of Evidence 407 generally restricts such use, while state treatment differs. The update remains relevant to notice, feasibility, regulatory duties, causation and post-sale conduct under the applicable jurisdiction, even when its evidentiary use is restricted for one purpose.
+
+### The software provider or developer
+
+**Software responsibility follows control over the relevant risk.** The EU PLD expressly treats software developers and AI providers as manufacturers in the relevant product-liability framework. It also extends coverage to embedded, standalone and cloud software and updates integrated into product functionality.
+
+The United States has no uniform rule treating every vehicle-software provider as a product manufacturer. The result depends on whether the software is embedded and integral to the vehicle, whether the provider supplied a service, whether the provider controlled the update, and the applicable state’s product-liability doctrine. A court may distinguish code that directly controls braking from a navigation or data service that merely informs a human.
+
+The UK’s treatment of installed or interacting software as a vehicle part, effective for the specified Road Traffic Act provisions from 1 January 2026, strengthens the legal visibility of software without automatically resolving civil causation. For authorised self-driving, the AVA’s ASDE model can place continuing responsibility on the manufacturer or software provider that maintains the authorised feature.
+
+Contractual allocation among OEMs, suppliers and cloud providers does not necessarily control an injured person’s claim. It may govern contribution and indemnity after compensation, but the entity with technical ability to prevent the risk should remain identifiable to the claimant and regulator.
+
+### The owner or keeper
+
+**Ownership creates operational exposure even when the owner did not write the software.** The owner or keeper may be responsible for roadworthiness, maintenance, tyres, repairs, insurance, lawful use, safeguarding against tampering and, depending on the jurisdiction, damage caused by the vehicle irrespective of personal fault.
+
+Germany makes this role especially clear through §7 StVG owner strict liability and compulsory MTPL. The owner and insurer provide a claimant-facing route, while the insurer may pursue the manufacturer if a system defect caused the crash.
+
+In the United Kingdom, ordinary driver assistance does not displace conventional owner and driver obligations. For authorised self-driving, the user-in-charge or operator framework preserves operational responsibilities such as fitness, roadworthiness, load security, insurance and lawful use. In the United States, owner liability and insurance are mainly state-specific, and an owner’s deliberate modification or failure to maintain a vehicle may support comparative fault or recourse.
+
+### The operator or piloting organisation
+
+**Operator liability becomes more important as the human leaves the driving seat.** A fleet operator may select ODDs, approve routes, maintain vehicles, supervise drivers, manage updates and respond to incidents. A pilot organisation may control a vehicle without a safety driver and may therefore become the operational actor even though it did not manufacture the system.
+
+The UK’s March 2026 pilot guidance states that liability may fall to the piloting organisation when the vehicle is not controlled or overseen by a safety driver. A manually controlling authorised person assumes liability until control is handed over, while a safety driver who controls or oversees the vehicle is expected to bear driver liability.
+
+Those rules concern higher automation and pilots, not a uniform Level 1–2 principle. They nevertheless provide a useful allocation test for fleet-based ADAS: identify who selected the feature, who controlled deployment, who maintained the system and who could suspend operation after a warning or defect.
+
+### The insurer
+
+**The insurer is often the compensation front door rather than the ultimate wrongdoer.** A compulsory motor insurer can pay an injured third party quickly and later pursue the driver, owner, manufacturer, software provider or operator. That structure reduces the claimant’s need to resolve a technically complex allocation before receiving compensation.
+
+Germany combines owner strict liability, compulsory MTPL, direct claims and subrogation. The United Kingdom’s AEVA makes the insurer directly liable when an insured vehicle is driving itself. The AVA extends the prospective framework by protecting the user-in-charge during authorised automated operation and identifying the ASDE or NUiC operator as recovery targets.
+
+For ordinary U.S. Level 1–2 crashes, the insurer’s role depends on state law, policy terms, coverage, subrogation rights and the proof of causation. A common rule assigning insurer-first liability for all Level 2 systems does not emerge from the authorities considered here. The applicable result turns on jurisdiction, policy, engaged feature, owner and driver conduct, and proven system contribution.
+
+### Causation, apportionment and proof
+
+**Shared causation requires more than naming several actors.** The court should ask:
+
+1. What risk materialised?
+2. Which actor controlled that risk?
+3. What duty applied at the relevant time?
+4. Did the actor breach the duty or supply a defective product?
+5. Did the breach cause the collision, increase its severity or reduce the opportunity to avoid it?
+6. Was the driver’s conduct foreseeable?
+7. Did another road user, infrastructure owner or maintenance authority contribute?
+8. What percentage or qualitative share follows under the jurisdiction’s apportionment rules?
+
+This method distinguishes primary collision cause from injury-severity cause. In Mountain View, Autopilot’s lane departure and the driver’s non-response formed the primary causal combination, while the damaged attenuator increased injury severity. In Williston, the truck driver’s failure to yield and the Tesla driver’s overreliance coexisted. In Banner, the semitrailer’s alleged stop-sign violation, the driver’s speed and lack of response, and the alleged system limitations each occupied different causal positions.
+
+The percentages must follow evidence. Benavides assigned Tesla 33%; that figure is a concrete example of jury apportionment, not a Level 2 formula. Where evidence shows only that both driver and system contributed, a court may assign a qualitative share or leave a percentage for the factfinder. A regulator’s probable-cause finding, recall or type-approval decision should inform the analysis but should not be converted into a civil percentage.
+
+**Proof burdens differ by jurisdiction.** In U.S. litigation, the claimant ordinarily proves negligence or the relevant product-liability elements under state law, often by a preponderance of the evidence. Expert testimony may be needed to connect software, sensors, warnings and vehicle dynamics. Complex code and proprietary logs create practical asymmetry even where the formal burden is shared.
+
+Under the EU PLD, the claimant proves defect, damage and causation, but disclosure duties and rebuttable presumptions address nondisclosure, obvious malfunction, mandatory-safety noncompliance and excessive technical complexity. Germany’s ProdHG generally places proof of defect, damage and causal connection on the injured person, subject to the ordinary rules of that regime. The UK’s insurer-first model can move the initial dispute from claimant proof to insurer recourse when the vehicle was driving itself.
+
+**Compensation and recourse should be separated.** The injured person should not bear the full cost of reconstructing proprietary software before receiving compulsory insurance compensation. The insurer or compensation body should then pursue the responsible actors using neutral control-state data, design evidence, update records and expert reconstruction.
+
+## Comparative gaps and unresolved boundaries
+
+| Issue | United States | EU and Germany | United Kingdom | Allocation consequence |
+|---|---|---|---|---|
+| Level 2 versus higher automation | SAE and NHTSA definitions guide analysis; state law supplies consequences | German Level 2 case law separates Level 2 from §§1a/1b; EU rules distinguish automated and fully automated systems | AVA uses a functional self-driving test rather than SAE levels | The same feature name may produce different legal duties |
+| Software as product | State doctrine is unsettled | PLD includes embedded, standalone, cloud and AI software | Software is a vehicle part for specified road-law provisions; ASDE rules apply to authorised AVs | Defendant and proof route change with classification |
+| ODD misuse | Foreseeable misuse may support a Safety Act inquiry | Type approval and PLD address foreseeable use and lifecycle safety | Authorisation specifies locations and circumstances | Driver misuse and manufacturer permissiveness may coexist |
+| OTA and cybersecurity | Recall and tort duties exist, but contribution rules vary | PLD expressly covers updates, control and vulnerabilities | AVA materials identify update and cyber duties; detailed data rules evolve | Post-sale responsibility follows control and materiality |
+| Evidence | State discovery, EDR, NHTSA reporting and proprietary logs | EU disclosure, EDR and privacy rules; German §63a logging | AVA information-sharing architecture and insurer data needs | The party holding data can influence practical proof |
+| First-instance compensation | State insurance and tort law | Germany uses owner and MTPL route; other Member States vary | AEVA insurer-first when driving itself | Claimant recovery and later recourse differ |
+| Type approval and self-certification | Federal self-certification and recall | EU and UNECE type approval, conformity and safety documentation | Type approval plus AV authorisation | Compliance is persuasive evidence, not always a defence |
+| Apportionment | State comparative-fault rules | National negligence and insurance rules remain important | AEVA expressly accommodates partial automated causation | No universal Level 2 percentage rule exists |
+
+### The principal cross-border differences
+
+**The United States decentralises civil allocation.** Federal agencies can identify safety defects, require information and order recalls, but state courts decide negligence, product defect, punitive damages, comparative fault and insurance contribution. That structure permits divergent outcomes: NHTSA’s 2017 no-defect closure, Banner’s punitive-damages reversal and Benavides’ 33% Tesla allocation can coexist because they addressed different populations, standards and procedural questions.
+
+**The EU harmonises product scope more aggressively.** The PLD makes software and digital elements part of the product-liability system and creates disclosure and presumption tools designed for technical complexity. But national implementation, traffic law, motor insurance and development-risk defences still affect the practical result. Member-State drafts showing different positions on the development-risk defence and the technical-complexity threshold demonstrate that harmonised software coverage will not necessarily produce identical outcomes.
+
+**Germany puts compensation near the owner and insurer.** That structure is claimant-protective for ordinary road users but can leave the insurer to investigate and pursue an OEM or software supplier. The German literature identifies risks from statutory caps, product-liability exclusions, weak subrogation incentives and changing OTA functionality. The Bavarian decision supplies a clear Level 2 driver boundary, but it does not solve manufacturer contribution.
+
+**The United Kingdom separates functional self-driving from driver support.** The AVA’s functional trigger can encompass an authorised feature without using SAE levels. AEVA’s insurer-first rule, the ASDE and NUiC operator roles, user-in-charge protection and pilot guidance create a prospective architecture for higher automation. Ordinary Level 1–2 assistance remains under the driver-responsibility baseline.
+
+### Conflicts that change the result
+
+**Marketing and terminology can alter foreseeability.** “Autopilot” may suggest that the driver is not in control, while “assist,” “sense” or “team” signals cooperation. The name does not change the SAE level, but it can affect warning adequacy, consumer expectations, foreseeable misuse and punitive intent.
+
+**Regulatory compliance has different evidentiary weight.** Banner treated state-of-the-art and industry compliance as powerful evidence against punitive damages. Benavides shows that compliance did not prevent a jury from finding design-defect and warning liability. The distinction is between evidence of reasonable conduct and a legal safe harbour.
+
+**The insurer question remains mode-specific.** Germany’s direct insurer claims, the UK’s AEVA insurer-first rule and U.S. state insurance law are not interchangeable. The same vehicle may be driver-dominant in an ordinary Level 2 operation and insurer-first in a jurisdictionally authorised self-driving mode.
+
+**The software-provider boundary follows institutional control.** A provider that supplies and updates braking or steering software has a stronger responsibility case than a provider that merely supplies optional information. The EU PLD supplies a broader manufacturer concept; U.S. law still requires classification under state doctrine; the UK’s ASDE framework focuses on the entity responsible for keeping an authorised vehicle within the self-driving test.
+
+**Evidence access is itself a liability issue.** NHTSA cautions that Level 2 crash data vary widely by manufacturer, telemetry capability and consumer reporting. Counts are not normalised by vehicle miles, number of vehicles or ODD exposure, and manufacturers may not learn of crashes promptly. The party with control over logs, software history and DMS records can therefore affect whether the claimant can prove causation.
+
+## Proposed regulatory guidelines
+
+### Clear terminology and marketing
+
+**Regulate the message before regulating the accident.** Every feature should display its SAE level, the specific active function, the current control state and the driver’s continuing duty. Regulators should prohibit names, graphics and advertising that imply Level 2 is autonomous or that the vehicle can safely operate without supervision.
+
+Manufacturers should present a single feature-specific statement at engagement: “Level 2 driver support—watch the road and remain ready to steer, brake and accelerate.” The display should identify whether lateral, longitudinal or both forms of assistance are active. “Level 2+” and “Level 2++” should not replace a legally recognised level and ODD description.
+
+The United Kingdom’s Law Commission recommended a statutory bright line between driver-support features and self-driving, together with offences for misleading marketing. That approach should be adopted across jurisdictions. [37]
+
+Compliance should be tested through consumer-comprehension studies, regulator review of marketing material and enforcement against repeated misrepresentation. A vehicle that satisfies technical standards but systematically creates a false mental model should face corrective advertising or feature restrictions.
+
+Section references:
+[37] Law Commission automated-vehicles recommendations <https://lawcom.gov.uk/project/automated-vehicles/> Excerpt: "- Writing the test for self-driving into law,…"
+
+### Driver monitoring
+
+**Use multimodal monitoring and make torque alone insufficient.** A compliant Level 2 DMS should combine gaze, head and body position with steering input and, where technically proportionate, physiological or attention indicators. The system should distinguish hands-on-wheel evidence from roadway attention and should detect seat departure, phone use and prolonged visual distraction.
+
+Warnings should escalate from visual notice to auditory and haptic prompts, followed by speed or feature restriction and a safe stop or controlled disengagement where the driver repeatedly fails to respond. The Tesla recall’s three- or five-forced-disengagement suspension is a useful existing benchmark, but regulators should validate the threshold by vehicle design, driver population and field data rather than impose the number universally. [38]
+
+DMS records should be time-linked to feature state and warnings, protected against tampering and subject to privacy controls. The driver should receive a clear notice about what is recorded and for which safety, compensation and enforcement purposes.
+
+Section references:
+[38] NHTSA RQ24009 <https://static.nhtsa.gov/odi/inv/2024/INIM-RQ24009-12199.pdf> Excerpt: "vehicle field performance, and Tesla’s…"
+
+### Minimum warnings and takeover requirements
+
+**Treat Level 2 readiness as continuous and validate warnings by scenario.** A Level 2 system should not issue a generic warning that merely repeats the owner manual. It should identify the specific limitation—such as cross traffic, lane uncertainty, sensor obstruction, weather or ODD exit—and direct the driver to take the relevant action.
+
+Warnings should use visual, auditory and haptic channels where the risk justifies them. Manufacturers should validate warning lead time against ODD-specific scenarios, driver position, lighting, traffic complexity, speed and foreseeable distraction. The seven-second audiovisual simulator result may inform validation, while the 10- and 15-second takeover findings should remain design inputs for higher automation rather than Level 2 legal thresholds.
+
+For a true Level 3 or Level 4 transfer, the system should issue a transition demand, maintain safe travel during the transition and execute a minimum-risk manoeuvre if the person does not respond. For Level 2, the system should not describe an alert as a transfer of responsibility; the driver already has the responsibility to supervise.
+
+### Operational design domain constraints
+
+**Make the ODD machine-readable, enforceable and visible.** Each feature approval should identify environmental, geographical, time, traffic and roadway conditions, including speed range, lane-marking requirements, divided-road limitations, cross-traffic conditions, weather, lighting and sensor-obstruction limits.
+
+Activation should be gated by those conditions. The system should detect boundary approach, warn early, reduce authority or speed when capability degrades and move to a safe fallback when the feature cannot continue. A manufacturer should not rely solely on a manual warning where software could reasonably prevent foreseeable out-of-domain activation.
+
+A material ODD expansion or contraction should require regulator notification and, where safety performance changes, repeat approval or equivalent conformity testing. NHTSA’s Mountain View finding that Tesla did not sufficiently restrict Autopilot to its intended ODD demonstrates the liability consequence of leaving the boundary to driver interpretation.
+
+### Event and system logging
+
+**Create a neutral control-state record, not merely a conventional crash recorder.** Every Level 1–2 vehicle should preserve, in a tamper-resistant format:
+
+- feature activation and deactivation;
+- lateral and longitudinal control state;
+- driver steering, braking and accelerator inputs;
+- DMS status, warnings and forced disengagements;
+- sensor availability, obstruction and diagnostic status;
+- object-detection and system-confidence events at a readable level;
+- software, firmware and hardware versions;
+- OTA updates, recalls and configuration changes;
+- ODD status and boundary warnings;
+- pre-crash speed, braking, steering and stability data.
+
+The EU’s EDR privacy safeguards should govern access and anonymisation. NHTSA’s 2025 rule provides a useful technical benchmark by extending seven timed pre-crash elements from five seconds at 2 Hz to 20 seconds at 10 Hz for qualifying vehicles manufactured from 1 September 2027, with later dates for small-volume and altered vehicles. [16]
+
+The 20-second, 10-Hz rule does not itself record every ADAS state. Regulators should therefore supplement conventional EDR requirements with a separate system log or DSSAD-style record. Insurers, claimants, regulators and safety investigators should receive prompt, neutral access, subject to privacy, trade-secret and proportionality safeguards.
+
+Section references:
+[16] NHTSA EDR final rule <https://thefederalregister.org/documents/2024-29862/event-data-recorders> Excerpt: "This rulemaking amends current NHTSA regulations…"
+
+### Incident reporting
+
+**Use a common reporting window and distinguish safety reporting from fault.** A harmonised minimum should require reporting when a Level 2 feature was active at any time during the 30 seconds before a qualifying crash. Severe incidents should be reported within five days; less severe incidents should be reported monthly. The report should include feature version, ODD status, control state, driver-monitoring state, warnings, software version, collision type, vulnerable-road-user involvement, injuries, tow-away status and cybersecurity indicators.
+
+NHTSA’s 2025 order supplies the 30-second, five-day and monthly benchmarks. Its warning that raw incident counts are not exposure-normalised should be incorporated into every public dataset. Agencies should collect vehicle miles, fleet size, operating geography, ODD exposure and feature activation hours so that incident comparisons are meaningful. [12]
+
+Reporting should cover serious near misses, repeated system disengagements, cybersecurity events and post-recall crashes where those events indicate a safety defect. Individual consumers should retain a direct safety-reporting route, while manufacturers, developers and operators carry the formal reporting duty.
+
+Section references:
+[12] NHTSA Level 2 guidance <https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting> Excerpt: "Furthermore, some crashes involving partial…"
+
+### Software updates and recalls
+
+**Treat safety-relevant software as a lifecycle product.** Manufacturers and software providers should maintain a versioned safety case for every update affecting perception, planning, control, DMS, warnings, ODD, cybersecurity or data logging. An OTA update should identify the changed function, affected vehicles, new hazards, validation results and whether regulatory notification or repeat approval is required.
+
+Known cybersecurity vulnerabilities should trigger documented risk assessment, containment, update or recall. Manufacturers should monitor post-update performance and suspend or restrict a feature when field evidence shows that the remedy is ineffective. A recall should specify the safety defect, the control-state risk, the user communication, the completion rate and the plan for post-remedy monitoring.
+
+The EU PLD’s manufacturer-control principle, NHTSA’s Recall 23V-838 and Germany’s concern about material software changes support this lifecycle approach. Contracts should identify which supplier controls the relevant code, data, cloud service and update decision, while preserving an injured person’s ability to sue the economically responsible entity.
+
+### Testing and certification
+
+**Certify the control relationship, not just component performance.** Type approval or an equivalent certification should require:
+
+- hazard analysis for the declared ODD;
+- scenario testing for stationary objects, large vehicles, cross traffic, lane departures, road geometry, weather and lighting;
+- perception, planning, control and actuator validation;
+- driver-monitoring and warning validation with distracted, drowsy and older drivers;
+- takeover and fallback testing where any transition is authorised;
+- cybersecurity and functional-safety evidence;
+- software-update and configuration-control records;
+- independent review of safety claims;
+- conformity-of-production testing;
+- in-use monitoring linked to incident reporting.
+
+A system should pass not merely because it performs well in ordinary lane following. It should demonstrate that the human and automation cooperate predictably when the system reaches a limitation, when the driver applies corrective input and when a warning is ignored.
+
+The European type-approval model, UNECE R157 and EU Regulation 2022/1426 provide a foundation. The United States should supplement self-certification with a comparable ODD and human-factors safety case for permissive Level 2 systems. The United Kingdom should require the same evidence before a feature receives authorised self-driving status.
+
+### Insurance and compensation
+
+**Guarantee claimant compensation first and preserve recourse second.** Every road vehicle with Level 1–2 assistance should carry compulsory third-party motor insurance. The injured person should have a direct claim against the vehicle’s insurer or an equivalent compensation body, without first proving whether the driver, system or software caused the crash.
+
+For ordinary Level 2 operation, national law may preserve the driver and owner as primary tort actors while requiring the insurer to handle the claim. For an authorised system that is legally driving itself, insurer-first liability should apply expressly, as under AEVA, with recourse against the driver for deliberate misuse and against the ASDE, operator, manufacturer or software provider for system defects.
+
+Insurers should receive neutral control-state data promptly and should not depend exclusively on manufacturer self-description. Policies should address OTA updates, unauthorised modifications, cybersecurity events, autonomous-mode activation, owner maintenance and recourse. Germany’s MTPL model, the UK’s AEVA and the EU’s expanded software liability suggest a common principle: compensation should be simple for the victim, while contribution should follow technical control.
+
+### Enforcement and institutional separation
+
+**Separate no-blame safety investigation from civil and regulatory enforcement.** Safety investigators should reconstruct events, identify hazards and publish recommendations without assigning civil blame. A separate in-use regulator should enforce authorisation, reporting, data, cybersecurity, marketing and software obligations.
+
+Regulators should have power to:
+
+- compel control-state and software records;
+- inspect vehicles, testing facilities and update systems;
+- audit ODD and DMS performance;
+- order corrective software updates and recalls;
+- suspend or restrict unsafe features;
+- impose reporting penalties;
+- sanction misleading marketing;
+- require independent post-remedy testing;
+- enforce cybersecurity and data-retention obligations;
+- refer deliberate concealment or falsification for civil or criminal action.
+
+NHTSA’s reporting penalties, the UK AVA’s compliance and redress notices, and UNECE conformity-of-production rules demonstrate the components of such a system. Enforcement should focus on controllable risk: a driver’s deliberate misuse, a manufacturer’s permissive design, a software provider’s unsafe update, an operator’s unlawful deployment and an owner’s disabling modification should not be treated as indistinguishable conduct.
+
+The principal evidence boundaries are definitional and temporal: SAE level describes the feature engaged in the event; NHTSA’s 956-crash population, 82% and 78% response figures and 59-of-109 visibility findings are investigation subsets rather than fleetwide rates; EDR rules use specified units, time windows and sampling rates; the 10- and 15-second takeover figures concern higher-automation research; and the 33% Benavides allocation is a case-specific verdict. Huang ended in settlement rather than a merits holding, while EU Product Liability Directive transposition and core UK Automated Vehicles Act implementation remained dependent on national enactment and commencement instruments at the 13 September 2026 cutoff.
 
 ## Closing judgment
 
-The boundary between driver and system responsibility cannot be drawn by asking who touched the steering wheel last or which automation level appeared in a brochure. It must be drawn by reconstructing control authority, ODD, perception, warning, readiness, response time, software state, maintenance, and the causal contribution of every relevant actor.
+The legal boundary is clear even when the factual allocation is not: Level 1–2 engagement leaves the driver responsible for continuous supervision, but it does not excuse a system that undertakes steering or speed control and then fails through defective perception, planning, control, monitoring, warning, ODD management or software. Driver fault is strongest after proven distraction, misuse, monitoring defeat or ignored warnings. Manufacturer and system responsibility is strongest where an attentive driver faces a hazard the feature should have handled, receives no fair intervention opportunity or is encouraged to rely on capability the system does not possess.
 
-For present Level 1 and Level 2 vehicles, the driver remains responsible for attentive and lawful operation, but that responsibility does not immunize a manufacturer whose system creates foreseeable misuse, fails within its intended conditions, misrepresents its capability, or provides an ineffective transition. For Level 3, responsibility should shift with the system’s approved control authority, while the driver retains only duties that a person could reasonably perform after a valid and timely request. The most durable regulatory model is therefore victim-first compensation combined with evidence-based recourse, lifecycle safety assurance, enforceable ODD and monitoring requirements, standardized operational data, and responsibility allocated to the actor best able to prevent the particular risk.
+A durable regime should therefore preserve the human driver’s Level 2 duty while making the technical actor answerable for the risks it controls. Neutral logs, functional terminology, enforceable ODDs, tested warnings, lifecycle software duties, direct compensation and structured recourse can turn that principle into a workable rule for courts, regulators, engineers and insurers.
+
+## References
+
+[1] <https://www.iso.org/standard/73766.html> ISO/SAE PAS 22736:2021; SAE taxonomy and active-safety boundary
+[2] <https://www.nhtsa.gov/sites/nhtsa.gov/files/2023-04/Second-Amended-SGO-2021-01_2023-04-05_2.pdf> NHTSA’s SAE-based definitions; NHTSA General Order and foreseeable misuse; NHTSA Standing General Order
+[3] <https://eur-lex.europa.eu/eli/reg/2021/389/oj/eng> UNECE Regulation No. 157
+[4] <https://eur-lex.europa.eu/eli/reg_impl/2022/1426/oj/eng> EU Regulation 2022/1426
+[5] <https://doi.org/10.3390/app16157377> Applied Sciences review of ADAS perception; ADAS perception and stationary-object limitations
+[6] <https://doi.org/10.1109/tiv.2016.2578706> Paden et al., “A Survey of Motion Planning and Control Techniques”
+[7] <https://static.nhtsa.gov/odi/inv/2022/INCR-EA22002-14496.pdf> NHTSA EA22002; NHTSA EA22002 crash analysis; NHTSA peer comparison
+[8] <https://www.frontiersin.org/journals/control-engineering/articles/10.3389/fcteg.2022.1058923/full> Review of shared control
+[9] <https://etsc.eu/us-agencies-investigate-tesla-autopilot-and-ford-blue-cruise-deaths/> Euro NCAP summary
+[10] <https://www.mdpi.com/2414-4088/8/3/16> Peintner et al., “How to Design Human-Vehicle Cooperation”
+[11] <https://doi.org/10.3390/su15097270> Takeover-warning study
+[12] <https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting> NHTSA Level 2 guidance; NHTSA Standing General Order on Crash Reporting; NHTSA crash-reporting guidance
+[13] <https://assets.publishing.service.gov.uk/media/69c643e4cdfd19de13d0f75b/understanding-human-factors-in-advanced-driver-assISTANCE-systems-an-evidence-review.pdf> DfT human-factors evidence review
+[14] <https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng> Directive (EU) 2024/2853
+[15] <https://scholarship.law.duke.edu/cgi/viewcontent.cgi?article=1322&context=dltr> Duke Law & Technology Review
+[16] <https://thefederalregister.org/documents/2024-29862/event-data-recorders> NHTSA EDR final rule
+[17] <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02019R2144-20240707> Regulation (EU) 2019/2144
+[18] <https://www.reedsmith.com/articles/the-new-eu-product-liability-key-implications-autonomous-vehicle/> PLD analysis and presumptions
+[19] <https://www.jonesday.com/en/insights/2026/06/the-revised-eu-product-liability-directive-state-of-play-across-eu-member-states-and-evolving-risk-landscape> Member-State transposition comparison
+[20] <https://www.faegredrinker.com/en/insights/publications/2026/6/transposing-the-eus-new-product-liability-directive-a-member-state-progress-report> Technical-complexity proposals
+[21] <https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/reasonable-adequate-and-efficient-allocation-of-liability-costs-for-automated-vehicles-a-case-study-of-the-german-liability-and-insurance-framework/4FA30CEE6D78610EFB4237003D76B0E3> German liability and insurance framework
+[22] <https://de.openlegaldata.io/case/bayoblg-2024-10-21-202-obowi-64424> Bayerisches Oberstes Landesgericht, 202 ObOWi 644/24; Bayerisches Oberstes Landesgericht
+[23] <https://www.freshfields.com/en/our-thinking/blogs/risk-and-compliance/product-risks-today-the-draft-implementation-bill-of-the-eu-product-liability-di-102l4xa> German PLD implementation analysis
+[24] <https://www.legislation.gov.uk/ukpga/2018/18/section/8/enacted> Automated and Electric Vehicles Act 2018, section 8
+[25] <https://www.legislation.gov.uk/ukpga/2024/10/pdfs/ukpgaen_20240010_en.pdf> DfT explanatory notes to the Automated Vehicles Act 2024
+[26] <https://www.legislation.gov.uk/ukpga/2024/10> Automated Vehicles Act 2024
+[27] <https://www.legislation.gov.uk/uksi/2025/1339> AVA commencement regulations
+[28] <https://www.gov.uk/government/publications/self-driving-vehicle-pilot-scheme-information-for-first-responders/interacting-with-self-driving-vehicles-first-responders> DfT self-driving pilot guidance
+[29] <https://www.morelaw.com/verdicts/19cv346663/CA/179170/> Case disposition in *SZ Huang v. Tesla*
+[30] <https://flcourts-media.flcourts.gov/content/download/2447924/opinion/Opinion_2023-3034.pdf?utm.com=> Florida Fourth District Court of Appeal opinion
+[31] <https://www.govinfo.gov/content/pkg/USCOURTS-flsd-1_21-cv-21940/pdf/USCOURTS-flsd-1_21-cv-21940-14.pdf> Federal final judgment and post-trial order
+[32] <https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR2001.pdf> NTSB HAR-20/01
+[33] <https://gould.usc.edu/why/students/orgs/ilj/assets/docs/32-1-Rustad.pdf> Rustad’s analysis of the Williston investigation
+[34] <https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V838-8276.PDF> Tesla Recall 23V-838
+[35] <https://thehill.com/policy/transportation/automobiles/315133-federal-regulators-close-tesla-autopilot-probe-wont-seek/> NHTSA’s 2017 closure as reported
+[36] <https://safetyresearch.net/Library/Memorandum_Opinion_and_Order.pdf> Quality Control Systems Corp. v. U.S. Department of Transportation
+[37] <https://lawcom.gov.uk/project/automated-vehicles/> Law Commission automated-vehicles recommendations
+[38] <https://static.nhtsa.gov/odi/inv/2024/INIM-RQ24009-12199.pdf> NHTSA RQ24009

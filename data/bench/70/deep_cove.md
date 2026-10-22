@@ -1,1178 +1,627 @@
-# From Java Servlets to Spring Boot: History, Architecture, and Essential Developer Knowledge
+# From Java Servlets to Spring Boot: The Evolution of Java Web Development
 
-Java web development evolved through several overlapping layers rather than a simple sequence of replacements. Servlets established a portable HTTP execution model; JSP added a presentation-oriented layer; EJB and Java EE supplied managed enterprise services; Struts organized servlet applications around MVC; Spring reduced coupling through dependency injection, POJOs, AOP, and modular infrastructure; and Spring Boot later simplified Spring configuration, dependency management, deployment, and operations.
+**The evolution raised the abstraction.** Java web development moved from portable, container-managed Servlets to JSP templates and MVC separation; enterprise applications gained standardized services through EJB and J2EE/Java EE; Spring then simplified application construction through ordinary Java objects, dependency injection, and reusable infrastructure. Spring Boot addressed the next pressure: assembling, configuring, packaging, and operating those Spring applications consistently. These developments overlapped rather than forming a sequence of complete replacements. [1][2]
 
-The important distinction is that these technologies did not always replace one another. Spring could integrate with EJB and Struts, JSP still ran on the Servlet runtime, and Java EE and Jakarta EE remain complementary platform standards rather than historical failures. As of September 13, 2026, the modern Spring generation is centered on Spring Framework 7 and Spring Boot 4.x, with Java 17 as the baseline and the `jakarta.*` namespace replacing `javax.*` in current Jakarta-aligned applications.
+**Spring and Boot solve different problems.** Spring Framework supplies the application programming model: object management, AOP, transactions, data access, web frameworks, validation, integration, and testing. Spring Boot supplies opinionated defaults and application assembly around that model. A typical Boot application using Spring MVC still handles requests through a Servlet; WebFlux provides a separate reactive alternative. Developers therefore need both Java fundamentals and an understanding of HTTP, container behavior, configuration, persistence, transactions, testing, security, and production operation. [2]
 
-This article first maps the chronology and compares the major alternatives. It then explains the early Servlet/JSP/EJB/Struts stack, Spring’s origins and MVC model, Spring Boot’s purpose, the core Spring modules, and the practical knowledge developers need for configuration, web development, persistence, testing, security, and operations.
+**The report follows those pressures.** The chronological account explains what each iteration improved and what remained difficult. The functionality sections then separate Spring’s foundations from Boot’s conveniences, followed by the practical knowledge developers need and a parallel comparison of the three principal layers.
 
-## The evolution at a glance
+## Evolution scoreboard: problem pressure to abstraction
 
-The history is easiest to understand if the technologies are separated by role:
-
-- The Servlet API is a runtime contract for handling web requests.
-- JSP is a view-authoring technology built on that Servlet runtime.
-- EJB is a managed business-component model.
-- Java EE is a larger platform combining web, enterprise, messaging, persistence, transaction, security, and deployment specifications.
-- Struts and Spring MVC are web MVC frameworks that run largely on the Servlet model.
-- Spring Framework is a modular application framework whose center is an IoC container, not merely a web framework.
-- Spring Boot is a separate project that packages Spring applications with conventions, dependency curation, auto-configuration, embedded servers, and operational features.
-
-### Timeline of major milestones
-
-| Period and milestone | Main contribution | Problem addressed | Relationship and remaining pressure |
-|---|---|---|---|
-| 1996–1999: Java Servlets 1.0–2.2 | Container-managed Java request handling, sessions, filters, WAR packaging, and declarative web deployment | Portable server-side HTTP programming instead of vendor-specific server APIs | Developers still had to manage request routing, HTML generation, shared state, cleanup, and application structure |
-| October 1998: JSP 0.92 | HTML-oriented pages translated into servlet classes; Model 1 and Model 2 access patterns | More convenient dynamic-page authoring and better separation between presentation and processing | Scriptlets and page-centered processing became difficult to maintain in larger applications |
-| 1998–2003: EJB and J2EE 1.2–1.4 | Managed enterprise beans, transactions, lifecycle, security, messaging, persistence, JNDI, and application-server deployment | Standard enterprise services for distributed, scalable business applications | Early EJB programming was verbose and tightly associated with application servers, descriptors, and container testing |
-| March 2000 onward: Struts and other Model 2 MVC frameworks | Front-controller request flow, Actions, form handling, validation, and reusable MVC conventions | Repeated servlet/JSP request-flow code and tangled presentation logic | Configuration coupling, framework-specific abstractions, and later security exposure remained concerns |
-| 2003–2004: Spring 0.9 and 1.0 | IoC/DI, AOP, POJO-based components, data-access abstraction, transactions, and Spring MVC | Reduce the complexity and invasiveness of early J2EE while retaining enterprise capabilities | Developers still had to assemble dependencies, configure the application, and choose or install a server |
-| 2006–2013: Spring 2 and 3; Java EE 5–7 | Annotations, Java configuration, REST support, validation, improved integration, and simpler EJB/JPA models | Reduce XML and descriptor burden and support newer web styles | A Spring application could still require substantial dependency and infrastructure configuration |
-| 2014: Spring Boot 1.0 | Starters, dependency-driven auto-configuration, executable applications, and embedded servers | Eliminate repetitive setup and make a Spring application easy to run | Defaults can obscure configuration, and dependency versions still require disciplined management |
-| 2017–2020: Spring 5, Boot 2, Java EE 8, Jakarta EE transition | WebFlux and Reactor, modern Java baselines, observability, and the move from Java EE to Jakarta EE | Support reactive workloads, newer JDKs, and a community-owned enterprise platform | Applications had to manage compatibility between framework, JDK, server, and third-party libraries |
-| 2022–2026: Spring 6/7 and Boot 3/4 | Java 17 baseline, `jakarta.*`, AOT/native-image support, modularization, modern observability, and Jakarta EE 10/11 alignment | Modernize the platform and reduce startup, deployment, and compatibility friction | Major upgrades can require namespace, dependency, build, server, and custom auto-configuration changes |
-
-The release histories contain some inconsistent dates. For example, one Servlet history lists Servlet 2.5 as September 2005 while separately dating its annotation feature to May 2006; another lists Jakarta Servlet 5.0 as October 2020 while its feature summary says December 2020. These should be treated as milestone-history discrepancies rather than as evidence of two different Servlet lines. The Eclipse project history lists Servlet 5.0 on October 9, 2020, Servlet 6.0 on May 31, 2022, Servlet 6.1 on April 5, 2024, and Servlet 6.2.0 on June 30, 2026. ([Jakarta Servlet project history](https://projects.eclipse.org/projects/ee4j.servlet))
-
-Spring’s own versioning has likewise progressed through longer framework generations: Spring 1.0 in March 2004, Spring 2.0 in October 2006, Spring 3.0 in December 2009, Spring 4.0 in December 2013, Spring 5.0 in September 2017, Spring 6.0 in November 2022, and Spring 7.x in the current generation. The available version-history page describes itself as a major-version list but includes minor and patch labels, so it is best read as a selected milestone history rather than an exhaustive release log. ([Spring Framework version history](https://www.codejava.net/frameworks/spring/spring-framework-version-history))
-
-Spring Boot began in April 2014. The major compatibility boundaries are Boot 2.0 in March 2018 with Spring Framework 5, Boot 3.0 in November 2022 with Spring Framework 6 and Java 17, and Boot 4.0 in November 2025 with Spring Framework 7 and Jakarta EE 11. The Boot 4.1 line began in June 2026; a later release-history entry lists Boot 4.1.1 on August 21, 2026 with Spring Framework 7.0.9. ([Spring Boot version history](https://www.codejava.net/frameworks/spring-boot/spring-boot-version-history))
-
-### Shared comparison axes
-
-| Iteration | Lifecycle and request model | Configuration and deployment | Main gain | Remaining limitation |
+| Stage and period | Problem pressure | Solution introduced | Configuration and deployment | Remaining pressure |
 |---|---|---|---|---|
-| Servlet | Servlet container creates and invokes servlet instances; `service` processes requests | `web.xml` or annotations; usually WAR deployment | Portable HTTP server programming | Routing, state safety, view generation, resource management, and application structure remain largely manual |
-| JSP Model 1/2 | JSP is translated to a servlet; Model 2 sends requests through a controller servlet | JSP files, servlet mappings, beans, tag libraries, WAR | Easier presentation authoring and clearer MVC separation | Scriptlets, page lifecycle, session state, and framework configuration can still become complex |
-| EJB/Java EE | EJB and web containers manage components and services | EAR/WAR/JAR packaging, JNDI, descriptors, deployment tools, application server | Standard transactions, security, persistence, messaging, pooling, and lifecycle services | Early EJB was verbose and server-centric; deployment and integration could be heavy |
-| Struts | Front controller dispatches to Actions and results, commonly rendering JSP | XML or convention/annotation configuration, WAR/application server | Reusable Model 2 MVC and centralized request flow | Action/form abstractions, configuration coupling, OGNL-related security history, and legacy maintenance |
-| Spring Framework/MVC | `ApplicationContext` manages beans; `DispatcherServlet` routes web requests | XML, annotations, Java configuration; WAR or other supported deployment | POJO-based composition, testability, modular transactions and data access | Developers still choose dependencies, configure infrastructure, and understand proxies and container behavior |
-| Spring Boot | `SpringApplication` bootstraps the context and usually an embedded server | Starters, BOM, auto-configuration, external properties, executable JAR | Fast setup, consistent dependencies, simple deployment, Actuator | Opinionated defaults can hide conditions, pull in dependencies, and create upgrade or security surprises |
+| Servlets, 1996 onward | CGI portability and scaling | Container-managed Java requests | Servlet mappings; container runtime | Low-level application assembly |
+| JSP and Model 1, 1999 onward | HTML embedded in Java | Server-side page templates | JSP pages in a web container | Processing and presentation coupling |
+| MVC, Struts, and JSF, 2000–2004 | Web-code maintenance; UI construction | MVC flow or reusable components | Framework-specific web configuration | Integration with business infrastructure |
+| EJB and J2EE/Java EE, 1999 onward | Repeated enterprise infrastructure | Standardized containers and services | Server-managed resources and deployment | Component ceremony; platform breadth |
+| Spring Framework, 2002–2004 origins | J2EE complexity and difficult testing | POJOs, DI, AOP, service abstractions | Selectable modules; explicit configuration | Repeated setup and runtime assembly |
+| Spring Boot, 2013–2014 origins | Spring setup and operational friction | Conditional defaults and packaged runtime | Starters; executable archives; properties | Understanding defaults and compatibility |
 
-The transition can therefore be described as a gradual relocation of responsibility:
+**Each row changes responsibility.** Servlets standardize how server-side Java participates in web requests. MVC structures the web application; enterprise containers standardize shared services; Spring makes application objects and infrastructure easier to compose; Boot standardizes the common choices surrounding that composition. The historical sequence and the distinctions between Model 1, Model 2, Struts, and JSF are described in Doug Meil’s 2023 account and Kurniawan and Xue’s 2004 comparison. [3][4]
 
-1. Servlets moved HTTP mechanics into a standard container.
-2. JSP moved much of page authoring away from Java string-building.
-3. Model 2 and Struts moved request flow away from JSP pages.
-4. EJB and Java EE moved enterprise services into standardized containers.
-5. Spring moved component composition and cross-cutting services into a lightweight, modular container usable outside a full application server.
-6. Spring Boot moved much of the remaining project assembly and deployment work into conventions and executable packaging.
+## A chronological map of the major changes
 
-That is a more accurate account than saying that each technology simply made its predecessor obsolete.
+### 1996–2004: web foundations and enterprise complexity
 
-## Servlets, JSP, EJB, Java EE, and early MVC frameworks
-
-### Servlets established the web runtime
-
-A servlet is a Java program running inside a web server that receives and responds to web-client requests, usually over HTTP. The Servlet contract defines a lifecycle built around initialization, request servicing, and destruction: `init`, `service`, and `destroy`. Developers commonly use `HttpServlet`, which specializes request handling for HTTP, while `GenericServlet` provides a protocol-independent base implementation. ([Servlet API lifecycle](https://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html))
-
-The container owns the basic lifecycle:
-
-1. It loads the servlet class when a mapped request requires an instance.
-2. It creates and initializes the instance.
-3. It invokes `service` with request and response objects.
-4. It eventually invokes `destroy` when removing the servlet.
-
-The model solved an important early problem: application developers no longer had to write a separate native server process for every web application. The Servlet API provided a common programming contract across Java web servers, while the container handled networking, class loading, lifecycle invocation, and HTTP protocol integration.
-
-Servlets also established a pattern that remains visible in Spring MVC. A request is mapped to a server-side component, the component reads request data, performs application work, and writes a response. Later frameworks mostly improved how the mapping, composition, validation, rendering, and cross-cutting behavior were organized.
-
-The model had significant boundaries. Servlet containers normally handle multiple requests concurrently, often using multiple threads. A servlet’s instance fields and shared resources therefore cannot be treated as request-local state. Oracle’s documentation explicitly warns developers to synchronize access to shared files, network connections, class variables, and instance variables. ([Servlet concurrency guidance](https://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html))
-
-Cleanup was also explicit. After `destroy`, the container will not invoke `service` again, and the method gives the servlet an opportunity to release memory, file handles, and threads and to synchronize persistent state. The container supplies the lifecycle boundary, but the application remains responsible for using it correctly. ([Servlet destruction lifecycle](https://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html))
-
-Servlet evolution reduced some of the surrounding burden:
-
-- Servlet 2.1 is commonly associated with sessions, filters, and WAR packaging.
-- Servlet 2.2 formalized web applications and declarative security through deployment descriptors.
-- Servlet 2.3 added lifecycle listeners and limited asynchronous support.
-- Servlet 3.0 added full asynchronous request processing and web-fragment pluggability.
-- Servlet 3.1 added non-blocking I/O and protocol upgrades.
-- Servlet 4.0 added HTTP/2 support and `PushBuilder`.
-- Later Jakarta Servlet releases changed the namespace from `javax.servlet.*` to `jakarta.servlet.*` and continued modern protocol and runtime improvements.
-
-These feature attributions come from a secondary release summary whose dates contain internal inconsistencies, so the feature progression is more reliable than every date in the table. ([Servlet version history](https://www.codejava.net/java-ee/servlet/java-servlet-version-history))
-
-Servlets remained a foundation, not a complete application architecture. A developer still needed to decide:
-
-- how URLs map to application behavior;
-- where business logic belongs;
-- how HTML is generated;
-- how request parameters are converted and validated;
-- how sessions and shared state are handled;
-- how exceptions become responses;
-- how database connections and transactions are managed;
-- how components are assembled and tested.
-
-Those gaps led to JSP, MVC patterns, enterprise containers, and application frameworks.
-
-### JSP added a presentation-oriented layer
-
-Servlet code is well suited to request processing but awkward for writing pages. A servlet embeds HTML inside Java source, whereas JSP lets developers write HTML-oriented pages with dynamic expressions and tags. When a JSP is requested, the server translates it into a servlet class, compiles it when necessary, and reuses the generated class until the page changes. JSP therefore did not replace the Servlet runtime; it provided a more convenient authoring layer over it. ([Oracle JSP and web-application description](https://docs.oracle.com/pls/topic/lookup?ctx=E67510-01&id=WBAPP117))
-
-The role separation was important. The JSP specification describes page authors, component developers, tag-library developers, and deployers as distinct roles. Page authors can work primarily with HTML or XML and dynamic tags, while Java developers create the server-side components and tag libraries used by those pages. ([Jakarta Server Pages specification](https://jakarta.ee/specifications/pages/4.0/jakarta-server-pages-spec-4.0))
-
-The first JSP design pattern, often called Model 1, sent a request directly to a JSP page. The page performed some combination of input processing, database or remote-system access, bean interaction, and presentation. Model 1 was reasonable for small pages because it minimized infrastructure and file count.
-
-Its weakness became obvious as pages grew. Java scriptlets embedded inside HTML mixed control flow, data access, and presentation. That made the page difficult to reuse, test, maintain, and edit collaboratively. Mahmoud’s contemporary discussion warned that scriptlet-heavy pages could make complex applications inefficient and difficult to enhance and maintain. Custom tags and JSTL reduced scriptlet use, but tag libraries still had to be created, tested, and debugged. ([Oracle discussion of JSP scriptlets and JSTL](https://www.oracle.com/technical-resources/articles/javase/servlets-jsp.html))
-
-### Model 2 separated request processing from presentation
-
-JSP Model 2 used both servlets and JSP:
-
-- The servlet received and processed the request.
-- It created or retrieved model objects.
-- It selected the next view.
-- The JSP rendered the result.
-
-The October 1998 JSP 0.92 material described Model 1 as direct JSP processing and Model 2 as sending the request to a servlet, which processed it, placed information in a bean, and passed that bean to the JSP. The specification itself did not originally use the term MVC, but later Java web writing identified Model 2 with the Model-View-Controller pattern. ([JSP Model 1 and Model 2 history](https://ptgmedia.pearsoncmg.com/imprint_downloads/informit/chap2_0672324725.pdf))
-
-The resulting division was:
-
-- Model: domain data and application state.
-- View: JSP markup and presentation.
-- Controller: servlet request processing and navigation.
-
-This solved the most immediate JSP maintenance problem: presentation pages no longer had to decide how requests were processed. It also gave developers and designers clearer responsibilities.
-
-The tradeoff was additional complexity. A Model 2 application needed servlet mappings, controller logic, model objects, JSP views, forwarding rules, session management, validation, and sometimes a large amount of XML configuration. Mahmoud summarized the tradeoff directly: Model 2 was appropriate for complex applications, while Model 1 could be preferable for simpler ones because Model 2 introduced more structure and moving parts. ([Model 2 tradeoffs](https://www.oracle.com/technical-resources/articles/javase/servlets-jsp.html))
-
-The pattern’s central idea survived every later Java web framework. Struts, Spring MVC, and many other frameworks changed the controller and configuration mechanisms, but they continued to separate request handling from presentation or representation.
-
-### EJB and J2EE/Java EE moved enterprise services into containers
-
-Servlets and JSP addressed the web tier. Enterprise JavaBeans addressed a different problem: how to implement business components with standardized lifecycle, transactions, security, resource access, persistence, messaging, and distribution services.
-
-EJB 1.0 was released in 1998. An EJB application placed enterprise beans inside an EJB container, which ran inside a Java application server. The container managed component lifecycle and exposed enterprise functionality such as transaction and resource management to clients. ([EJB architecture overview](https://www.infoworld.com/article/2262515/what-is-ejb-the-evolution-of-enterprise-javabeans.html))
-
-J2EE then defined a larger platform around these components. J2EE 1.2, released on December 17, 1999, was the initial platform specification. J2EE 1.3 followed in September 2001 with the Connector Architecture, JMS, XML integration, and an improved EJB 2.0 specification. J2EE 1.4, released in November 2003, emphasized web services. ([J2EE and Java EE history](https://newsroom.eclipse.org/eclipse-newsletter/2024/july/developer%E2%80%99s-guide-jakarta-ee-11))
-
-A Java EE platform combined multiple containers and specifications:
-
-- A web container for servlets, JSP, filters, listeners, and related web components.
-- An enterprise-bean container for managed business components.
-- Transaction services.
-- JNDI naming and resource injection.
-- JDBC and persistence.
-- JMS messaging.
-- Security and authorization.
-- Web services.
-- Deployment and management facilities.
-- Connector support for external enterprise information systems.
-
-The platform specification describes containers as an intermediate layer that can transparently provide declarative transactions, security checks, resource pooling, and state management. Application components communicate through container APIs rather than directly managing every platform service. ([Jakarta EE containers and services](https://jakarta.ee/specifications/platform/8/platform-spec-8))
-
-Packaging reinforced the deployment model. A WAR contained the files making up a web application, including servlets, JSPs, tag libraries, static resources, and possible references to EJBs. Multiple modules could be assembled into an EAR and deployed as a unit to an application server. ([Web application packaging on WebLogic](https://docs.oracle.com/pls/topic/lookup?ctx=E67510-01&id=WBAPP117))
-
-Deployment was an operational phase rather than merely a file copy. The platform specification describes installation, configuration, and execution as distinct stages. The deployer installed application media, generated container-specific classes and interfaces, resolved external dependencies, mapped roles and resources, and started the application. ([Jakarta EE deployment model](https://jakarta.ee/specifications/platform/8/platform-spec-8))
-
-This model addressed real enterprise requirements. A business component could ask the container for transactions and security without implementing those services itself. A deployer could map logical resource names to databases, queues, identity stores, and other infrastructure. The specification also provided portability goals: an application depending only on standardized APIs should be deployable across compatible products.
-
-The costs were substantial in early versions of EJB. The 2006 comparative analysis describes EJB versions 1.0 through 2.1 as too complicated from the application developer’s perspective. Earlier EJB programming commonly involved home and component interfaces, implementation of container-specific interfaces, deployment descriptors, JNDI lookups, checked exceptions, and entity-bean complexity. The application server supplied valuable services, but application development became tightly coupled to the container and its deployment model. ([Historical EJB/Spring comparison](http://ecet.ecs.uni-ruse.bg/cst06/Docs/cp/SIII/IIIA.18.pdf))
-
-Testing was another pressure point. Business logic that depended on a running EJB container or application-server services was harder to test as an ordinary Java object. Even when individual components could be tested outside the container, code that directly used container service objects still required container-based tests.
-
-#### EJB 3 and Java EE 5 reduced the burden
-
-EJB 3.0 and Java EE 5 responded directly to these criticisms:
-
-- annotations could replace much deployment-descriptor metadata;
-- home and component interfaces were no longer generally required;
-- enterprise beans no longer had to implement `EnterpriseBean`;
-- entity beans were removed from the simplified model;
-- interceptors replaced some callback-interface requirements;
-- better defaults enabled configuration by exception;
-- checked-exception requirements were reduced;
-- JPA simplified object-relational persistence.
-
-Java EE 5 explicitly focused on ease of development. Annotations could declare injection and dependencies, and better defaults meant that common applications required fewer descriptors. The platform also added JSTL, JSF, and JPA. ([Java EE 5 changes](https://jakarta.ee/specifications/platform/8/platform-spec-8))
-
-EJB 3 therefore moved closer to the programming style that made Spring attractive. A 2009 presentation described EJB 3 as a radical transformation of EJB 2.x, with annotations, intelligent defaults, zero-configuration tendencies, and JPA. It also described Spring and EJB 3 as combinable technologies rather than mutually exclusive alternatives. ([Spring and EJB 3 integration](https://shaunabram.com/jug/spring_ejb3_integration.pdf))
-
-That convergence matters historically. Spring did not emerge because enterprise services were unnecessary. It emerged because developers wanted those services with more control over composition, deployment, testing, and technology choice. EJB 3 addressed some of the same pain from within the standard platform, while Spring addressed it through a separate, modular framework.
-
-#### Java EE’s remaining tradeoffs
-
-Java EE’s strengths and weaknesses were connected:
-
-- Standardized services improved portability and interoperability.
-- The application server could provide pooling, clustering, transactions, and security.
-- Deployment-time resource mapping separated application code from infrastructure.
-
-At the same time:
-
-- The application needed a compatible server and a deployment process.
-- External services such as databases, naming systems, mail, and messaging providers had to be configured separately.
-- Vendor-specific extensions could reduce portability.
-- EAR/WAR packaging and server administration added coordination work.
-- Remote transactions and distributed object protocols introduced complexity that was unnecessary for many local web applications.
-
-The platform specification itself acknowledges that applications using facilities beyond the required standard become less portable, with the loss ranging from minor to significant. ([Jakarta EE portability boundaries](https://jakarta.ee/specifications/platform/8/platform-spec-8))
-
-### Struts formalized Model 2 MVC
-
-Struts emerged as a framework-level response to the repeated work of building Model 2 applications directly with servlets and JSP. Craig McClanahan launched the Struts project as an Apache Jakarta subproject in March 2000. Its purpose was to provide a reusable MVC structure around the Servlet API rather than requiring every team to invent its own controller conventions. ([JSP Model 2 and Struts history](https://ptgmedia.pearsoncmg.com/imprint_downloads/informit/chap2_0672324725.pdf))
-
-Struts centralized several recurring responsibilities:
-
-- URL and request dispatch;
-- Action selection;
-- form population and validation;
-- navigation to JSP views;
-- conversion of request values;
-- reusable tags and result handling;
-- integration with application services.
-
-The benefit was consistency. Developers could assemble an application from known framework components instead of writing a new front controller and navigation scheme for every project. A 2011 online-bookstore study reported improved development efficiency, stability, extensibility, and maintainability in that application, although the evidence is limited to that single system rather than a general benchmark. ([Struts application study](https://doi.org/10.4028/www.scientific.net/amm.63-64.940))
-
-Struts also introduced costs. Struts 1 applications commonly centered on framework-specific `Action` and `ActionForm` classes and configuration files that connected paths, actions, forms, and results. This created a strong relationship between the web layer and the framework’s abstractions. Developers and HTML designers still had to coordinate closely, and large configuration files could become difficult to navigate.
-
-Struts 2 grew from WebWork. The historical account says WebWork 2.2 was adopted as Apache Struts 2 in December 2005 and reached its first full release in February 2007, while the page’s infobox separately lists October 10, 2006 as a release milestone. These are different reported milestones, not a reason to treat the dates as interchangeable. ([Apache Struts history](https://en.wikipedia.org/wiki/Apache_Struts))
-
-Struts 2 improved the programming model with POJO-based Actions, plugins, REST support, AJAX and JSON integrations, and convention-based configuration. The Apache project continues to describe Struts as a Servlet-based MVC framework with a plugin architecture and convention-over-configuration features. ([Apache Struts project](https://struts.apache.org/))
-
-Security became a major historical tradeoff. A secondary account records critical Struts 2 vulnerabilities, many associated with OGNL expression processing, including vulnerabilities capable of arbitrary code execution. The same account connects an unpatched Struts vulnerability to the 2017 Equifax breach. That history does not mean that every Struts application is insecure, but it demonstrates that framework-specific expression languages, request binding, and upgrade discipline can become high-impact security boundaries. ([Struts security history](https://en.wikipedia.org/wiki/Apache_Struts))
-
-Struts was not a direct predecessor that disappeared when Spring arrived. Spring explicitly supported integrating a Spring middle tier with Struts, WebWork, Tapestry, and other front ends. The classic Spring Web-Struts integration module was later deprecated in Spring 3.0, with the documentation recommending Struts 2’s Spring integration or migration to Spring MVC. ([Spring Web-Struts integration](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/overview.html))
-
-The transition pressure toward Spring MVC therefore came from a combination of factors: a more general-purpose container, less mandatory inheritance, easier integration with services and persistence, and a desire to use one programming model across the web and middle tiers. The evidence supports that engineering direction, but not a single event in which Struts was universally replaced.
-
-## Spring Framework and the move to Spring MVC
-
-### Spring began as a lighter enterprise composition model
-
-Spring came into being in 2003 in response to the complexity of early J2EE specifications. Spring 1.0 followed in March 2004. Its central idea was not simply “use a different MVC framework”; it was to provide a lightweight container and infrastructure model for composing application objects and applying enterprise services to them. ([Spring overview and history](https://docs.spring.io/spring-framework/reference/overview.html))
-
-The two ideas most associated with the original Spring design were:
-
-- Inversion of Control and dependency injection.
-- Aspect-oriented programming.
-
-In a conventional application, an object locates or constructs its collaborators. It may call a service locator, perform a JNDI lookup, instantiate a concrete implementation, or read configuration itself. With dependency injection, the object declares what it needs and an external container supplies those collaborators.
-
-Martin Fowler’s 2004 explanation distinguishes Service Locator from Dependency Injection. Both can decouple application code from concrete services, but Service Locator leaves application code dependent on the locator. Dependency Injection makes dependencies visible at construction or injection points. Fowler also identifies a cost: inversion of control can be difficult to understand and can make debugging less direct. ([Dependency injection and inversion of control](https://martinfowler.com/articles/injection.html))
-
-Spring applied that idea to ordinary Java objects. The object did not have to extend a framework base class or implement a container-specific business interface. The application could be assembled from POJOs, while Spring supplied lifecycle, dependency wiring, transactions, data access, remoting, messaging, and other services around them.
-
-This was the core response to early EJB complexity:
-
-- use a Java object rather than an invasive enterprise component;
-- configure or annotate the object externally;
-- provide infrastructure through composition and proxies;
-- test the object with ordinary unit-test techniques;
-- deploy it in Java SE, a servlet container, or a Java EE environment as appropriate.
-
-The Spring documentation describes this as applying enterprise services non-invasively to POJOs in Java SE, full Java EE, or partial Java EE environments. ([Spring POJO and enterprise-service model](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/overview.html))
-
-Spring was deliberately modular and non-exclusive. It could provide a middle tier while an existing Struts front end remained in place. It could integrate with EJB rather than eliminate it. It could use JDBC, Hibernate, JPA, JDO, iBATIS, JMS, JAX-WS, Quartz, and other tools. The historical Spring/EJB comparison describes this flexibility as a major distinction from an application-server-centered model. ([Spring and EJB integration](https://shaunabram.com/jug/spring_ejb3_integration.pdf))
-
-### IoC and dependency injection reduced coupling
-
-The container’s central abstraction is the bean. A bean is an object whose creation, configuration, lifecycle, and relationships are managed by Spring.
-
-`BeanFactory` provides the basic container abstraction. `ApplicationContext` builds on it and adds application events, resource loading, message resolution, environment support, and integration with web contexts. The modern documentation defines `ApplicationContext` as the interface responsible for instantiating, configuring, and assembling beans. ([ApplicationContext and bean basics](https://docs.spring.io/spring-framework/reference/core/beans/basics.html))
-
-Configuration can be expressed through:
-
-- component classes such as `@Component`, `@Service`, `@Repository`, and `@Controller`;
-- `@Configuration` classes and `@Bean` methods;
-- XML bean definitions;
-- external properties and profiles;
-- imported configuration and conditional configuration in Boot applications.
-
-Constructor injection is generally the clearest form:
-
-```java
-@Service
-public class OrderService {
-    private final PaymentGateway paymentGateway;
-
-    public OrderService(PaymentGateway paymentGateway) {
-        this.paymentGateway = paymentGateway;
-    }
-}
-```
-
-The class states a required dependency, can keep it `final`, and can be instantiated directly in a unit test. Spring Boot documentation recommends constructor injection and component scanning for wiring application components. ([Spring Boot dependency injection guidance](https://docs.spring.io/spring-boot/docs/3.2.6/reference/html/using.html))
-
-Dependency injection solves coupling, but it does not remove the need to understand object ownership. An object created with `new` is not automatically a Spring bean. Its annotations are not enough to give it injected dependencies, lifecycle callbacks, transactions, security advice, or configuration. It must be created by the container or explicitly connected to container-managed infrastructure.
-
-### Spring MVC replaced repetitive controller infrastructure
-
-Spring MVC was Spring’s web framework, built on the Servlet model and the Spring container. Its central component is `DispatcherServlet`, a front controller that receives requests and delegates the actual work to configurable components. ([Spring MVC `DispatcherServlet`](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet.html))
-
-The basic request flow is:
-
-1. `DispatcherServlet` receives the HTTP request.
-2. A handler mapping identifies a controller or handler method.
-3. A handler adapter invokes it.
-4. Request data is bound and converted to method arguments.
-5. Validation and application logic run.
-6. The result becomes a view, response body, or `ResponseEntity`.
-7. View resolvers, message converters, and exception resolvers finish the response.
-
-The early Spring MVC documentation exposed this architecture through handler mappings, handler execution chains, view resolution, locale and theme resolution, file upload support, and exception resolvers. ([Spring MVC 1.1 reference](https://docs.spring.io/spring-framework/docs/1.1.x/reference/mvc.html))
-
-Spring MVC’s design differed from classic Struts in an important way: a command or form object did not have to extend a framework-specific `Action` or `ActionForm` base class. Any suitable object could be used as a command or form object. Data-binding type mismatches could become validation errors, and binding could target business objects directly rather than requiring duplicate string-valued form properties. ([Spring MVC and Struts comparison](https://docs.spring.io/spring-framework/docs/1.1.x/reference/mvc.html))
-
-Modern Spring MVC commonly uses annotated controllers:
-
-```java
-@RestController
-@RequestMapping("/orders")
-public class OrderController {
-    @GetMapping("/{id}")
-    public OrderView get(@PathVariable long id) {
-        // delegate to an application service
-        return ...;
-    }
-}
-```
-
-`@RequestMapping` can match URL paths, HTTP methods, parameters, headers, and media types. The narrower `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` annotations express common cases. ([Spring MVC request mapping](https://docs.spring.io/spring/reference/web/webmvc/mvc-controller/ann-requestmapping.html))
-
-The important historical improvement was not the annotation syntax itself. It was the combination of:
-
-- a central request-processing algorithm;
-- ordinary Java controller and command objects;
-- container-managed dependency injection;
-- configurable binding and validation;
-- flexible view and response technologies;
-- integration with Spring transactions and persistence;
-- test support outside a deployed application server.
-
-### Early Spring MVC still required infrastructure work
-
-Before Spring Boot, a Spring MVC application commonly required explicit servlet declarations, URL mappings, a `WebApplicationContext`, configuration files, bean definitions, view resolvers, and a deployment package. The early documentation required `DispatcherServlet` to be declared and mapped in `web.xml`, with a default servlet-specific context such as `[servlet-name]-servlet.xml` under `WEB-INF`. ([Early Spring MVC setup](https://docs.spring.io/spring-framework/docs/1.1.x/reference/mvc.html))
-
-Spring reduced coupling inside the application, but it did not automatically decide:
-
-- which Spring modules belonged on the classpath;
-- which version of each third-party library was compatible;
-- which servlet container should run the application;
-- how the application should be packaged;
-- how production health and metrics should be exposed;
-- which defaults should apply to a database, JSON converter, security layer, or template engine.
-
-Those remaining assembly and deployment costs created the conditions for Spring Boot.
-
-### Spring’s framework generations
-
-The broad Spring progression shows a steady reduction in configuration friction and an expansion of supported programming models:
-
-- Spring 1.x established IoC, AOP, Spring MVC, and JDBC/ORM integration.
-- Spring 2.x expanded XML configuration, AspectJ integration, security integration, messaging, remoting, and enterprise integration.
-- Spring 3.x added stronger annotation support, REST capabilities, SpEL, and Bean Validation integration.
-- Spring 4.x expanded Java-based configuration, Java 8 support, WebSocket support, and integration with Java EE 6 and 7 technologies.
-- Spring 5.x introduced Spring WebFlux and Reactor-based reactive programming.
-- Spring 6.x raised the baseline to Java 17, adopted the Jakarta EE 9 namespace, and expanded AOT and observability support.
-- Spring 7.x belongs to the current generation aligned with Jakarta EE 11, with additional modernization and cleanup.
-
-The version-history source summarizes these milestones, while the official framework compatibility page gives the more important current boundaries: Spring Framework 5.3 uses the `javax`-based Java EE 7/8 generation; Spring Framework 6.2 uses Jakarta EE 9/10; and Spring Framework 7 uses a Jakarta EE 11 baseline with early support for Jakarta EE 12. ([Spring Framework support ranges](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions))
-
-## Spring Boot: the convention and packaging layer
-
-### Spring Framework and Spring Boot are different projects
-
-Spring Framework is the foundation. It supplies:
-
-- the IoC container;
-- bean lifecycle and scopes;
-- AOP;
-- transaction abstractions;
-- JDBC and ORM integration;
-- Spring MVC and WebFlux;
-- validation, events, resources, messaging, scheduling, caching, and testing support.
-
-Spring Boot is a separate project built on that foundation. It supplies:
-
-- curated dependency management;
-- starters;
-- auto-configuration;
-- application bootstrapping;
-- embedded servers;
-- externalized configuration conventions;
-- executable JAR packaging;
-- production-oriented features through Actuator;
-- build plugins and operational integrations.
-
-The official Spring documentation distinguishes Spring Framework from other Spring projects such as Spring Boot, Spring Security, Spring Data, Spring Cloud, and Spring Batch. Each has its own repository, issue tracker, and release cadence. ([Spring project boundaries](https://docs.spring.io/spring-framework/reference/overview.html))
-
-A Boot application is still a Spring application. `@RestController`, `@RequestMapping`, `@Service`, `@Transactional`, and `ApplicationContext` belong to Spring Framework or related Spring projects; they are not inventions of Boot.
-
-### The problems Boot targeted
-
-Spring applications before Boot could be perfectly capable, but assembling one often required several independent decisions:
-
-- Which Spring JARs are needed?
-- Which version of Hibernate, Jackson, Tomcat, logging, validation, or database drivers is compatible?
-- Which XML or Java configuration classes must be written?
-- How should a servlet container be installed and configured?
-- Should the application be deployed as a WAR?
-- How should local development differ from production?
-- How should health, metrics, and management endpoints be exposed?
-- How should an application be packaged for a repeatable deployment?
-
-Boot’s goal was not to replace the Spring container. It was to make a conventional Spring application quick to create and easy to run. The project describes itself as a way to create stand-alone, production-grade Spring applications that can “just run,” with an opinionated view of Spring and third-party libraries. ([Spring Boot project](https://spring.io/projects/spring-boot))
-
-### Starters and dependency management
-
-A starter is a dependency descriptor for a common use case. Examples include:
-
-| Starter | Typical use | Runtime path or notable contents |
+| Date or period | Development | Principal change |
 |---|---|---|
-| `spring-boot-starter-web` | Servlet-based MVC and REST applications | Spring MVC, JSON support, validation-related infrastructure, and Tomcat by default |
-| `spring-boot-starter-webflux` | Reactive web applications | Spring WebFlux and Reactor Netty by default |
-| `spring-boot-starter-data-jpa` | JPA-based persistence | Spring Data JPA, JPA, Hibernate integration, and related persistence dependencies |
-| `spring-boot-starter-validation` | Bean Validation | Validation API and implementation support |
-| `spring-boot-starter-test` | Application testing | JUnit Jupiter, Hamcrest, Mockito, and Spring test support |
-| `spring-boot-starter-actuator` | Monitoring and management | Actuator production features |
+| 1996 | Java Servlet API | Portable server-side Java web components |
+| 1999 | JavaServer Pages | View templates extracted from Servlet code |
+| December 1999 | J2EE 1.2 | Coordinated enterprise platform and interoperability |
+| 2000 | Struts 1 | Framework organization around Model 2 MVC |
+| September 2001 | J2EE 1.3 | Local EJB interfaces and connector support |
+| 25 September 2001 | Servlet 2.3 and JSP 1.2 | Further standardized web capabilities |
+| 2002–February 2003 | Spring origins and open sourcing | DI, simpler JDBC, portable service abstractions |
+| November 2003 | J2EE 1.4 | Web services, deployment, and management integration |
+| March–2004 | Spring 1.0 and Spring MVC 1.0 | Lightweight application infrastructure and MVC |
+| 2004 | JSF 1.0 | Component-based, event-driven web interfaces |
 
-([Spring Boot starters and build systems](https://docs.spring.io/spring-boot/reference/using/build-systems.html))
+**The dates represent different milestones.** Meil dates Servlets to 1996, JSP to 1999, Struts to 2000, and both JSF 1.0 and Spring MVC 1.0 to 2004. The JCP records the Servlet 2.3/JSP 1.2 final release on 25 September 2001, while Johns Hopkins’ platform summary supplies the J2EE version milestones. [3][5][6]
 
-Boot also publishes a curated dependency list as the `spring-boot-dependencies` BOM. Maven and Gradle can use that BOM so applications usually omit versions for managed dependencies. Upgrading Boot then moves the supported Spring and third-party dependency set together. Explicit overrides are possible, but they transfer compatibility responsibility to the application team. ([Spring Boot dependency management](https://docs.spring.io/spring-boot/reference/using/build-systems.html))
+**Spring’s beginning has several dates.** Rod Johnson traced its origins to the framework code developed while writing *Expert One-on-One J2EE Design and Development* in 2002; it became open source in February 2003. Graudins and Zaitseva’s contemporary comparison dates Spring Framework 1.0 to March 2004. These are the origin, open-source, and version-1.0 milestones—not competing descriptions of one event. [7][8]
 
-This is a major practical improvement over manually selecting a collection of Spring and third-party JARs. It is also a source of risk: a starter can bring in more libraries than a developer realizes, and overriding one version can create a combination that Boot’s testing and support matrix did not cover.
+### 2006–2026: simpler programming, packaged applications, and new runtimes
 
-### Auto-configuration
+| Date or generation | Development | Principal change |
+|---|---|---|
+| 11 May 2006 | Java EE 5 | Annotations, better defaults, simpler enterprise development |
+| Spring 2.5 and 3.0 | Annotation configuration and JavaConfig | Less dependence on XML wiring |
+| 10 December 2009 | Java EE 6 | Web Profile, extensibility, further simplification |
+| June 2013 | Java EE 7 | WebSocket, JSON, batch, concurrency, simpler JMS |
+| 2013–1 April 2014 | Boot prototype to Boot 1.0 GA | Opinionated, stand-alone Spring applications |
+| September 2017 | Servlet 4.0 and Java EE 8 | Modern HTTP and web-platform capabilities |
+| Spring Framework 5.0 | Spring WebFlux | Parallel non-blocking reactive web stack |
+| Spring Framework 6.0 | Java 17 and Jakarta baseline | Modern JDK floor and `jakarta` enterprise APIs |
+| 13 November 2025 | Spring Framework 7.0 GA | New generation underpinning Spring Boot 4.0 |
+| June 2026 | Boot support transition | Final OSS 3.5 release; 4.x support paths |
 
-Boot auto-configuration examines the application’s classpath, environment, and existing bean definitions. If the application contains dependencies that indicate a particular capability and has not supplied its own equivalent configuration, Boot contributes conventional beans.
+**Both branches kept simplifying.** Java EE 5’s final release is recorded in the JCP catalog; Java EE 6 reached final release on 10 December 2009, and Java EE 8 on 18 September 2017. Servlet 4.0 reached final release on 5 September 2017. Spring’s own configuration evolved through annotations in 2.5 and Java-based bean definitions in 3.0. [9][10][11][12]
 
-For example, if HSQLDB is on the classpath and no application `DataSource` has been configured, Boot can configure an embedded database. If the application defines its own `DataSource`, the default embedded-database configuration backs away. ([Boot auto-configuration](https://docs.spring.io/spring-boot/reference/using/auto-configuration.html))
+**Boot changed application assembly.** The Spring team’s 1 April 2014 announcement describes the progression from a polished SpringOne2GX 2013 prototype to Spring Boot 1.0.0 general availability. Later, Framework 5 introduced WebFlux, Framework 6 established the Java 17/Jakarta generation, and Framework 7.0 became generally available on 13 November 2025 as the foundation for Boot 4.0. [13][14][15][16]
 
-Auto-configuration is enabled through `@EnableAutoConfiguration`, usually included through `@SpringBootApplication`. Conditions can inspect:
+**This is a branching history.** EJB was not a successor to JSP, nor did Spring Boot replace the Servlet API. Web presentation, business-component management, infrastructure composition, and deployment evolved together. Spring’s documentation explicitly describes Java EE/Jakarta EE and Spring as complementary: Spring integrates selected enterprise specifications without adopting the entire platform programming model. [2]
 
-- whether a class is present;
-- whether a bean already exists;
-- whether a property is enabled;
-- whether the application is a servlet or reactive application;
-- whether a resource or environment setting is available.
+## Java Servlets: portable requests, low-level application code
 
-This makes configuration non-invasive. An application can start with defaults and replace selected pieces by defining its own beans. Developers can run with `--debug` to see a conditions report explaining which auto-configurations matched or did not match. Specific auto-configurations can be excluded through annotation attributes or `spring.autoconfigure.exclude`. ([Auto-configuration conditions and exclusions](https://docs.spring.io/spring-boot/reference/using/auto-configuration.html))
+### What Servlets improved over CGI
 
-The practical rule is that auto-configuration is conditional code, not magic. When a result is surprising, inspect the conditions report, the dependency tree, the active profiles, the property sources, and the existing beans.
+**Servlets made server-side Java portable.** Oracle’s Java EE tutorial identifies platform dependence and limited scalability as shortcomings of the CGI approaches that preceded Servlets. The Servlet API supplied a consistent way to generate dynamic, user-oriented content using Java components hosted by a container. The important improvement was a reusable execution contract rather than a complete application architecture. [1]
 
-### `@SpringBootApplication` and application startup
+**The container handles web execution.** A Servlet container receives an HTTP request, selects the mapped Servlet, and supplies request and response objects. Application code reads parameters, headers, and other request information, invokes application behavior, and constructs a response. For HTTP Servlets, the familiar programming surface includes methods such as `doGet()` and `doPost()`, reached through the Servlet service mechanism. [17]
 
-The usual entry point is:
+**Lifecycle is separate from requests.** The container initializes a Servlet through `init()`, invokes `service()` to handle requests, and calls `destroy()` when removing the Servlet during its managed lifecycle. Initialization is not repeated for every request, and destruction is not an end-of-request callback. Developers can therefore establish component-level resources during initialization and release them during normal teardown. [17]
+
+**Shared instances require concurrency awareness.** A Servlet can serve concurrent requests, so request-specific information belongs in request-local data rather than casually assigned instance fields. A field holding “the current customer” can become shared mutable state across callers. The Servlet model removes much server-execution machinery from application code, but it does not remove Java’s concurrency and resource-ownership rules. [1]
+
+### Why higher-level abstractions became attractive
+
+**HTTP handling remained application plumbing.** A direct Servlet implementation still has to decide how URLs map to behavior, how input becomes application data, how failures become responses, and how business objects obtain their collaborators. Those decisions are possible with the API, but they are not the same thing as the API’s container contract. This is why a portable web foundation could coexist with substantial application boilerplate. [3]
+
+**Generating HTML exposed the next problem.** When Java request handlers also construct page markup, presentation changes become entangled with Java control flow. A page designer’s concern—HTML structure—sits beside parameter parsing, branching, and business calls. JSP’s historical purpose was to extract view definition from Servlet code into a templating mechanism. [3]
+
+**Deployment remained container-centered.** The application supplied web components, mappings, and resources to a Servlet container, often as a WAR, or web application archive. A full enterprise application server could additionally provide services such as EJB execution and coordinated resource management. A Servlet container and a full Java EE server therefore represented different levels of runtime responsibility, not interchangeable labels. [18]
+
+**The lasting judgment is foundational.** Direct Servlets remain appropriate when low-level HTTP or container control is central, especially for narrowly scoped components. As application behavior grows, however, repeating routing, object assembly, presentation handling, and infrastructure integration makes a higher-level framework increasingly valuable.
+
+## JSP, MVC, Struts, and JSF: separating web responsibilities
+
+### JSP improved authoring, but Model 1 retained coupling
+
+**JSP moved presentation into templates.** Introduced in 1999, JavaServer Pages let developers express dynamic page content without building the entire view inside a Servlet’s Java code. Oracle describes JSP as a simplified mechanism for rapidly creating server- and platform-independent dynamic web content. The JavaServer Pages Standard Tag Library, JSTL, supplied tags for recurring tasks such as iteration, conditionals, and internationalization. [3][19]
+
+**Templates alone did not create architecture.** In the JSP-centered arrangement called Model 1, pages handled requests, performed processing, and generated presentation. That could be straightforward for limited processing requirements, but the same convenience encouraged business decisions and persistence work to accumulate inside presentation files. Changing a page could consequently require understanding much more than its appearance. [20]
+
+**Maintenance was the decisive pressure.** Kurniawan and Xue’s 2004 study identified Model 1, Model 2, Struts, and JSF as four Java web-development models. It explicitly discouraged Model 1 for medium-sized and large applications because of maintenance difficulties. Their experimental comparison constructed three versions of an online store using Model 2, Struts, and JSF, illustrating that the architectural debate concerned complete application organization rather than merely template syntax. [4]
+
+**Small applications provide the counterexample.** A short page with little processing does not necessarily benefit from a large framework structure. Model 1’s weakness becomes more consequential when processing, persistence, navigation, and presentation change independently. The transition toward MVC was therefore driven by separation of responsibilities, not by a claim that every JSP page was inherently problematic.
+
+### Model 2 and Struts formalized request flow
+
+**Model 2 separated three responsibilities.** Business objects or JavaBeans formed the model, JSP or HTML formed the view, and one or more Servlets acted as controllers. The controller interpreted the incoming request, coordinated application work, and selected the view. This made it possible to change presentation without embedding the same business processing in every page. [20]
+
+**The request path became explicit.** In a typical Model 2 interaction, the Servlet reads request parameters, updates the model and saves it when necessary, then forwards the resulting model to a JSP. The view displays the result rather than deciding the entire operation. The benefit comes from assigning ownership of each decision; complete independence between the layers still requires disciplined design. [20]
+
+**Struts turned a pattern into infrastructure.** Struts 1 appeared in 2000 and provided a framework around the Model 2 approach. Instead of every team inventing its own MVC conventions and request-flow machinery, a named, reusable framework supplied an organizing model. Spring’s web documentation credits Struts with simplifying the JSP/Servlet paradigm and attracting developers away from proprietary frameworks. [3][21]
+
+**Web organization was only one layer.** A Struts application still needed a coherent way to construct services, manage persistence resources, apply transactions, and test business behavior. That remaining pressure is architectural: standardizing the web tier does not itself settle the composition of the business and infrastructure tiers. Spring could be introduced beneath an existing web framework rather than requiring an immediate rewrite of the interface. [21]
+
+**Spring MVC continued the request-oriented branch.** Meil describes Spring MVC 1.0, introduced in 2004, as a reaction to Struts 1. The important transition was toward a web framework integrated with Spring’s broader object-management and infrastructure model. Struts also continued evolving: Struts 2 appeared in 2006, and its Spring integration demonstrates that the alternatives were not mutually exclusive technology stacks. [3][21]
+
+### JSF pursued a component-oriented alternative
+
+**JSF targeted interface construction.** JavaServer Faces 1.0 appeared in 2004 with a component-based, event-driven approach. Oracle describes its workflow as assembling reusable UI components, connecting them to application data, and wiring client-generated events to server-side handlers. Its primary abstraction was therefore closer to UI components and events than to manually coordinating each request and page handoff. [3][19]
+
+| Approach | Main organizing unit | Request and presentation ownership | Principal benefit |
+|---|---|---|---|
+| JSP Model 1 | JSP page | Page handles processing and output | Simple small-page construction |
+| Model 2 MVC | Controller, model, view | Servlet coordinates; JSP renders | Separation of web responsibilities |
+| Struts | Framework-managed MVC flow | Model 2 conventions organize handling | Reusable web application structure |
+| JSF | UI component and event | Component lifecycle coordinates interaction | Reusable server-side UI assembly |
+
+**The approaches solve different problems.** The comparison follows the distinctions in the 2004 study and Oracle’s component model. Model 2 and Struts focus on structuring request processing; JSF focuses on constructing interactive server-side interfaces. Choosing between them involves the desired UI programming model as well as the underlying service architecture. [4][19]
+
+**JSF also evolved internally.** Its 1.x generation used JSP as its templating mechanism, while 2.x adopted Facelets. Later integration considerations differed from the original promise of rapid component assembly: Spring’s 5.3 web documentation notes that recent JSF versions had become closely tied to CDI infrastructure, with some functionality requiring that environment, and described Spring’s JSF integration as primarily supporting migration. [3][21]
+
+**There was no mandatory JSF-to-Spring transition.** Retaining or replacing Struts or JSF depends on the required UI model, service-container integration, runtime compatibility, and migration cost. Those conditions determine the practical tradeoff; chronological position alone does not establish a maintenance or performance winner.
+
+**The transition’s lasting lesson.** Separating presentation from processing was necessary, but substantial applications also needed a consistent infrastructure model behind the web tier.
+
+## EJB and Java EE: standardizing enterprise services
+
+### Enterprise containers addressed a different problem
+
+**Enterprise applications needed shared services.** Beyond rendering pages, applications needed persistence, transactions, messaging, security, naming, resource access, and managed deployment. J2EE—and later Java EE—coordinated specifications for these concerns. A full-platform server supplied containers and services so that each application did not have to implement its own enterprise runtime. [18]
+
+**EJB standardized business-component execution.** Enterprise JavaBeans aimed to simplify distributed, object-oriented business applications by moving recurring execution concerns into a container. Its capabilities grew across versions: EJB 2.0 included JMS integration, improved entity persistence, portable finder queries, and server interoperability; EJB 2.1 added web-service support, message-driven-bean enhancements, and container-managed timers. [9]
+
+**The early programming model added ceremony.** Graudins and Zaitseva’s 2006 comparison argued that EJB versions 1.0–2.1 were too complicated to fulfill their simplification goal. SpringSource’s migration guide illustrated the older remote-style model with three artifacts—remote interface, home interface, and implementation—plus an XML deployment descriptor, even for simple business behavior. The business operation could be small while the surrounding component contract remained substantial. [8][22]
+
+**Container coupling affected feedback speed.** When business components depend heavily on server contracts, isolated tests and local execution become harder to arrange. The server’s integration is valuable when its services are needed, but requiring that environment for ordinary business logic increases the amount of infrastructure involved in development. Spring’s appeal emerged partly from separating application behavior from those deployment assumptions. [22]
+
+### EJB 3 and Java EE simplified their own model
+
+**EJB 3 directly targeted complexity.** Its specification’s stated purpose was to reduce developer-facing complexity. The changes described in the 2006 comparison included annotations usable alongside or instead of deployment descriptors, removal of required home/component interfaces, simpler bean types, interceptors, defaults, and simpler persistence. This was a substantive redesign of the enterprise programming model, not merely a change in terminology. [9][8]
+
+**JPA separated persistence from EJB identity.** The Java Persistence API supplied a POJO persistence model for object-relational mapping. Although developed by the EJB 3.0 expert group, Oracle explicitly describes it as usable by web applications, application clients, and Java SE applications outside the enterprise platform. That separation made it possible for Spring to integrate a standard persistence API without requiring EJB components. [19]
+
+**Java EE 5 emphasized easier development.** Released in May 2006, it combined annotations, better defaults, dependency injection into enterprise components, and technologies such as JPA. Java EE 6 continued that direction with profiles, more flexible deployment, no-interface EJBs, and component dependency injection. The platform was responding to many of the same developer pressures as Spring. [6]
+
+**Profiles addressed excessive platform breadth.** The Java EE 6 proposal explicitly acknowledged that the platform had become broad enough to lose focus. Its Web Profile offered a subset aimed at typical web applications, while extensibility allowed other technologies to layer onto server implementations. Its pruning process also recognized that older technologies, including EJB container-managed persistence, had been superseded by alternatives such as JPA. [10]
+
+| Platform generation | Development pressure | Response | Continuing design choice |
+|---|---|---|---|
+| J2EE 1.2–1.4 | Fragmented enterprise infrastructure | Standardized containers and services | Integration versus component ceremony |
+| Java EE 5 | Difficult enterprise programming | Annotations, defaults, JPA, simpler components | Server services versus application autonomy |
+| Java EE 6 | Broad platform; varied application needs | Web Profile, extensibility, simpler deployment | Full platform versus focused profile |
+| Java EE 7 | Repeated infrastructure and new web needs | JSON, WebSocket, batch, concurrency, JMS improvements | Standard integration versus selected libraries |
+| Java EE 8 | Modern web and managed-bean requirements | Updated web APIs and integration direction | Platform evolution versus application constraints |
+
+**Later releases retained the infrastructure goal.** Java EE 7 added or strengthened WebSocket, JSON, batch processing, concurrency utilities, validation integration, and simplified JMS. Java EE 8’s specification proposal emphasized modern web standards, managed-bean integration, and cloud-oriented infrastructure; its proposed configuration and monitoring directions express design goals rather than measured operational outcomes. [6][11]
+
+### Why Spring gained appeal without making Java EE irrelevant
+
+**Spring offered a different composition model.** Instead of making ordinary application services special enterprise components, Spring could manage plain Java objects and attach infrastructure behavior around them. Developers could use local transactions or integrate server-provided JTA resources, select persistence technologies, and test business services outside a full application server. Spring could therefore supplement an enterprise application or replace parts of its component model. [22]
+
+**The historical comparison was not one-sided.** Graudins and Zaitseva assessed 13 criteria on a 0.0–1.0 capability scale. Their assessment favored Spring in transaction facilities, service flexibility, testability, and price, but favored EJB 3.0 in persistence, configuration, security, and service integration. For example, they assigned testability scores of 1.0 to Spring and 0.8 to EJB, while service integration scored 0.7 and 0.9 respectively. [8]
+
+**Deployment needs can reverse the preference.** Deep application-server integration, established operational tooling, or particular distributed-transaction requirements can make a server-managed model attractive. Spring’s own transaction documentation recommends EJB when propagation of transaction contexts across remote calls is required, while cautioning against unnecessarily spanning remote calls with transactions. A mature application may also gain less from migration than the migration costs. [23][22]
+
+**The enterprise transition’s central judgment.** Spring’s advantage was a simpler, more portable application programming model—not the discovery of enterprise capabilities that Java EE lacked.
+
+## Spring Framework: reusable infrastructure around ordinary Java objects
+
+### IoC and dependency injection separate construction from behavior
+
+**Spring manages the object graph.** Inversion of control, or IoC, is the broad idea of moving certain responsibilities from application objects to a framework. Dependency injection, DI, is Spring’s principal object-assembly mechanism: objects declare collaborators through constructor arguments, factory-method arguments, or properties, and the container supplies them. The object no longer needs to construct each collaborator or locate it through a registry. [24]
+
+**Explicit dependencies improve replaceability.** Suppose a service needs a repository. If it constructs a particular database repository internally, its business behavior becomes coupled to that implementation and its setup. If it instead accepts a repository interface, production configuration can supply a persistent implementation while a unit test supplies a fake. The improvement comes from the object’s design; the container automates assembling that design. [25]
+
+**Java configuration makes assembly visible.** The following illustrative excerpt assumes that another configuration supplies a `CustomerRepository` bean. The service itself contains ordinary Java behavior, while the configuration tells Spring how to construct it. `@Configuration` and `@Bean` are Spring Framework features. [26]
+
+```java
+interface CustomerRepository {
+    String findName(long customerId);
+}
+
+class CustomerService {
+    private final CustomerRepository customers;
+
+    CustomerService(CustomerRepository customers) {
+        this.customers = customers;
+    }
+
+    String customerName(long customerId) {
+        return customers.findName(customerId);
+    }
+}
+
+@Configuration(proxyBeanMethods = false)
+class ServiceConfiguration {
+    @Bean
+    CustomerService customerService(CustomerRepository customers) {
+        return new CustomerService(customers);
+    }
+}
+```
+
+**The container is not the business API.** Spring recommends that ordinary application code avoid repeated `getBean()` lookups. Injecting collaborators keeps dependencies apparent in constructors or methods and avoids turning the container into a service locator used throughout the codebase. Interfaces are useful design boundaries, but Spring does not require every managed class to implement a framework-specific interface. [12]
+
+**ApplicationContext adds application services.** `BeanFactory` supplies the basic bean configuration and assembly contract. `ApplicationContext` extends it with facilities such as event publication, internationalized messages, AOP integration, and application-specific contexts. A `WebApplicationContext` connects that object-management model to a web environment. [24]
+
+### Beans, scopes, and lifecycle define ownership
+
+**A bean is a managed object.** A Spring bean is an object instantiated, assembled, and managed by Spring’s IoC container. Its bean definition is a construction recipe containing information such as its class, dependencies, scope, configuration values, and lifecycle callbacks. An ordinary object created by application code does not automatically acquire container management merely because its class contains annotations. [12]
+
+**Scope determines sharing and lifetime.** Spring documents six standard scopes. Singleton and prototype are general container scopes; request, session, application, and WebSocket scopes require an appropriate web-aware context. These choices express different ownership rules rather than different kinds of business logic. [27]
+
+| Scope | Instance boundary | Practical implication |
+|---|---|---|
+| `singleton` | One instance per definition per container | Shared service or infrastructure object |
+| `prototype` | New instance per container request | Caller owns subsequent cleanup |
+| `request` | One HTTP request | Request-specific state |
+| `session` | One HTTP session | Session-associated state |
+| `application` | One `ServletContext` | Shared web-application state |
+| `websocket` | One WebSocket session | Connection-associated state |
+
+**Singleton does not mean globally unique.** Spring’s default singleton scope is per bean definition and container, not one instance of a Java class across the entire JVM. Nor does it make mutable state thread-safe. Stateless services are natural singleton candidates because concurrent callers do not compete over conversational state stored in the service itself. [12]
+
+**Lifecycle callbacks govern resource ownership.** Spring supports initialization and destruction through `@PostConstruct`, `@PreDestroy`, configured methods, and lifecycle interfaces. These hooks let an object prepare after its dependencies are supplied and release resources during normal shutdown. `Lifecycle` and `SmartLifecycle` additionally support coordinated start and stop behavior for components with more involved execution lifecycles. [28]
+
+**Prototype scope has a cleanup boundary.** Spring initializes a prototype object but does not manage its complete subsequent lifecycle or invoke its configured destruction callback. Also, injecting a prototype directly into a singleton supplies the instance resolved during that injection; it does not create a fresh object for every later service call. A provider, scoped proxy, or another suitable lookup mechanism is needed when repeated acquisition is intentional. [27]
+
+### AOP centralizes cross-cutting behavior
+
+**AOP separates repeated infrastructure behavior.** Aspect-oriented programming addresses concerns that cut across many classes, such as transaction boundaries, auditing, or logging. A pointcut selects relevant method executions, and advice supplies behavior before, after, or around those executions. An aspect organizes that selection and behavior without requiring the same infrastructure code inside every business method. [29][30]
+
+**Proxies implement the common mechanism.** Spring AOP typically exposes a proxy that intercepts a call and delegates to the underlying target. It supports JDK dynamic proxies for interfaces and CGLIB-generated subclasses for class-based proxying; configuration can influence which form is used. This allows a transaction interceptor, for example, to start a transaction, invoke a service, and then commit or roll back. [31]
+
+**The call path determines interception.** If a method calls another method on the same object through `this`, the internal call does not pass through the external proxy. Consequently, advice attached to the internally called method does not get a new opportunity to run. An annotation can therefore be present in source code while its expected behavior is absent on a particular execution path. [31]
+
+**Class design constrains class-based advice.** CGLIB cannot subclass a final class or override final or private methods to advise them. Spring AOP also focuses on method-execution interception rather than every possible bytecode join point. Where those boundaries matter, redesigning the service boundary or deliberately using AspectJ weaving may be appropriate; AspectJ’s bytecode weaving avoids the particular self-invocation limitation. [31]
+
+### Data access removes plumbing, not database semantics
+
+**Spring standardizes persistence integration.** The framework supplies JDBC support, DAO abstractions, ORM integration for JPA and Hibernate, and reactive relational access through R2DBC. Its purpose is to make infrastructure use consistent and reusable while leaving applications responsible for queries, mappings, and business meaning. Spring is not itself a relational database or an ORM provider. [32]
+
+**JdbcTemplate handles repetitive resource work.** Direct JDBC requires opening connections, preparing statements, executing SQL, processing results, handling failures, and closing resources correctly. Spring’s JDBC facilities manage much of that repeated lifecycle while application code supplies the SQL, parameters, and result interpretation. This reduces boilerplate and makes participation in Spring-managed transactions more consistent. [25]
+
+**Exception translation creates a shared vocabulary.** Spring DAO support can translate persistence-specific exceptions into a common data-access hierarchy. `@Repository` identifies repository components for discovery and configured exception-translation support. Application layers can consequently handle categories of persistence failure without depending everywhere on a particular provider’s exception types. [33]
+
+**Connection ownership still matters.** A singleton `DataSource` is not the same thing as one database `Connection` shared by all requests. Gribanova-Podkina’s 2019 discussion illustrates the distinction: a single shared connection can centralize setup for a small application but becomes a contention queue as clients increase, whereas a connection pool lends available connections and accepts them back after use. Dependency injection organizes access to infrastructure; it does not make an unsuitable concurrency design scalable. [34]
+
+### Transactions coordinate a unit of work
+
+**Transactions are distinct from persistence access.** A repository describes how data is read or written; a transaction defines which operations belong to one coordinated unit of work. Spring provides consistent transaction abstractions across JDBC, JPA, Hibernate, and JTA, with both programmatic and declarative styles. The chosen transaction manager connects the application-level boundary to actual resources. [35]
+
+**Declarative boundaries keep business code focused.** With appropriately configured `@Transactional` support, a service operation can execute inside a transaction without embedding begin, commit, and rollback calls in its business logic. Spring’s AOP infrastructure supplies that behavior around the call. The same application model can use local resource transactions or integrate JTA, depending on configuration and resource requirements. [23]
+
+**Rollback follows rules, not annotation folklore.** Spring’s default convention rolls back on unchecked failures; checked exceptions require suitable rollback rules unless the defaults are changed. Developers must also understand propagation—whether an operation joins an existing transaction or establishes another boundary—and how exceptions cross the transactional interceptor. Catching and suppressing a failure changes what that interceptor observes. [23]
+
+**Local atomicity is not distributed atomicity.** A database transaction does not automatically make a remote HTTP operation part of the same recoverable unit. Spring declarative transactions do not propagate transaction contexts across remote calls in the manner offered by some high-end application servers. This distinction is especially important when a service both changes local data and invokes another system. [23]
+
+### Spring MVC builds on the Servlet foundation
+
+**DispatcherServlet centralizes web processing.** Spring MVC uses the front-controller pattern: one central Servlet coordinates request processing, while configurable components perform mapping, invocation, exception resolution, conversion, and view rendering. Controllers express application-specific web behavior without each one reimplementing the shared dispatch algorithm. The underlying Servlet contract remains in place. [21]
+
+**Controller methods become HTTP handlers.** `@Controller` and `@RestController` identify web components, while mappings such as `@RequestMapping` and `@GetMapping` associate methods with requests. Input binding, conversion, validation, and exception handling participate in the framework-managed request path. For response-body APIs, message converters can serialize returned application objects into formats such as JSON. [21][36]
+
+**Views remain a separate concern.** For server-rendered applications, a controller can return a logical view name and a model. A `ViewResolver` maps that name to an actual view technology, allowing the web layer to use JSP, FreeMarker, or another supported renderer. Returning response data rather than a template changes the presentation path, not the need for sound application-layer separation. [21]
+
+### WebFlux provides a different concurrency model
+
+**WebFlux is a parallel web stack.** Added in Spring Framework 5.0, it is fully non-blocking, supports Reactive Streams back pressure, and can run on Netty or suitable Servlet containers. It does not directly depend on the Servlet programming model in the same way as MVC. Applications can also combine selected technologies, such as using the reactive `WebClient` from an MVC application. [14]
+
+| Dimension | Spring MVC | Spring WebFlux |
+|---|---|---|
+| Foundation | Servlet API | Reactive Streams and non-blocking server APIs |
+| Common programming style | Imperative controllers | Reactive controllers or functional endpoints |
+| Runtime choices | Servlet containers | Netty or suitable Servlet containers |
+| Natural persistence fit | JDBC/JPA and blocking libraries | Reactive access such as R2DBC |
+| Web test tools | MockMvc | WebTestClient |
+| Boot WAR deployment | Supported | Unsupported |
+
+**Back pressure controls production rate.** In a reactive pipeline, the consumer can signal how quickly it is ready to receive data. That helps prevent an asynchronous producer from overwhelming downstream processing merely because it can emit quickly. The mechanism is about coordinating demand across asynchronous components, rather than simply marking a method as asynchronous. [25]
+
+**Non-blocking benefits require compatible work.** If request handling calls blocking database or network code on a thread expected to process non-blocking events, it can undermine the intended execution model. MVC is often the simpler fit for an application centered on synchronous JDBC/JPA operations; WebFlux is attractive for genuinely asynchronous, streaming, or highly concurrent I/O workflows. The choice should follow the complete dependency path and team expertise, not an assumption that “reactive” means universally faster. [25]
+
+### Validation, binding, and conversion are reusable infrastructure
+
+**Validation is not only a controller concern.** Spring supplies a `Validator` contract usable independently of the web tier, with localization support. This allows validation rules to be shared where the same application behavior has multiple entry points, rather than relying on every caller to pass through one HTTP controller. [37]
+
+**Binding and validation answer different questions.** Binding transfers input into an object; conversion turns values into the required types; validation determines whether the resulting values satisfy constraints. Spring provides `DataBinder`, `BeanWrapper`, general conversion, and formatting facilities for these responsibilities. A value can convert successfully yet still violate an application rule. [37]
+
+**Standard constraints complement custom rules.** Bean Validation supplies an annotation-based metadata model, and Spring integrates that model with application and web infrastructure. Developers should distinguish structural constraints from business decisions: a correctly formatted customer identifier does not establish that the caller may access that customer. Validation and authorization protect different boundaries. [19]
+
+### Integration and messaging extend beyond HTTP requests
+
+**Spring also coordinates infrastructure interactions.** Framework integration facilities include REST clients, JMS, JMX management, email, task execution, scheduling, caching, and observability. These capabilities let services interact with external systems and background execution without each application inventing its own resource-handling conventions. [38]
+
+**Messaging changes the interaction boundary.** JMS provides standardized asynchronous, loosely coupled communication; Spring adds facilities such as templates and listener infrastructure around that model. A message-driven operation is not simply an HTTP request on another transport: its completion, failure, and resource boundaries need to be designed around message processing. [19][38]
+
+**Local events are not a broker.** `ApplicationContext` events support communication among components within an application context. More elaborate routing and transformation workflows belong to capabilities such as the separate Spring Integration project. Keeping these boundaries clear prevents an in-process notification mechanism from being mistaken for a distributed messaging system. [12]
+
+**Historical integration lists need version context.** Older Spring releases supported RPC-style facilities such as HTTP Invoker and Hessian, along with dedicated EJB access. Spring Framework 6 removed several of those facilities; EJB lookup can instead use JNDI where appropriate. Understanding Spring’s evolution includes recognizing removals as well as additions. [15]
+
+### Testing is part of the framework model
+
+**Spring supports several verification boundaries.** Plain business objects can be tested without the container, while the TestContext Framework loads Spring configuration to verify wiring and infrastructure integration. Framework web tools include Servlet mocks, MockMvc, and WebTestClient. These tools address different questions, from isolated behavior to framework-managed request processing. [32]
+
+**Integration tests need not deploy an application.** Spring’s `spring-test` support can verify component wiring, SQL, queries, and ORM mappings without deploying to an application server. It also caches application contexts so repeated tests can reuse expensive infrastructure setup. For tests configured with test-managed transactions, rollback support helps control changes to the database. [39]
+
+### The Spring ecosystem has explicit project boundaries
+
+**The framework is the foundation.** Spring Boot, Spring Security, Spring Data, Spring Cloud, and Spring Batch are separate projects with their own repositories and release cadences. Their frequent appearance together in applications does not make their capabilities interchangeable or automatically part of the core container. [2]
+
+| Project | Primary responsibility | Relationship to Boot |
+|---|---|---|
+| Spring Security | Authentication and authorization | Boot configures common starting arrangements |
+| Spring Data | Repository abstractions and store integration | Boot assembles supported data configurations |
+| Spring Integration | Enterprise integration patterns | Boot simplifies infrastructure assembly |
+| Spring AMQP | AMQP and RabbitMQ integration | Boot offers messaging starters and configuration |
+| Spring Cloud | Distributed-system infrastructure | Used when corresponding application needs arise |
+| Spring Batch | Structured batch processing | Boot integrates batch application startup |
+
+**These distinctions prevent misplaced expectations.** For example, Spring Framework integrates JPA, Spring Data can create repository implementations, and Boot can configure the surrounding application from dependencies and properties. Those are three contributions to one data-access path—not three names for the same feature. Likewise, core JMS support and Spring AMQP’s RabbitMQ support are related messaging capabilities with different APIs. [40][22][41]
+
+**The framework’s lasting judgment.** Spring reduces infrastructure duplication by composing ordinary objects with reusable services, but developers must still understand the runtime boundaries through which those services are applied.
+
+## Spring Boot: assembling and running Spring applications
+
+### Boot addressed the cost of starting every application
+
+**Spring’s flexibility created repeated decisions.** A conventional Spring application had to select modules and compatible third-party libraries, construct configuration, initialize contexts, arrange web registration, choose packaging, and assemble production support. Spring had already simplified business programming, but teams could still repeat much of the same application setup. Boot’s central contribution was an opinionated, reusable starting arrangement. [42][43]
+
+**The programming model remained Spring’s.** A controller, injected service, repository, and transactional proxy retain their respective Spring responsibilities inside a Boot application. Boot’s startup machinery creates and configures the application context and its surrounding runtime. Its convenience does not require a new business-component model, mandatory microservices, or a fixed number of application layers. [2]
+
+### Auto-configuration applies conditional defaults
+
+**Auto-configuration responds to application state.** Boot considers dependencies on the classpath and relevant application configuration when supplying infrastructure. Its documentation gives the example of HSQLDB: if the database library is present and the application has not defined database connection beans, Boot can configure an in-memory database. The behavior follows conditions, rather than interpreting arbitrary business intentions. [44]
+
+**User configuration can replace defaults.** Defining a custom `DataSource` causes the default embedded-database configuration to back away. Other configurations provide their own conditions and customization points. The practical model is “sensible infrastructure unless the application supplies another arrangement,” with the exact conditions determining what happens. [44]
+
+**Diagnosis requires understanding those conditions.** A changed dependency or an added bean can change which configuration applies. Boot’s `--debug` option produces a conditions report, and unwanted auto-configurations can be excluded through supported configuration mechanisms. Depending on internal bean methods of auto-configuration classes is different from using their supported customization or exclusion interfaces. [44]
+
+**Bootstrap becomes a Java entry point.** A common application starts through `SpringApplication.run()` and enables component discovery and auto-configuration with `@SpringBootApplication`. The following excerpt shows only that startup responsibility; application components remain separate. Boot favors Java configuration, while retaining ways to import XML where needed. [45]
 
 ```java
 @SpringBootApplication
-public class OrdersApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(OrdersApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
 ```
 
-`@SpringBootApplication` combines:
+**Annotations still have distinct owners.** `@RestController` and request-mapping annotations belong to Spring’s web programming model, not Boot’s application-assembly layer. Similarly, Java configuration and annotation-based dependency injection existed before Boot. The historical shift from XML to Java and annotation configuration should therefore not be confused with Boot’s later introduction. [42][12]
 
-- `@SpringBootConfiguration`;
-- `@EnableAutoConfiguration`;
-- `@ComponentScan`.
+### Starters, dependency management, and build plugins do different jobs
 
-`SpringApplication.run` creates and refreshes the application context, applies Boot configuration, and starts the embedded server when the application is a web application. ([Spring Boot getting started guide](https://docs.spring.io/spring-boot/docs/3.2.7/reference/html/getting-started.html))
+**Boot coordinates dependency choices.** Starters supply useful sets of dependencies for a capability, while Boot’s curated dependency management supplies compatible versions. Maven or Gradle still resolves those dependencies and builds the application. Libraries are not discovered and downloaded as a substitute for a declared build. [42]
 
-The location of the main class matters. Component scanning begins from its package and subpackages. Boot documentation discourages the Java default package because scanning from there can cause every class in every JAR to be examined. A reversed-domain root package such as `com.example.orders` gives the application a predictable scan boundary. ([Spring Boot code-structure guidance](https://docs.spring.io/spring-boot/docs/3.2.6/reference/html/using.html))
+| Mechanism | Question it answers | Result |
+|---|---|---|
+| Starter | Which libraries support this capability? | Convenient transitive dependency set |
+| Dependency-management BOM | Which versions belong together? | Coordinated managed versions |
+| Build plugin | How is the application packaged and launched? | Executable archive and build integration |
 
-### Embedded servers and executable JARs
+**A BOM is not a feature dependency.** A bill of materials establishes version constraints; it does not by itself mean every managed library is included. A starter expresses dependency choices, and the packaging plugin creates the executable application artifact. Understanding these roles makes build problems easier to diagnose than treating “the Boot dependency” as one indivisible mechanism. [42]
 
-Boot’s servlet stack uses an embedded server. `spring-boot-starter-web` uses Tomcat by default, although Jetty can replace it. The reactive stack uses Reactor Netty by default, with Tomcat or Jetty also possible in supported arrangements. ([Spring Boot web servers](https://docs.spring.io/spring-boot/how-to/webserver.html))
+**Overrides preserve choice but add responsibility.** Developers can override managed versions, but doing so changes the dependency combination selected by Boot. Upgrading Boot can update managed dependencies together, reducing repeated compatibility decisions. A local override should therefore be a deliberate choice supported by dependency inspection and tests, rather than an arbitrary attempt to make one compilation error disappear. [42]
 
-A standalone Boot web application normally listens on port `8080`, configurable through `server.port`, an environment variable such as `SERVER_PORT`, or another external property source. Port `0` requests an available random port, while `-1` disables HTTP endpoints while retaining a web application context. ([Spring Boot server configuration](https://docs.spring.io/spring-boot/how-to/webserver.html))
+### Embedded runtimes invert the traditional startup sequence
 
-The application can be packaged as an executable JAR containing application classes and dependencies and launched with:
+**The application can start its server.** In conventional Spring MVC deployment, a Servlet container starts the application and invokes its initialization hooks. In the embedded Boot model, Spring configuration bootstraps the application and embedded container, then registers relevant Servlets and filters. This reverses which component is the primary startup owner without removing the container itself. [21]
 
-```text
-java -jar orders.jar
-```
+**Executable archives simplify delivery.** A Boot executable JAR contains application classes and the dependencies needed to run them, including the embedded web runtime for a web application. It can be launched with `java -jar`, while the host still supplies a compatible Java runtime and access to external services. Packaging reduces separate application-server setup; it does not package away databases, credentials, networking, or runtime compatibility. [42]
 
-A WAR deployment to an external Servlet container remains possible. Boot therefore simplifies the common executable-JAR model without making traditional deployment impossible.
+**Server choice remains configurable.** Boot’s documented servlet web starter uses Tomcat by default, while its reactive web starter uses Reactor Netty. Supported alternatives can be selected through dependency changes. Boot also supports traditional Servlet-based WAR deployment; WebFlux applications have a different deployment model and do not support WAR deployment. [46][47]
 
-The architectural difference is important. Traditional Spring MVC initialization hooks into the Servlet container lifecycle. Boot uses Spring configuration to bootstrap itself and the embedded container, then registers Servlet, Filter, and listener declarations with that container. ([Spring MVC and Boot initialization](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet.html))
+**Packaging shifts operational ownership.** With an embedded server version selected in the application build, runtime changes become part of the application’s dependency and release process. That makes the delivered artifact more explicit, but also makes reviewing server and library updates an application-team concern. “No separately installed server” should not be read as “no server operation.”
 
-### Externalized configuration and profiles
+### External configuration and Actuator standardize common needs
 
-Boot separates application code from environment-specific values. Configuration can come from:
+**Configuration moves outside application code.** Boot supports properties files, YAML, environment variables, and command-line arguments so that the same application can run with different environment settings. Values can be accessed individually or bound into structured objects with `@ConfigurationProperties`. Spring profiles additionally control which configuration participates in a particular environment. [48][49]
 
-- `application.properties`;
-- `application.yaml`;
-- profile-specific files;
-- operating-system environment variables;
-- system properties;
-- command-line arguments;
-- imported configuration sources.
+**Actuator supplies management infrastructure.** It adds application monitoring and management facilities through HTTP or JMX, including health, metrics, and auditing support. Rather than each team constructing unrelated management endpoints, Boot provides an integrated model and extension points. Its signals still need to be interpreted according to what they actually measure. [50]
 
-Values can be read through `Environment`, injected with `@Value`, or bound to structured objects using `@ConfigurationProperties`. Later property sources override earlier ones, and command-line properties have high precedence over file-based configuration. ([Spring Boot external configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html))
+**Convenience is not loss of all control.** Oracle’s 2024 explanation emphasizes the tradeoff between configuration freedom and faster setup, but Boot’s own documentation shows extensive back-off and customization mechanisms. A large application does not become unsuitable for Boot merely because it is large. The stronger reason to use Framework without Boot is a concrete assembly or runtime requirement that conflicts with Boot’s conventions. [43][44]
 
-A profile is a named logical environment. A bean annotated with `@Profile("prod")` exists only when the `prod` profile is active, and `application-prod.yml` is loaded only when that profile is active. Profiles are useful for selecting environment-specific beans and settings, but they are not a security boundary and should not be used to hide secrets in source control.
+**Boot’s central judgment is practical.** For applications that fit its supported combinations, Boot removes repeated infrastructure decisions while retaining Spring’s programming model; the responsibility moves from writing every configuration to understanding and intentionally customizing the resulting configuration.
 
-Structured binding is preferable for related settings:
+## Modern Spring: compatibility and support through September 2026
 
-```java
-@ConfigurationProperties(prefix = "payments")
-public record PaymentProperties(
-        URI baseUrl,
-        Duration timeout,
-        boolean enabled) {
-}
-```
+### Java and Jakarta boundaries affect real applications
 
-The properties class must be registered, for example through `@ConfigurationPropertiesScan`, `@EnableConfigurationProperties`, or a component annotation. `@Value` is convenient for one value; `@ConfigurationProperties` is better for grouped, typed, validated configuration.
+**Framework generations have compatibility contracts.** The Spring versions matrix distinguishes the JDK and enterprise API ranges for Framework 5.3, 6.2, and 7.x. Framework 6 introduced the Java 17 minimum and the Jakarta EE 9 baseline; Framework 7’s focus on Java 25 does not mean that Java 25 replaced Java 17 as its minimum. [51][16]
 
-### Actuator and production readiness
-
-Spring Boot Actuator supplies endpoints for monitoring and interacting with an application. The default HTTP mapping for health is `/actuator/health`, while other endpoints such as `beans`, `conditions`, `env`, `loggers`, `metrics`, `mappings`, `scheduledtasks`, `startup`, and `threaddump` can be exposed according to configuration. Only health is exposed over HTTP and JMX by default in the documented configuration. ([Actuator endpoints](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html))
-
-Health is not just a Boolean. Actuator can combine `HealthIndicator` and composite contributors into a health tree and derive an overall status. `DOWN` and `OUT_OF_SERVICE` map to HTTP 503 by default. A slow health check can be operationally dangerous; Boot logs a warning when a health indicator takes longer than 10 seconds. ([Actuator health](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html))
-
-Actuator makes operational state observable, but exposure must be deliberate. Management endpoints can reveal environment values, beans, mappings, metrics, or operational details. If Spring Security is present and no custom `SecurityFilterChain` exists, Boot secures actuator endpoints other than health by default. Defining a custom security chain makes the application responsible for the resulting access rules. ([Actuator security](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html))
-
-A 2026 security advisory illustrates why infrastructure paths should remain separate from application routes. It describes an authentication-bypass condition involving an application endpoint mapped under a path used by Actuator health-group infrastructure and recommends not mapping application endpoints beneath infrastructure paths such as Actuator endpoints. ([Actuator health-group advisory](https://spring.io/security/cve-2026-22731))
-
-### Boot’s tradeoffs
-
-Boot’s conventions address real productivity and deployment problems, but they create new responsibilities:
-
-- A dependency can activate auto-configuration unexpectedly.
-- A user-defined bean can cause Boot to back off, sometimes changing behavior indirectly.
-- Component scanning can be too broad or too narrow.
-- A starter can bring in transitive libraries that are not needed.
-- Explicit version overrides can break the curated dependency graph.
-- Auto-configuration internals are not stable application APIs.
-- The default security configuration is suitable for development, not production.
-- Framework upgrades can change Jakarta, JDK, servlet, server, JSON, ORM, and observability compatibility simultaneously.
-
-Boot 4 also continues a modularization trend. The supplied 2026 technical comparison reports that Boot 3’s larger artifacts could increase classpath scanning and native-image footprint, while Boot 4 separates auto-configuration and support code into more focused modules. Applications that use starters may see little build-file change, while applications that manually select individual modules may need to review their dependencies. ([Spring Boot 4 and Framework 7 comparison](https://www.baeldung.com/spring-boot-4-spring-framework-7))
-
-## Core Spring Framework functionality
-
-### Core Container and bean management
-
-The Core Container is the conceptual center of Spring. Its main pieces include:
-
-| Area | Spring Framework modules or abstractions | Representative APIs and annotations | Practical responsibility |
+| Framework line | Documented JDK range | Enterprise API alignment | Namespace |
 |---|---|---|---|
-| Core and Beans | `spring-core`, `spring-beans` | `BeanFactory`, `BeanDefinition`, `@Bean` | Create, configure, and assemble objects |
-| Context | `spring-context` | `ApplicationContext`, events, resources, `MessageSource` | Provide application-level services and context management |
-| Expression language | `spring-expression` | SpEL, `ExpressionParser` | Evaluate expressions and access object graphs |
-| Environment | Core context facilities | `Environment`, profiles, property sources | Select configuration and environment-specific beans |
-| Configuration | Java configuration and scanning | `@Configuration`, `@ComponentScan`, `@Import` | Declare bean definitions and scan components |
+| 5.3 | JDK 8–21 | Java EE 7–8 | `javax` |
+| 6.2 | JDK 17–25 | Jakarta EE 9–10 | `jakarta` |
+| 7.x | JDK 17–25+ | EE 11 baseline; early EE 12 support | `jakarta` |
 
-The container reads metadata from annotated classes, configuration classes with factory methods, XML files, or other supported configuration sources. `@Bean` marks a method whose return value becomes a bean definition; the method name is the default bean name. ([Spring bean basics](https://docs.spring.io/spring-framework/reference/core/beans/basics.html))
+**Namespace migration is a system change.** Moving to the Jakarta generation affects enterprise API imports and compatible implementations. Spring 6 migration guidance pairs changes such as `javax.servlet` to `jakarta.servlet` with Servlet-container upgrades, and moves common injection and lifecycle annotations to their Jakarta packages. Updating application imports while leaving an incompatible server or persistence provider is not a complete migration. [15]
 
-The container is not merely a registry. It controls lifecycle, applies post-processors, resolves dependencies, and may substitute a proxy for the object originally created. That is how features such as transactions, security, caching, and asynchronous execution can apply to ordinary application classes.
+**API names require selective treatment.** The migration concerns affected enterprise APIs, not a blanket renaming of every Java package beginning with `javax`. For example, JDBC infrastructure uses Java SE’s `javax.sql.DataSource`. Developers need to understand which specification owns an API rather than applying a global text replacement. [42][15]
 
-#### Scopes
+### Support is separate from runtime compatibility
 
-Spring supports six named scopes:
+**A running build can outlive support.** The Spring team announced Boot 3.5.16 on 25 June 2026 as the last open-source release of the 3.5 generation and directed users toward 4.0.x or 4.1.x for continued OSS support. Framework’s versions page likewise records the end of OSS support for 5.3 in August 2024 and 6.2 in June 2026, alongside commercial support options. [52][51]
 
-- `singleton`;
-- `prototype`;
-- `request`;
-- `session`;
-- `application`;
-- `websocket`.
+**Published support windows guide maintenance.** Dan Vega’s 2026 support summary lists the following release and support horizons for the relevant Boot branches. The future dates are published support schedules, while the 3.5 OSS ending is also supported by the Spring team’s release announcement. [53]
 
-The four web scopes require a web-aware `ApplicationContext`. Custom scopes can also be registered. A thread scope exists through `SimpleThreadScope` but is not registered by default. ([Spring bean scopes](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html))
+| Boot branch | Initial release | Scheduled OSS support end | Listed enterprise support end |
+|---|---|---|---|
+| 3.5.x | May 2025 | June 2026 | June 2032 |
+| 4.0.x | November 2025 | December 2026 | December 2027 |
+| 4.1.x | June 2026 | July 2027 | July 2028 |
 
-Spring’s singleton is not the same as the classic GoF singleton. It means one instance per bean definition per Spring container, not one instance per JVM class loader. A singleton bean can therefore exist once in each independent application context.
+**The modern transition preserves the pattern.** Framework 7 and Boot 4 continue adapting application infrastructure to current JDK and Jakarta ecosystems rather than introducing a replacement for Spring’s core object model. For developers, version selection is therefore simultaneously a language, API, library, server, and maintenance decision.
 
-Prototype scope creates a new instance whenever the bean is requested from the container. If a prototype is injected directly into a singleton, however, the prototype is normally created once when the singleton is created. The singleton then retains that instance. An `ObjectProvider<T>`, `Provider<T>`, lookup method, or another explicit lookup mechanism is needed when a singleton requires a fresh prototype for each operation.
+## Essential knowledge for developers working with Spring
 
-Spring does not automatically manage destruction callbacks for prototype beans. The application is responsible for releasing resources held by those objects. ([Spring scope lifecycle boundaries](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html))
+### Java, object design, annotations, and reflection
 
-#### Lifecycle
+**Java fundamentals remain the first prerequisite.** Developers should be comfortable with classes, constructors, interfaces, generics, collections, exceptions, and resource management. Concurrency also matters because application services and infrastructure objects are frequently shared. Spring can assemble these objects, but it cannot make their Java behavior correct through configuration alone. [12]
 
-A simplified bean lifecycle is:
+**Object design determines injection quality.** Constructor dependencies expose what an object requires, while interfaces can define stable collaboration boundaries. This makes it easier to replace infrastructure in tests or change implementations through configuration. An interface is not mandatory for every class, but understanding interfaces, implementation types, and method visibility is important both for application design and proxy behavior. [24][31]
 
-1. Spring reads the bean definition.
-2. It instantiates the object.
-3. It resolves and injects dependencies.
-4. It runs aware callbacks and applicable `BeanPostProcessor` hooks.
-5. It invokes initialization callbacks such as `@PostConstruct`.
-6. It applies post-initialization processing and possible proxy creation.
-7. The bean becomes available for use.
-8. When the context closes, destruction callbacks such as `@PreDestroy` run for eligible beans.
+**Annotations are metadata, not executable promises.** `@Component`, `@Bean`, `@Profile`, request mappings, and `@Transactional` describe roles or intended behavior. A corresponding Spring processor, configuration, or interceptor must interpret that metadata in the relevant context. Developers should be able to explain which mechanism consumes an annotation and when, rather than treating the annotation itself as the implementation. [12]
 
-Spring recommends `@PostConstruct` and `@PreDestroy` for modern lifecycle callbacks because they avoid coupling the class to Spring-specific callback interfaces. Initialization methods execute while the container holds its singleton-creation lock, so expensive work in `@PostConstruct` can create startup contention or initialization deadlocks. ([Spring lifecycle callbacks](https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html))
+**Reflection explains important runtime behavior.** Reflection allows Java code to inspect classes and members and access or invoke them dynamically. Spring’s testing documentation explicitly connects reflective access with non-public injection points and lifecycle callbacks, while its AOT documentation discusses runtime hints for reflection and proxies. This knowledge helps explain behavior that is not apparent from direct constructor and method calls in application source. [25]
 
-`BeanPostProcessor` is a particularly important extension point. It can inspect, modify, or wrap beans before and after initialization. AOP, transaction, security, and caching infrastructure commonly uses post-processors to replace a target object with a proxy.
+**Reflection and proxies are different mechanisms.** Reflection concerns dynamic inspection and access; a proxy is an intervening object through which calls pass. Spring can also inspect bytecode metadata and perform build-time processing, so not every discovery operation should be described as reflective class loading. Java module access rules, retained parameter names, and generated proxies become especially relevant when diagnosing framework integration or native-image builds. [12][15]
 
-A full `@Configuration` class is itself processed so that calls between `@Bean` methods can return managed bean instances rather than creating new objects through ordinary Java calls. With `@Configuration(proxyBeanMethods = false)`, direct calls between `@Bean` methods are ordinary Java calls. Supplying dependencies as method parameters is usually clearer and avoids accidentally creating duplicate objects.
+**AOT changes some configuration timing.** Ahead-of-time processing can move discovery and bean-graph decisions from startup to build time. In that model, classpath and conditions affecting bean presence need to be settled for the generated arrangement; configuration values unrelated to bean selection are a separate concern. Teams using native images should understand this boundary rather than assuming every runtime profile change can reconstruct an arbitrary application graph. [25]
 
-### AOP and proxy-based cross-cutting behavior
+### HTTP, REST, and the selected web stack
 
-Aspect-oriented programming separates concerns that apply across many components:
+**HTTP knowledge governs controller correctness.** A developer should understand request methods, paths, query parameters, headers, bodies, response status codes, cookies, and sessions. Spring maps those protocol elements into Java method arguments and return values, but the API still has an externally observable HTTP contract. A method returning the expected Java object is only part of correct endpoint behavior. [21]
 
-- transaction boundaries;
-- authorization checks;
-- caching;
-- logging;
-- metrics;
-- retries;
-- auditing.
+**REST is more than JSON output.** Resource-oriented paths, appropriate method semantics, meaningful status codes, and consistent error representations require deliberate design. `@RestController` provides response-body handling; it does not establish those design decisions automatically. Developers should also know where conversion, validation, authentication, and exception mapping occur along the request path. [36]
 
-Spring AOP uses concepts such as:
+**Stack selection changes the dependency contract.** For MVC, understand Servlet filters, `DispatcherServlet`, controller invocation, and the selected response path. For WebFlux, additionally understand reactive composition, cancellation, demand, and the consequences of blocking work. A reactive HTTP client can be useful inside an MVC application without forcing a migration of the server stack. [14]
 
-- advice;
-- pointcuts;
-- advisors;
-- method interceptors;
-- proxies;
-- `@Aspect`, `@Before`, `@After`, and `@Around` declarations.
+### Configuration, profiles, scopes, and builds
 
-The Spring Framework has its own proxy-based AOP implementation and also integrates with AspectJ. Spring’s documentation describes its own AOP framework as addressing the common “80 percent” use case, while AspectJ provides a richer and more mature set of weaving capabilities. ([Spring AOP overview](https://docs.spring.io/spring-framework/reference/core.html))
+**Configuration is part of program behavior.** Developers need to understand explicit bean definitions, component scanning, conditional configuration, and dependency resolution. When several beans match one dependency, qualifiers, primary candidates, or explicit wiring determine the intended collaborator. Package layout also matters because Boot’s repository and application discovery conventions are centered on its configuration packages. [12][40]
 
-The proxy model explains several common surprises:
+**Profile ordering can change deployment behavior.** Boot loads configuration from multiple property sources; profile-specific files override corresponding non-profile-specific files, and multiple profiles use a last-wins strategy for conflicting values. The active-profile setting itself follows property-source precedence, so a command-line setting can replace one in a configuration file. Developers should be able to explain the effective value, not merely identify one file containing it. [48][49]
 
-- An external call through the proxy can trigger advice.
-- A call from one method to another method on the same object can bypass the proxy.
-- Private, final, or otherwise non-overridable methods may not be eligible for subclass-based proxy advice.
-- An object created with `new` is not automatically wrapped by Spring.
-- The runtime type may be a proxy rather than the concrete implementation.
+**Structured configuration improves clarity.** `@ConfigurationProperties` binds related settings into a typed object rather than scattering individual string lookups throughout services. Profile groups can combine related environment concerns, such as production database and messaging configurations. These mechanisms help separate deployment choices from business code while keeping the configuration model understandable. [48][49]
 
-These are not arbitrary limitations; they follow from where interception occurs. Developers should understand the call path before assuming that an annotation has changed method behavior.
+**Externalized secrets still need protection.** Moving a password into a YAML file or environment variable does not encrypt it. Boot does not provide built-in property-value encryption; its documentation describes extension points and secure external configuration integrations such as Spring Cloud Vault. Configuration ownership, secret delivery, and diagnostic exposure must be considered together. [48]
 
-### Data access and persistence
+**Build competence prevents runtime surprises.** Developers need Maven or Gradle dependency graphs, transitive dependencies, scopes, version management, and Boot’s packaging integration. A compile-time API and its runtime implementation must agree with the selected Java and Jakarta generation. Inspecting the actual resolved dependencies is often more informative than inspecting the version written beside one direct dependency. [42]
 
-Spring’s data-access facilities reduce repetitive resource management while preserving access to lower-level APIs.
+**Scope and startup choices deserve review.** The earlier lifecycle rules become practical questions: is this mutable object shared, who closes this resource, and does initialization trigger expensive infrastructure too early? Boot’s Servlet registration guidance specifically warns that filters, Servlets, and listeners are installed early and should avoid unintentionally forcing eager database or JPA initialization. [46]
 
-#### JDBC
+### Persistence and transaction reasoning
 
-`JdbcTemplate` and related JDBC support handle recurring tasks such as:
+**SQL knowledge remains essential.** JDBC users need to understand statements, parameters, result mapping, and connection ownership; JPA users additionally need entity mappings, persistence-context behavior, and the queries their provider executes. A repository abstraction can reduce repetitive code without eliminating database constraints, query costs, or concurrency behavior. [25]
 
-- obtaining and releasing resources;
-- participating in transaction synchronization;
-- translating vendor-specific SQL exceptions;
-- executing statements and mapping results.
+**Transaction boundaries should match business operations.** A developer should be able to identify the entry call into the transactional proxy, the selected transaction manager, participating resources, propagation behavior, and rollback rules. `REQUIRED`, for example, expresses participation in an existing transaction or creation of one when needed; `REQUIRES_NEW` expresses a distinct transaction boundary. These choices affect correctness and resource use, not just annotation style. [35]
 
-This lets application code focus on queries and domain mapping rather than connection cleanup and error-code parsing. Lower-level helpers include `DataSourceUtils` for JDBC resources and corresponding utilities for JPA and Hibernate. ([Spring data-access reference](https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/data-access.html))
+**Failure handling must preserve intended semantics.** If a service catches an exception and returns normally, the transaction interceptor sees a different outcome than if the failure escapes. Likewise, a call made internally rather than through the configured proxy may have different infrastructure behavior. Reviewing these paths is more valuable than simply checking that `@Transactional` appears somewhere on the class. [23][31]
 
-#### ORM and JPA
+### Tests should verify the boundary in question
 
-Spring integrates with JPA, Hibernate, JDO, and other persistence technologies. It supplies resource and transaction integration while allowing the application to use the selected ORM’s APIs and mapping model.
+**Unit tests verify ordinary behavior.** Constructor injection allows a service to be instantiated directly with test collaborators. Such tests should focus on business decisions and failure handling without requiring an application context. They deliberately do not prove that Spring discovers the bean, applies a proxy, or maps an HTTP request correctly. [25]
 
-Spring Data is separate from Spring Framework. Projects such as Spring Data JPA add repository abstractions, query derivation, pagination, auditing, and other data-access conveniences. A repository interface can be implemented by the Spring Data infrastructure, but the persistence provider and transaction semantics still matter. ([Spring project family](https://docs.spring.io/spring-framework/reference/overview.html))
+**Context tests verify actual assembly.** TestContext-based integration tests check whether the configured objects work together and whether infrastructure such as mappings or queries behaves as expected. Context caching reduces repeated startup work when tests share equivalent configuration. This makes a focused integration test a different instrument from both a plain unit test and a deployed end-to-end test. [39]
 
-A repository abstraction does not eliminate the need to understand:
+**Boot adds focused and full-context options.** Test slices such as `@WebMvcTest` and `@DataJpaTest` narrow the configured application to a particular concern, while `@SpringBootTest` creates a Boot-aware context. Slice filtering follows component-scanning rules, so explicitly declared configuration may require deliberate imports. A slice should be selected because it matches the behavior being tested. [54][55]
 
-- entity identity and lifecycle;
-- lazy versus eager access;
-- query behavior;
-- database indexes and constraints;
-- connection pools;
-- isolation and locking;
-- transaction boundaries;
-- serialization of entities and relationships.
+| `@SpringBootTest` mode | Web environment | Server started? | Appropriate focus |
+|---|---|---|---|
+| `MOCK` | Mock web environment | No | Framework-level web integration |
+| `RANDOM_PORT` | Real server on an available port | Yes | HTTP and server interaction |
+| `DEFINED_PORT` | Real server on configured/default port | Yes | Fixed-port integration needs |
+| `NONE` | Non-web application context | No | Non-web Boot application behavior |
 
-### Transaction management
+**A full context need not start HTTP.** `MOCK` is the default `@SpringBootTest` mode, whereas `RANDOM_PORT` and `DEFINED_PORT` start embedded servers. MockMvc can exercise MVC request handling without that server, but container-specific behavior—such as the container’s error-page dispatch—requires a test boundary that includes the real runtime. [56]
 
-Spring provides a common transaction abstraction across local and global transaction environments. The central imperative SPI is `PlatformTransactionManager`. Implementations include transaction managers for JDBC, JPA, Hibernate, and JTA. Spring can therefore use a local transaction for one resource or a global JTA transaction when multiple coordinated resources are required.
+**Database cleanup follows execution boundaries.** TestContext rolls back tests configured with test-managed transactions by default. An HTTP call to a running server is not the same execution boundary as directly invoking a bean inside the test’s transaction. Developers should therefore design setup and cleanup around where the application work actually executes, rather than assuming one test annotation undoes every server-side effect. [39]
 
-Declarative transactions use metadata such as `@Transactional`. Runtime infrastructure creates an AOP proxy, and `TransactionInterceptor` opens, commits, or rolls back a transaction around the method invocation. ([Spring declarative transactions](https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/data-access.html))
+**Security belongs in the test contract.** A successful response for an authenticated user proves little about anonymous access or another user’s permissions. Spring Security provides dedicated test support, including distinct servlet and reactive paths. Tests should exercise the real configured rules at the appropriate boundary, not merely bypass them to reach the controller. [57][58]
 
-A transaction definition can specify:
+### Security requires identity, permissions, and configuration ownership
 
-- propagation;
-- isolation;
-- timeout;
-- read-only status.
+**Authentication and authorization are different.** Authentication establishes the caller’s identity; authorization decides what that caller may do. In a hypothetical order system, recognizing a customer does not establish permission to read every customer’s orders. Secure application behavior requires rules that connect identity to resources and operations, not merely a login mechanism.
 
-The default `@Transactional` propagation is `PROPAGATION_REQUIRED`; the default isolation is `ISOLATION_DEFAULT`; transactions are read-write; and unchecked `RuntimeException` or `Error` generally causes rollback while checked exceptions do not by default. These are defaults, not universal rules, and can be changed explicitly. ([`@Transactional` semantics](https://docs.spring.io/spring/reference/6.2/data-access/transaction/declarative/annotations.html))
+**The security model follows the stack.** Servlet applications use `SecurityFilterChain` and related authentication components such as `UserDetailsService`. Reactive applications use `SecurityWebFilterChain` and reactive counterparts. These facilities belong to Spring Security; Boot supplies conditional configuration around them when the relevant dependencies are present. [59]
 
-The most important practical rule is that a transaction boundary is a behavior applied through infrastructure, not merely a label. In default proxy mode, self-invocation does not pass through the proxy:
+**Custom beans change default ownership.** Defining a `SecurityFilterChain` replaces Boot’s default web security arrangement, leaving the application responsible for its access rules. Supplying authentication-related beans can separately replace the default user configuration. These are specific back-off decisions, so “we added custom security” should prompt a review of the resulting chains and rules, including management endpoints. [60]
 
-```java
-@Service
-public class ImportService {
-    @PostConstruct
-    void initialize() {
-        importData();          // direct call on this object
-    }
+**Dependencies can affect security behavior.** HeroDevs’ April 2026 analysis reported CVE-2026-40976 in Boot 4.0.0–4.0.5 under a specific combination: a Servlet application relying on the default security chain, Actuator auto-configuration present, and the health module absent. It reported the authorization-bypass fix in Boot 4.0.6. The practical lesson is to test endpoint protection against the delivered dependency arrangement and maintain patched versions. [61]
 
-    @Transactional
-    public void importData() {
-        // May not receive transactional advice through proxy mode
-    }
-}
-```
+### Observability and deployment complete application competence
 
-Moving the transactional method to another bean, calling through an injected proxy, or using a deliberately configured weaving approach avoids that ambiguity.
+**Operational signals answer different questions.** A health endpoint, a readiness probe, and a latency metric are not interchangeable statements that “the system works.” Their usefulness depends on which condition they measure and which automated or human decision consumes the result. Actuator supplies infrastructure for these signals; developers must connect them to application responsibilities. [50]
 
-Spring’s transaction model differs from EJB container-managed transactions in another important respect. Spring can use JTA or local JDBC, JPA, or Hibernate transactions by configuration, whereas EJB CMT is tied to JTA in the documented comparison. Spring does not propagate a transaction context across an arbitrary remote call; when remote transaction-context propagation is required, EJB or another distributed transaction mechanism may be more appropriate. ([Spring and EJB transaction comparison](https://docs.spring.io/spring/reference/6.2/data-access/transaction/declarative.html))
-
-Reactive applications use a separate `ReactiveTransactionManager`. Methods returning a reactive `Publisher` or Kotlin `Flow` use reactive transaction handling, while ordinary return types use imperative transaction handling. Reactive transaction context travels with the reactive sequence rather than with a conventional thread-bound call stack. ([Reactive transaction management](https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/data-access.html))
-
-### Spring MVC and Servlet web support
-
-The Servlet web area includes:
-
-- `DispatcherServlet`;
-- handler mappings and adapters;
-- annotated controllers;
-- data binding and type conversion;
-- validation;
-- message converters;
-- view resolution;
-- multipart uploads;
-- exception resolution;
-- locale and resource handling;
-- WebSocket support;
-- REST-client facilities.
-
-`@RequestMapping` and its HTTP-specific shortcuts map requests to methods. `@RequestBody` and `@ResponseBody` connect HTTP representations to Java objects. `ResponseEntity` allows explicit control over status, headers, and body. `@ControllerAdvice` and exception-handler methods centralize error translation.
-
-Spring MVC validation must be understood at the method-signature level. Depending on the controller method, invalid input can produce `MethodArgumentNotValidException` or `HandlerMethodValidationException`; robust applications handle the appropriate exception types rather than assuming one universal validation failure. ([Spring MVC validation](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html))
-
-REST development also requires ordinary HTTP knowledge:
-
-- resource-oriented URLs;
-- correct use of HTTP methods;
-- idempotency;
-- status codes;
-- content negotiation;
-- JSON serialization;
-- pagination;
-- conditional requests;
-- authentication and authorization;
-- safe error responses.
-
-Spring MVC’s convenience does not eliminate web security concerns. The documentation warns that response-body and `ResponseEntity` methods can be exposed to reflected file-download attacks under certain path-extension conditions. Suffix-pattern settings reduce the risk but are not sufficient on their own. ([Spring MVC RFD warning](https://docs.spring.io/spring/reference/web/webmvc/mvc-controller/ann-requestmapping.html))
-
-### WebFlux and reactive support
-
-Spring WebFlux is a separate web stack within Spring Framework. The documentation lists WebFlux, `WebClient`, WebSocket, and RSocket in the reactive area, while Spring MVC and servlet WebSocket support belong to the Servlet area. ([Spring Framework web support](https://docs.spring.io/spring-framework/reference/index.html))
-
-| Concern | Spring MVC | Spring WebFlux |
+| Signal | Question answered | Example decision |
 |---|---|---|
-| Primary model | Servlet request processing | Reactive streams and non-blocking processing |
-| Typical types | Ordinary return values, `ResponseEntity`, `Callable` or other servlet-compatible forms | `Mono`, `Flux`, `Publisher`, coroutine and reactive adapters |
-| Common server | Tomcat, Jetty, Undertow | Reactor Netty by default, with supported servlet-server alternatives |
-| Strength | Conventional blocking applications and broad servlet-library compatibility | End-to-end non-blocking pipelines and high-concurrency I/O workloads |
-| Main pitfall | Blocking work consumes request threads | Blocking calls undermine the reactive model and can stall event-loop resources |
-
-Reactive programming is not automatically faster. It is a different execution model that is valuable when the application, database driver, HTTP clients, and downstream services can preserve non-blocking behavior. An application that performs blocking database or file operations inside a reactive pipeline may gain complexity without gaining the intended scalability.
-
-WebFlux also does not imply that every application should migrate away from MVC. The correct choice depends on existing libraries, team expertise, workload characteristics, latency patterns, and the availability of reactive drivers.
-
-### Validation, events, and integration
-
-Spring’s core and integration facilities include more than dependency injection and web routing. The Framework project lists:
-
-- validation;
-- data binding;
-- type conversion;
-- internationalization;
-- resource loading;
-- application events;
-- SpEL;
-- REST clients;
-- JMS;
-- JCA;
-- JMX;
-- email;
-- task execution;
-- scheduling;
-- caching;
-- observability;
-- WebSocket and STOMP messaging.
-
-([Spring Framework project features](https://spring.io/projects/spring-framework))
-
-Application events provide an in-process notification mechanism. An object publishes an event through `ApplicationEventPublisher`, and listeners such as `@EventListener` react to it. Events can help decouple components, but they are not automatically durable messages, distributed events, or transactionally reliable integration. For those requirements, a messaging system and explicit delivery semantics are needed.
-
-Scheduling and asynchronous execution require the same care as web request handling. Thread pools, task decorators, security context propagation, transaction context, and shutdown behavior all affect correctness. Application code should use managed executors and explicitly define what state is allowed to cross an asynchronous boundary.
-
-Caching can reduce repeated work, but cache keys, invalidation, serialization, consistency, and failure behavior remain application responsibilities.
-
-### Testing support
-
-Spring’s `spring-test` module provides first-class integration testing without requiring every test to deploy to an application server. The TestContext framework supports context management, dependency injection into tests, context caching, and transaction handling across JUnit, TestNG, and other test frameworks. ([Spring integration testing](https://docs.spring.io/spring-framework/reference/testing/integration.html))
-
-A useful testing hierarchy is:
-
-- Plain unit tests for services and domain logic, using constructor injection and test doubles.
-- Focused web tests with Spring MVC Test and `MockMvc`.
-- Reactive web tests with `WebTestClient`.
-- Slice tests such as Boot’s `@WebMvcTest`, which load a restricted web layer.
-- Full-context tests with `@SpringBootTest`.
-- Random-port or real-server tests for HTTP behavior and container integration.
-
-The Spring testing guide shows that `@SpringBootTest` loads the application context, while `@WebMvcTest` focuses on the web layer and can target a specific controller. ([Spring Boot testing guide](https://spring.io/guides/gs/testing-web))
-
-Context caching prevents every test class from paying the full startup cost. The documentation gives an illustrative case in which loading 50 to 100 Hibernate mapping files might take 10 to 20 seconds; reusing the context avoids repeating that cost for every test. Tests that mutate or corrupt the context may force a rebuild, so caching is useful but not free of isolation tradeoffs. ([Spring TestContext caching](https://docs.spring.io/spring-framework/reference/testing/integration.html))
-
-Database integration tests commonly run inside a transaction that is rolled back after each test. This keeps test data isolated, but tests that intentionally verify committed behavior may need an explicit commit or a different test arrangement. ([Spring transactional tests](https://docs.spring.io/spring-framework/reference/testing/integration.html))
-
-### Spring Framework, Spring Boot, and other Spring projects
-
-| Project or layer | What it provides | What it does not replace |
-|---|---|---|
-| Spring Framework | Container, AOP, transactions, JDBC/ORM integration, MVC, WebFlux, integration, testing | It does not automatically choose a complete application build or deployment model |
-| Spring Boot | Starters, BOM, auto-configuration, executable packaging, embedded servers, Actuator | It does not replace the Spring container or make web/security/persistence concepts unnecessary |
-| Spring Security | Authentication, authorization, filter chains, method security, OAuth2 and related integrations | It does not decide the organization’s identity model or authorization policy |
-| Spring Data | Repository and data-access abstractions for JPA, JDBC, MongoDB, Redis, and other stores | It does not remove the need to understand database and transaction behavior |
-| Spring Cloud | Distributed-system and cloud integrations | It does not automatically make a system a good microservice architecture |
-| Spring Batch | Batch job models and execution infrastructure | It does not replace ordinary transaction and data-design decisions |
-| Spring Modulith | Structure and verification for domain-driven application modules | It is not the core IoC container |
-| Spring Integration | Messaging and enterprise-integration patterns | It does not guarantee external message delivery or distributed consistency |
-
-The official Spring project catalog explicitly lists Boot, Security, Data, Cloud, and Batch as separate projects. ([Spring project family](https://docs.spring.io/spring-framework/reference/overview.html)) Spring Modulith is likewise described as a project for structuring Spring Boot applications around domain-driven application modules. ([Spring projects catalog](https://spring.io/projects))
-
-## Essential knowledge for Spring and Spring Boot developers
-
-### Modern Java and JVM fundamentals
-
-The supplied Spring documentation establishes the version baselines but does not provide a formal curriculum ranking Java language, collection, concurrency, and JVM topics. A practical developer baseline is therefore best stated as a working checklist rather than as a sourced official syllabus.
-
-For current Spring 6/7 and Boot 3/4 work, developers should be comfortable with Java 17 or later. Spring Framework 6 requires Java 17+, Spring Framework 7 supports JDK 17 through newer JDK generations, and Boot 3.2 documentation requires Java 17. ([Spring Framework version ranges](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions); [Spring Boot requirements](https://docs.spring.io/spring-boot/docs/3.2.7/reference/html/getting-started.html))
-
-The language fundamentals should include:
-
-- classes, interfaces, inheritance, composition, and access control;
-- generics and type erasure;
-- records, annotations, enums, and sealed-type concepts where relevant;
-- lambdas, method references, streams, and functional interfaces;
-- `Optional` and null-handling conventions;
-- immutability and defensive copying;
-- `equals`, `hashCode`, and collection-key correctness;
-- reflection and annotation processing;
-- checked and unchecked exceptions;
-- resource management with `try`-with-resources;
-- serialization and JSON mapping boundaries.
-
-Collections knowledge matters because Spring applications frequently bind HTTP and configuration data into lists, maps, sets, and nested objects. Developers should understand mutation, ordering, equality, iteration, concurrent collections, and the difference between a collection’s interface and its implementation.
-
-Exception knowledge matters because exceptions cross multiple boundaries:
-
-- a controller must convert failures into safe HTTP responses;
-- a transaction manager decides which exception types cause rollback;
-- an asynchronous task may not propagate exceptions to the initiating thread;
-- a reactive pipeline carries errors as signals;
-- a persistence provider may wrap database exceptions.
-
-Concurrency knowledge is essential because singleton Spring beans are shared across requests and threads. Developers should understand:
-
-- thread safety;
-- synchronization and locks;
-- atomic variables;
-- executors and thread pools;
-- `CompletableFuture`;
-- cancellation and interruption;
-- virtual threads in suitable Java versions;
-- memory visibility;
-- avoiding mutable request state in singleton fields.
-
-JVM knowledge should include heap and stack behavior, garbage collection, class loading, classpath conflicts, JIT compilation, startup costs, memory limits, thread dumps, and basic profiling. These topics become especially important when diagnosing Boot startup time, native-image constraints, container memory limits, or dependency/classloader problems.
-
-### Maven, Gradle, and dependency management
-
-Dependency management and dependency injection are different problems.
-
-- Dependency injection decides which application object receives which collaborator.
-- Dependency management locates libraries, resolves transitive dependencies, places them on compile and runtime classpaths, and controls their versions.
-
-Maven developers should understand the POM, parent POMs, dependency scopes, plugins, repositories, profiles, and the output of `mvn dependency:tree`. Gradle developers should understand configurations, plugins, version catalogs or BOM imports, task graphs, and `gradle dependencies`.
-
-Boot’s recommended build tools are Maven and Gradle. Its BOM supplies curated versions for Spring and selected third-party libraries, and its plugins create executable artifacts and useful run tasks. ([Spring Boot build systems](https://docs.spring.io/spring-boot/reference/using/build-systems.html))
-
-Good dependency practices include:
-
-- use the Boot BOM or supported parent;
-- do not specify versions managed by Boot without a reason;
-- inspect transitive dependencies;
-- check for duplicate or incompatible versions;
-- distinguish compile, runtime, test, and optional dependencies;
-- treat a manual override as a compatibility decision;
-- keep framework, server, JSON, ORM, driver, and security versions aligned;
-- review dependency trees during upgrades;
-- use dependency vulnerability scanning and verify the remediation rather than blindly selecting the newest artifact.
-
-The official support policy warns that Boot patch releases aim to remain compatible, while minor and major releases may contain incompatible changes. It also notes that third-party libraries may have their own support windows even when the Boot version remains supported. ([Spring Boot support policy](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions))
-
-### Annotations and dependency injection
-
-Annotations are metadata consumed by a runtime or build tool. They do not execute by themselves.
-
-A developer should know the distinctions among:
-
-- `@Component`: marks a class for component scanning;
-- `@Service`: a specialization indicating service-layer intent;
-- `@Repository`: a persistence-layer stereotype with exception-translation semantics;
-- `@Controller` and `@RestController`: web-layer stereotypes;
-- `@Configuration`: declares a configuration source;
-- `@Bean`: registers the return value of a method as a bean;
-- `@Autowired`, constructor injection, and qualifiers;
-- `@Primary`: selects a preferred candidate when multiple beans match;
-- `@Profile`: selects beans by active profile;
-- `@Scope`: changes bean lifetime.
-
-Constructor injection should normally be preferred for required dependencies. Field injection hides required collaborators, complicates direct testing, and makes immutability harder.
-
-Multiple implementations require explicit resolution. If two beans implement the same interface, use a qualifier, a primary bean, a collection or map injection, or a deliberate selection strategy. Do not rely on accidental classpath or scan order.
-
-The distinction between managed and unmanaged objects is fundamental:
-
-```java
-OrderService service = new OrderService(...);
-```
-
-This creates an ordinary Java object. It does not cause Spring to inject its dependencies or apply `@Transactional`, `@Async`, `@Cacheable`, or security advice.
-
-### Bean configuration, lifecycle, scopes, and proxies
-
-Developers should be able to explain:
-
-- what `ApplicationContext` does;
-- how component scanning finds beans;
-- how `@Configuration` and `@Bean` differ from `@Component`;
-- when a bean is instantiated;
-- what singleton and prototype mean;
-- how request and session scopes work;
-- why scoped proxies are needed;
-- when `@PostConstruct` and `@PreDestroy` run;
-- what `BeanPostProcessor` can change;
-- why a bean may be returned as a proxy rather than its original class.
-
-A singleton is shared and must usually be stateless. Request-specific data belongs in method parameters, local variables, a request-scoped bean, or an explicitly managed context—not in mutable fields of a singleton service.
-
-A request-scoped bean injected into a singleton generally requires a scoped proxy or a provider. The singleton holds the proxy; the proxy resolves the actual request-scoped instance for the current request.
-
-A prototype injected directly into a singleton does not become “new per method call.” It is normally created once at singleton construction. Use `ObjectProvider<T>` or another lookup mechanism for a fresh instance.
-
-Lifecycle methods should be short and deterministic. Expensive startup work is better represented by an explicit application-start event, `ApplicationRunner`, or another startup mechanism than by a long `@PostConstruct` method.
-
-### Configuration, properties, and profiles
-
-Every Boot developer should understand the difference between:
-
-```java
-@Value("${service.timeout}")
-private Duration timeout;
-```
-
-and:
-
-```java
-@ConfigurationProperties(prefix = "service")
-public record ServiceProperties(Duration timeout, URI baseUrl) {
-}
-```
-
-`@Value` is useful for a small number of isolated values. `@ConfigurationProperties` is better for related settings, type conversion, nested objects, collections, validation, and documentation metadata.
-
-Important configuration rules include:
-
-- profile-specific files are not activated merely because they exist;
-- `application-prod.yml` requires the `prod` profile;
-- environment variables and command-line arguments can override packaged defaults;
-- external configuration should carry secrets through a secure secret-management mechanism;
-- YAML and properties files have different syntax and loading behavior;
-- configuration classes must be registered;
-- a missing property can fail startup if no default is supplied;
-- profile selection should be visible in deployment configuration.
-
-Spring’s `Environment` models both profiles and property sources. Profiles control which bean definitions are active, while properties supply values. The search is hierarchical, and system properties take precedence over environment variables in the documented core example. ([Spring `Environment`](https://spring.io/spring/reference/core/beans/environment.html))
-
-### MVC, REST, validation, and exception handling
-
-Developers should understand both HTTP and Spring MVC:
-
-- routing by path and method;
-- path variables and query parameters;
-- request bodies and media types;
-- status codes and headers;
-- content negotiation;
-- idempotency;
-- JSON serialization;
-- pagination and filtering;
-- CORS;
-- CSRF;
-- authentication and authorization;
-- error contracts.
-
-Keep transport models and domain models separate when the boundary has different security, validation, or evolution requirements. A request DTO should express the input contract; a response DTO should express the output contract. Binding arbitrary client input directly into a rich domain object can expose fields or state transitions that were never intended to be externally writable.
-
-Validation should occur at the boundary and again where business invariants require it. Bean Validation annotations such as `@NotNull`, `@Size`, and `@Valid` help with structural input constraints. They do not replace business-rule validation.
-
-Centralized exception handling through `@ControllerAdvice` and `@ExceptionHandler` prevents controllers from duplicating response conversion. Development responses may include diagnostic detail; production responses should avoid leaking stack traces, SQL, credentials, internal paths, or dependency information. Logging should retain a correlation or error identifier that allows operators to investigate safely.
-
-### Persistence and transaction boundaries
-
-Developers working with Spring Data JPA, JDBC, or another persistence technology need more than repository syntax. They should understand:
-
-- SQL and relational modeling;
-- primary and foreign keys;
-- indexes and query plans;
-- connection pooling;
-- entity identity and lifecycle;
-- lazy loading and serialization boundaries;
-- optimistic and pessimistic locking;
-- isolation levels;
-- transaction propagation;
-- rollback rules;
-- database migrations;
-- retry and idempotency behavior.
-
-A common architectural boundary is a service method that coordinates one business operation and owns its transaction. Controllers should generally delegate to that service rather than opening transactions around arbitrary request processing.
-
-The developer must know whether the application uses:
-
-- a local JDBC/JPA/Hibernate transaction;
-- JTA across multiple resources;
-- a reactive transaction;
-- an external distributed workflow rather than a global transaction.
-
-`@Transactional` does not make every call transactional. Confirm that runtime transaction infrastructure is enabled, that the method is reached through the appropriate proxy, and that the selected transaction manager matches the resource being used.
-
-### Testing practices
-
-A useful test strategy separates concerns:
-
-- Plain unit tests verify domain and service logic without a Spring context.
-- MVC slice tests verify routing, validation, serialization, and exception responses.
-- WebFlux tests verify reactive handlers and HTTP exchanges.
-- Repository tests verify queries and mappings against a controlled database.
-- Full-context tests verify wiring, auto-configuration, security, and integration.
-- End-to-end tests verify the deployed application through its actual transport.
-
-`@WebMvcTest` deliberately loads only the web layer. `@SpringBootTest` loads the application context and is more realistic but slower. Use context caching, test transactions, and focused slices consciously rather than treating every failure as a reason to load the entire application.
-
-Mocks should be used to isolate a unit, not to conceal a broken container configuration. Conversely, a full-context test should not be used for every small business-rule assertion.
-
-### Security and operations
-
-Adding Spring Security to a Boot application activates security defaults. The default configuration includes a single in-memory user named `user` and a randomly generated password printed at warning level. That password is explicitly intended only for development. ([Spring Boot security defaults](https://docs.spring.io/spring-boot/reference/web/spring-security.html))
-
-Developers should understand:
-
-- authentication versus authorization;
-- password hashing;
-- sessions and stateless tokens;
-- OAuth2 client and resource-server roles;
-- JWT validation;
-- CSRF protection;
-- CORS policy;
-- method security;
-- `SecurityFilterChain`;
-- `AuthenticationProvider`;
-- `UserDetailsService`;
-- security-context propagation across asynchronous work;
-- endpoint-specific access rules.
-
-Defining a custom `SecurityFilterChain` replaces Boot’s default web-security rules, including Actuator rules, but does not necessarily disable `UserDetailsService` auto-configuration. The application must explicitly define the appropriate authentication components when replacing the defaults. Method-level security is enabled separately with `@EnableMethodSecurity`. ([Spring Boot security customization](https://docs.spring.io/spring-boot/reference/web/spring-security.html))
-
-Operational knowledge should include:
-
-- externalized configuration and secret handling;
-- structured logging;
-- metrics and traces;
-- health, readiness, and liveness;
-- graceful shutdown;
-- container image and executable-JAR packaging;
-- resource limits;
-- connection-pool sizing;
-- thread-pool sizing;
-- dependency and CVE monitoring;
-- Actuator endpoint exposure;
-- supported-version planning.
-
-Spring Boot releases a new major or minor version approximately every six months, supports minor versions for at least 12 months, and does not designate an LTS release in the Java or Node.js sense. Patch releases aim for compatibility, while minor and major releases may change APIs or managed dependency versions. ([Spring Boot support policy](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions))
-
-A July 2026 lifecycle account reported Boot 4.0 and 4.1 as the open-source-supported lines, Boot 3.5 reaching the end of open-source support in June 2026, and Boot 4.0 approaching its next support boundary in December 2026. The exact dates should be checked against the official support page before making an upgrade decision, especially because that account labels some future dates as estimates. ([2026 Boot lifecycle account](https://www.herodevs.com/blog-posts/spring-boot-versions-eol-dates-and-latest-releases-april-2026))
-
-## Common configuration and dependency pitfalls
-
-| Symptom | Likely cause | Corrective understanding |
-|---|---|---|
-| An annotation appears to do nothing | The object was created with `new` and is not managed by Spring | Obtain it from the container or wire it explicitly |
-| A bean is scanned unexpectedly or startup is slow | The main class is in the default package or the scan base is too broad | Use a named root package and explicit scan boundaries |
-| Two objects exist where one singleton was expected | A direct call between `@Bean` methods runs as ordinary Java because proxying is disabled | Inject the dependency as a `@Bean` method parameter |
-| `@ConfigurationProperties` cannot be injected | The properties class was not registered | Use scanning, enablement, or a component annotation |
-| Production configuration is missing | The intended profile is not active | Activate the profile explicitly and verify the effective environment |
-| A prototype is reused | It was injected once into a singleton | Use `ObjectProvider`, `Provider`, or another fresh-instance lookup |
-| Requests interfere with one another | A singleton stores request-specific mutable state | Use method-local state, parameters, or a suitable scope |
-| `@Transactional` is ignored | The call is self-invocation, the bean is unmanaged, or transaction infrastructure is absent | Verify the proxy path and transaction configuration |
-| A legacy library fails after an upgrade | `javax.*` and `jakarta.*` generations were mixed | Align the entire dependency and server generation |
-| MVC and reactive behavior is unexpected | Both web stacks or incompatible starters are present | Choose the intended web model and inspect the dependency tree |
-| A Boot default changes after adding a dependency | A new classpath condition activated auto-configuration | Inspect `--debug` conditions and existing beans |
-| A security endpoint is accidentally public | A custom `SecurityFilterChain` replaced Boot’s default rules | Define explicit Actuator and application access policies |
-| A Kotlin bean cannot be proxied | Kotlin classes and methods are final by default | Use the Kotlin Spring plugin or make required types open |
-| A servlet or filter initializes too early | Servlet API components were registered before dependent JPA or `DataSource` infrastructure | Prefer Spring bean registration and review eager initialization |
-| A managed dependency has an incompatible override | The application replaced a Boot-curated version without testing the whole graph | Revert the override or verify the supported combination |
-
-The Kotlin proxy issue is documented by Spring: classes are final by default, which can prevent CGLIB-based proxying; the `kotlin-spring` plugin automatically opens common Spring-managed types. ([Spring Kotlin support](https://docs.spring.io/spring-framework/docs/6.0.7/reference/html/languages.html))
-
-## Consolidated comparison of the iterations
-
-The following table summarizes the principal problem, mechanism, deployment model, and transition pressure at each stage.
-
-| Iteration | Problem it targeted | Mechanism | Deployment/configuration model | Limitation that encouraged the next step |
-|---|---|---|---|---|
-| Servlets | Portable HTTP request handling | Container-managed lifecycle and request/response APIs | Servlet container, mappings, WAR, descriptors | Too much application-level routing, state, presentation, and resource code |
-| JSP | Awkward HTML generation in servlets | HTML-oriented pages translated into servlets | JSP files, beans, tags, servlet container | Scriptlets and page-centered processing mixed concerns |
-| JSP Model 2 | Tangled JSP processing | Controller servlet plus JSP view | Explicit forwarding, mappings, beans, WAR | Repeated MVC infrastructure and configuration |
-| EJB/Java EE | Enterprise lifecycle, transactions, security, persistence, messaging, distribution | Managed components and application-server services | EJB/web containers, JNDI, WAR/EAR, deployer configuration | Early EJB was verbose, server-dependent, difficult to test, and expensive for smaller applications |
-| Struts | Repeated Model 2 controller code | Front controller, Actions, forms, validation, results | Framework configuration and WAR deployment | Framework-specific inheritance/configuration and security/maintenance risks |
-| Spring Framework | EJB-era coupling and invasive enterprise programming | POJOs, IoC/DI, AOP, pluggable transactions and data access | Spring context, XML/annotations/Java config, flexible deployment | Manual dependency selection, infrastructure assembly, and operational setup remained |
-| Spring MVC | Repeated web-tier wiring and rigid MVC abstractions | `DispatcherServlet`, handler mappings, binding, validation, views, annotated controllers | Servlet container, initially explicit servlet configuration | Applications still needed substantial build and deployment configuration |
-| Spring Boot | Repetitive Spring setup and deployment friction | Starters, BOM, auto-configuration, embedded servers, executable JARs, Actuator | Convention-based executable application or WAR | Defaults can obscure behavior; dependencies, upgrades, security, and operations still require expertise |
-
-### Container and component lifecycle
-
-Servlets are components managed by a Servlet container. EJB components are managed by an EJB container, usually inside an application server. Spring beans are managed by an `ApplicationContext`, which can run in a Java SE process, a servlet application, a Java EE/Jakarta EE server, or a Boot application.
-
-The difference is not that one has a container and another does not. All three do. The difference is the scope and assumptions of that container:
-
-- The Servlet container focuses on HTTP and web component lifecycle.
-- The EJB container focuses on standardized enterprise services and server-managed business components.
-- The Spring container focuses on flexible object composition and infrastructure application.
-- Boot supplies a conventional way to start and package the Spring container and selected server infrastructure.
-
-### Presentation and request flow
-
-A JSP Model 1 page handles much of its own request and presentation work. Model 2 moves processing to a servlet. Struts formalizes the controller as a front controller that dispatches to Actions and results. Spring MVC uses `DispatcherServlet` with configurable handler mappings, adapters, binding, validation, and view or message conversion.
-
-The central shift is from page-centric control flow to framework-managed dispatch. Modern annotated controllers are concise, but their behavior still depends on the same underlying concepts: request mapping, argument resolution, data binding, validation, handler invocation, and response conversion.
-
-### Configuration and deployment
-
-Early Java EE relied heavily on deployment descriptors, JNDI, EAR/WAR packaging, application-server configuration, and deployer responsibility. Java EE 5 reduced descriptor use with annotations and defaults. Spring moved configuration into an application context, initially often using XML, then annotations and Java configuration. Boot added dependency management, starters, classpath conditions, externalized properties, and executable packaging.
-
-The tradeoff is between explicitness and convenience:
-
-- Explicit deployment makes infrastructure choices visible but increases configuration work.
-- Convention makes common applications fast to create but requires developers to understand how defaults are selected and overridden.
-
-### Cross-cutting behavior and transactions
-
-EJB CMT supplies container-managed transactions tied to the application-server environment and JTA. Spring uses AOP proxies and transaction metadata, selecting a local or global transaction manager according to configuration.
-
-Spring’s approach is flexible for local applications and POJO services. EJB remains relevant where standardized application-server integration, stateful components, message-driven beans, clustering, or remote transaction-context behavior are requirements. Neither model is universally superior; the correct comparison depends on the application’s deployment and integration constraints.
-
-### Persistence
-
-The early stack exposed JDBC and vendor services through the application server. EJB entity beans attempted to provide a managed persistence model but were later displaced by JPA. Spring integrated with JDBC and third-party ORM frameworks, while Spring Data later added repository abstractions.
-
-The main lesson is that a higher-level repository API does not remove database semantics. SQL behavior, transaction boundaries, connection pools, locking, query cost, and consistency remain important regardless of whether code uses `JdbcTemplate`, `EntityManager`, Hibernate, or a Spring Data repository.
-
-### Blocking Servlet processing versus reactive execution
-
-Servlet-based Spring MVC is usually the natural choice for conventional blocking applications and existing Servlet-compatible libraries. WebFlux is appropriate when non-blocking execution can be maintained across the request path and downstream clients.
-
-Reactive programming changes how data, errors, cancellation, and transaction context flow. It is not simply a faster annotation set. Developers need to understand Reactor types, backpressure, scheduler choice, blocking detection, and reactive resource drivers before choosing it for a system.
-
-### Compatibility and upgrade cost
-
-The `javax.*` to `jakarta.*` transition is a package-level compatibility boundary, not a cosmetic rename. Spring Framework 5.3 supported the `javax`-based Java EE 8 generation, while Spring Framework 6.2 moved to Jakarta EE 10 and Spring Framework 7 uses a Jakarta EE 11 baseline. ([Spring Framework compatibility matrix](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions))
-
-Boot 3’s Java 17 and Jakarta transition made many Boot 2 applications upgrade projects rather than simple version bumps. Boot 4 keeps Java 17 as its minimum according to the supplied 2026 release accounts, but its Framework 7, Jakarta EE 11, server, JSON, ORM, and modular dependency changes still require systematic testing. ([Boot 3 and 4 compatibility discussion](https://www.herodevs.com/blog-posts/spring-boot-versions-eol-dates-and-latest-releases-april-2026))
-
-## Final judgment
-
-The evolution from Servlets to Spring Boot is best understood as a sequence of increasingly capable abstractions around the same fundamental concerns: receive a request, invoke application logic, access resources, apply cross-cutting policy, produce a response, and run the result reliably in production.
-
-Servlets supplied the portable HTTP lifecycle. JSP improved page authoring. Model 2 and Struts organized request flow. EJB and Java EE standardized enterprise services. Spring made object composition, transactions, persistence, and web infrastructure more modular and testable. Spring MVC provided a flexible front-controller web model, and Spring Boot made a conventional Spring application easy to assemble, run, package, configure, and monitor.
-
-Boot removes a large amount of ceremony, but it does not remove the need to understand Spring. Developers still need to reason about container ownership, bean scopes, proxy boundaries, transaction semantics, HTTP contracts, persistence behavior, dependency graphs, configuration precedence, security rules, tests, and operational exposure. The framework is most effective when its conventions are understood as conditional infrastructure rather than treated as invisible magic.
+| Component health | Does the selected check pass? | Investigate a failing dependency |
+| Liveness | Does this process need restarting? | Restart an unrecoverable local process |
+| Readiness | Should this replica receive traffic? | Remove or restore traffic |
+| Metrics | What are volume and latency trends? | Diagnose capacity or degradation |
+| Traces | Where did a request spend time? | Follow work across components |
+
+**A green dependency can hide failed work.** DevDojo’s Boot 4.1 example explains that the automatic RabbitMQ health indicator reads the broker’s version property and reports success when the broker responds. It does not count consumers or queued messages. A reachable broker with zero consumers can therefore remain healthy while application work stalls; queue processing requires its own operational signal. [41]
+
+**Probe design can amplify failures.** Liveness should describe the local process rather than automatically include shared databases, queues, or external APIs. Otherwise, a shared dependency outage can trigger restarts of otherwise functioning replicas. Readiness is the place to consider traffic eligibility, but including a shared dependency also means accepting that its failure may remove every replica from traffic. [41]
+
+**Endpoint access has several gates.** Actuator distinguishes whether an endpoint is available, whether it is exposed over HTTP or JMX, and who is authorized to use it. Only health is exposed by default in the documented arrangement; adding Spring Security and custom chains changes the relevant protection rules. Sensitive diagnostic endpoints should have deliberate exposure and authorization policies rather than being published simply because they exist. [62]
+
+**Observability needs meaningful dimensions.** Spring’s Micrometer Observation integration can connect instrumentation to metrics, traces, and logs. The Spring Observability Team illustrates an important distinction: a templated route such as `/user/{userId}` is a bounded metric dimension, whereas individual user-specific URLs create unbounded cardinality. Good instrumentation describes behavior without turning every unique request into a separate metric series. [63]
+
+**Deployment knowledge includes packaging details.** Traditional Boot WAR deployment uses `SpringBootServletInitializer` and compatible container dependencies. The deployment guide specifically distinguishes Gradle’s `providedRuntime` from `compileOnly`, since missing test-classpath dependencies can break web integration tests. Executable JARs, external-container WARs, and native images consequently require different build and runtime assumptions. [47]
+
+**Operational competence closes the loop.** Developers should be able to explain what starts the process, which server and JVM it uses, where configuration originates, what is exposed, what health means, and how updates are delivered. That knowledge turns a locally successful application into a maintainable production service.
+
+### A practical learning sequence
+
+| Order | Knowledge area | Be able to explain | Why it matters |
+|---|---|---|---|
+| 1 | Java and object design | Constructors, interfaces, exceptions, metadata | Predict ordinary object behavior |
+| 2 | HTTP and web stack | Request mapping, responses, MVC versus WebFlux | Design correct external contracts |
+| 3 | Container and configuration | DI, scopes, lifecycle, profiles, precedence | Predict runtime assembly |
+| 4 | Build and persistence | Dependency graphs, JDBC/JPA, transactions | Preserve compatibility and data correctness |
+| 5 | Testing and security | Test boundaries, identity, access rules | Verify behavior and protection |
+| 6 | Production operation | Packaging, probes, metrics, traces, support | Diagnose and maintain deployed applications |
+
+**The learning goal is prediction.** A competent Spring developer can explain why a particular bean exists, why a request reaches a method, why advice does or does not run, and why the deployed application reports a particular operational state.
+
+## Servlets, Spring Framework, and Spring Boot compared
+
+**The alternatives occupy nested layers.** The following comparison concerns what each layer contributes directly. A Servlet application can use additional libraries, a Spring application can use an embedded server without Boot, and a Boot application can retain custom Servlets. The distinction is which responsibilities the selected layer standardizes. [21][2]
+
+| Dimension | Direct Servlet programming | Spring Framework without Boot | Spring Boot application |
+|---|---|---|---|
+| Abstraction level | HTTP and container API | Application objects and infrastructure | Opinionated Spring application assembly |
+| Request handling | Servlet service methods | MVC dispatch or WebFlux | Configured Spring web stack |
+| Configuration | Mappings and container setup | XML/Java configuration; context setup | Conditional defaults; external configuration |
+| Dependency management | Chosen build/container policy | Selected modules and compatible libraries | Starters and curated managed versions |
+| Deployment/runtime | Servlet container; commonly WAR | Stand-alone or container deployment | Executable JAR; Servlet WAR option |
+| Testing | Java tests; chosen web fixtures | POJO tests, TestContext, web tools | Slices, Boot context, real-server modes |
+| Operations | Application and container facilities | Framework hooks and selected integrations | Actuator and observability configuration |
+| Developer productivity | Explicit low-level implementation | Reusable infrastructure and declarative services | Less repeated setup and packaging |
+| Main tradeoff | Control versus application assembly | Flexibility versus configuration responsibility | Convention versus conditional complexity |
+
+**Request handling shows the continuity.** In a typical Servlet-based Boot application, the path is still HTTP request → container and filters → `DispatcherServlet` → controller → application service. Boot changes how the infrastructure is assembled and started; Spring MVC changes how application handlers participate in that infrastructure. That relationship explains why Servlet knowledge remains useful after adopting both Spring and Boot. [21]
+
+**Testing shows the rise in abstraction.** Direct Servlet behavior can be tested with suitable request and response fixtures or a running container. Spring adds explicit support for application-context wiring and framework-managed web behavior, and Boot adds application-aware configuration, focused slices, and server-starting modes. The progression improves the available verification tools without making one test scope sufficient for every concern. [21][56]
+
+**Productivity comes from removed decisions.** Servlets remove server-extension inconsistency; Spring removes repeated object wiring and infrastructure implementation; Boot removes repeated choices about common dependency combinations, startup, packaging, and management. Those are observable reductions in assembly responsibility, not a universal throughput ranking. A workload’s runtime behavior still follows its database, network calls, algorithms, concurrency model, and configuration.
+
+**The choice follows concrete constraints.** Direct Servlet APIs are appropriate for container-level components and specialized handling. Framework-only assembly is attractive when explicit infrastructure composition is itself a requirement. Boot is a strong default for a supported, repeatable Spring application runtime, while external-server policies, legacy integration, reactive deployment boundaries, or specialized transaction requirements can change the preferred arrangement. [47][23]
+
+**Historical precision follows each source’s basis.** JCP entries for EJB 2.0 on 20 February 2002, Servlet 2.4 on 11 September 2007, EJB 3.0 on 14 November 2007, and Servlet 3.0 on 9 March 2011 describe maintenance stages. The 2006 capability scores are authors’ 0–1 assessments, made while EJB 3.0 was a proposed final draft; productivity comparisons here are qualitative. Compatibility and support describe the September 2026 snapshot, with future Boot support horizons attributed to Vega’s published table. [9][8][53]
+
+**The enduring conclusion is cumulative.** Servlets supplied the web execution foundation; JSP and MVC improved separation; EJB and Java EE standardized enterprise services; Spring made those services easier to compose around testable Java objects; Boot made the resulting applications easier to assemble and operate. Learning Spring well means understanding both the abstractions it provides and the lower-level responsibilities those abstractions continue to organize.
+
+## References
+
+[1] <https://docs.oracle.com/javaee/5/tutorial/doc/bnafd.html> Servlet origins; Oracle’s Servlet introduction; Servlet concurrency and shared resources
+[2] <https://docs.spring.io/spring-framework/reference/overview.html> Spring history; Framework overview; Spring’s relationship with enterprise standards; Spring project boundaries; Spring’s description of Boot; Spring’s modular…
+[3] <https://cacm.acm.org/blogcacm/the-confounding-saga-of-java-web-application-development/> Java web chronology; Web framework timeline; Servlets’ low-level role; The Servlet-to-JSP transition; JSP’s historical role; Struts chronology; Framework chron…
+[4] <https://link.springer.com/chapter/10.1007/978-3-540-24655-8_77> Web design-model comparison; The 2004 study; Design-model comparison
+[5] <https://www.jcp.org/en/jsr/detail?id=53> Servlet 2.3 and JSP 1.2
+[6] <https://jcs.ep.jhu.edu/legacy-ejava-javaee/coursedocs/content/html/javaeeintro-javaee-versions.html> J2EE version highlights; Java EE version highlights; Java EE 7 highlights
+[7] <https://www.infoq.com/podcasts/johnson-spring-framework/> Johnson’s account
+[8] <http://ecet.ecs.uni-ruse.bg/cst06/Docs/cp/SIII/IIIA.18.pdf> 2006 enterprise-framework comparison; Contemporary EJB assessment; EJB 3 simplification mechanisms; The 2006 scorecard; Historical assessment
+[9] <https://www.jcp.org/en/jsr/tech?listBy=3&listByType=platform> JCP milestones; EJB specification descriptions; EJB 3’s stated purpose; JCP stage records
+[10] <https://www.jcp.org/en/jsr/detail?id=316> Java EE 6; Java EE 6’s rationale
+[11] <https://www.jcp.org/en/jsr/detail?id=366> Java EE 8; Java EE 8 scope
+[12] <https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html> Spring configuration history; Container independence; Beans and definitions; Singleton semantics; Events and Spring Integration; Spring configuration milestone…
+[13] <https://spring.io/blog/2014/04/01/this-week-in-spring-spring-boot-edition-april-1st-2014> Boot’s GA announcement
+[14] <https://docs.spring.io/spring-framework/reference/web/webflux.html> WebFlux history; WebFlux architecture; MVC and WebFlux coexistence
+[15] <https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.0-Release-Notes> Framework 6 migration; Framework 6 integration changes; Framework 6 migration notes; Jakarta migration scope; Parameter-name guidance
+[16] <https://spring.io/blog/2025/11/13/spring-framework-7-0-general-availability> Framework 7.0 announcement; Framework 7’s focus
+[17] <https://docs.oracle.com/cd/A97688_16/generic.903/a97679/tecbkgnd.htm> Servlet technical background; Container-managed lifecycle
+[18] <https://blog.doubleslash.de/en/software-technologien/jee-vs-spring-similarities-differences-and-decision-criteria> Enterprise containers; Java EE architecture and services
+[19] <https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html> Oracle’s JSP and JSTL descriptions; Oracle’s JSF model; JSF components and events; Oracle’s JPA definition; Bean Validation’s model; JMS’s role
+[20] <https://www.codemag.com/Article/1405001/Java-Servlets-and-JSP> Model 1’s responsibilities; Model 2’s structure; Model 2 request processing
+[21] <https://docs.spring.io/spring-framework/docs/5.3.34/reference/html/web.html> Spring’s account of Struts; Spring’s layered integration model; Third-party web-framework integration; JSF integration boundaries; Spring MVC architecture; Ann…
+[22] <https://static.spring.io/drupal/files/MigratingAppsToSpring.pdf> Traditional EJB artifacts; Spring’s migration rationale; Spring’s enterprise-service model; Incremental adoption and migration costs; Portfolio responsibilities
+[23] <https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative.html> Remote transaction boundaries; Declarative transactions; Rollback and declarative semantics; Remote-call boundary; Declarative transaction behavior; Transactio…
+[24] <https://docs.spring.io/spring-framework/reference/core/beans/introduction.html> Spring’s IoC definition; Container interfaces; DI contracts
+[25] <https://docs.spring.io/spring-framework/docs/6.0.0/reference/pdf/spring-framework.pdf> DI and testable objects; JDBC responsibilities; Reactive Streams motivation; WebFlux’s motivation; Reflection and AOT facilities; Spring AOT restrictions; Spri…
+[26] <https://docs.spring.io/spring-framework/reference/core/beans/java/basic-concepts.html> Java-based bean definitions
+[27] <https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html> Bean scopes; Prototype lifecycle and injection
+[28] <https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html> Lifecycle facilities
+[29] <https://docs.spring.io/spring-framework/reference/core/aop.html> Spring AOP
+[30] <https://docs.spring.io/spring-framework/reference/core/aop/introduction-defn.html> AOP concepts
+[31] <https://docs.spring.io/spring-framework/reference/core/aop/proxying.html> Proxy mechanisms; Self-invocation behavior; Proxy restrictions and weaving; Proxy design constraints; Proxy call paths
+[32] <https://docs.spring.io/spring-framework/reference/index.html> Data-access functionality; Spring testing facilities
+[33] <https://docs.spring.io/spring-framework/reference/data-access/dao.html> DAO support and exception translation
+[34] <https://doi.org/10.25136/2306-4196.2019.2.19589> Connection-management comparison
+[35] <https://docs.spring.io/spring-framework/reference/data-access/transaction.html> Spring transaction management; Transaction abstraction
+[36] <https://docs.spring.io/spring-boot/reference/web/servlet.html> Boot’s MVC reference; Controllers and response handling
+[37] <https://docs.spring.io/spring-framework/reference/core/validation.html> Spring validation; Binding and conversion facilities
+[38] <https://docs.spring.io/spring-framework/reference/integration.html> Spring integration facilities; Spring’s messaging support
+[39] <https://docs.spring.io/spring-framework/reference/testing/integration.html> TestContext integration support; Integration-test goals; Test-managed transactions
+[40] <https://docs.spring.io/spring-boot/how-to/data-access.html> Repository integration; Repository scanning
+[41] <https://devdojo.academy/en/blog/spring-boot-actuator-production-endpoints-health/> AMQP application example; RabbitMQ health semantics; Liveness and readiness consequences
+[42] <https://docs.spring.io/spring-boot/docs/asciidoctor/html/> Boot’s design goals; Web annotation ownership; Boot’s build and dependency model; Starters and managed dependencies; Curated dependency versions; Executable JA…
+[43] <https://www.oracle.com/database/spring-boot/> Configuration-choice pressure; Oracle’s comparison
+[44] <https://docs.spring.io/spring-boot/reference/using/auto-configuration.html> Boot auto-configuration; Auto-configuration back-off; Diagnosing and excluding configuration; Boot customization model
+[45] <https://docs.spring.io/spring-boot/reference/using/configuration-classes.html> Boot configuration guidance
+[46] <https://docs.spring.io/spring-boot/how-to/webserver.html> Embedded-server selection; Early web-component initialization
+[47] <https://docs.spring.io/spring-boot/how-to/deployment/traditional-deployment.html> Traditional deployment boundaries; Traditional deployment mechanics; Deployment choices
+[48] <https://docs.spring.io/spring-boot/reference/features/external-config.html> Externalized configuration; Configuration precedence; Property binding; Property encryption boundary
+[49] <https://docs.spring.io/spring-boot/reference/features/profiles.html> Profiles; Profile activation; Profile groups
+[50] <https://docs.spring.io/spring-boot/reference/actuator/index.html> Production-ready features; Actuator management model
+[51] <https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions> Spring compatibility matrix; Framework support ranges
+[52] <https://spring.io/blog/2026/06/25/spring-boot-3-5-16-available-now> Boot 3.5.16 announcement
+[53] <https://www.danvega.dev/blog/spring-boot-end-of-life> Vega’s support table; Support schedule
+[54] <https://docs.spring.io/spring-boot/reference/testing/index.html> Boot testing support
+[55] <https://docs.spring.io/spring-boot/how-to/testing.html> Slice-test boundaries
+[56] <https://docs.spring.io/spring-boot/reference/testing/spring-boot-applications.html> Boot web-test modes; Boot test modes
+[57] <https://docs.spring.io/spring-security/reference/servlet/test/index.html> Servlet security testing
+[58] <https://docs.spring.io/spring-security/reference/reactive/test/index.html> Reactive security testing
+[59] <https://docs.spring.io/spring-boot/reference/web/spring-security.html> Boot’s security paths
+[60] <https://docs.spring.io/spring-boot/how-to/security.html> Security customization and back-off
+[61] <https://www.herodevs.com/blog-posts/cve-2026-40976-spring-boot-4-0-actuator-authorization-bypass> The reported Actuator dependency-state vulnerability
+[62] <https://docs.spring.io/spring-boot/reference/actuator/endpoints.html> Actuator endpoint controls
+[63] <https://spring.io/blog/2022/10/12/observability-with-spring-boot-3> Spring observability and cardinality
