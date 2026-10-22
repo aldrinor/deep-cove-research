@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>A comprehension engine built on Read-Time Compute.</b><br>
-  #6 on DeepResearch Bench<sup><a href="#sources">1</a></sup> · Up to 93% lower cost than frontier deep research agents<sup><a href="#sources">2</a></sup>
+  deep-cove-research-pro #4 and deep-cove-research #6 on DeepResearch Bench<sup><a href="#sources">1</a></sup> · Up to 93% lower cost than frontier deep research agents<sup><a href="#sources">2</a></sup>
 </p>
 
 <p align="center">
@@ -27,7 +27,12 @@ Deep Cove Research comprehends full sources, then turns them into research repor
 
 <!-- leaderboard:start -->
 
-**#6 of 18** · **55.29** on the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup> · as of 22 Oct 2026
+| Entry | Rank | Score | Cost per Report |
+|:--|:-:|:-:|:-:|
+| [deep-cove-research-pro](https://github.com/aldrinor/deep-cove-research-pro) | **#4 of 18** | **55.71** | $2.50 |
+| deep-cove-research (this repository) | **#6 of 18** | **55.29** | $1.04 |
+
+On the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup> · as of 22 Oct 2026
 
 <!-- leaderboard:end -->
 
@@ -38,11 +43,11 @@ A benchmark for deep research agents. It has 100 PhD-level research tasks, writt
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/chart-score-cost-dark.png">
-    <img src="assets/chart-score-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per report. Official leaderboard: Alibaba Voicepica DeepResearch 55.99, cost not published; CellCog Max 55.78, up to $25; Deep Cove Research 55.29 at $1.04. Evaluation based on the official RACE method: OpenAI GPT-6 Astra Pro Deep Research 54.59 at $15.36; Anthropic Claude Fable 5.1 Max Research 54.04 at $8.05; xAI Grok Build 4.6 53.85, cost not published; Google Gemini 3.1 Pro Deep Research 47.83 at about $2.">
+    <img src="assets/chart-score-cost-light.png" width="100%" alt="DeepResearch Bench score against cost per report. Official leaderboard: CellCog (US) 56.72, $25 or more per session; Alibaba (CN) 55.99 and SPIA-DeepResearch-V2 55.85, cost not published; deep-cove-research-pro (CA) 55.71 at $2.50; Beane Harness 55.37, estimated about $5; deep-cove-research (CA) 55.29 at $1.04. Evaluation based on the official RACE method: Anthropic Claude Research (Fable 5.1 Max) 55.28, estimated about $8; Meituan LongCat 55.25, published by Meituan, cost not published; OpenAI GPT-6 Astra Pro Deep Research 54.59 at $15.36; xAI Grok Build 4.6 53.85, estimated about $1.50; Google Gemini 4 Deep Research 53.27, estimated about $5.">
   </picture>
 </p>
 
-<p align="right"><sub>Score and cost sources: <a href="#sources">3</a>, <a href="#sources">6</a></sub></p>
+<p align="right"><sub>Score and cost sources: <a href="#sources">3</a>, <a href="#sources">5</a>, <a href="#sources">6</a></sub></p>
 
 ## Agents spend compute looping. We spend it on comprehension.
 
@@ -50,7 +55,7 @@ A benchmark for deep research agents. It has 100 PhD-level research tasks, writt
 |:--|:--|
 | **85%** of input tokens are rereading session history | **2%** of input tokens are rereading session history |
 | Frontier research agents work in a loop: search, open a page, take notes, repeat. Before each new step, they read all their old notes again. So most of their effort goes into rereading, not into new sources.<sup>[2](#sources)</sup> | Our state-of-the-art orchestrator handles the loop itself, so the model does not reread old notes. We spend the savings on research: 5X more searches,<sup>[2](#sources)</sup> and an engine built to read thousands of sources.<sup>[7](#sources)</sup> |
-| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research · Max Reasoning</sub> |
+| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>deep-cove-research · Max Reasoning</sub> |
 
 ## Looping has a price.
 
@@ -59,7 +64,7 @@ On average, frontier research agents cost $15.36 per task. Rereading their old n
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/chart-cost-per-task-dark.png">
-    <img src="assets/chart-cost-per-task-light.png" width="100%" alt="Cost per task. GPT-6 Astra Pro Deep Research: $15.36, split into rereading history, planning, searching and writing, and reading new material. Deep Cove Research: $0.99, 93% lower cost, spent mostly on reading new material.">
+    <img src="assets/chart-cost-per-task-light.png" width="100%" alt="Cost per task. GPT-6 Astra Pro Deep Research: $15.36, split into rereading history, planning, searching and writing, and reading new material. deep-cove-research: $0.99, 93% lower cost, spent mostly on reading new material.">
   </picture>
 </p>
 
@@ -69,18 +74,18 @@ On average, frontier research agents cost $15.36 per task. Rereading their old n
 |:--|:--|
 | **14** average searches per report | **68** average searches per report |
 | Frontier research agents have limited memory, and the loop uses most of it. So they only have room for about 14 searches per report. For many sources, they read only the short snippet, not the complete content, so details are easy to miss or misread.<sup>[2](#sources)</sup> | Our state-of-the-art context management keeps the model's memory clear. So it has room for about 68 searches per report, 5X more than frontier agents. We comprehend the whole page and turn it into evidence cards for deep comprehension.<sup>[2](#sources)</sup> |
-| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research · Max Reasoning</sub> |
+| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>deep-cove-research · Max Reasoning</sub> |
 
 ## Inside the comprehension engine.
 
-### A lighter model. A higher score.
+### Lighter models. Higher scores.
 
-The comprehension engine works from real-time, post-training sources it comprehends at runtime, not from obsolete knowledge. That makes model size a minor factor. We run a model priced about 40X lower than GPT-6 Astra Pro and Claude Fable 5.1, and score higher.<sup>[8](#sources)</sup>
+The comprehension engine works from real-time, post-training sources it comprehends at runtime, not from obsolete knowledge. That makes model size a minor factor. Our two entries run models priced 5X to 40X lower than GPT-6 Astra Pro and Claude Fable 5.1, and score higher.<sup>[8](#sources)</sup>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/chart-model-cost-dark.png">
-    <img src="assets/chart-model-cost-light.png" width="80%" alt="Model cost against DeepResearch Bench score. List price per 1M output tokens: GPT-6 Astra Pro $50, score 54.59; Claude Fable 5.1 $50, 54.04; Gemini 3.1 Pro $12, 47.83; Grok Build 4.6 $6, 53.85; Deep Cove Research $1.20, 55.29.">
+    <img src="assets/chart-model-cost-light.png" width="80%" alt="Model cost against DeepResearch Bench score. List price per 1M output tokens: deep-cove-research $1.20, score 55.29; deep-cove-research-pro $1.20 for 88% of its model calls and $10 for the rest, shown at $10, score 55.71; Gemini 4 Argon $10, 53.27; Grok Build 4.6 $6, 53.85; GPT-6 Astra Pro $50, 54.59; Claude Fable 5.1 $50, 55.28.">
   </picture>
 </p>
 
@@ -107,7 +112,7 @@ Our engine handles the research process, so a light model is enough, at about 31
 
 ## Reports
 
-The 100 reports behind our official score: 50 in Chinese and 50 in English. Every report has its own page: the benchmark prompt, then the full report.
+The 100 reports behind the official score of deep-cove-research: 50 in Chinese and 50 in English. Every report has its own page: the benchmark prompt, then the full report. The 100 reports of our second entry, deep-cove-research-pro, are in [aldrinor/deep-cove-research-pro](https://github.com/aldrinor/deep-cove-research-pro).
 
 **[Browse all 100 reports →](reports/README.md)**
 
@@ -228,14 +233,14 @@ Proprietary. The reports in this repository are © 2026 Deep Cove Research, all 
 
 ## Sources
 
-1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 22 Oct 2026. Deep Cove Research 55.29, rank 6 of 18.
-2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; Deep Cove Research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices.
-3. **Deep Cove evaluation.** Official RACE method and GPT-5.5 judge, DeepResearch Bench tasks 10, 20, 30, 70 and 90, 3 judgments each, Sep 2026. Scores use the same scale as the official leaderboard.
+1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 22 Oct 2026. deep-cove-research-pro 55.71, rank 4 of 18; deep-cove-research 55.29, rank 6 of 18.
+2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; deep-cove-research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices.
+3. **Deep Cove evaluation.** Official RACE method and GPT-5.5 judge. GPT-6 Astra Pro and Grok Build 4.6: DeepResearch Bench tasks 10, 20, 30, 70 and 90, 3 judgments each, Sep 2026. Claude Research (99 reports) and Gemini 4 Deep Research (92 reports): every report we ran, 1 judgment each, Oct 2026. Meituan LongCat: published by Meituan (arXiv 2609.36071). Scores use the same scale as the official leaderboard.
 4. **DeepResearch Bench paper.** ICLR 2026, arXiv 2506.11763: 100 PhD-level tasks in 22 fields, Chinese and English.
 5. **Published DeepResearch Bench results.** Papers, model cards and leaderboard entries, Oct 2026.
-6. **Cost per report.** Deep Cove Research $1.04, average of the 100 official reports at public API prices. GPT-6 Astra Pro, Claude Fable 5.1: billed usage on DeepResearch Bench II tasks 7, 28 and 50. Gemini 3.1 Pro: list price, $1 to $3. CellCog: published price, up to $25.
+6. **Cost per report.** deep-cove-research-pro $2.50 and deep-cove-research $1.04: averages of their 100 official reports at public API prices. GPT-6 Astra Pro: billed usage on DeepResearch Bench II tasks 7, 28 and 50. CellCog: published price, about $25 per Max working session. Estimated costs (dashed ring, midpoint shown): Gemini 4 Deep Research, Google’s published estimate for Deep Research Max, $3 to $7; Claude Research, our billed API run of Claude Fable 5.1 at max effort, $8.05; Grok, our billed API runs of the same model family, $1 to $2; Beane Harness, its published call counts at public prices, $2 to $8.
 7. **Engine design.** Each source is comprehended in its own model call, in parallel, so capacity grows with the number of calls. Current setting: up to 384 pages per report.
-8. **Public list prices.** Per 1M output tokens, 8 Oct 2026: our model $1.20; GPT-6 Astra Pro $50; Claude Fable 5.1 $50; Gemini 3.1 Pro $12; Grok Build 4.6 $6. Scores: notes 1 and 3.
+8. **Public list prices.** Per 1M output tokens: GPT-5.6 Luna $1.20 (deep-cove-research, and 88% of deep-cove-research-pro’s model calls); GPT-6.1 Sol $10 (the rest of deep-cove-research-pro’s calls); GPT-6 Astra Pro $50; Claude Fable 5.1 $50; Grok Build 4.6 $6 (8 Oct 2026); Gemini 4 Argon $10 until 30 Nov 2026, then $20 (22 Oct 2026). Scores: notes 1 and 3.
 9. **GPU estimates.** Kimi K3 model card: 2.8T parameters, MXFP4 weights, about 1.5 TB, which needs 2 servers of 8 NVIDIA B200 (192 GB each). gpt-oss-120b model card: 117B parameters, fits a single 80 GB GPU. On-demand prices, RunPod, 8 Oct 2026: B200 $6.79 per hour, H100 SXM $3.49 per hour.
 
 ## Acknowledgements

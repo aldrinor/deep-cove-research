@@ -38,8 +38,12 @@ CSV_PATH = 'data_gpt55/leaderboard.csv'
 CSV_URL = BOARD_URL + '/raw/main/' + CSV_PATH
 INFO_URL = 'https://huggingface.co/api/spaces/' + SPACE + '/paths-info/main'
 MODEL = 'deep-cove-research'
-# deepcove.tech shows our best-ranked entry; this repo's README and badge keep its own row (MODEL).
-SITE_MODELS = ('deep-cove-research-pro', 'deep-cove-research')
+PRO = 'deep-cove-research-pro'
+# deepcove.tech names both entries: data-lb fields hold deep-cove-research-pro's row (our best-ranked entry when it is
+# missing), data-lbs fields hold deep-cove-research's row. This repo's badge keeps its own row (MODEL); its README block
+# lists both entries.
+SITE_MODELS = (PRO, MODEL)
+COST = {PRO: '$2.50', MODEL: '$1.04'}  # average cost per report of each entry's 100 official reports, public API prices
 UA = 'deep-cove-research-leaderboard-sync (+https://github.com/aldrinor/deep-cove-research)'
 
 MON_EN = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
@@ -134,10 +138,11 @@ def values(d):
 # ---- gh-pages ----
 
 MARK = re.compile(r'<(span|sup) data-lb=(\\?")([a-z-]+)\2>([^<]*)<(\\?/)\1>')
+MARK2 = re.compile(r'<(span|sup) data-lbs=(\\?")([a-z-]+)\2>([^<]*)<(\\?/)\1>')
 META = re.compile(r'(<meta (?:name="description"|property="og:description") content="[^"]*?#)\d+( on DeepResearch Bench)(?! II\b)')
 
 
-def patch_page(html, d):
+def patch_page(html, d, d2=None):
     v, seen = values(d), set()
 
     def put(m):
@@ -154,6 +159,16 @@ def patch_page(html, d):
     out, n = META.subn(lambda m: m.group(1) + v['rank'] + m.group(2), out)
     if n == 0:
         raise Fail('index.html has no meta description with the rank')
+    if d2 is not None:
+        v2 = values(d2)
+
+        def put2(m):
+            tag, q, key, _, close = m.groups()
+            if key not in v2:
+                raise Fail(f'unknown marked key in index.html: data-lbs {key}')
+            return f'<{tag} data-lbs={q}{key}{q}>{v2[key]}<{close}{tag}>'
+
+        out = MARK2.sub(put2, out)
     return out
 
 
@@ -168,14 +183,20 @@ def page_json(d):
 START, END = '<!-- leaderboard:start -->', '<!-- leaderboard:end -->'
 
 
-def readme_block(d):
+def readme_block(d, d2=None):
     v = values(d)
-    return (f'{START}\n\n**#{v["rank"]} of {v["total"]}** · **{v["score"]}** on the [official leaderboard]({BOARD_URL})'
-            f'<sup>[1](#sources)</sup> · as of {v["date"]}\n\n{END}')
+    if d2 is None:
+        return (f'{START}\n\n**#{v["rank"]} of {v["total"]}** · **{v["score"]}** on the [official leaderboard]({BOARD_URL})'
+                f'<sup>[1](#sources)</sup> · as of {v["date"]}\n\n{END}')
+    v2 = values(d2)
+    return (f'{START}\n\n| Entry | Rank | Score | Cost per Report |\n|:--|:-:|:-:|:-:|\n'
+            f'| [{PRO}](https://github.com/aldrinor/{PRO}) | **#{v2["rank"]} of {v2["total"]}** | **{v2["score"]}** | {COST[PRO]} |\n'
+            f'| {MODEL} (this repository) | **#{v["rank"]} of {v["total"]}** | **{v["score"]}** | {COST[MODEL]} |\n\n'
+            f'On the [official leaderboard]({BOARD_URL})<sup>[1](#sources)</sup> · as of {v["date"]}\n\n{END}')
 
 
-def patch_readme(text, d):
-    v, block = values(d), readme_block(d)
+def patch_readme(text, d, d2=None):
+    v, block = values(d), readme_block(d, d2)
     if START in text and END in text and text.index(START) < text.index(END):
         a, b = text.index(START), text.index(END) + len(END)
         text = text[:a] + block + text[b:]
@@ -193,6 +214,14 @@ def patch_readme(text, d):
                   r'(\. Deep Cove Research )\d+\.\d+(, rank )\d+( of )\d+(\.)',
                   lambda m: m.group(1) + v['date'] + m.group(2) + v['score'] + m.group(3) + v['rank'] + m.group(4) + v['total'] + m.group(5),
                   text)
+    if d2 is not None:
+        v2 = values(d2)
+        # tagline "deep-cove-research-pro #4 and deep-cove-research #6 on DeepResearch Bench"; note 1 with both rows
+        text = re.sub(r'(' + re.escape(PRO) + r' #)\d+', lambda m: m.group(1) + v2['rank'], text)
+        text = re.sub(r'(\*\*DeepResearch Bench official leaderboard\.\*\* GPT-5\.5 judge, )\d{1,2} [A-Z][a-z]{2} \d{4}'
+                      r'(\. ' + re.escape(PRO) + r' )\d+\.\d+(, rank )\d+( of )\d+(; ' + re.escape(MODEL) + r' )\d+\.\d+(, rank )\d+( of )\d+(\.)',
+                      lambda m: (m.group(1) + v['date'] + m.group(2) + v2['score'] + m.group(3) + v2['rank'] + m.group(4) + v2['total']
+                                 + m.group(5) + v['score'] + m.group(6) + v['rank'] + m.group(7) + v['total'] + m.group(8)), text)
     return text
 
 
@@ -226,7 +255,12 @@ def main():
     try:
         text = fetch(a.csv_url)
         rank, total, score = standing(text)
-        site_model, s_rank, s_total, s_score = best_standing(text)
+        try:
+            site_model, s_rank, s_total, s_score = (PRO,) + standing(text, PRO)
+        except Fail as e:
+            if 'found 0' not in str(e):
+                raise
+            site_model, s_rank, s_total, s_score = best_standing(text)
         published = None
         if a.site and os.path.exists(os.path.join(a.site, 'leaderboard.json')):
             try:
@@ -240,6 +274,7 @@ def main():
                 else dt.datetime.now(dt.timezone.utc).date().isoformat()
         d = {'rank': rank, 'total': total, 'score': score, 'date': date}
         sd = {'model': site_model, 'rank': s_rank, 'total': s_total, 'score': s_score, 'date': date}
+        pd = sd if site_model == PRO else None   # deep-cove-research-pro's row for the README block, when on the board
         print(f'leaderboard: {MODEL} rank {rank} of {total}, score {score:.2f}; site shows {site_model} rank {s_rank}, '
               f'score {s_score:.2f}; board date {date}')
 
@@ -249,15 +284,15 @@ def main():
             idx = os.path.join(a.site, 'index.html')
             if not os.path.exists(idx):
                 raise Fail(f'{idx} not found')
-            plan.append((idx, read(idx), patch_page(read(idx), sd)))
+            plan.append((idx, read(idx), patch_page(read(idx), sd, d)))
             lj = os.path.join(a.site, 'leaderboard.json')
             plan.append((lj, read(lj) if os.path.exists(lj) else None, page_json(sd)))
         if a.readme:
-            plan.append((a.readme, read(a.readme), patch_readme(read(a.readme), d)))
+            plan.append((a.readme, read(a.readme), patch_readme(read(a.readme), d, pd)))
         if a.badge and os.path.exists(a.badge):
             plan.append((a.badge, read(a.badge), patch_badge(read(a.badge), d)))
         for path, old, new in plan:  # re-running on the new text must change nothing
-            if path.endswith('index.html') and patch_page(new, sd) != new or path.endswith('.md') and patch_readme(new, d) != new:
+            if path.endswith('index.html') and patch_page(new, sd, d) != new or path.endswith('.md') and patch_readme(new, d, pd) != new:
                 raise Fail(f'update of {path} is not stable')
     except Fail as e:
         print(f'error: {e}; nothing changed', file=sys.stderr)
