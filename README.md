@@ -192,7 +192,7 @@ The RACE summary is written to `$eval_dir/results/race_result.txt`.
 
 ### Built in North Vancouver
 
-Deep Cove Research is a stealth team based in North Vancouver, British Columbia. We build the comprehension engine and test it in public, on DeepResearch Bench.
+Deep Cove Intelligence is a stealth team based in North Vancouver, British Columbia. We build the comprehension engine and test it in public, on DeepResearch Bench.
 
 <p align="center">
   <picture>
@@ -218,7 +218,7 @@ If you refer to these reports, please cite this repository:
 ```bibtex
 @misc{deepcoveresearch2026,
   title = {Deep Cove Research: DeepResearch Bench Reports},
-  author = {{Deep Cove Research}},
+  author = {{Deep Cove Intelligence, Inc.}},
   year = {2026},
   howpublished = {\url{https://github.com/aldrinor/deep-cove-research}},
   note = {100 reports (50 Chinese, 50 English)},
@@ -229,7 +229,7 @@ Please also cite the benchmark: Du et al., [*DeepResearch Bench: A Comprehensive
 
 ## License
 
-Proprietary. The reports in this repository are © 2026 Deep Cove Research, all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
+Proprietary. The reports in this repository are © 2026 Deep Cove Intelligence, Inc., all rights reserved; see [LICENSE](LICENSE). The benchmark prompts, shown on the report pages and in the `prompt` field, are part of DeepResearch Bench and belong to its authors.
 
 ## Sources
 

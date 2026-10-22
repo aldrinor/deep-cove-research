@@ -49,7 +49,7 @@ jobs:
               continue
             fi
             git add -A
-            git -c user.name="Deep Cove Research" -c user.email="hello@deepcove.tech" \
+            git -c user.name="Deep Cove Intelligence" -c user.email="hello@deepcove.tech" \
               commit --quiet -F "$RUNNER_TEMP/message.txt"
             git push --quiet origin HEAD
             echo "$dir: pushed $(git rev-parse --short HEAD)"

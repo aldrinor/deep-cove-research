@@ -5,7 +5,7 @@ message: >-
 title: "Deep Cove Research: DeepResearch Bench Reports"
 type: dataset
 authors:
-  - name: "Deep Cove Research"
+  - name: "Deep Cove Intelligence, Inc."
 date-released: "2026-09-25"
 url: "https://github.com/aldrinor/deep-cove-research"
 repository: "https://github.com/aldrinor/deep-cove-research"
