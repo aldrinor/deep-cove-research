@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Keep Deep Cove Research's DeepResearch Bench rank current, from the official leaderboard.
 
-Reads the official leaderboard CSV, finds the deep-cove-research row and computes:
+Reads the official leaderboard CSV, finds our rows and computes (for deep-cove-research, and for the site our best-ranked
+row of deep-cove-research-pro and deep-cove-research):
   rank  = 1 + number of rows with a higher overall_score (sorted by overall_score, descending)
   total = number of rows
   score = our overall_score
@@ -12,7 +13,7 @@ Then updates, only where something changed:
   main      README.md: the section between <!-- leaderboard:start --> and <!-- leaderboard:end --> (added after the
             "## DeepResearch Bench" heading when absent), plus the rank in the tagline, the badge alt text and
             source note 1; assets/badges/leaderboard.svg
-  gh-pages  leaderboard.json; index.html: every <span data-lb="KEY"> / <sup data-lb="KEY"> value (in the page and in
+  gh-pages  (our best-ranked row) leaderboard.json; index.html: every <span data-lb="KEY"> / <sup data-lb="KEY"> value (in the page and in
             its English/French text dictionary) and the meta and og descriptions
 
 Validation is strict: the CSV must have model and overall_score columns, every score must be a number, our row must
@@ -37,6 +38,8 @@ CSV_PATH = 'data_gpt55/leaderboard.csv'
 CSV_URL = BOARD_URL + '/raw/main/' + CSV_PATH
 INFO_URL = 'https://huggingface.co/api/spaces/' + SPACE + '/paths-info/main'
 MODEL = 'deep-cove-research'
+# deepcove.tech shows our best-ranked entry; this repo's README and badge keep its own row (MODEL).
+SITE_MODELS = ('deep-cove-research-pro', 'deep-cove-research')
 UA = 'deep-cove-research-leaderboard-sync (+https://github.com/aldrinor/deep-cove-research)'
 
 MON_EN = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
@@ -63,8 +66,8 @@ def fetch(url, data=None, tries=3):
     raise Fail(f'could not fetch {url}: {last}')
 
 
-def standing(text):
-    """(rank, total, score) from the leaderboard CSV text."""
+def standing(text, model=MODEL):
+    """(rank, total, score) of `model` from the leaderboard CSV text."""
     rows = list(csv.DictReader(io.StringIO(text.lstrip('﻿'))))
     if not rows or 'model' not in rows[0] or 'overall_score' not in rows[0]:
         raise Fail('leaderboard CSV has no model / overall_score columns')
@@ -78,10 +81,10 @@ def standing(text):
         if not math.isfinite(v):
             raise Fail(f'overall_score is not finite for {name!r}')
         scores.append(v)
-        if name == MODEL:
+        if name == model:
             ours.append(v)
     if len(ours) != 1:
-        raise Fail(f'expected exactly one {MODEL!r} row, found {len(ours)}')
+        raise Fail(f'expected exactly one {model!r} row, found {len(ours)}')
     score, total = ours[0], len(scores)
     rank = 1 + sum(1 for v in scores if v > score)
     if not (0 < score <= 100):
@@ -89,6 +92,20 @@ def standing(text):
     if not (1 <= rank <= total):
         raise Fail(f'rank {rank} not within 1..{total}')
     return rank, total, round(score, 2)
+
+
+def best_standing(text, models=SITE_MODELS):
+    """(model, rank, total, score) of the best-ranked of our rows that is on the board."""
+    found = []
+    for m in models:
+        try:
+            found.append((m,) + standing(text, m))
+        except Fail as e:
+            if 'found 0' not in str(e):
+                raise
+    if not found:
+        raise Fail('none of our rows is on the board: ' + ', '.join(models))
+    return min(found, key=lambda r: (r[1], -r[3]))
 
 
 def board_date(info_url):
@@ -141,7 +158,7 @@ def patch_page(html, d):
 
 
 def page_json(d):
-    rec = {'model': MODEL, 'rank': d['rank'], 'total': d['total'], 'score': d['score'], 'date': d['date'],
+    rec = {'model': d.get('model', MODEL), 'rank': d['rank'], 'total': d['total'], 'score': d['score'], 'date': d['date'],
            'leaderboard': BOARD_URL, 'source': CSV_URL}
     return json.dumps(rec, indent=2) + '\n'
 
@@ -207,7 +224,9 @@ def main():
     ap.add_argument('--message-file', help='write a commit message here when something changed')
     a = ap.parse_args()
     try:
-        rank, total, score = standing(fetch(a.csv_url))
+        text = fetch(a.csv_url)
+        rank, total, score = standing(text)
+        site_model, s_rank, s_total, s_score = best_standing(text)
         published = None
         if a.site and os.path.exists(os.path.join(a.site, 'leaderboard.json')):
             try:
@@ -220,7 +239,9 @@ def main():
             date = published['date'] if same and re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(published.get('date'))) \
                 else dt.datetime.now(dt.timezone.utc).date().isoformat()
         d = {'rank': rank, 'total': total, 'score': score, 'date': date}
-        print(f'leaderboard: rank {rank} of {total}, score {score:.2f}, board date {date}')
+        sd = {'model': site_model, 'rank': s_rank, 'total': s_total, 'score': s_score, 'date': date}
+        print(f'leaderboard: {MODEL} rank {rank} of {total}, score {score:.2f}; site shows {site_model} rank {s_rank}, '
+              f'score {s_score:.2f}; board date {date}')
 
         # build every new file in memory first; write only when all of them succeed
         plan = []
@@ -228,15 +249,15 @@ def main():
             idx = os.path.join(a.site, 'index.html')
             if not os.path.exists(idx):
                 raise Fail(f'{idx} not found')
-            plan.append((idx, read(idx), patch_page(read(idx), d)))
+            plan.append((idx, read(idx), patch_page(read(idx), sd)))
             lj = os.path.join(a.site, 'leaderboard.json')
-            plan.append((lj, read(lj) if os.path.exists(lj) else None, page_json(d)))
+            plan.append((lj, read(lj) if os.path.exists(lj) else None, page_json(sd)))
         if a.readme:
             plan.append((a.readme, read(a.readme), patch_readme(read(a.readme), d)))
         if a.badge and os.path.exists(a.badge):
             plan.append((a.badge, read(a.badge), patch_badge(read(a.badge), d)))
         for path, old, new in plan:  # re-running on the new text must change nothing
-            if path.endswith('index.html') and patch_page(new, d) != new or path.endswith('.md') and patch_readme(new, d) != new:
+            if path.endswith('index.html') and patch_page(new, sd) != new or path.endswith('.md') and patch_readme(new, d) != new:
                 raise Fail(f'update of {path} is not stable')
     except Fail as e:
         print(f'error: {e}; nothing changed', file=sys.stderr)
@@ -248,7 +269,7 @@ def main():
             write(path, new)
     print('changed: ' + (', '.join(changed) if changed else 'nothing'))
     if a.message_file and changed:
-        v = values(d)
+        v = values(sd)
         with open(a.message_file, 'w', encoding='utf-8') as f:
             f.write(f'Update DeepResearch Bench rank: #{v["rank"]} of {v["total"]}, {v["score"]} (board of {v["date"]})\n\n'
                     f'Automatic update from the official leaderboard: {BOARD_URL}\n')
