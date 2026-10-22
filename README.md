@@ -59,12 +59,12 @@ A benchmark for deep research agents. It has 100 PhD-level research tasks, writt
 
 ## Looping has a price.
 
-On average, frontier research agents cost $15.36 per task. Rereading their old notes is billed at a discount, but still costs $3.76, almost 4X our entire cost. Meanwhile, most of our cost goes to comprehending new sources.<sup>[2](#sources)</sup>
+On average, frontier research agents cost $15.36 per task. Rereading their old notes is billed at a discount, but still costs $3.76: almost 4X the entire cost of Deep Cove Research, and 1.5X that of Deep Cove Research Pro. Our engines spend their budget on reading new sources and on writing.<sup>[2](#sources)</sup>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/chart-cost-per-task-dark.png">
-    <img src="assets/chart-cost-per-task-light.png" width="100%" alt="Cost per task. GPT-6 Astra Pro Deep Research: $15.36, split into rereading history, planning, searching and writing, and reading new material. Deep Cove Research: $0.99, 93% lower cost, spent mostly on reading new material.">
+    <img src="assets/chart-cost-per-task-light.png" width="100%" alt="Cost per task. GPT-6 Astra Pro Deep Research: $15.36, split into rereading history, planning, searching and writing, and reading new material. Deep Cove Research: $0.99, 93% lower cost. Deep Cove Research Pro: $2.50, 84% lower cost. Both spend on reading new material and on planning, searching and writing.">
   </picture>
 </p>
 
@@ -72,9 +72,9 @@ On average, frontier research agents cost $15.36 per task. Rereading their old n
 
 | Agentic Research | Read-Time Compute |
 |:--|:--|
-| **14** average searches per report | **68** average searches per report |
-| Frontier research agents have limited memory, and the loop uses most of it. So they only have room for about 14 searches per report. For many sources, they read only the short snippet, not the complete content, so details are easy to miss or misread.<sup>[2](#sources)</sup> | Our state-of-the-art context management keeps the model's memory clear. So it has room for about 68 searches per report, 5X more than frontier agents. We comprehend the whole page and turn it into evidence cards for deep comprehension.<sup>[2](#sources)</sup> |
-| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research · Max Reasoning</sub> |
+| **14** average searches per report | **68** (Deep Cove Research) and **67** (Deep Cove Research Pro) average searches per report |
+| Frontier research agents have limited memory, and the loop uses most of it. So they only have room for about 14 searches per report. For many sources, they read only the short snippet, not the complete content, so details are easy to miss or misread.<sup>[2](#sources)</sup> | Our state-of-the-art context management keeps the model's memory clear. So our two entries have room for about 67 to 68 searches per report, 5X more than frontier agents. We comprehend the whole page and turn it into evidence cards for deep comprehension.<sup>[2](#sources)</sup> |
+| <sub>GPT-6 Astra Pro · Max Reasoning</sub> | <sub>Deep Cove Research and Deep Cove Research Pro · Max Reasoning</sub> |
 
 ## Inside the comprehension engine.
 
@@ -234,7 +234,7 @@ Proprietary. The reports in this repository are © 2026 Deep Cove Research, all 
 ## Sources
 
 1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 22 Oct 2026. Deep Cove Research Pro 55.71, rank 4 of 18; Deep Cove Research 55.29, rank 6 of 18.
-2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; Deep Cove Research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices.
+2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; Deep Cove Research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices. Deep Cove Research Pro, average of its 100 official reports: $2.50 at public API prices, 67 searches and 77 pages downloaded per report; on the same three tasks: $2.15, 67 searches and 58 pages.
 3. **Deep Cove evaluation.** Official RACE method and GPT-5.5 judge. GPT-6 Astra Pro and Grok Build 4.6: DeepResearch Bench tasks 10, 20, 30, 70 and 90, 3 judgments each, Sep 2026. Claude Research (99 reports) and Gemini 4 Deep Research (92 reports): every report we ran, 1 judgment each, Oct 2026. Meituan LongCat: published by Meituan (arXiv 2609.36071). Scores use the same scale as the official leaderboard.
 4. **DeepResearch Bench paper.** ICLR 2026, arXiv 2506.11763: 100 PhD-level tasks in 22 fields, Chinese and English.
 5. **Published DeepResearch Bench results.** Papers, model cards and leaderboard entries, Oct 2026.
