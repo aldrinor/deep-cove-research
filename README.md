@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>A comprehension engine built on Read-Time Compute.</b><br>
-  Deep Cove Research Pro #4 and Deep Cove Research #6 on DeepResearch Bench<sup><a href="#sources">1</a></sup> · Up to 93% lower cost than frontier deep research agents<sup><a href="#sources">2</a></sup>
+  Deep Cove Research Pro #5 and Deep Cove Research #6 on DeepResearch Bench<sup><a href="#sources">1</a></sup> · Up to 93% lower cost than frontier deep research agents<sup><a href="#sources">2</a></sup>
 </p>
 
 <p align="center">
@@ -29,10 +29,10 @@ Deep Cove Research comprehends full sources, then turns them into research repor
 
 | Entry | Rank | Score | Cost per Report |
 |:--|:-:|:-:|:-:|
-| [Deep Cove Research Pro](https://github.com/aldrinor/deep-cove-research-pro) | **#4 of 18** | **55.71** | $2.50 |
+| [Deep Cove Research Pro](https://github.com/aldrinor/deep-cove-research-pro) | **#5 of 18** | **55.71** | $2.50 |
 | Deep Cove Research (this repository) | **#6 of 18** | **55.29** | $1.04 |
 
-On the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup> · as of 22 Oct 2026
+On the [official leaderboard](https://huggingface.co/spaces/muset-ai/DeepResearch-Bench-Leaderboard)<sup>[1](#sources)</sup> · as of 28 Oct 2026
 
 <!-- leaderboard:end -->
 
@@ -233,7 +233,7 @@ Proprietary. The reports in this repository are © 2026 Deep Cove Intelligence, 
 
 ## Sources
 
-1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 22 Oct 2026. Deep Cove Research Pro 55.71, rank 4 of 18; Deep Cove Research 55.29, rank 6 of 18.
+1. **DeepResearch Bench official leaderboard.** GPT-5.5 judge, 28 Oct 2026. Deep Cove Research Pro 55.71, rank 5 of 18; Deep Cove Research 55.29, rank 6 of 18.
 2. **Deep Cove token study.** DeepResearch Bench II tasks 7, 28 and 50, Oct 2026. Per task: GPT-6 Astra Pro $15.36 billed, 2.05M input tokens (85% repeated history), 14 searches; Deep Cove Research $0.99 at public API prices, 0.86M input tokens (2% repeated), 68 searches and 61 pages downloaded. Stage costs at billed and public API prices. Deep Cove Research Pro, average of its 100 official reports: $2.50 at public API prices, 67 searches and 77 pages downloaded per report; on the same three tasks: $2.15, 67 searches and 58 pages.
 3. **Deep Cove evaluation.** Official RACE method and GPT-5.5 judge. GPT-6 Astra Pro and Grok Build 4.6: DeepResearch Bench tasks 10, 20, 30, 70 and 90, 3 judgments each, Sep 2026. Claude Research (99 reports) and Gemini 4 Deep Research (92 reports): every report we ran, 1 judgment each, Oct 2026. Meituan LongCat: published by Meituan (arXiv 2609.36071). Scores use the same scale as the official leaderboard.
 4. **DeepResearch Bench paper.** ICLR 2026, arXiv 2506.11763: 100 PhD-level tasks in 22 fields, Chinese and English.
