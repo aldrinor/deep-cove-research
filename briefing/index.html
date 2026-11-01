@@ -855,14 +855,14 @@ function mirror(cols,opt){
 
 // Accuracy and cost cards
 const costOf=k=>{const t=D.tasks.find(x=>x.key===k);return t;};
-const cards=[   // operator 11-01: order as the big labs do it: one hero win first, then category groups, deep research last
-  {k:'vals',title:'Finance Analyst Tasks',sub:'Vals Finance Agent, 50 Public Questions',group:'Finance and Tax',hero:true},
-  {k:'filing',title:'Company Filing Questions',sub:'FinanceBench, 150 Questions',group:'Finance and Tax'},
-  {k:'tax',title:'Tax Questions',sub:'Vals Tax Agent, 5 Public Questions',group:'Finance and Tax'},
-  {k:'hle',title:'Expert-Level Exam Questions',sub:"Humanity's Last Exam, 200 Text Questions",min:30,max:70,group:'Hard Reasoning'},
-  {k:'gaia',title:'Hard Multi-Step Tasks',sub:'GAIA, 127 Text Questions',group:'Hard Reasoning'},
-  {k:'multi',title:'Multi-Step Fact Questions',sub:'FRAMES, 300 Questions',group:'Fact Finding'},
-  {k:'fact',title:'Fact Questions',sub:'SimpleQA, 300 Questions, with Web Search',group:'Fact Finding'},
+const cards=[   // operator 11-01: order by benchmark importance, as the big labs do: flagship frontier benchmark first (HLE), then the agent and research benchmarks, then domain sets, deep research last
+  {k:'hle',title:'Expert-Level Exam Questions',sub:"Humanity's Last Exam, 200 Text Questions",min:30,max:70,hero:true},
+  {k:'gaia',title:'Hard Multi-Step Tasks',sub:'GAIA, 127 Text Questions'},
+  {k:'multi',title:'Multi-Step Fact Questions',sub:'FRAMES, 300 Questions'},
+  {k:'fact',title:'Fact Questions',sub:'SimpleQA, 300 Questions, with Web Search'},
+  {k:'filing',title:'Company Filing Questions',sub:'FinanceBench, 150 Questions'},
+  {k:'vals',title:'Finance Analyst Tasks',sub:'Vals Finance Agent, 50 Public Questions'},
+  {k:'tax',title:'Tax Questions',sub:'Vals Tax Agent, 5 Public Questions'},
 ].filter(c=>D.board[c.k]);
 const ratio=v=>v>=20?Math.round(v/5)*5:v>=10?Math.round(v):Math.round(v*10)/10;
 function claimFor(sc,t){const gap=sc.claude-sc.dc, dc=t.kit_cost.h200, m1=ratio(t.claude/dc), m2=ratio(t.gpt/dc);
@@ -881,7 +881,6 @@ cards.forEach(c=>{
   ];
   const lab=c.title+': accuracy and cost per task';
   const axTop=c.min?`Accuracy (% Correct, Scale from ${c.min}%)`:'Accuracy (% Correct)';
-  groupLabel(c.group);
   const fig=document.createElement('figure'); fig.className='dc-card bar-card'+(c.hero?' bar-hero':'');
   fig.innerHTML=`<figcaption><h3 class="h3">${c.title}</h3><p class="sub">${c.sub}</p></figcaption>`+
     mirror(cols,{w:c.hero?1000:520,bwMax:c.hero?96:1e9,cls:'bars-d',label:lab,top:axTop,bottom:'Cost per Task',unit:'%',fmt:centsF,arrow:true,min:c.min,max:c.max})+mirror(cols,{w:400,cls:'bars-m compact',label:lab,top:axTop,bottom:'Cost per Task',unit:'%',fmt:centsF,arrow:true,min:c.min,max:c.max});
@@ -890,7 +889,6 @@ cards.forEach(c=>{
 // DeepResearch Bench I and II (no original-model entry exists)
 
 D.drb.forEach(r=>{
-  groupLabel('Deep Research');
   const fig=document.createElement('figure'); fig.className='dc-card bar-card';
   const cols=r.cols.map(x=>({brand:x.b,brand2:x.b2||'',model:x.m,model2:x.m2||'',score:x.s,cost:x.c,costLabel:x.cl,na:x.na,us:!!x.us}));
   fig.innerHTML=`<figcaption><h3 class="h3">${r.title}</h3><p class="sub">${r.sub}</p></figcaption>`+
