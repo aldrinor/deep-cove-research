@@ -862,7 +862,7 @@ const cards=[   // operator 11-01: highest impact first, then lower impact, then
   {k:'multi',title:'Multi-Step Fact Questions',sub:'FRAMES, 300 Questions'},
   {k:'gaia',title:'Hard Multi-Step Tasks',sub:'GAIA, 127 Text Questions'},
   {k:'filing',title:'Company Filing Questions',sub:'FinanceBench, 150 Questions'},
-  {k:'hle',title:'Expert-Level Exam Questions',sub:"Humanity's Last Exam, 200 Text Questions"},
+  {k:'hle',title:'Expert-Level Exam Questions',sub:"Humanity's Last Exam, 200 Text Questions",min:30,max:70},
 ].filter(c=>D.board[c.k]);
 const ratio=v=>v>=20?Math.round(v/5)*5:v>=10?Math.round(v):Math.round(v*10)/10;
 function claimFor(sc,t){const gap=sc.claude-sc.dc, dc=t.kit_cost.h200, m1=ratio(t.claude/dc), m2=ratio(t.gpt/dc);
@@ -878,9 +878,10 @@ cards.forEach(c=>{
     {brand:'OpenAI',model:'GPT-6 Astra',score:b.gpt,cost:b.gpt_cost},
   ];
   const lab=c.title+': accuracy and cost per task';
+  const axTop=c.min?`Accuracy (% Correct, Scale from ${c.min}%)`:'Accuracy (% Correct)';
   const fig=document.createElement('figure'); fig.className='dc-card bar-card';
   fig.innerHTML=`<figcaption><h3 class="h3">${c.title}</h3><p class="sub">${c.sub}</p></figcaption>`+
-    mirror(cols,{w:520,cls:'bars-d',label:lab,top:'Accuracy (% Correct)',bottom:'Cost per Task',unit:'%',fmt:centsF,arrow:true})+mirror(cols,{w:400,cls:'bars-m compact',label:lab,top:'Accuracy (% Correct)',bottom:'Cost per Task',unit:'%',fmt:centsF,arrow:true});
+    mirror(cols,{w:520,cls:'bars-d',label:lab,top:axTop,bottom:'Cost per Task',unit:'%',fmt:centsF,arrow:true,min:c.min,max:c.max})+mirror(cols,{w:400,cls:'bars-m compact',label:lab,top:axTop,bottom:'Cost per Task',unit:'%',fmt:centsF,arrow:true,min:c.min,max:c.max});
   grid.appendChild(fig);
 });
 // DeepResearch Bench I and II (no original-model entry exists)
