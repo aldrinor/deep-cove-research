@@ -808,7 +808,7 @@ const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const f1=v=>v.toFixed(1);
 
 // Mirrored bar chart in the briefing style: score above the line, cost below.
-function centsF(v){if(v<0.0001)return '<US$0.0001';return 'US$'+(v<1?String(Number(v.toPrecision(v<0.01?1:2))):v.toFixed(2));}
+function centsF(v){if(v<0.0001)return '<US$0.0001';return 'US$'+(v<0.01?v.toPrecision(1):v<1?v.toPrecision(2):v.toFixed(2));}
 function usdF(v){return usd(v);}
 function mirror(cols,opt){
   if((opt.cls||'').includes('compact')) cols=cols.map(c=>c.brand==='Original Model'&&!c.brand2?{...c,brand:'Original',brand2:'Model'}:c);
