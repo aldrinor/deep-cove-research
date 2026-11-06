@@ -912,7 +912,7 @@ g.innerHTML=h+'</tbody></table>';}
 renderMed();
 [['cg-own','own'],['cg-rent','rent']].forEach(([id,m])=>{const el=$(id); if(el) el.addEventListener('click',()=>{ACC.mode=m;['cg-own','cg-rent','mg-own','mg-rent'].forEach(x=>{const e=$(x); if(e) e.setAttribute('aria-pressed',String(x==='cg-'+m||x==='mg-'+m));});renderAcc();if(typeof renderMed==='function')renderMed();});});
 // GAIA score and list price per 1M tokens (data.py MARKET); unscored rows stay hidden.
-const MKT=D.market.rows.filter(r=>r.s!=null||r.show).sort((x,y)=>(y.s==null?-1:y.s)-(x.s==null?-1:x.s));
+const MKT=(()=>{const sc=D.market.rows.filter(r=>r.s!=null).sort((x,y)=>y.s-x.s);D.market.rows.filter(r=>r.s==null&&r.show).forEach(r=>{const i=sc.findIndex(x=>x.m==='GPT-6 Astra');sc.splice(i<0?sc.length:i+1,0,r);});return sc;})();
 function market(opt){
   const W=opt.w, L=opt.l, C=opt.c, R=W-10, rh=opt.rh, top=34, cost=D.cost[S.gpu];
   const rows=[{b:'Deep Cove',m:opt.compact?'Accelerator':'With Deep Cove Accelerator',s:D.market.dc,p:S.price,us:true},...MKT.map(r=>r.same?{...r,m:opt.compact?'No Accelerator':r.m,p:S.price}:r)];
