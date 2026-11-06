@@ -728,17 +728,18 @@ tbody tr:last-child td{border-bottom:none}
 </section>
 
 <style>#med-grid{margin-top:8px}.med-note{margin-top:20px}.med-plain{margin-top:4px;color:var(--dc-text)}@media (max-width:860px){#med-grid{grid-template-columns:1fr}}</style>
+<style>.sbt-wrap{overflow-x:auto;margin-top:8px}.sbt{width:100%;border-collapse:collapse;font-size:.9375rem;font-variant-numeric:tabular-nums lining-nums}.sbt th,.sbt td{padding:12px 10px;border-bottom:1px solid var(--dc-border);text-align:right;vertical-align:top}.sbt th{font-weight:600;color:var(--dc-muted);font-size:.8125rem}.sbt th:first-child,.sbt td:first-child{text-align:left}.sbt td:first-child b{display:block;color:var(--dc-text)}.sbt .sbt-s{display:block;color:var(--dc-muted);font-size:.8125rem;margin-top:2px}.sbt .sbt-p{display:block;color:var(--dc-text);font-size:.8125rem;margin-top:2px;max-width:34rem}.sbt .sbt-us{background:var(--dc-surface-2,rgba(20,90,80,.06))}.sbt td.sbt-us{color:var(--dc-primary)}.sbt .sbt-best{font-weight:700}.sbt .sbt-c{display:block;color:var(--dc-muted);font-size:.8125rem}.sbt .sbt-m{display:block;font-weight:400;font-size:.75rem;color:var(--dc-muted)}@media (max-width:640px){.sbt{font-size:.8125rem}.sbt th,.sbt td{padding:9px 4px}.sbt .sbt-p,.sbt .sbt-s,.sbt .sbt-u{display:none}.sbt .sbt-c,.sbt .sbt-m{font-size:.6875rem}.sbt{table-layout:fixed}.sbt td:first-child,.sbt th:first-child{width:27%}.sbt td{overflow-wrap:anywhere}.sbt th{font-size:.6875rem}.sbt td{font-size:.75rem}.sbt th,.sbt td{padding:8px 3px}}</style>
 <section class="v7-sec" aria-labelledby="h-med"><div class="wrap">
   <div class="v7-head"><h2 class="h2" id="h-med">Medical Benchmarks</h2></div>
-  <div class="acc-tog"><span class="acc-tog-l">Deep Cove cost on</span><div class="gseg" role="group" aria-label="Deep Cove cost basis (medical)"><button type="button" id="mg-own" aria-pressed="true">Own GPU</button><button type="button" id="mg-rent" aria-pressed="false">Rent GPU</button></div></div>
-  <div class="grid2" id="med-grid"></div>
-  <p class="sub med-note">Deep Cove uses live web search, as in the product; pages that publish benchmark answers are blocked. Claude and OpenAI were scored without web search. Doctor Licensing Exam: Claude and OpenAI figures are the top of their published ranges. Cost per task shown where measured.</p>
+  <div id="med-grid" class="sbt-wrap"></div>
+  <p class="sub med-note">Deep Cove uses live web search, as in the product; pages that publish benchmark answers are blocked. Claude and OpenAI were scored without web search. Doctor Licensing Exam: Claude and OpenAI figures are the top of their published ranges. Scores are % correct.</p>
 </div></section>
 
 <section class="v7-sec" aria-labelledby="h-acc"><div class="wrap">
   <div class="v7-head"><h2 class="h2" id="h-acc">Frontier Scores at a Fraction of the Cost</h2></div>
   <div class="acc-tog"><span class="acc-tog-l">Deep Cove cost on</span><div class="gseg" role="group" aria-label="Deep Cove cost basis"><button type="button" id="cg-own" aria-pressed="true">Own GPU</button><button type="button" id="cg-rent" aria-pressed="false">Rent GPU</button></div></div>
   <div class="grid2" id="acc-grid"></div>
+  <p class="sub med-note">Costs in US dollars per task (per report for research). Best score in each row in bold.</p>
   
 </div></section>
 
@@ -876,7 +877,6 @@ const cards=[   // ordered by how well known each test is
   {k:'ioi',title:'Olympiad Coding',sub:'International Olympiad in Informatics · IOI',min:30,max:100,metric:'Score',unit:'',dec:1},
   {k:'brokenarxiv',title:'Research-Level Math Proofs',sub:'ETH Zürich · BrokenArXiv, 53 New Problems',min:40,max:90},
   {k:'apex',title:'Hardest Competition Math',sub:'ETH Zürich · MathArena Apex, 12 Problems',min:50,max:90},
-  {k:'medqa',title:'Medical Licensing Exam',sub:'US Medical Licensing Exam · MedQA, 1,273 Questions',min:90,max:100},
   {k:'vals',title:'Finance Analyst Tasks',sub:'Vals AI · Finance Agent',min:50,max:80},
   {k:'healthbench',title:'Health Advice Graded by Doctors',sub:'OpenAI · HealthBench Professional, 100 Conversations',min:40,max:80,metric:'Rubric Score',unit:'',dec:1},
   {k:'gdpval',title:'Real Work Files Across 44 Jobs',sub:'OpenAI · GDPval',min:1400,max:1900,metric:'Rating (Elo)',unit:'',dec:0},
@@ -891,44 +891,28 @@ const groupLabel=g=>{if(g===lastGroup)return;lastGroup=g;const el=document.creat
 const pc=v=>v==null?null:v;
 const ACC={mode:'own'};
 function renderAcc(){
-const rent=ACC.mode==='rent'; grid.innerHTML=''; lastGroup='';
-cards.forEach(c=>{
-  const b=D.board[c.k];
-  const cols=[
-    {brand:'Deep Cove',model:'Accelerator',score:b.dc,cost:rent?b.dc_cost2:b.dc_cost,us:true},
-    {brand:'DeepSeek',model:b.alone_m||'V4.1',score:b.alone,cost:b.alone_cost},
-    {brand:'Claude',model:b.claude_m||'Opus 5.5',score:b.claude,cost:b.claude_cost},
-    {brand:'OpenAI',model:b.gpt_m||'Sol 6.1',score:b.gpt,cost:b.gpt_cost},
-  ];
-  const lab=c.title+': accuracy and cost per task';
-  const met=(c.metric||'Accuracy (% Correct)').replace(/\)$/,'');
-  const u=c.unit==null?'%':c.unit; const axTop=c.metric?(c.min?`${c.metric} (Scale from ${c.min})`:c.metric):(c.min?`${met}, Scale from ${c.min}%)`:`${met})`);
-  const fig=document.createElement('figure'); fig.className='dc-card bar-card'+(c.hero?' bar-hero':'');
-  fig.innerHTML=`<figcaption><h3 class="h3">${c.title}</h3><p class="sub">${c.sub}</p></figcaption>`+
-    mirror(cols,{w:c.hero?1000:520,bwMax:c.hero?96:72,cls:'bars-d',label:lab,top:axTop,bottom:'Cost per Task',unit:u,dec:c.dec,fmt:centsF,min:c.min,max:c.max})+mirror(cols,{w:400,cls:'bars-m compact',label:lab,top:axTop,bottom:'Cost per Task',unit:u,dec:c.dec,fmt:centsF,min:c.min,max:c.max});
-  grid.appendChild(fig);
-});
-// DeepResearch Bench I and II (no original-model entry exists)
-
-D.drb.forEach(r=>{
-  const fig=document.createElement('figure'); fig.className='dc-card bar-card';
-  const cols=r.cols.map(x=>({brand:x.b,brand2:x.b2||'',model:x.m,model2:x.m2||'',score:x.s,cost:(x.us&&rent)?x.c2:x.c,costLabel:x.cl,na:x.na,us:!!x.us}));
-  fig.innerHTML=`<figcaption><h3 class="h3">${r.title}</h3><p class="sub">${r.sub}</p></figcaption>`+
-    mirror(cols,{w:520,cls:'bars-d',label:r.title,top:`Score (Scale from ${r.min})`,bottom:'Cost per Report',unit:'',fmt:usdF,min:r.min,max:r.max})+mirror(cols,{w:400,cls:'bars-m compact',label:r.title,top:`Score (Scale from ${r.min})`,bottom:'Cost per Report',unit:'',fmt:usdF,min:r.min,max:r.max});
-  grid.appendChild(fig);
-});
-
+const rent=ACC.mode==='rent'; grid.innerHTML=''; grid.className='sbt-wrap';
+const fv=(v,c)=>v==null?'—':(c.unit===''?(c.dec===0?Math.round(v):f1(v)):f1(v)+'%');
+let h='<table class="sbt"><thead><tr><th>Benchmark</th><th class="sbt-us">Deep Cove<span class="sbt-m">Accelerator</span></th><th>DeepSeek<span class="sbt-m">V4.1 alone</span></th><th>Claude</th><th>OpenAI</th></tr></thead><tbody>';
+cards.forEach(c=>{const b=D.board[c.k];
+  const cells=[{s:b.dc,cost:rent?b.dc_cost2:b.dc_cost,us:true},{s:b.alone,cost:b.alone_cost,m:b.alone_m},{s:b.claude,cost:b.claude_cost,m:b.claude_m||'Opus 5.5'},{s:b.gpt,cost:b.gpt_cost,m:b.gpt_m||'Sol 6.1'}];
+  const best=Math.max(...cells.map(x=>x.s).filter(v=>v!=null));
+  h+=`<tr><td><b>${c.title}</b><span class="sbt-s">${c.sub}</span></td>`+cells.map((x,ix)=>`<td class="${x.us?'sbt-us':''}${x.s===best?' sbt-best':''}">${fv(x.s,c)}${x.cost!=null?`<span class="sbt-c">${centsF(x.cost).replace('US$','$')}<span class="sbt-u"> / task</span></span>`:''}${ix>=2&&x.m?`<span class="sbt-m">${x.m}</span>`:''}</td>`).join('')+'</tr>';});
+D.drb.forEach(r=>{const us=r.cols.find(x=>x.us), others=r.cols.filter(x=>!x.us);
+  const cl=others.find(x=>x.b==='Claude'), op=others.find(x=>x.b==='OpenAI');
+  const cells=[{s:us&&us.s,cost:us&&((rent&&us.c2!=null)?us.c2:us.c),us:true},{s:null},{s:cl&&cl.s,cost:cl&&cl.c,m:cl&&cl.m},{s:op&&op.s,cost:op&&op.c,m:op&&op.m}];
+  const best=Math.max(...cells.map(x=>x.s).filter(v=>v!=null));
+  h+=`<tr><td><b>${r.title}</b><span class="sbt-s">${r.sub}</span></td>`+cells.map((x,ix)=>`<td class="${x.us?'sbt-us':''}${x.s!=null&&x.s===best?' sbt-best':''}">${x.s==null?'—':x.s.toFixed(2)}${x.cost!=null?`<span class="sbt-c">${String(usdF(x.cost)).replace('US$','$')}<span class="sbt-u"> / report</span></span>`:''}${ix>=2&&x.m?`<span class="sbt-m">${x.m}</span>`:''}</td>`).join('')+'</tr>';});
+grid.innerHTML=h+'</tbody></table>';
 }
 renderAcc();
-function renderMed(){const g=$('med-grid'); if(!g||!D.med) return; const rent=ACC.mode==='rent'; g.innerHTML='';
-D.med.forEach(r=>{const fig=document.createElement('figure'); fig.className='dc-card bar-card';
-  const cols=r.cols.map(x=>({brand:x.b,model:x.m,model2:x.m2||'',score:x.s,cost:(x.us&&rent&&x.c2!=null)?x.c2:x.c,na:x.na,us:!!x.us}));
-  const lab=r.title+': accuracy and cost per task', top=`Accuracy (% Correct${r.min?', Scale from '+r.min+'%':''})`;
-  fig.innerHTML=`<figcaption><h3 class="h3">${r.title}</h3><p class="sub">${r.sub}</p><p class="sub med-plain">${r.plain}</p></figcaption>`+
-    mirror(cols,{w:520,cls:'bars-d',label:lab,top:top,bottom:'Cost per Task',unit:'%',fmt:centsF,min:r.min,max:r.max})+mirror(cols,{w:400,cls:'bars-m compact',label:lab,top:top,bottom:'Cost per Task',unit:'%',fmt:centsF,min:r.min,max:r.max});
-  g.appendChild(fig);});}
+function renderMed(){const g=$('med-grid'); if(!g||!D.med) return;
+const fmt=v=>v==null?'—':f1(v)+'%';
+let h='<table class="sbt"><thead><tr><th>Benchmark</th><th class="sbt-us">Deep Cove<span class="sbt-m">Accelerator</span></th><th>Claude<span class="sbt-m">Opus 5.5</span></th><th>OpenAI<span class="sbt-m">GPT-6 Astra</span></th></tr></thead><tbody>';
+D.med.forEach(r=>{const sc=r.cols.map(c=>c.s), best=Math.max(...sc.filter(v=>v!=null));
+  h+=`<tr><td><b>${r.title}</b><span class="sbt-s">${r.sub}</span><span class="sbt-p">${r.plain}</span></td>`+r.cols.map(c=>`<td class="${c.us?'sbt-us':''}${c.s===best?' sbt-best':''}">${c.m2&&c.m2.startsWith('published')?c.m2.replace('published, ',''):fmt(c.s)}</td>`).join('')+'</tr>';});
+g.innerHTML=h+'</tbody></table>';}
 renderMed();
-[['mg-own','own'],['mg-rent','rent']].forEach(([id,m])=>{const el=$(id); if(el) el.addEventListener('click',()=>{ACC.mode=m;['mg-own','mg-rent','cg-own','cg-rent'].forEach(x=>{const e=$(x); if(e) e.setAttribute('aria-pressed',String(x===('mg-'+m)||x===('cg-'+m)));});renderAcc();renderMed();});});
 [['cg-own','own'],['cg-rent','rent']].forEach(([id,m])=>{const el=$(id); if(el) el.addEventListener('click',()=>{ACC.mode=m;['cg-own','cg-rent','mg-own','mg-rent'].forEach(x=>{const e=$(x); if(e) e.setAttribute('aria-pressed',String(x==='cg-'+m||x==='mg-'+m));});renderAcc();if(typeof renderMed==='function')renderMed();});});
 // GAIA score and list price per 1M tokens (data.py MARKET); unscored rows stay hidden.
 const MKT=D.market.rows.filter(r=>r.s!=null).sort((x,y)=>y.s-x.s);
