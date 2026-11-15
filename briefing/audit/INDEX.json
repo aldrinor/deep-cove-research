@@ -1,0 +1,98 @@
+[
+ {
+  "slug": "medagentbench-v1",
+  "n": 300,
+  "score": 94.3,
+  "zip_sha256": "5dbec6b2917a8ad3550f834d1b62b7598b5ce41c47478536f8ef179ff0937ecf"
+ },
+ {
+  "slug": "medagentbench-v2",
+  "n": 300,
+  "score": 82.0,
+  "zip_sha256": "51382fa67c65da500db5fdd03da9cedfee47aca602a569d55831e22326bedbf7"
+ },
+ {
+  "slug": "physicianbench",
+  "n": 200,
+  "score": 42.5,
+  "zip_sha256": "ca633ad00d4fcc5d457f5fd16203047ba2a949f9db526f1338b5879c949ea909"
+ },
+ {
+  "slug": "noharm",
+  "n": 330,
+  "score": 80.0,
+  "zip_sha256": "085234e7f8d94d56272d65926840c322861d69930b6490645737e4bf3b513d34"
+ },
+ {
+  "slug": "sct",
+  "n": 174,
+  "score": 72.8,
+  "zip_sha256": "aa8ae441a1ee9a7c5e2061f37d4dbcf848e2068aa3eaa56015a440685f6e4d9d"
+ },
+ {
+  "slug": "healthbench-professional",
+  "n": 525,
+  "score": 61.9,
+  "zip_sha256": "c48f14e4e010d033f6d966957d681761aadedd6b23c634c8c2730885837a34d2"
+ },
+ {
+  "slug": "medqa",
+  "n": 1273,
+  "score": 95.1,
+  "zip_sha256": "cf19cb18254874eca4b8c8e987bf66b5a24738cb7e08f57887d1cd67ef1abfea"
+ },
+ {
+  "slug": "cpc-first-answer-diagnosis",
+  "n": 100,
+  "score": 54.0,
+  "zip_sha256": "3921d3cac5abc48016f1abd071e7ad4385744c028e119afdc888f97cea1931c7"
+ },
+ {
+  "slug": "sdbench",
+  "n": 200,
+  "score": 88.0,
+  "zip_sha256": "c06fca8451fc6b08cd9650a1cda18d94fc48ea085a13af863bf31fbc9951124c"
+ },
+ {
+  "slug": "mast-cpc-images",
+  "n": 337,
+  "score": 81.3,
+  "zip_sha256": "b51a043dc9d9c53e3a0894dad26b528072e133596aebae226da2ee96c006f2cb"
+ },
+ {
+  "slug": "gpqa-diamond",
+  "n": 198,
+  "score": 90.9,
+  "zip_sha256": "917b07d840f3d65ee32372476c81933dfeba04f2a90e2fc0a3ef90188dc721f4"
+ },
+ {
+  "slug": "legalbench",
+  "n": 200,
+  "score": 79.5,
+  "zip_sha256": "e70eff155c10a93ecaf8aa1175f8f23e057125a6e491f8156ffeee43c60b97ea"
+ },
+ {
+  "slug": "brokenarxiv",
+  "n": 53,
+  "score": 88.7,
+  "zip_sha256": "68b88db7771d8827db3f489ab8891623bb90ddef4a705fabd2b8ec7b983aeb31"
+ },
+ {
+  "slug": "vals-finance-agent",
+  "n": 27,
+  "score": 73.8,
+  "zip_sha256": "5f8bbda3b5a5fce17f37ee335833368f7bf4650c9c2ed60d30ef677576a878f0"
+ },
+ {
+  "slug": "medcasereasoning",
+  "n": 150,
+  "score": 63.3,
+  "zip_sha256": "e30f33f4c05bcc1cb65a61d5c426fe39be4f38fe589ec62cf0d1cd2139d4c564"
+ },
+ {
+  "slug": "mast-chest-x-ray",
+  "n": 590,
+  "score": 67.8,
+  "zip_sha256": "a606935141d8974e90702ce5ceeabe516658623fe5af516df99db667a23fe4fa"
+ }
+]
