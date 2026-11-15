@@ -3,96 +3,96 @@
   "slug": "medagentbench-v1",
   "n": 300,
   "score": 94.3,
-  "zip_sha256": "5dbec6b2917a8ad3550f834d1b62b7598b5ce41c47478536f8ef179ff0937ecf"
+  "zip_sha256": "891f732612b90f7d61839ca0d49ffe93675443e507be341459080021a82f9279"
  },
  {
   "slug": "medagentbench-v2",
   "n": 300,
   "score": 82.0,
-  "zip_sha256": "51382fa67c65da500db5fdd03da9cedfee47aca602a569d55831e22326bedbf7"
+  "zip_sha256": "14422bfc12516ca15fbe49cae2f255b871bf123e6515fe5abe65363ad660f8a4"
  },
  {
   "slug": "physicianbench",
   "n": 200,
   "score": 42.5,
-  "zip_sha256": "ca633ad00d4fcc5d457f5fd16203047ba2a949f9db526f1338b5879c949ea909"
+  "zip_sha256": "b1d07bf49be82e57b233d0807d31957a3add03637aff326807e4518b610a59ac"
  },
  {
   "slug": "noharm",
   "n": 330,
   "score": 80.0,
-  "zip_sha256": "085234e7f8d94d56272d65926840c322861d69930b6490645737e4bf3b513d34"
+  "zip_sha256": "6c731587e2dc4888902e64e144759d61ce01d3f092c6ba5c8074eb83e4faa69a"
  },
  {
   "slug": "sct",
   "n": 174,
   "score": 72.8,
-  "zip_sha256": "aa8ae441a1ee9a7c5e2061f37d4dbcf848e2068aa3eaa56015a440685f6e4d9d"
+  "zip_sha256": "fbd2e2e76985feb320a9b8a9438072bcf5133b3e7dd17b8db52eb74154bedb82"
  },
  {
   "slug": "healthbench-professional",
   "n": 525,
   "score": 61.9,
-  "zip_sha256": "c48f14e4e010d033f6d966957d681761aadedd6b23c634c8c2730885837a34d2"
+  "zip_sha256": "4c3ac0f763f70c12a762772aa6c593d48eb70b5d96f88f84f85881518434f42b"
  },
  {
   "slug": "medqa",
   "n": 1273,
   "score": 95.1,
-  "zip_sha256": "cf19cb18254874eca4b8c8e987bf66b5a24738cb7e08f57887d1cd67ef1abfea"
+  "zip_sha256": "772c711c1582928004997be61c1cb36eeea3f333e8e165665ddb7b332ea82175"
  },
  {
   "slug": "cpc-first-answer-diagnosis",
   "n": 100,
   "score": 54.0,
-  "zip_sha256": "3921d3cac5abc48016f1abd071e7ad4385744c028e119afdc888f97cea1931c7"
+  "zip_sha256": "d1053b4f860060d29c810f21057a53d89eda6d6b2252906b6e1da79509de1837"
  },
  {
   "slug": "sdbench",
   "n": 200,
   "score": 88.0,
-  "zip_sha256": "c06fca8451fc6b08cd9650a1cda18d94fc48ea085a13af863bf31fbc9951124c"
+  "zip_sha256": "28f871cbf3315d3b3b967a686ab6c86ef48ce26dc5fd99dc1d9e98b9793104fe"
  },
  {
   "slug": "mast-cpc-images",
   "n": 337,
   "score": 81.3,
-  "zip_sha256": "b51a043dc9d9c53e3a0894dad26b528072e133596aebae226da2ee96c006f2cb"
+  "zip_sha256": "4c49fdd77cb08d4576b304abd26b5fc32b7ff2e19d17942b9141a3da0650d23b"
  },
  {
   "slug": "gpqa-diamond",
   "n": 198,
   "score": 90.9,
-  "zip_sha256": "917b07d840f3d65ee32372476c81933dfeba04f2a90e2fc0a3ef90188dc721f4"
+  "zip_sha256": "13f17b752b7adaaf2acd5eb3ee2cab9bec93143745d76962edd680aa4fca50a3"
  },
  {
   "slug": "legalbench",
   "n": 200,
   "score": 79.5,
-  "zip_sha256": "e70eff155c10a93ecaf8aa1175f8f23e057125a6e491f8156ffeee43c60b97ea"
+  "zip_sha256": "1c1401acd0c09cf3b6c81aa70a2a77c83e9e378d4da5143a73119c7d43db8068"
  },
  {
   "slug": "brokenarxiv",
   "n": 53,
   "score": 88.7,
-  "zip_sha256": "68b88db7771d8827db3f489ab8891623bb90ddef4a705fabd2b8ec7b983aeb31"
+  "zip_sha256": "f1340c00511a2e02e289899ae4dd86ca35a199cd26fe586c5064f3012b5c6340"
  },
  {
   "slug": "vals-finance-agent",
   "n": 27,
   "score": 73.8,
-  "zip_sha256": "5f8bbda3b5a5fce17f37ee335833368f7bf4650c9c2ed60d30ef677576a878f0"
+  "zip_sha256": "820d8b046ad0872267b6896805981780a036942bb4f6a1d5bb2df8ba6b499564"
  },
  {
   "slug": "medcasereasoning",
   "n": 150,
   "score": 63.3,
-  "zip_sha256": "e30f33f4c05bcc1cb65a61d5c426fe39be4f38fe589ec62cf0d1cd2139d4c564"
+  "zip_sha256": "5c1d5524f58643760f730fabb7a168fbef135c02adcc53294a870a4f05b9df06"
  },
  {
   "slug": "mast-chest-x-ray",
   "n": 590,
   "score": 67.8,
-  "zip_sha256": "a606935141d8974e90702ce5ceeabe516658623fe5af516df99db667a23fe4fa"
+  "zip_sha256": "9a01b81a2d52f221484fb30ed919d2568de519b47d2edbd3044137f7e7649f84"
  }
 ]
