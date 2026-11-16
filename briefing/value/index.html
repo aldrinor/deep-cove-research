@@ -4,235 +4,971 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Value for BC Health · Deep Cove</title>
-<meta name="description" content="What Deep Cove returns to BC care in hours, visits and bed-days, from published evidence, and how BC measures it after go-live.">
+<title>Value for BC health: Deep Cove for BC health</title>
+<meta name="description" content="Kit drafts, checks and cites, so BC clinicians spend their time on patients. Five showcases from published evidence show the scale, and BC measures the result.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
-<script>(function(){var r=document.documentElement;if(r.hasAttribute("data-theme"))return;var t=null;try{t=localStorage.getItem("dc-briefing-theme")}catch(e){}if(t==="dark"||t==="light")r.setAttribute("data-theme",t)})();</script>
-<link rel="stylesheet" href="../briefing.css">
+<link rel="stylesheet" href="../assets/tokens.css?v=20261116a">
+<link rel="stylesheet" href="../assets/base.css?v=20261116a">
+<script>try{var t=localStorage.getItem('dc-briefing-theme');if(t==='day'||t==='night')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
-<body>
-<a class="skip" href="#main">Skip to Content</a>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <marker id="ah-acc" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
-      <path class="ah-acc" d="M0 0.8 L9 5 L0 9.2 Z" style="fill:var(--accent-line)"/>
-    </marker>
-    <marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
-      <path d="M0 0.8 L9 5 L0 9.2 Z" style="fill:var(--rival-1)"/>
-    </marker>
-  </defs>
-</svg>
-
-<header class="site-head">
-  <div class="wrap head-row">
-    <div class="head-left">
-      <a class="brand" href="../index.html" aria-label="Deep Cove Intelligence, briefing overview"><svg class="mark" viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6.2 3.6A7.4 7.4 0 1 0 13.8 3.6"/><path d="M6.4 13.2c1.2-.9 2.4-.9 3.6 0s2.4.9 3.6 0"/></svg>Deep Cove Intelligence</a>
-      <span class="head-tag">Briefing for BC Health</span>
-    </div>
-    <div class="head-tools">
-      <details class="menu">
-        <summary><span class="lbl">Pages</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary>
-        <nav class="menu-panel" aria-label="Briefing pages"><div class="wrap"><ol><li><a href="../index.html"><span class="n">01</span>Overview</a></li><li><a href="../performance/index.html"><span class="n">02</span>Performance and Audit</a></li><li><a href="../security/index.html"><span class="n">03</span>Security and Architecture</a></li><li><a href="../privacy/index.html"><span class="n">04</span>Privacy and Governance</a></li><li><a href="../investment/index.html"><span class="n">05</span>Investment</a></li><li><a href="../value/index.html" aria-current="page"><span class="n">06</span>Value for BC Health</a></li></ol></div></nav>
-      </details>
-      <button type="button" class="icon-btn" id="theme" aria-label="Switch to dark theme">
-        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
-      </button>
-    </div>
-  </div>
-  <nav class="pagenav" aria-label="Briefing pages"><div class="wrap"><ol><li><a href="../index.html"><span class="n">01</span>Overview</a></li><li><a href="../performance/index.html"><span class="n">02</span>Performance and Audit</a></li><li><a href="../security/index.html"><span class="n">03</span>Security and Architecture</a></li><li><a href="../privacy/index.html"><span class="n">04</span>Privacy and Governance</a></li><li><a href="../investment/index.html"><span class="n">05</span>Investment</a></li><li><a href="../value/index.html" aria-current="page"><span class="n">06</span>Value for BC Health</a></li></ol></div></nav>
+<body class="page-value">
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+<div class="wrap site-header-row">
+<a class="brand" href="../"><svg class="mark" viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6.2 3.6A7.4 7.4 0 1 0 13.8 3.6"/><path d="M6.4 13.2c1.2-.9 2.4-.9 3.6 0s2.4.9 3.6 0"/></svg><span class="brand-name">Deep Cove Intelligence</span><span class="brand-sub">Briefing for BC health</span></a>
+<nav class="site-nav" aria-label="Pages"><a href="../">Overview</a><a href="../performance/">Performance</a><a href="../security/">Security</a><a href="../privacy/">Privacy</a><a href="../investment/">Investment</a><a href="../value/" aria-current="page">Value</a></nav>
+<details class="nav-menu"><summary>Pages</summary><nav aria-label="Pages, menu"><a href="../">Overview</a><a href="../performance/">Performance</a><a href="../security/">Security</a><a href="../privacy/">Privacy</a><a href="../investment/">Investment</a><a href="../value/" aria-current="page">Value</a></nav></details>
+<div class="theme" role="group" aria-label="Colour theme"><button type="button" data-theme-set="day" aria-pressed="false">Day</button><button type="button" data-theme-set="night" aria-pressed="false">Night</button></div>
+</div>
 </header>
+<main id="content">
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div class="hero-text">
+<h1>Time back for care. Rural BC first.</h1>
+<p class="lead">Kit drafts, checks and cites, so BC clinicians spend their time on patients. Five showcases from published evidence show the scale in hours, visits and bed-days. BC measures the result after go-live.</p>
+<p class="actions"><a class="btn" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20briefing%20pack">Request the briefing pack</a><a class="btn btn--quiet" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20technical%20session">Book a technical session</a></p>
+</div>
+<div class="hero-fig">
+<figure class="fig fig--has-wide" id="chart-physicians"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 297" role="img" aria-labelledby="chart-physicians-wide-t chart-physicians-wide-td" data-fig="chart-physicians-wide">
+<title id="chart-physicians-wide-t">Kit Think, the newest rival models and physicians on the two boards that measured physicians</title>
+<desc id="chart-physicians-wide-td">Dot plot, two rows, score out of 100.</desc>
+<text x="4.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Benchmark</text>
+<circle cx="328.0" cy="15.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="340.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Kit Think</text>
+<rect x="405.0" y="10.0" width="10" height="10" rx="1.5" style="fill:var(--water)"/>
+<text x="422.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Anthropic</text>
+<polygon points="526.0,9.6 532.0,20.4 520.0,20.4" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<text x="538.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">OpenAI</text>
+<line x1="170.0" y1="36.0" x2="170.0" y2="211.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="170.0" y="231.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">0</text>
+<line x1="205.0" y1="36.0" x2="205.0" y2="211.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="205.0" y="231.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">25</text>
+<line x1="240.0" y1="36.0" x2="240.0" y2="211.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="240.0" y="231.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">50</text>
+<line x1="275.0" y1="36.0" x2="275.0" y2="211.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="275.0" y="231.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">75</text>
+<line x1="310.0" y1="36.0" x2="310.0" y2="211.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="310.0" y="231.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">100</text>
+<text x="4.0" y="231.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Score out of 100</text>
+<line x1="4.0" y1="34.0" x2="636.0" y2="34.0" style="stroke:var(--ink);stroke-width:1.5;stroke-linecap:round"/>
+<text x="4.0" y="60.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">NOHARM</text>
+<text x="4.0" y="77.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Safety of</text>
+<text x="4.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">recommendations</text>
+<line x1="229.1" y1="56.0" x2="282.0" y2="56.0" style="stroke:var(--sounding);stroke-width:1.5;stroke-linecap:round"/>
+<circle cx="229.1" cy="56.0" r="8" style="fill:var(--paper)"/>
+<circle cx="229.1" cy="56.0" r="6" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<polygon points="281.6,47.0 290.6,56.0 281.6,65.0 272.6,56.0" style="fill:var(--paper)"/>
+<polygon points="281.6,49.5 288.1,56.0 281.6,62.5 275.1,56.0" style="fill:var(--sounding)"/>
+<rect x="266.9" y="48.5" width="15" height="15" style="fill:var(--paper)"/>
+<rect x="268.9" y="50.5" width="11" height="11" rx="1.5" style="fill:var(--water)"/>
+<polygon points="268.1,47.6 277.1,63.4 259.1,63.4" style="fill:var(--paper)"/>
+<polygon points="268.1,50.1 274.6,61.9 261.6,61.9" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<circle cx="282.0" cy="56.0" r="9" style="fill:var(--paper)"/>
+<circle cx="282.0" cy="56.0" r="7" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="340.0" y="61.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">80.0</text>
+<text x="404.0" y="61.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">74.6</text>
+<text x="444.0" y="61.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Opus 5</text>
+<text x="520.0" y="61.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">70.1</text>
+<text x="560.0" y="61.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">GPT-5.6 Sol</text>
+<polygon points="409.0,67.5 414.5,73.0 409.0,78.5 403.5,73.0" style="fill:var(--sounding)"/>
+<text x="420.0" y="78.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">79.7</text>
+<text x="454.0" y="78.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Muse Spark 1.1</text>
+<circle cx="10.0" cy="107.0" r="5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="22.0" y="112.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Physicians 42.2</text>
+<line x1="4.0" y1="119.0" x2="636.0" y2="119.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="4.0" y="138.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">HealthBench</text>
+<text x="4.0" y="155.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">Professional</text>
+<text x="4.0" y="172.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Physician-graded</text>
+<text x="4.0" y="189.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">conversations</text>
+<line x1="231.2" y1="134.0" x2="265.3" y2="134.0" style="stroke:var(--sounding);stroke-width:1.5;stroke-linecap:round"/>
+<circle cx="231.2" cy="134.0" r="8" style="fill:var(--paper)"/>
+<circle cx="231.2" cy="134.0" r="6" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<rect x="257.8" y="126.5" width="15" height="15" style="fill:var(--paper)"/>
+<rect x="259.8" y="128.5" width="11" height="11" rx="1.5" style="fill:var(--water)"/>
+<polygon points="262.4,125.7 271.4,141.3 253.4,141.3" style="fill:var(--paper)"/>
+<polygon points="262.4,128.2 268.9,139.8 255.9,139.8" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<circle cx="256.7" cy="134.0" r="9" style="fill:var(--paper)"/>
+<circle cx="256.7" cy="134.0" r="7" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="340.0" y="139.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">61.9</text>
+<text x="404.0" y="139.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">68.1</text>
+<text x="444.0" y="139.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Fable 5.2</text>
+<text x="520.0" y="139.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">66.0</text>
+<text x="560.0" y="139.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">GPT-6 Astra</text>
+<circle cx="10.0" cy="202.0" r="5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="22.0" y="207.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Physicians 43.7</text>
+<text x="4.0" y="273.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Blue marks: the newest model from each maker with a published score, or our run on the same items. Grey</text>
+<text x="4.0" y="290.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">diamond: the highest published score by any model, where it is higher.</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 410" role="img" aria-labelledby="chart-physicians-phone-t chart-physicians-phone-td" data-fig="chart-physicians-phone">
+<title id="chart-physicians-phone-t">Kit Think, the newest rival models and physicians on the two boards that measured physicians</title>
+<desc id="chart-physicians-phone-td">Dot plot, two rows, score out of 100.</desc>
+<circle cx="12.0" cy="15.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="24.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Kit Think</text>
+<rect x="97.0" y="10.0" width="10" height="10" rx="1.5" style="fill:var(--water)"/>
+<text x="114.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Anthropic</text>
+<polygon points="192.0,9.6 198.0,20.4 186.0,20.4" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<text x="204.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">OpenAI</text>
+<circle cx="268.0" cy="15.0" r="5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="280.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Physicians</text>
+<text x="10.0" y="48.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">0</text>
+<text x="92.5" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">25</text>
+<text x="175.0" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">50</text>
+<text x="257.5" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">75</text>
+<text x="340.0" y="48.0" text-anchor="end" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">100</text>
+<text x="6.0" y="78.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">NOHARM</text>
+<text x="6.0" y="95.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Safety of recommendations</text>
+<line x1="10.0" y1="118.0" x2="340.0" y2="118.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="10.0" y1="114.0" x2="10.0" y2="122.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="92.5" y1="114.0" x2="92.5" y2="122.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="175.0" y1="114.0" x2="175.0" y2="122.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="257.5" y1="114.0" x2="257.5" y2="122.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="340.0" y1="114.0" x2="340.0" y2="122.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="149.3" y1="118.0" x2="274.0" y2="118.0" style="stroke:var(--sounding);stroke-width:1.5;stroke-linecap:round"/>
+<circle cx="149.3" cy="118.0" r="8" style="fill:var(--paper)"/>
+<circle cx="149.3" cy="118.0" r="6" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<polygon points="273.0,109.0 282.0,118.0 273.0,127.0 264.0,118.0" style="fill:var(--paper)"/>
+<polygon points="273.0,111.5 279.5,118.0 273.0,124.5 266.5,118.0" style="fill:var(--sounding)"/>
+<rect x="248.7" y="110.5" width="15" height="15" style="fill:var(--paper)"/>
+<rect x="250.7" y="112.5" width="11" height="11" rx="1.5" style="fill:var(--water)"/>
+<polygon points="241.3,109.7 250.3,125.3 232.3,125.3" style="fill:var(--paper)"/>
+<polygon points="241.3,112.2 247.8,123.8 234.8,123.8" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<circle cx="274.0" cy="118.0" r="9" style="fill:var(--paper)"/>
+<circle cx="274.0" cy="118.0" r="7" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<circle cx="12.0" cy="139.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="22.0" y="144.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">80.0</text>
+<rect x="79.0" y="134.0" width="10" height="10" rx="1.5" style="fill:var(--water)"/>
+<text x="94.0" y="144.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">74.6</text>
+<text x="128.0" y="144.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Opus 5</text>
+<polygon points="208.0,133.6 214.0,144.4 202.0,144.4" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<text x="218.0" y="144.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">70.1</text>
+<text x="252.0" y="144.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">GPT-5.6 Sol</text>
+<circle cx="12.0" cy="159.0" r="5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="22.0" y="164.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">42.2</text>
+<text x="56.0" y="164.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">physicians</text>
+<polygon points="12.0,173.5 17.5,179.0 12.0,184.5 6.5,179.0" style="fill:var(--sounding)"/>
+<text x="22.0" y="184.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">79.7</text>
+<text x="56.0" y="184.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Muse Spark 1.1</text>
+<line x1="6.0" y1="191.0" x2="346.0" y2="191.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="6.0" y="210.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">HealthBench Professional</text>
+<text x="6.0" y="227.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Physician-graded conversations</text>
+<line x1="10.0" y1="250.0" x2="340.0" y2="250.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="10.0" y1="246.0" x2="10.0" y2="254.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="92.5" y1="246.0" x2="92.5" y2="254.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="175.0" y1="246.0" x2="175.0" y2="254.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="257.5" y1="246.0" x2="257.5" y2="254.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="340.0" y1="246.0" x2="340.0" y2="254.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<line x1="154.2" y1="250.0" x2="234.7" y2="250.0" style="stroke:var(--sounding);stroke-width:1.5;stroke-linecap:round"/>
+<circle cx="154.2" cy="250.0" r="8" style="fill:var(--paper)"/>
+<circle cx="154.2" cy="250.0" r="6" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<rect x="227.2" y="242.5" width="15" height="15" style="fill:var(--paper)"/>
+<rect x="229.2" y="244.5" width="11" height="11" rx="1.5" style="fill:var(--water)"/>
+<polygon points="227.8,241.7 236.8,257.4 218.8,257.4" style="fill:var(--paper)"/>
+<polygon points="227.8,244.2 234.3,255.8 221.3,255.8" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<circle cx="214.3" cy="250.0" r="9" style="fill:var(--paper)"/>
+<circle cx="214.3" cy="250.0" r="7" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<circle cx="12.0" cy="271.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="22.0" y="276.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">61.9</text>
+<rect x="79.0" y="266.0" width="10" height="10" rx="1.5" style="fill:var(--water)"/>
+<text x="94.0" y="276.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">68.1</text>
+<text x="128.0" y="276.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">Fable 5.2</text>
+<polygon points="208.0,265.6 214.0,276.4 202.0,276.4" style="fill:var(--water);stroke:var(--water);stroke-width:1;stroke-linejoin:round"/>
+<text x="218.0" y="276.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">66.0</text>
+<text x="252.0" y="276.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">GPT-6 Astra</text>
+<circle cx="12.0" cy="291.0" r="5" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="22.0" y="296.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">43.7</text>
+<text x="56.0" y="296.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:400;fill:var(--sounding)">physicians</text>
+<text x="6.0" y="336.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Score out of 100</text>
+<text x="6.0" y="352.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Blue marks: the newest model from each maker with a</text>
+<text x="6.0" y="369.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">published score, or our run on the same items. Grey</text>
+<text x="6.0" y="386.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">diamond: the highest published score by any model,</text>
+<text x="6.0" y="403.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">where it is higher.</text>
+</svg>
+</div></div><div class="visually-hidden"><table><caption>Kit Think, rival models and physicians on NOHARM and HealthBench Professional</caption><thead><tr><th>Benchmark</th><th>Kit Think</th><th>Anthropic</th><th>OpenAI</th><th>Physicians</th></tr></thead><tbody>
+<tr><th>NOHARM: Safety of recommendations (highest published model score: Muse Spark 1.1 79.7)</th><td>80.0</td><td>Opus 5 74.6</td><td>GPT-5.6 Sol 70.1</td><td>42.2</td></tr>
+<tr><th>HealthBench Professional: Physician-graded conversations</th><td>61.9</td><td>Fable 5.2 68.1</td><td>GPT-6 Astra 66.0</td><td>43.7</td></tr></tbody></table></div>
+<figcaption><b>Figure 1.</b> Kit, the newest rival models and the published physician baselines on the two boards that measured physicians. NOHARM: Kit 80.0, 101 US physicians 42.2. HealthBench Professional: Kit 61.9, specialist physicians 43.7. The conditions differ; see the notes at the foot of the page.</figcaption></figure>
+<p style="margin-top:var(--s2)">Kit also scores 94.3 on MedAgentBench v1 (300 clinical tasks in a health record) and 72.8 on SCT (174 items of reasoning under uncertainty). <a class="link" href="../performance/">See every result and audit pack</a></p>
+</div>
+</div>
+</div>
+</section>
 
-<main id="main">
-<section class="hero solo" aria-labelledby="hero-h"><div class="wrap"><div class="hero-grid"><div class="hero-copy"><p class="eyebrow"><span class="num">06</span> Value for BC Health · Rural Clinicians First</p><h1 class="display" id="hero-h">Time Back for Care.<span class="second">Rural BC First.</span></h1><p class="hero-sub"><strong>Kit drafts, checks and cites, so BC clinicians spend their time on patients.</strong> Five showcases from published evidence show the scale in hours, visits and bed-days, and BC measures the result after go-live.</p><div class="btn-row"><a class="btn btn-primary" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20briefing%20pack">Request the briefing pack <span class="arrow" aria-hidden="true">→</span></a><a class="btn btn-secondary" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20technical%20session">Book a technical session</a></div></div><dl class="proof"><div class="tile"><dt class="sr-only">Clinical Safety of Recommendations, 330 Cases</dt><dd><p class="fig kit tnum">80.0</p><p class="label">Clinical Safety of Recommendations, 330 Cases</p><p class="src">Kit · audited · NOHARM · 101 US physicians scored 42.2</p></dd></div><div class="tile"><dt class="sr-only">Physician-Graded Clinical Conversations, 525 Tasks</dt><dd><p class="fig kit tnum">61.9</p><p class="label">Physician-Graded Clinical Conversations, 525 Tasks</p><p class="src">Kit · audited · HealthBench Professional · specialist physicians 43.7</p></dd></div><div class="tile"><dt class="sr-only">Clinical Tasks in a Health Record, 300 Tasks</dt><dd><p class="fig kit tnum">94.3</p><p class="label">Clinical Tasks in a Health Record, 300 Tasks</p><p class="src">Kit · audited · MedAgentBench v1</p></dd></div><div class="tile"><dt class="sr-only">Reasoning under Uncertainty, 174 Items</dt><dd><p class="fig kit tnum">72.8</p><p class="label">Reasoning under Uncertainty, 174 Items</p><p class="src">Kit · audited · SCT, against expert panels</p></dd></div></dl></div><div class="links-row"><a class="link-more" href="../performance/index.html">See every result and audit pack <span aria-hidden="true">→</span></a></div></div></section><section class="section" id="need" aria-labelledby="need-h"><div class="wrap"><div class="sec-head"><h2 class="h2 h2-num" id="need-h"><span class="n">1</span><span>BC has named the target.</span></h2></div><div class="article"><p class="two-tone lg"><strong>BC Budget 2026 commits to “responsibly deploy artificial intelligence (AI) … reducing the time that care providers need to spend on administrative tasks.”</strong> The Ministry of Health budget is C$36.1 billion in 2026/27, 36.6% of provincial spending. Kit is built for that line: it gives time back to the people who give care.<sup class='fn'>1</sup></p></div><dl class="proof three"><div class="tile"><dt class="sr-only">Lost by Canadian Physicians to Red Tape Each Year</dt><dd><p class="fig tnum">20M<span class='unit'>hours</span></p><p class="label">Lost by Canadian Physicians to Red Tape Each Year</p><p class="src">Equal to 9,093 full-time physicians ²</p></dd></div><div class="tile"><dt class="sr-only">British Columbians in Rural Areas</dt><dd><p class="fig tnum">12.7%</p><p class="label">British Columbians in Rural Areas</p><p class="src">More than 200 rural, remote and Indigenous communities work with limited health care resources ³</p></dd></div><div class="tile"><dt class="sr-only">BC Adults Waiting 6 Months or More for a Specialist</dt><dd><p class="fig tnum">18.8%</p><p class="label">BC Adults Waiting 6 Months or More for a Specialist</p><p class="src">67.6% said the wait affected their life (2024) ⁴</p></dd></div></dl><ol class="notes"><li><span class="fnn">1</span>BC Budget and Fiscal Plan 2026/27–2028/29, p. 14 (AI sentence) and Table 1.3, p. 38 (Ministry of Health C$36,116 million of C$98.8 billion total expense).</li><li><span class="fnn">2</span>Canadian Medical Association and Canadian Federation of Independent Business, <i>Patients Before Paperwork</i>, January 2026.</li><li><span class="fnn">3</span>Statistics Canada Table 98-10-0008, 2021 Census: 634,976 of 5,000,879. Novak Lauscher et al., JMIR 2023.</li><li><span class="fnn">4</span>Statistics Canada Table 13-10-0961.</li></ol></div></section><section class="section sunk" id="showcases" aria-labelledby="shows-h"><div class="wrap"><div class="sec-head"><h2 class="h2 h2-num" id="shows-h"><span class="n">2</span><span>Five Showcases, Each with Its Source</span></h2><p class="lead">Each showcase pairs a BC need with what Kit does, the published evidence for that kind of work and Kit's own measured result. Physical units lead, dollars sit in the notes, and every input is listed in the Expert Detail at the foot of the page.</p></div><div class="shows"><article class="show wide"><p class="role">Rural and Remote Teams · Estimate, Inputs Shown</p><p class="hl">Estimated: about 1,000 <span>rural emergency visits avoided a year</span></p><h3>Support at 2 a.m. for Every Rural Health Centre</h3><dl><div><dt>The Need in BC</dt><dd>More than 200 rural, remote and Indigenous communities work with limited health care resources and isolated clinicians. BC's virtual physicians have covered overnight emergency departments to prevent diversions in 12 communities.</dd></div><div><dt>What Kit does</dt><dd>A remote nurse or rural physician asks Kit Think Medical. Kit puts red flags first, lists what must not be missed, gives the BC-guideline next steps, checks weight-based doses in code and states the transfer criteria. It then drafts a one-page case summary for the call to Real-Time Virtual Support or the transport team. Kit adds to BC's virtual physician networks. It does not replace them.</dd></div><div><dt>Published Evidence</dt><dd>Adding virtual physicians to BC's 8-1-1 line meant 16.14 fewer emergency visits per 1,000 callers within 30 days, across 445,630 users (Cressman et al., npj Digital Medicine, 2025). In BC's urgent virtual support, 76% of encounters supported nurses at rural health centres (Ho et al., CMAJ, 2025).</dd></div><div><dt class="kit">Kit's Measured Result</dt><dd>On NOHARM, the safety of clinical recommendations, Kit scores 80.0 over 330 cases; 101 US physicians using conventional resources scored 42.2. On Script Concordance Testing, reasoning under uncertainty judged against expert panels, Kit scores 72.8 over 174 items.</dd></div></dl><p class="est"><span class="k">Illustrative Estimate · Inputs Shown</span>634,976 rural residents × 10% with one Kit-supported advice contact a year × 16.14 emergency visits avoided per 1,000 contacts = about 1,025. This assumes a Kit-supported contact matches the 8-1-1 virtual-physician effect: the 16.14 per 1,000 was measured for virtual physicians, not for an AI tool, and BC replaces it with its own measured rate after go-live.</p><p class="fnote">About C$0.52 million a year at C$504 per emergency visit, the cost used in BC's own 8-1-1 evaluation. The larger rural value is not in dollars: clinicians supported where they work, and transfers decided on clear criteria.</p></article><article class="show"><p class="role">Physicians · Estimate, Inputs Shown</p><p class="hl">Estimated: about 275,000 <span>physician hours a year, about 1.1 million 15-minute visit slots</span></p><h3>Less Paperwork, More Patients</h3><dl><div><dt>The Need in BC</dt><dd>BC has 8,263 family physicians. Canadian physicians lose 20 million hours a year to red tape, equal to 9,093 full-time physicians.</dd></div><div><dt>What Kit does</dt><dd>After a visit, Kit drafts the chart note in the clinic's template, plain-language instructions for the patient and any referral letter, from the physician's own summary or the clinic's existing transcript. For a referral, the Records Librarian gathers the labs, reports and medication history, read-only and within the physician's own access rights. The physician edits and signs.</dd></div><div><dt>Published Evidence</dt><dd>Across 1,637,227 encounters and 902 clinicians in 14 hospitals, AI documentation cut note time by 1.21 minutes per encounter (Booth et al., Annals of Internal Medicine, 2026). In a randomized trial of 238 physicians, one AI scribe cut time-in-note by 9.5% (Lukac et al., NEJM AI, 2025).</dd></div><div><dt class="kit">Kit's Measured Result</dt><dd>On HealthBench Professional, physician-graded clinical conversations, Kit scores 61.9 over 525 tasks; specialist physicians scored 43.7. The newest frontier models score higher on this board: Anthropic's Fable 5.2 68.1 and OpenAI's GPT-6 Astra 66.0, in independent evaluations by Artificial Analysis. On MedAgentBench v1, Kit completes 94.3% of 300 clinical tasks in an electronic health record.</dd></div></dl><p class="est"><span class="k">Illustrative Estimate · Inputs Shown</span>8,263 family physicians × 50% using Kit × 20 visits a day × 200 clinic days × 1 minute saved ÷ 60 = about 275,433 hours; × 4 = about 1.1 million 15-minute visit slots</p><p class="fnote">About C$57.1 million of physician capacity a year at C$207.42 an hour (CIHI average gross clinical payment of C$414,845 per BC physician ÷ 2,000 hours). Specialists are not counted.</p></article><article class="show"><p class="role">Nurses · Estimate, Inputs Shown</p><p class="hl">Estimated: about 769,000 <span>nurse hours a year, about 395 full-time nurses</span></p><h3>Nurses at the Bedside, Not the Keyboard</h3><dl><div><dt>The Need in BC</dt><dd>BC has 62,538 regulated nurses and is the first jurisdiction in Canada to roll out minimum nurse-to-patient ratios. In a 36-hospital time-and-motion analysis of 767 nurses, documentation took 35.3% of nursing-practice time.</dd></div><div><dt>What Kit does</dt><dd>Kit drafts the SBAR shift handover from the nurse's notes, writes discharge teaching in plain language and in the patient's language, checks the medication list against the order and answers protocol questions with a source. The nurse reviews, edits and charts.</dd></div><div><dt>Published Evidence</dt><dd>With AI drafting, outpatient letters went from 7.9 days to 14 minutes to finalize (median; 131 clinicians including 6 nurse practitioners; Journal of Paediatrics and Child Health, 2026).</dd></div><div><dt class="kit">Kit's Measured Result</dt><dd>On NOHARM, Kit scores 80.0. On MedAgentBench v2, advanced electronic health record tasks, Kit scores 82.0 over 300 tasks; the highest model on the MAST board scores 74.1 (Opus 4.6).</dd></div></dl><p class="est"><span class="k">Illustrative Estimate · Inputs Shown</span>61,547 RNs, LPNs and RPNs × 50% using Kit × 150 shifts a year × 10 minutes saved ÷ 60 = about 769,338 hours ÷ 1,950 hours per full-time nurse = about 395</p><p class="fnote">About C$39.6 million of nursing time a year at C$51.41 an hour (Statistics Canada, BC 2025 average, nursing and allied health professionals). Ten minutes is 6.8% of the 147.5 documentation minutes measured in the 36-hospital analysis.</p></article><article class="show"><p class="role">Patients · Estimate, Inputs Shown</p><p class="hl">Estimated: about 3,200 <span>emergency visits moved to primary care a year, at neutral total cost</span></p><h3>Clear Next Steps at Any Hour</h3><dl><div><dt>The Need in BC</dt><dd>29% of BC respondents had no regular family doctor or nurse practitioner in 2022. HealthLink BC 8-1-1 nurses answer around the clock; its physicians answer from 9 a.m. to 11 p.m.</dd></div><div><dt>What Kit does</dt><dd>Kit supports the licensed nurses and physicians who answer patients. When the words describe an emergency, fixed code puts the 9-1-1, poison-centre or 9-8-8 instruction first, before any AI text. Otherwise Kit gives the nurse sourced options to discuss: care at home, 8-1-1, a pharmacist, an urgent and primary care centre or the emergency department. The nurse decides and advises. Kit drafts a plain summary the patient brings to the visit.</dd></div><div><dt>Published Evidence</dt><dd>BC's 8-1-1 virtual physicians meant 16.14 fewer emergency visits and 106.14 more primary-care visits per 1,000 users within 30 days, with health-system costs neutral over a year (Cressman et al., npj Digital Medicine, 2025). Of 1,834 callers advised home treatment, none died (CMAJ Open, 2023).</dd></div><div><dt class="kit">Kit's Measured Result</dt><dd>On today's service, 312 of 312 BC medical test questions went to Kit Think Medical (11–15 November 2026), and 56 of 56 emergency test answers named 9-1-1 in their opening (13–15 November 2026).</dd></div><div><dt>Trust Line</dt><dd>84% of Canadians surveyed would not use a virtual care service that sold their de-identified health data. Patient records are never sold and never used to train any model.</dd></div></dl><p class="est"><span class="k">Illustrative Estimate · Inputs Shown</span>200,000 patient contacts a year supported by Kit (4% of BC's 5,000,879 people) × 16.14 emergency visits redirected per 1,000 = 3,228; plus 21,228 primary-care follow-ups at 106.14 per 1,000</p><p class="fnote">The redirected visits equal about C$1.63 million of emergency-department cost at C$504 a visit. BC's own evidence shows the shift is cost-neutral overall: the value is the right care in the right place.</p></article><article class="show"><p class="role">Safety Net · Estimate, Inputs Shown</p><p class="hl">Estimated: about 2,800 <span>hospital bed-days a year, about 7.7 beds open all year</span></p><h3>A Safety Net for Every Prescription and Diagnosis</h3><dl><div><dt>The Need in BC</dt><dd>Canadian hospitals recorded 7.5 adverse events per 100 admissions, and 36.9% were preventable; BC hospitals were in the sample. In the NOHARM evaluation, omissions made up more than 80% of severe errors.</dd></div><div><dt>What Kit does</dt><dd>Before an order is signed or a diagnosis is final, Kit lists what is missing: a monitoring lab, a contraindication, a renal dose adjustment, an interaction, a diagnosis that must not be missed. It shows a short checklist with BC or Canadian sources, not an essay, because the NOHARM authors found that “AI-assisted physicians frequently omitted valuable AI-generated recommendations.”</dd></div><div><dt>Published Evidence</dt><dd>Across 25 published reports and 44,640 participants, computerized decision support cut potentially inappropriate prescribing for older emergency patients by 40% (JAMA Network Open, 2025). In 39,849 primary-care visits at 15 clinics in Nairobi, clinicians with an AI consult tool made 16% fewer diagnostic errors and 13% fewer treatment errors (Korom et al., 2025).</dd></div><div><dt class="kit">Kit's Measured Result</dt><dd>On NOHARM, Kit scores 80.0 over 330 cases. The highest general-purpose model on the public NOHARM board scores 79.7 (Muse Spark 1.1), and 101 US physicians scored 42.2.</dd></div></dl><p class="est"><span class="k">Illustrative Estimate · Inputs Shown</span>70,000 potentially preventable adverse events a year in Canada × BC's 13.5% population share = 9,463 × 5% prevented with Kit = about 473 × 5.96 extra hospital days each = about 2,820 bed-days ÷ 365 = about 7.7 beds</p><p class="fnote">No dollar value is given, because no sourced BC cost per bed-day is used. The adverse-event rates come from fiscal-2000 hospital charts and set the scale only. The 5% input sits well below the 13% and 16% error reductions measured in Nairobi.</p></article></div><div class="article block-sm"><p class="two-tone lg"><strong>This is capacity returned to care, not a budget cut.</strong> Freed time becomes more visits, faster handovers and safer orders. Physician and nurse capacity together come to about C$96.7 million a year, 0.27% of BC's C$36.1 billion 2026/27 health budget. BC replaces every input above with its own data at go-live, and the quarterly measures below track the result.</p></div></div></section><section class="section" id="rural-path" aria-labelledby="path-h"><div class="wrap"><div class="sec-head"><h2 class="h2 h2-num" id="path-h"><span class="n">3</span><span>A Rural Clinician's Question, End to End</span></h2><p class="lead">One question from a remote health centre, followed from the moment it is typed to the decision.</p></div><figure class="figure flush" id="fig-rural" aria-labelledby="fig-rural-cap"><div class="canvas"><div class="fig-d"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 230" width="100%" style="max-width:1000px;height:auto;display:block" role="img" aria-labelledby="dcf5-title dcf5-desc"><title id="dcf5-title">A rural clinician's question, end to end</title><desc id="dcf5-desc">Three steps. 1, question at a rural site: a clinician at a rural clinic asks Kit; the question travels encrypted on the health authority's private network to the regional Deep Cove in a BC health-authority facility, never on the public internet. 2, sourced answer: Kit answers with its sources, including BC resources such as HealthLink BC 8-1-1, BC Guidelines and BCCDC (dashed source boxes). 3, the clinician decides: back at the rural clinic, the clinician reviews the sources, decides and records the decision in the patient's chart.</desc><style>.dcf-m{font-family:var(--mono, "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace)}.dcf-sans{font-family:var(--sans, Inter, "Helvetica Neue", Arial, system-ui, sans-serif)}.dcf-serif{font-family:var(--serif, "Source Serif 4", Newsreader, Georgia, "DejaVu Serif", serif)}.dcf-none{fill:none}.dcf-b{font-weight:600}.dcf-num{font-variant-numeric:tabular-nums}.dcf-ink{fill:var(--ink,#1A1F24)}.dcf-sink{stroke:var(--ink,#1A1F24)}.dcf-ink2{fill:var(--ink-2,#5B6670)}.dcf-sink2{stroke:var(--ink-2,#5B6670)}.dcf-rule{fill:var(--rule,#D5D8D3)}.dcf-srule{stroke:var(--rule,#D5D8D3)}.dcf-accent{fill:var(--accent,#1F5E5A)}.dcf-saccent{stroke:var(--accent,#1F5E5A)}.dcf-r1{fill:var(--rival-1,#6E7882)}.dcf-sr1{stroke:var(--rival-1,#6E7882)}.dcf-r2{fill:var(--rival-2,#98A1A9)}.dcf-sr2{stroke:var(--rival-2,#98A1A9)}.dcf-paper{fill:var(--paper,#FAF9F5)}.dcf-spaper{stroke:var(--paper,#FAF9F5)}.dcf-halo{stroke:var(--paper,#FAF9F5);stroke-width:4px;stroke-linejoin:round;paint-order:stroke}.dcf-tint{fill:var(--accent,#1F5E5A);fill-opacity:.11}.dcf-pill{fill:var(--ink-2,#5B6670);fill-opacity:.10}@media (prefers-color-scheme:dark){.dcf-ink{fill:var(--ink,#E8E6E1)}.dcf-sink{stroke:var(--ink,#E8E6E1)}.dcf-ink2{fill:var(--ink-2,#A2ABB3)}.dcf-sink2{stroke:var(--ink-2,#A2ABB3)}.dcf-rule{fill:var(--rule,#353D45)}.dcf-srule{stroke:var(--rule,#353D45)}.dcf-accent{fill:var(--accent,#5CB2A7)}.dcf-saccent{stroke:var(--accent,#5CB2A7)}.dcf-r1{fill:var(--rival-1,#B3BBC2)}.dcf-sr1{stroke:var(--rival-1,#B3BBC2)}.dcf-r2{fill:var(--rival-2,#7F8992)}.dcf-sr2{stroke:var(--rival-2,#7F8992)}.dcf-paper{fill:var(--paper,#12171C)}.dcf-spaper{stroke:var(--paper,#12171C)}.dcf-halo{stroke:var(--paper,#12171C);stroke-width:4px;stroke-linejoin:round;paint-order:stroke}.dcf-tint{fill:var(--accent,#5CB2A7);fill-opacity:.11}.dcf-pill{fill:var(--ink-2,#A2ABB3);fill-opacity:.10}}</style><defs><marker id="dcf5-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0.8 L9.5 5 L0 9.2 Z" class="dcf-ink"/></marker><marker id="dcf5-aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0.8 L9.5 5 L0 9.2 Z" class="dcf-accent"/></marker><marker id="dcf5-ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0.8 L9.5 5 L0 9.2 Z" class="dcf-ink2"/></marker></defs><rect x="0.0" y="0.0" width="300.0" height="230.0" rx="8" class="dcf-paper dcf-sink2" stroke-width="1.25"/>
-<circle cx="28" cy="30" r="11" class="dcf-paper dcf-saccent" stroke-width="1.5"/>
-<text x="28.0" y="34.7" font-size="13" text-anchor="middle" class="dcf-m dcf-ink dcf-b">1</text>
-<text x="48.0" y="35.0" font-size="13.5" text-anchor="start" class="dcf-m dcf-ink dcf-b">Question at a Rural Site</text>
-<text x="18.0" y="66.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">A clinician at a rural clinic asks</text>
-<text x="18.0" y="85.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">Kit. The question travels</text>
-<text x="18.0" y="104.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">encrypted on the health</text>
-<text x="18.0" y="123.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">authority's private network to the</text>
-<text x="18.0" y="142.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">regional Deep Cove, never on the</text>
-<text x="18.0" y="161.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">public internet.</text>
-<line x1="18.0" y1="196.0" x2="282.0" y2="196.0" class="dcf-srule dcf-none" stroke-width="1" stroke-linecap="round"/>
-<text x="18.0" y="217.0" font-size="12" text-anchor="start" class="dcf-m dcf-ink2">rural clinic → regional Deep Cove</text>
-<line x1="308.0" y1="115.0" x2="342.0" y2="115.0" class="dcf-sink dcf-none" stroke-width="1.25" stroke-linecap="round" marker-end="url(#dcf5-ah)"/>
-<rect x="350.0" y="0.0" width="300.0" height="230.0" rx="8" class="dcf-tint dcf-saccent" stroke-width="1.25"/>
-<circle cx="378" cy="30" r="11" class="dcf-paper dcf-saccent" stroke-width="1.5"/>
-<text x="378.0" y="34.7" font-size="13" text-anchor="middle" class="dcf-m dcf-ink dcf-b">2</text>
-<text x="398.0" y="35.0" font-size="13.5" text-anchor="start" class="dcf-m dcf-ink dcf-b">Sourced Answer</text>
-<text x="368.0" y="66.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">Kit answers with its sources</text>
-<text x="368.0" y="85.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">shown, BC resources first.</text>
-<rect x="368.0" y="108.0" width="153.1" height="24.0" rx="5" class="dcf-paper dcf-sink2" stroke-width="1.25" stroke-dasharray="4 3"/>
-<text x="375.0" y="124.5" font-size="12" text-anchor="start" class="dcf-m dcf-ink">HealthLink BC 8-1-1</text>
-<rect x="529.1" y="108.0" width="50.6" height="24.0" rx="5" class="dcf-paper dcf-sink2" stroke-width="1.25" stroke-dasharray="4 3"/>
-<text x="536.1" y="124.5" font-size="12" text-anchor="start" class="dcf-m dcf-ink">BCCDC</text>
-<rect x="368.0" y="140.0" width="109.2" height="24.0" rx="5" class="dcf-paper dcf-sink2" stroke-width="1.25" stroke-dasharray="4 3"/>
-<text x="375.0" y="156.5" font-size="12" text-anchor="start" class="dcf-m dcf-ink">BC Guidelines</text>
-<line x1="368.0" y1="196.0" x2="632.0" y2="196.0" class="dcf-srule dcf-none" stroke-width="1" stroke-linecap="round"/>
-<text x="368.0" y="217.0" font-size="12" text-anchor="start" class="dcf-m dcf-ink2">regional Deep Cove · the Core</text>
-<line x1="658.0" y1="115.0" x2="692.0" y2="115.0" class="dcf-sink dcf-none" stroke-width="1.25" stroke-linecap="round" marker-end="url(#dcf5-ah)"/>
-<rect x="700.0" y="0.0" width="300.0" height="230.0" rx="8" class="dcf-paper dcf-sink2" stroke-width="1.25"/>
-<circle cx="728" cy="30" r="11" class="dcf-paper dcf-saccent" stroke-width="1.5"/>
-<text x="728.0" y="34.7" font-size="13" text-anchor="middle" class="dcf-m dcf-ink dcf-b">3</text>
-<text x="748.0" y="35.0" font-size="13.5" text-anchor="start" class="dcf-m dcf-ink dcf-b">The clinician decides</text>
-<text x="718.0" y="66.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">The clinician reviews the sources,</text>
-<text x="718.0" y="85.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">decides, and records the decision</text>
-<text x="718.0" y="104.0" font-size="12.5" text-anchor="start" class="dcf-m dcf-ink2">in the patient's chart.</text>
-<line x1="718.0" y1="196.0" x2="982.0" y2="196.0" class="dcf-srule dcf-none" stroke-width="1" stroke-linecap="round"/>
-<text x="718.0" y="217.0" font-size="12" text-anchor="start" class="dcf-m dcf-ink2">rural clinic · patient chart</text></svg>
-</div><div class="fig-p"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 744" width="100%" style="max-width:360px;height:auto;display:block" role="img" aria-labelledby="dcf5p-title dcf5p-desc"><title id="dcf5p-title">A rural clinician's question, end to end</title><desc id="dcf5p-desc">Three steps. 1, question at a rural site: a clinician at a rural clinic asks Kit; the question travels encrypted on the health authority's private network to the regional Deep Cove in a BC health-authority facility, never on the public internet. 2, sourced answer: Kit answers with its sources, including BC resources such as HealthLink BC 8-1-1, BC Guidelines and BCCDC (dashed source boxes). 3, the clinician decides: back at the rural clinic, the clinician reviews the sources, decides and records the decision in the patient's chart.</desc><style>.dcf-m{font-family:var(--mono, "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace)}.dcf-sans{font-family:var(--sans, Inter, "Helvetica Neue", Arial, system-ui, sans-serif)}.dcf-serif{font-family:var(--serif, "Source Serif 4", Newsreader, Georgia, "DejaVu Serif", serif)}.dcf-none{fill:none}.dcf-b{font-weight:600}.dcf-num{font-variant-numeric:tabular-nums}.dcf-ink{fill:var(--ink,#1A1F24)}.dcf-sink{stroke:var(--ink,#1A1F24)}.dcf-ink2{fill:var(--ink-2,#5B6670)}.dcf-sink2{stroke:var(--ink-2,#5B6670)}.dcf-rule{fill:var(--rule,#D5D8D3)}.dcf-srule{stroke:var(--rule,#D5D8D3)}.dcf-accent{fill:var(--accent,#1F5E5A)}.dcf-saccent{stroke:var(--accent,#1F5E5A)}.dcf-r1{fill:var(--rival-1,#6E7882)}.dcf-sr1{stroke:var(--rival-1,#6E7882)}.dcf-r2{fill:var(--rival-2,#98A1A9)}.dcf-sr2{stroke:var(--rival-2,#98A1A9)}.dcf-paper{fill:var(--paper,#FAF9F5)}.dcf-spaper{stroke:var(--paper,#FAF9F5)}.dcf-halo{stroke:var(--paper,#FAF9F5);stroke-width:4px;stroke-linejoin:round;paint-order:stroke}.dcf-tint{fill:var(--accent,#1F5E5A);fill-opacity:.11}.dcf-pill{fill:var(--ink-2,#5B6670);fill-opacity:.10}@media (prefers-color-scheme:dark){.dcf-ink{fill:var(--ink,#E8E6E1)}.dcf-sink{stroke:var(--ink,#E8E6E1)}.dcf-ink2{fill:var(--ink-2,#A2ABB3)}.dcf-sink2{stroke:var(--ink-2,#A2ABB3)}.dcf-rule{fill:var(--rule,#353D45)}.dcf-srule{stroke:var(--rule,#353D45)}.dcf-accent{fill:var(--accent,#5CB2A7)}.dcf-saccent{stroke:var(--accent,#5CB2A7)}.dcf-r1{fill:var(--rival-1,#B3BBC2)}.dcf-sr1{stroke:var(--rival-1,#B3BBC2)}.dcf-r2{fill:var(--rival-2,#7F8992)}.dcf-sr2{stroke:var(--rival-2,#7F8992)}.dcf-paper{fill:var(--paper,#12171C)}.dcf-spaper{stroke:var(--paper,#12171C)}.dcf-halo{stroke:var(--paper,#12171C);stroke-width:4px;stroke-linejoin:round;paint-order:stroke}.dcf-tint{fill:var(--accent,#5CB2A7);fill-opacity:.11}.dcf-pill{fill:var(--ink-2,#A2ABB3);fill-opacity:.10}}</style><defs><marker id="dcf5p-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0.8 L9.5 5 L0 9.2 Z" class="dcf-ink"/></marker><marker id="dcf5p-aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0.8 L9.5 5 L0 9.2 Z" class="dcf-accent"/></marker><marker id="dcf5p-ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0.8 L9.5 5 L0 9.2 Z" class="dcf-ink2"/></marker></defs><rect x="0.0" y="0.0" width="288.0" height="226.0" rx="8" class="dcf-paper dcf-sink2" stroke-width="1.25"/>
-<circle cx="28" cy="30" r="11" class="dcf-paper dcf-saccent" stroke-width="1.5"/>
-<text x="28.0" y="34.7" font-size="13" text-anchor="middle" class="dcf-m dcf-ink dcf-b">1</text>
-<text x="48.0" y="35.0" font-size="14.0" text-anchor="start" class="dcf-m dcf-ink dcf-b">Question at a Rural Site</text>
-<text x="18.0" y="66.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">A clinician at a rural clinic</text>
-<text x="18.0" y="85.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">asks Kit. The question travels</text>
-<text x="18.0" y="104.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">encrypted on the health</text>
-<text x="18.0" y="123.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">authority's private network to</text>
-<text x="18.0" y="142.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">the regional Deep Cove, never</text>
-<text x="18.0" y="161.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">on the public internet.</text>
-<line x1="18.0" y1="192.0" x2="270.0" y2="192.0" class="dcf-srule dcf-none" stroke-width="1" stroke-linecap="round"/>
-<text x="18.0" y="213.0" font-size="12" text-anchor="start" class="dcf-m dcf-ink2">rural clinic → regional Deep Cove</text>
-<line x1="144.0" y1="230.0" x2="144.0" y2="252.0" class="dcf-sink dcf-none" stroke-width="1.25" stroke-linecap="round" marker-end="url(#dcf5p-ah)"/>
-<rect x="0.0" y="256.0" width="288.0" height="250.0" rx="8" class="dcf-tint dcf-saccent" stroke-width="1.25"/>
-<circle cx="28" cy="286" r="11" class="dcf-paper dcf-saccent" stroke-width="1.5"/>
-<text x="28.0" y="290.7" font-size="13" text-anchor="middle" class="dcf-m dcf-ink dcf-b">2</text>
-<text x="48.0" y="291.0" font-size="14.0" text-anchor="start" class="dcf-m dcf-ink dcf-b">Sourced Answer</text>
-<text x="18.0" y="322.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">Kit answers with its sources</text>
-<text x="18.0" y="341.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">shown, BC resources first.</text>
-<rect x="18.0" y="364.0" width="153.1" height="24.0" rx="5" class="dcf-paper dcf-sink2" stroke-width="1.25" stroke-dasharray="4 3"/>
-<text x="25.0" y="380.5" font-size="12" text-anchor="start" class="dcf-m dcf-ink">HealthLink BC 8-1-1</text>
-<rect x="179.1" y="364.0" width="50.6" height="24.0" rx="5" class="dcf-paper dcf-sink2" stroke-width="1.25" stroke-dasharray="4 3"/>
-<text x="186.1" y="380.5" font-size="12" text-anchor="start" class="dcf-m dcf-ink">BCCDC</text>
-<rect x="18.0" y="396.0" width="109.2" height="24.0" rx="5" class="dcf-paper dcf-sink2" stroke-width="1.25" stroke-dasharray="4 3"/>
-<text x="25.0" y="412.5" font-size="12" text-anchor="start" class="dcf-m dcf-ink">BC Guidelines</text>
-<line x1="18.0" y1="472.0" x2="270.0" y2="472.0" class="dcf-srule dcf-none" stroke-width="1" stroke-linecap="round"/>
-<text x="18.0" y="493.0" font-size="12" text-anchor="start" class="dcf-m dcf-ink2">regional Deep Cove · the Core</text>
-<line x1="144.0" y1="510.0" x2="144.0" y2="532.0" class="dcf-sink dcf-none" stroke-width="1.25" stroke-linecap="round" marker-end="url(#dcf5p-ah)"/>
-<rect x="0.0" y="536.0" width="288.0" height="206.0" rx="8" class="dcf-paper dcf-sink2" stroke-width="1.25"/>
-<circle cx="28" cy="566" r="11" class="dcf-paper dcf-saccent" stroke-width="1.5"/>
-<text x="28.0" y="570.7" font-size="13" text-anchor="middle" class="dcf-m dcf-ink dcf-b">3</text>
-<text x="48.0" y="571.0" font-size="14.0" text-anchor="start" class="dcf-m dcf-ink dcf-b">The clinician decides</text>
-<text x="18.0" y="602.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">The clinician reviews the</text>
-<text x="18.0" y="621.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">sources, decides, and records</text>
-<text x="18.0" y="640.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">the decision in the patient's</text>
-<text x="18.0" y="659.0" font-size="13.0" text-anchor="start" class="dcf-m dcf-ink2">chart.</text>
-<line x1="18.0" y1="708.0" x2="270.0" y2="708.0" class="dcf-srule dcf-none" stroke-width="1" stroke-linecap="round"/>
-<text x="18.0" y="729.0" font-size="12" text-anchor="start" class="dcf-m dcf-ink2">rural clinic · patient chart</text></svg>
-</div></div><figcaption id="fig-rural-cap"><b>Figure 1.</b> A rural clinician's question, end to end: the question travels on the health authority's private network, encrypted, to the regional Deep Cove in a BC health-authority facility, and never crosses the public internet; Kit answers with its sources shown (BC resources first), and the clinician decides and records the decision. <span class='legend'>The accent card is the model call; dashed boxes are sources.</span></figcaption></figure><div class="article"><p class="two-tone lg"><strong>Patient records never leave the facility.</strong> The Core that writes the answer has no internet path. It reaches the chart only through the Records Librarian, read-only and within the clinician's own access rights. It reaches the web only by asking the Web Librarian, whose fetcher holds the one controlled line and never holds patient data.</p><p class="two-tone lg"><strong>If the outside internet goes down, Kit keeps answering.</strong> Only web lookups pause. A site that wants no outside line at all chooses the Sealed Library: a medical library kept on site and refreshed through the Delivery Bay with signed, sterilized updates.</p></div><div class="links-row"><a class="link-more" href="../security/index.html#crossings">See every crossing in the security architecture <span aria-hidden="true">→</span></a></div><details class="expert"><summary><span class="t"><span class="k">Expert Detail</span><span class="h">Speed, Sources and Rural Reach</span></span><span class="pm" aria-hidden="true"></span></summary><div class="expert-body"><ul>
-<li><b>Speed on Kit's current hosted service, measured with test questions (no BC patient data).</b> Kit Think shows its first progress line in about half a second and finishes a hard medical question in about one to two minutes. Medians from the hourly live probe, 11–15 November 2026, n = 104 per question type: first progress line 0.5 s; emergency answers 52.1 s, dose answers 90.7 s, symptom answers 109.2 s. Kit Ask streams its first words in about 1.5 s (median 1.51 s, n = 690, 8–15 November 2026).</li>
-<li><b>Speed on Deep Cove, guaranteed at acceptance.</b> Kit Ask: first words in 1 s or less at the 95th percentile at the guaranteed capacity. Streaming: 100 tokens per second or more for 9 in 10 users, in the range of the fastest cloud AI services. Kit Think: first progress line within 1 s. Kit Think Medical completion time: contracted per size (see Investment).</li>
-<li><b>BC sources by default.</b> Kit Think Medical points to HealthLink BC 8-1-1, BC Drug and Poison Information, BC Guidelines and BCCDC.</li>
-<li><b>What crosses, exactly.</b> The Core cannot address the outside world. It writes an order in a fixed form; two independent checks refuse any search with a name, an identifying number, a full date or a place (doses and lab values pass only with their units), and the Web Librarian rebuilds the query from approved medical terms and sends only those words out. Pages come back as cleaned text.</li>
-<li><b>Rural reach.</b> A regional Deep Cove serves rural health centres over the health authority's private network, encrypted, because the traffic is text; questions never cross the public internet. No server sits in the health centre.</li>
-<li><b>Alongside BC's networks.</b> Real-Time Virtual Support has run almost 20,000 encounters in 129 rural, remote and First Nations communities (Ho et al., CMAJ, 2025). Kit drafts the case summary for that call; the virtual physician and the local clinician decide. BC programs are named as public evidence; naming them implies no partnership.</li>
-</ul></div></details></div></section><section class="section sunk" id="roles" aria-labelledby="roles-h"><div class="wrap"><div class="sec-head"><h2 class="h2 h2-num" id="roles-h"><span class="n">4</span><span>What Kit does, by role</span></h2><p class="lead">Five groups of people, three plain verbs each. Kit drafts and checks; people decide.</p></div><div class="byrole"><article><h3>Patients</h3><p class="muted small" style="margin-top:4px">Patients meet Kit through their care team.</p><ul><li><b>Directs</b>Sourced next-step options for the care team to discuss with the patient: home care, 8-1-1, a pharmacist, an urgent and primary care centre or the emergency department.</li><li><b>Explains</b>After-visit instructions in plain language, reviewed by the care team before they reach the patient.</li><li><b>Translates</b>The same instructions in the patient's language.</li></ul><p class="ask">“Turn these discharge instructions into plain language, in Punjabi.”</p><p class="res"><span class="k">Kit's Measured Result</span>Emergency instructions come first, written by fixed code; 56 of 56 emergency test answers named 9-1-1 in their opening (13–15 November 2026).</p></article><article><h3>Nurses</h3><ul><li><b>Hands over</b>An SBAR shift handover drafted from the nurse's notes.</li><li><b>Teaches</b>Discharge teaching at a plain reading level, ready to check and hand over.</li><li><b>Checks</b>The medication list against the order: dose, route and interactions, each line with its source.</li></ul><p class="ask">“Turn my notes into an SBAR handover for the night shift.”</p><p class="res"><span class="k">Kit's Measured Result</span>NOHARM 80.0 over 330 cases; MedAgentBench v2 82.0 over 300 tasks.</p></article><article><h3>Physicians</h3><ul><li><b>Drafts</b>The chart note, the patient's instructions and the referral letter, from the physician's summary or the clinic's existing transcript.</li><li><b>Checks</b>An omission checklist before an order is signed: monitoring labs, contraindications, renal dose adjustments, interactions.</li><li><b>Lists</b>Red flags first, then the diagnoses that must not be missed, each with its source.</li></ul><p class="ask">“Chest pain, age 58, normal first troponin. What must I rule out?”</p><p class="res"><span class="k">Kit's Measured Result</span>HealthBench Professional 61.9 over 525 tasks, against 43.7 for specialist physicians; NOHARM 80.0, against 42.2 for 101 US physicians.</p></article><article><h3>Rural Clinicians</h3><ul><li><b>Flags</b>Red flags first, at any hour.</li><li><b>Guides</b>BC-guideline next steps, weight-based dose checks and transfer criteria.</li><li><b>Summarizes</b>A one-page case summary for Real-Time Virtual Support or the transport team.</li></ul><p class="ask">“Summarize this case for the Real-Time Virtual Support physician.”</p><p class="res"><span class="k">Kit's Measured Result</span>Script Concordance Testing 72.8 over 174 items, reasoning under uncertainty judged against expert panels; NOHARM 80.0.</p></article><article><h3>Administrators</h3><ul><li><b>Assembles</b>The referral package a specialist's intake asks for, read-only through the Records Librarian with the requesting clinician's rights, for that clinician to review.</li><li><b>Reads</b>Scanned forms and documents, then drafts the reply. Image and document reading is non-diagnostic and runs on a dedicated server from the Hospital size up.</li><li><b>Researches</b>Cited reports for planning and policy from Deep Cove Research: up to three clarifying questions, a plan you approve, then a report you can export to Word, PDF, Excel or HTML.</li></ul><p class="ask">“Compare published approaches to reducing emergency department waits in rural regions.”</p><p class="res"><span class="k">Kit's Measured Result</span>MedAgentBench v1 94.3 and v2 82.0, 300 health-record tasks each.</p></article></div><details class="expert"><summary><span class="t"><span class="k">Expert Detail</span><span class="h">Modes, Routing and Scope</span></span><span class="pm" aria-hidden="true"></span></summary><div class="expert-body"><ul>
-<li><b>Kit Ask</b> keeps simple, quick asks and streams its first words in about 1.5 s (median 1.51 s, n = 690, hosted service).</li>
-<li><b>Kit Think Medical</b> takes every medical, health, symptom, drug, dose and emergency question. It reads full pages in a bounded research loop of up to 12 tool steps, tests its draft against the leading alternatives, holds dose answers until a deterministic dose check runs and appends one computed safety line. The model's sentences are never edited.</li>
-<li><b>Kit Think General</b> takes other complex work: documents, multi-step analysis, planning, comparisons and code.</li>
-<li><b>Deep Cove Research</b> writes full cited reports in a median of 21.8 minutes (68 runs, hosted service). On DeepResearch Bench (board of 2026-10-28), Deep Cove Research Pro ranks #5 of 18 at US$2.50 per report and Deep Cove Research #6 of 18 at US$1.04 per report.</li>
-<li><b>Medical questions never take the quick path.</b> In validation, 0 of 47,110 medical benchmark prompts and conversation turns left the medical path. On the hosted service, 312 of 312 BC medical test questions went to Kit Think Medical (11–15 November 2026).</li>
-<li><b>Health records on Deep Cove.</b> The Records Librarian is read-only by default and acts with the requesting clinician's own access rights, so Kit sees only records that clinician may already open. Write actions such as placing orders come in a later release and always need clinician approval. The MedAgentBench results were run against the standard health-record interface (FHIR) in a test record system.</li>
-<li><b>Notes.</b> Kit drafts from the clinician's summary or the clinic's existing transcript. It does not record visits.</li>
-<li><b>Images and documents.</b> Reading is non-diagnostic: documents, forms and general photographs, never medical images for interpretation. It runs on a dedicated server from the Hospital size up. Diagnostic imaging follows Health Canada's medical-device pathway in a later phase.</li>
-</ul></div></details></div></section><section class="section" id="measure" aria-labelledby="measure-h"><div class="wrap"><div class="sec-head"><h2 class="h2 h2-num" id="measure-h"><span class="n">5</span><span>How BC will measure value</span></h2><p class="lead">BC sets the pass marks and holds the data. Acceptance happens once, on site, before go-live; the value measures run every quarter after it, against a baseline BC records first.</p></div><div class="article"><p class="two-tone lg"><strong>Every measure comes from systems BC holds.</strong> NHS England asks that AI monitoring data be “collected and analysed independently from the manufacturer's.” Deep Cove is built for that: the audit log sits on site with BC's keys, and the clinical data stays in BC's own records and surveys.<sup class='fn'>5</sup></p></div><div class="block-sm"><p class="tcap"><b>Table 1.</b> The seven acceptance gates; Deep Cove goes live only when all seven pass and BC signs.</p><div class="table-wrap"><table class="plain left rt"><colgroup><col style="width:20%"><col><col style="width:20%"></colgroup><thead><tr><th scope="col">Gate</th><th scope="col">On-Site Measurement</th><th scope="col">Signer for BC</th></tr></thead><tbody><tr><th scope="row">1. Capacity</th><td data-label="On-Site Measurement">Recorded Kit Ask and Kit Think sessions replayed at the contracted number of simultaneous streams: 9 in 10 users stream at 100 tokens per second or more, and no answer fails</td><td data-label="Signer for BC">Technical lead</td></tr><tr><th scope="row">2. Speed</th><td data-label="On-Site Measurement">Kit Ask: first words within 1 second for 95% of questions at the guaranteed capacity.<br>Kit Think: first progress line within 1 second.<br>Kit Think Medical: completion within the 95th-percentile figure contracted for the size</td><td data-label="Signer for BC">Technical lead</td></tr><tr><th scope="row">3. Scores</th><td data-label="On-Site Measurement">An on-site re-run of the published boards on the installed system, against pass marks BC sets</td><td data-label="Signer for BC">Clinical lead</td></tr><tr><th scope="row">4. Clinical Safety</th><td data-label="On-Site Measurement">The release safety suite passes on the test system: dose rules, emergency-first ordering, crisis lines, red-team cases and reference clinical questions</td><td data-label="Signer for BC">Clinical safety officer</td></tr><tr><th scope="row">5. Security</th><td data-label="On-Site Measurement">An independent penetration test of the system, the Gates and the update path, with a review of the gate software</td><td data-label="Signer for BC">Security officer</td></tr><tr><th scope="row">6. Recovery</th><td data-label="On-Site Measurement">A timed rollback drill and an emergency lock drill: pause Kit, cut the Gates, power off</td><td data-label="Signer for BC">Security officer</td></tr><tr><th scope="row">7. Privacy</th><td data-label="On-Site Measurement">The privacy impact assessment is complete, and a sample of outbound search words is checked for patient identifiers</td><td data-label="Signer for BC">Privacy officer</td></tr></tbody></table></div></div><p class="note">An ISO/IEC 27001 and 42001 programme is part of the delivery plan.</p><div class="block-sm"><p class="tcap"><b>Table 2.</b> Measured every quarter, against a baseline BC records before go-live.</p><div class="table-wrap"><table class="plain left rt"><colgroup><col style="width:24%"><col><col style="width:34%"></colgroup><thead><tr><th scope="col">Showcase</th><th scope="col">Measure</th><th scope="col">Data Source, Held by BC</th></tr></thead><tbody><tr><th scope="row">Physicians</th><td data-label="Measure">Time in notes per encounter; after-hours charting time</td><td data-label="Data Source, Held by BC">Electronic health record audit logs</td></tr><tr><th scope="row">Physicians and Nurses</th><td data-label="Measure">Burnout, on the Professional Fulfillment Index</td><td data-label="Data Source, Held by BC">Staff survey run by the health authority</td></tr><tr><th scope="row">Nurses</th><td data-label="Measure">Documentation minutes per shift, for handover and discharge</td><td data-label="Data Source, Held by BC">Electronic health record audit logs</td></tr><tr><th scope="row">Rural and Remote Teams</th><td data-label="Measure">Emergency diversion hours and transfers from rural sites</td><td data-label="Data Source, Held by BC">Health authority operations data</td></tr><tr><th scope="row">Patients</th><td data-label="Measure">Emergency visits and primary-care follow-ups after a supported contact</td><td data-label="Data Source, Held by BC">Health authority and Ministry data</td></tr><tr><th scope="row">Safety Net</th><td data-label="Measure">Patient-safety reports that involve a Kit answer</td><td data-label="Data Source, Held by BC">The health authority's existing safety reporting</td></tr><tr><th scope="row">Records and Referrals</th><td data-label="Measure">Referrals returned for missing information</td><td data-label="Data Source, Held by BC">Specialist intake records</td></tr><tr><th scope="row">All Roles</th><td data-label="Measure">Use by role and by mode; a monthly sample of answers rated by BC clinicians for safety and sources</td><td data-label="Data Source, Held by BC">Deep Cove's on-site audit log; BC's clinical review panel</td></tr></tbody></table></div></div><p class="note">Each update passes a safety gate before BC accepts it: the medical boards re-run, and BC's change board signs off.</p><ol class="notes"><li><span class="fnn">5</span>NHS England, <i>Guidance on the use of AI-enabled ambient scribing products in health and care settings</i>, version 3, updated 29 July 2026.</li></ol></div></section><section class="section sunk" id="clinician"><div class="wrap"><p class="pull">Kit drafts, checks and cites. The clinician decides.</p><div class="block-sm"><div class="decides"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 20.5c.6-3.9 3.4-6.3 7-6.3s6.4 2.4 7 6.3"/><path d="M15.5 17.5l1.6 1.6 3.2-3.4"/></svg><p>Kit is clinical decision-support software for licensed professionals: every answer shows its sources, and the clinician decides.</p><p>Image and document reading is non-diagnostic, and diagnostic imaging follows the Health Canada medical-device pathway.</p></div></div></div></section><section class="section" id="faq" aria-labelledby="faq-h"><div class="wrap"><div class="sec-head"><h2 class="h2 h2-num" id="faq-h"><span class="n">6</span><span>Questions officials ask</span></h2></div><div class="faq"><details><summary>Is this a budget saving?<span class="pm" aria-hidden="true"></span></summary><div class="answer"><p><strong>No. It is capacity returned to care.</strong> Freed physician and nurse time becomes more visits, faster handovers and safer orders. BC's own 8-1-1 evidence shows the same pattern for patients: care moves to the right place at neutral total cost.</p></div></details><details><summary>Does Kit record the visit?<span class="pm" aria-hidden="true"></span></summary><div class="answer"><p><strong>No.</strong> Kit drafts the note from the clinician's summary or the clinic's existing transcript. The published time savings were measured with AI scribes that listen to the visit, so the physician estimate uses 1 minute per visit, between the 0.91 and 1.21 minutes measured in large health systems.</p></div></details><details><summary>What does a rural site need on day one?<span class="pm" aria-hidden="true"></span></summary><div class="answer"><p><strong>A managed device and the health authority's private network.</strong> A regional Deep Cove serves rural health centres because the traffic is text, and questions never cross the public internet. If the outside internet goes down, Kit keeps answering; only web lookups pause.</p></div></details><details><summary>Why use other programs' results for the estimates?<span class="pm" aria-hidden="true"></span></summary><div class="answer"><p><strong>They are the best published measures of this kind of work,</strong> and each estimate shows its inputs in full. At go-live BC replaces our inputs with its own data, records a baseline, and measures the result every quarter from systems it holds.</p></div></details></div><details class="expert"><summary><span class="t"><span class="k">Expert Detail</span><span class="h">Inputs, Sensitivity and Sources</span></span><span class="pm" aria-hidden="true"></span></summary><div class="expert-body">
-<div class="table-wrap"><table class="plain left rt"><thead><tr><th scope="col">Input</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead><tbody>
-<tr><th scope="row">BC Family Physicians</th><td data-label="Value">8,263 (of 16,438 physicians)</td><td data-label="Basis">CIHI, Supply, Distribution and Migration of Physicians in Canada 2025, Table A</td></tr>
-<tr><th scope="row">BC Regulated Nurses</th><td data-label="Value">62,538 (RN 43,711; LPN 14,377; RPN 3,459; NP 991); RN + LPN + RPN = 61,547</td><td data-label="Basis">CIHI, Health Workforce in Canada 2020–2024, Table 1</td></tr>
-<tr><th scope="row">Physician Hour</th><td data-label="Value">C$207.42</td><td data-label="Basis">CIHI National Physician Database 2024–25: average gross clinical payment C$414,845 ÷ 2,000 hours</td></tr>
-<tr><th scope="row">Nurse Hour</th><td data-label="Value">C$51.41</td><td data-label="Basis">Statistics Canada Table 14-10-0417-01, BC 2025, nursing and allied health professionals</td></tr>
-<tr><th scope="row">Hours per Full-Time Nurse</th><td data-label="Value">1,950</td><td data-label="Basis">37.5 hours × 52 weeks</td></tr>
-<tr><th scope="row">Rural Residents</th><td data-label="Value">634,976 of 5,000,879 (12.7%)</td><td data-label="Basis">Statistics Canada Table 98-10-0008, 2021 Census</td></tr>
-<tr><th scope="row">Emergency Visit Cost</th><td data-label="Value">C$504 (physician C$138 + facility C$366)</td><td data-label="Basis">Cressman et al., npj Digital Medicine 2025</td></tr>
-<tr><th scope="row">Emergency Visits Avoided per 1,000</th><td data-label="Value">16.14</td><td data-label="Basis">Same</td></tr>
-<tr><th scope="row">Extra Primary-Care Visits per 1,000</th><td data-label="Value">106.14</td><td data-label="Basis">Same</td></tr>
-<tr><th scope="row">Preventable Adverse Events, Canada</th><td data-label="Value">About 70,000 a year</td><td data-label="Basis">Baker et al., CMAJ 2004</td></tr>
-<tr><th scope="row">BC Population Share</th><td data-label="Value">13.5% (5,000,879 ÷ 36,991,981)</td><td data-label="Basis">2021 Census</td></tr>
-<tr><th scope="row">Extra Hospital Days per Adverse Event</th><td data-label="Value">5.96 (1,521 days ÷ 255 charts)</td><td data-label="Basis">Baker et al., CMAJ 2004</td></tr>
-<tr><th scope="row">Set by Deep Cove, replaced with BC data at go-live</th><td data-label="Value">50% use; 20 visits a day; 200 clinic days; 150 shifts; 10 minutes per shift; 10% rural contact rate; 200,000 patient contacts (4%); 5% of preventable adverse events</td><td data-label="Basis">Medical Services Plan and health-authority data, requested under NDA</td></tr>
+<section class="section" id="target">
+<div class="wrap">
+<h2 class="section-title">BC has named the target.</h2>
+<div class="prose" style="margin-bottom:var(--s4)">
+<p><b>BC Budget 2026 commits to “responsibly deploy artificial intelligence (AI) … reducing the time that care providers need to spend on administrative tasks.”</b> The Ministry of Health budget is C$36.1 billion in 2026/27, 36.6% of provincial spending.</p><p class="cont">Kit is built for that line: it gives time back to the people who give care.<sup>1</sup></p>
+</div>
+<div class="cols-3">
+<div><p><b>Canadian physicians lose 20 million hours a year to red tape.</b> That equals 9,093 full-time physicians.<sup>2</sup></p></div>
+<div><p><b>12.7% of British Columbians live in rural areas.</b> More than 200 rural, remote and Indigenous communities work with limited health care resources.<sup>3</sup></p></div>
+<div><p><b>18.8% of BC adults waited 6 months or more for a specialist.</b> 67.6% said the wait affected their life (2024).<sup>4</sup></p></div>
+</div>
+<div style="margin-top:var(--s3)"><div class="notes"><p><sup>1</sup> BC Budget and Fiscal Plan 2026/27–2028/29, p. 14 (AI sentence) and Table 1.3, p. 38 (Ministry of Health C$36,116 million of C$98.8 billion total expense).</p><p><sup>2</sup> Canadian Medical Association and Canadian Federation of Independent Business, Patients before Paperwork, January 2026.</p><p><sup>3</sup> Statistics Canada Table 98-10-0008, 2021 Census: 634,976 of 5,000,879. Novak Lauscher et al., JMIR 2023.</p><p><sup>4</sup> Statistics Canada Table 13-10-0961.</p></div></div>
+</div>
+</section>
+
+<section class="section" id="showcases">
+<div class="wrap">
+<h2 class="section-title">Five showcases, each with its source.</h2>
+<div class="prose">
+<p>Each showcase pairs a BC need with what Kit does, the published evidence for that kind of work and Kit's own measured result.</p><p class="cont">Physical units lead, dollars sit in the notes, and every input is listed in the expert detail at the foot of the page.</p>
+<p>Each headline figure is an estimate. Every input is shown.</p>
+</div>
+
+<div class="showcase">
+<div class="showcase-head">
+<div class="sh-text">
+<p class="sounding">Rural and remote teams</p>
+<h3>Support at 2 a.m. for every rural health centre</h3>
+<p class="showcase-estimate">Estimated: about 1,000 rural emergency visits avoided a year</p>
+</div>
+<div class="sh-fig">
+<figure class="fig fig--has-wide" id="fig-estimate-1"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 178" role="img" aria-labelledby="fig-estimate-1-wide-t fig-estimate-1-wide-td" data-fig="fig-estimate-1-wide">
+<title id="fig-estimate-1-wide-t">The arithmetic of estimate 1</title>
+<desc id="fig-estimate-1-wide-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="106.7" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">634,976</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">rural residents</text>
+<text x="129.0" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="145.3" y="8.0" width="155.8" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="156.3" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">10%</text>
+<text x="156.3" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">with one Kit-supported</text>
+<text x="156.3" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">advice contact a year</text>
+<text x="317.4" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="333.7" y="8.0" width="168.1" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="344.7" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">16.14</text>
+<text x="344.7" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">emergency visits avoided</text>
+<text x="344.7" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">per 1,000 contacts</text>
+<text x="14.3" y="132.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="30.6" y="92.0" width="178.0" height="70.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="41.6" y="116.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 1,025</text>
+<text x="41.6" y="134.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">emergency visits avoided a</text>
+<text x="41.6" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">year</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 210" role="img" aria-labelledby="fig-estimate-1-phone-t fig-estimate-1-phone-td" data-fig="fig-estimate-1-phone">
+<title id="fig-estimate-1-phone-t">The arithmetic of estimate 1</title>
+<desc id="fig-estimate-1-phone-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="106.7" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">634,976</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">rural residents</text>
+<text x="129.0" y="56.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="145.3" y="8.0" width="142.8" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="156.3" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">10%</text>
+<text x="156.3" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">with one</text>
+<text x="156.3" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Kit-supported advice</text>
+<text x="156.3" y="82.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">contact a year</text>
+<text x="14.3" y="156.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="30.6" y="108.0" width="125.1" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="132.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">16.14</text>
+<text x="41.6" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">emergency visits</text>
+<text x="41.6" y="166.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">avoided per 1,000</text>
+<text x="41.6" y="182.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">contacts</text>
+<text x="172.0" y="156.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="188.3" y="108.0" width="119.8" height="86.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="199.3" y="132.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 1,025</text>
+<text x="199.3" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">emergency visits</text>
+<text x="199.3" y="166.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">avoided a year</text>
+</svg>
+</div></div><figcaption>The arithmetic of the estimate.</figcaption></figure>
+</div>
+</div>
+<div class="cols-4"><div><p><b>The need in BC.</b> More than 200 rural, remote and Indigenous communities work with limited health care resources and isolated clinicians.</p><p class="cont">BC's virtual physicians have covered overnight emergency departments to prevent diversions in 12 communities.</p></div><div><p><b>What Kit does.</b> A remote nurse or rural physician asks Kit Think Medical.</p><p class="cont">Kit puts red flags first, lists what must not be missed, gives the BC-guideline next steps, checks weight-based doses in code and states the transfer criteria.</p><p class="cont">It then drafts a one-page case summary for the call to Real-Time Virtual Support or the transport team.</p><p class="cont">Kit adds to BC's virtual physician networks.</p><p class="cont">It does not replace them.</p></div><div><p><b>Published evidence.</b> Adding virtual physicians to BC's 8-1-1 line meant 16.14 fewer emergency visits per 1,000 callers within 30 days, across 445,630 users (Cressman et al., npj Digital Medicine, 2025).</p><p class="cont">In BC's urgent virtual support, 76% of encounters supported nurses at rural health centres (Ho et al., CMAJ, 2025).</p></div><div><p><b>Kit's measured result.</b> On NOHARM, the safety of clinical recommendations, Kit scores 80.0 over 330 cases.</p><p class="cont">101 US physicians using conventional resources scored 42.2.</p><p class="cont">On Script Concordance Testing, reasoning under uncertainty judged against expert panels, Kit scores 72.8 over 174 items.</p></div></div>
+<div class="notes notes--cols" style="margin-top:var(--s3)"><p><b>Illustrative estimate, inputs shown.</b> 634,976 rural residents × 10% with one Kit-supported advice contact a year × 16.14 emergency visits avoided per 1,000 contacts = about 1,025.</p><p class="cont">This assumes a Kit-supported contact matches the 8-1-1 virtual-physician effect: the 16.14 per 1,000 was measured for virtual physicians, not for an AI tool, and BC replaces it with its own measured rate after go-live.</p><p>About C$0.52 million a year at C$504 per emergency visit, the cost used in BC's own 8-1-1 evaluation.</p><p class="cont">The larger rural value is not in dollars: clinicians supported where they work, and transfers decided on clear criteria.</p></div>
+</div>
+<div class="showcase">
+<div class="showcase-head">
+<div class="sh-text">
+<p class="sounding">Physicians</p>
+<h3>Less paperwork, more patients</h3>
+<p class="showcase-estimate">Estimated: about 275,000 physician hours a year, about 1.1 million 15-minute visit slots</p>
+</div>
+<div class="sh-fig">
+<figure class="fig fig--has-wide" id="fig-estimate-2"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 146" role="img" aria-labelledby="fig-estimate-2-wide-t fig-estimate-2-wide-td" data-fig="fig-estimate-2-wide">
+<title id="fig-estimate-2-wide-t">The arithmetic of estimate 2</title>
+<desc id="fig-estimate-2-wide-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="121.9" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">8,263</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">family physicians</text>
+<text x="144.2" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="160.5" y="8.0" width="73.5" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="171.5" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">50%</text>
+<text x="171.5" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">using Kit</text>
+<text x="250.3" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="266.6" y="8.0" width="85.8" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="277.6" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">20</text>
+<text x="277.6" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">visits a day</text>
+<text x="368.7" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="385.0" y="8.0" width="82.3" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="396.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">200</text>
+<text x="396.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">clinic days</text>
+<text x="14.3" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="30.6" y="76.0" width="149.6" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">1</text>
+<text x="41.6" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">minute saved per visit</text>
+<text x="213.0" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷ 60 =</text>
+<rect x="245.8" y="76.0" width="121.3" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="256.8" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 275,433</text>
+<text x="256.8" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">hours a year</text>
+<text x="395.5" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">× 4 =</text>
+<rect x="424.0" y="76.0" width="141.6" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="435.0" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 1.1 million</text>
+<text x="435.0" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">15-minute visit slots</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350" role="img" aria-labelledby="fig-estimate-2-phone-t fig-estimate-2-phone-td" data-fig="fig-estimate-2-phone">
+<title id="fig-estimate-2-phone-t">The arithmetic of estimate 2</title>
+<desc id="fig-estimate-2-phone-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="121.9" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">8,263</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">family physicians</text>
+<text x="144.2" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="160.5" y="8.0" width="73.5" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="171.5" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">50%</text>
+<text x="171.5" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">using Kit</text>
+<text x="14.3" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="30.6" y="76.0" width="85.8" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">20</text>
+<text x="41.6" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">visits a day</text>
+<text x="132.8" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="149.1" y="76.0" width="82.3" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="160.1" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">200</text>
+<text x="160.1" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">clinic days</text>
+<text x="14.3" y="176.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="30.6" y="144.0" width="149.6" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="168.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">1</text>
+<text x="41.6" y="186.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">minute saved per visit</text>
+<text x="30.8" y="244.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷ 60 =</text>
+<rect x="63.6" y="212.0" width="121.3" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="74.6" y="236.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 275,433</text>
+<text x="74.6" y="254.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">hours a year</text>
+<text x="26.5" y="312.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">× 4 =</text>
+<rect x="55.0" y="280.0" width="141.6" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="66.0" y="304.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 1.1 million</text>
+<text x="66.0" y="322.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">15-minute visit slots</text>
+</svg>
+</div></div><figcaption>The arithmetic of the estimate.</figcaption></figure>
+</div>
+</div>
+<div class="cols-4"><div><p><b>The need in BC.</b> BC has 8,263 family physicians.</p><p class="cont">Canadian physicians lose 20 million hours a year to red tape, equal to 9,093 full-time physicians.</p></div><div><p><b>What Kit does.</b> After a visit, Kit drafts the chart note in the clinic's template, plain-language instructions for the patient and any referral letter, from the physician's own summary or the clinic's existing transcript.</p><p class="cont">For a referral, the Records Librarian gathers the labs, reports and medication history, read-only and within the physician's own access rights.</p><p class="cont">The physician edits and signs.</p></div><div><p><b>Published evidence.</b> Across 1,637,227 encounters and 902 clinicians in 14 hospitals, AI documentation cut note time by 1.21 minutes per encounter (Booth et al., Annals of Internal Medicine, 2026).</p><p class="cont">In a randomized trial of 238 physicians, one AI scribe cut time-in-note by 9.5% (Lukac et al., NEJM AI, 2025).</p></div><div><p><b>Kit's measured result.</b> On HealthBench Professional, physician-graded clinical conversations, Kit scores 61.9 over 525 tasks; specialist physicians scored 43.7.</p><p class="cont">The newest frontier models score higher on this board: Anthropic's Fable 5.2 68.1 and OpenAI's GPT-6 Astra 66.0, in independent evaluations by Artificial Analysis.</p><p class="cont">On MedAgentBench v1, Kit completes 94.3% of 300 clinical tasks in an electronic health record.</p></div></div>
+<div class="notes notes--cols" style="margin-top:var(--s3)"><p><b>Illustrative estimate, inputs shown.</b> 8,263 family physicians × 50% using Kit × 20 visits a day × 200 clinic days × 1 minute saved ÷ 60 = about 275,433 hours.</p><p class="cont">× 4 = about 1.1 million 15-minute visit slots</p><p>About C$57.1 million of physician capacity a year at C$207.42 an hour (CIHI average gross clinical payment of C$414,845 per BC physician ÷ 2,000 hours).</p><p class="cont">Specialists are not counted.</p></div>
+<div class="split--flip" style="margin-top:var(--s3)">
+<div class="split-fig">
+<figure class="fig fig--has-wide" id="chart-sensitivity"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 272" role="img" aria-labelledby="chart-sensitivity-wide-t chart-sensitivity-wide-td" data-fig="chart-sensitivity-wide">
+<title id="chart-sensitivity-wide-t">Physician hours a year at three published savings per visit</title>
+<desc id="chart-sensitivity-wide-td">Three bars on one scale of hours a year; the base case is 1.0 minute.</desc>
+<text x="4.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Minutes saved per visit</text>
+<text x="236.0" y="20.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Physician hours a year</text>
+<line x1="4.0" y1="28.0" x2="636.0" y2="28.0" style="stroke:var(--ink);stroke-width:1.5;stroke-linecap:round"/>
+<line x1="236.0" y1="34.0" x2="236.0" y2="234.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="236.0" y="254.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">0</text>
+<line x1="305.7" y1="34.0" x2="305.7" y2="234.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="305.7" y="254.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">200,000</text>
+<line x1="375.4" y1="34.0" x2="375.4" y2="234.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="375.4" y="254.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">400,000</text>
+<line x1="445.1" y1="34.0" x2="445.1" y2="234.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="445.1" y="254.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">600,000</text>
+<text x="4.0" y="60.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">0.37 minutes saved per visit</text>
+<text x="4.0" y="78.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Kaiser Permanente totals: 15,791</text>
+<text x="4.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">hours over 2,576,627 encounters</text>
+<rect x="236.0" y="51.0" width="35.2" height="14.0" rx="4" style="fill:var(--sounding);stroke:none;stroke-width:1.5"/>
+<text x="283.2" y="63.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">about 101,000 hours</text>
+<line x1="4.0" y1="102.0" x2="636.0" y2="102.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="4.0" y="126.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">1.0 minute, the base case</text>
+<text x="4.0" y="144.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Between 0.91 (Stults et al., 2025)</text>
+<text x="4.0" y="160.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">and 1.21 (Booth et al., 2026)</text>
+<rect x="236.0" y="117.0" width="95.9" height="14.0" rx="4" style="fill:var(--ink);stroke:none;stroke-width:1.5"/>
+<text x="343.9" y="129.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">about 275,000 hours</text>
+<line x1="4.0" y1="168.0" x2="636.0" y2="168.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="4.0" y="192.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">2.5 minutes saved per visit</text>
+<text x="4.0" y="210.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">High users in the 14-hospital</text>
+<text x="4.0" y="226.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">system</text>
+<rect x="236.0" y="183.0" width="240.2" height="14.0" rx="4" style="fill:var(--sounding);stroke:none;stroke-width:1.5"/>
+<text x="488.2" y="195.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">about 689,000 hours</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 360" role="img" aria-labelledby="chart-sensitivity-phone-t chart-sensitivity-phone-td" data-fig="chart-sensitivity-phone">
+<title id="chart-sensitivity-phone-t">Physician hours a year at three published savings per visit</title>
+<desc id="chart-sensitivity-phone-td">Three bars on one scale of hours a year; the base case is 1.0 minute.</desc>
+<text x="10.0" y="342.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">0</text>
+<text x="103.1" y="342.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">200,000</text>
+<text x="196.3" y="342.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">400,000</text>
+<text x="289.4" y="342.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">600,000</text>
+<text x="6.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">0.37 minutes saved per visit</text>
+<text x="6.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Kaiser Permanente totals: 15,791 hours over 2,576,627</text>
+<text x="6.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">encounters</text>
+<line x1="10.0" y1="104.0" x2="336.0" y2="104.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<rect x="10.0" y="87.0" width="47.0" height="14.0" rx="4" style="fill:var(--sounding);stroke:none;stroke-width:1.5"/>
+<text x="336.0" y="32.0" text-anchor="end" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">about 101,000 hours</text>
+<line x1="6.0" y1="118.0" x2="346.0" y2="118.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="6.0" y="142.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">1.0 minute, the base case</text>
+<text x="6.0" y="160.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Between 0.91 (Stults et al., 2025) and 1.21 (Booth et al.,</text>
+<text x="6.0" y="176.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">2026)</text>
+<line x1="10.0" y1="214.0" x2="336.0" y2="214.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<rect x="10.0" y="197.0" width="128.1" height="14.0" rx="4" style="fill:var(--ink);stroke:none;stroke-width:1.5"/>
+<text x="336.0" y="142.0" text-anchor="end" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">about 275,000 hours</text>
+<line x1="6.0" y1="228.0" x2="346.0" y2="228.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<text x="6.0" y="252.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">2.5 minutes saved per visit</text>
+<text x="6.0" y="270.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">High users in the 14-hospital system</text>
+<line x1="10.0" y1="308.0" x2="336.0" y2="308.0" style="stroke:var(--grid);stroke-width:1;stroke-linecap:round"/>
+<rect x="10.0" y="291.0" width="320.9" height="14.0" rx="4" style="fill:var(--sounding);stroke:none;stroke-width:1.5"/>
+<text x="336.0" y="252.0" text-anchor="end" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">about 689,000 hours</text>
+</svg>
+</div></div><figcaption>Physician hours a year at three published savings per visit. The base case is 1.0 minute.</figcaption></figure>
+</div>
+<div class="split-text notes"><p>The estimate moves with one input: the minutes saved per visit.</p><p class="cont">The three bars use published figures.</p><p class="cont">The inputs and their sources are in “Inputs, sensitivity and sources” at the foot of the page.</p></div>
+</div>
+</div>
+<div class="showcase">
+<div class="showcase-head">
+<div class="sh-text">
+<p class="sounding">Nurses</p>
+<h3>Nurses at the bedside, not the keyboard</h3>
+<p class="showcase-estimate">Estimated: about 769,000 nurse hours a year, about 395 full-time nurses</p>
+</div>
+<div class="sh-fig">
+<figure class="fig fig--has-wide" id="fig-estimate-3"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 146" role="img" aria-labelledby="fig-estimate-3-wide-t fig-estimate-3-wide-td" data-fig="fig-estimate-3-wide">
+<title id="fig-estimate-3-wide-t">The arithmetic of estimate 3</title>
+<desc id="fig-estimate-3-wide-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="140.1" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">61,547</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">RNs, LPNs and RPNs</text>
+<text x="162.4" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="178.8" y="8.0" width="73.5" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="189.8" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">50%</text>
+<text x="189.8" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">using Kit</text>
+<text x="268.5" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="284.8" y="8.0" width="92.6" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="295.8" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">150</text>
+<text x="295.8" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">shifts a year</text>
+<text x="393.8" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="410.1" y="8.0" width="158.3" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="421.1" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">10</text>
+<text x="421.1" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">minutes saved per shift</text>
+<text x="30.8" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷ 60 =</text>
+<rect x="63.6" y="76.0" width="121.3" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="74.6" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 769,338</text>
+<text x="74.6" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">hours a year</text>
+<text x="201.2" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷</text>
+<rect x="217.5" y="76.0" width="166.4" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="228.5" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">1,950</text>
+<text x="228.5" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">hours per full-time nurse</text>
+<text x="400.2" y="108.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="416.5" y="76.0" width="114.3" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="427.5" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 395</text>
+<text x="427.5" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">full-time nurses</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 314" role="img" aria-labelledby="fig-estimate-3-phone-t fig-estimate-3-phone-td" data-fig="fig-estimate-3-phone">
+<title id="fig-estimate-3-phone-t">The arithmetic of estimate 3</title>
+<desc id="fig-estimate-3-phone-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="140.1" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">61,547</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">RNs, LPNs and RPNs</text>
+<text x="162.4" y="40.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="178.8" y="8.0" width="73.5" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="189.8" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">50%</text>
+<text x="189.8" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">using Kit</text>
+<text x="14.3" y="116.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="30.6" y="76.0" width="92.6" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">150</text>
+<text x="41.6" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">shifts a year</text>
+<text x="139.5" y="116.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="155.8" y="76.0" width="128.4" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="166.8" y="100.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">10</text>
+<text x="166.8" y="118.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">minutes saved per</text>
+<text x="166.8" y="134.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">shift</text>
+<text x="30.8" y="192.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷ 60 =</text>
+<rect x="63.6" y="160.0" width="121.3" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="74.6" y="184.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 769,338</text>
+<text x="74.6" y="202.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">hours a year</text>
+<text x="14.3" y="268.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷</text>
+<rect x="30.6" y="228.0" width="130.4" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="252.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">1,950</text>
+<text x="41.6" y="270.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">hours per full-time</text>
+<text x="41.6" y="286.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">nurse</text>
+<text x="177.3" y="268.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="193.6" y="228.0" width="114.3" height="70.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="204.6" y="252.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 395</text>
+<text x="204.6" y="270.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">full-time nurses</text>
+</svg>
+</div></div><figcaption>The arithmetic of the estimate.</figcaption></figure>
+</div>
+</div>
+<div class="cols-4"><div><p><b>The need in BC.</b> BC has 62,538 regulated nurses and is the first jurisdiction in Canada to roll out minimum nurse-to-patient ratios.</p><p class="cont">In a 36-hospital time-and-motion analysis of 767 nurses, documentation took 35.3% of nursing-practice time.</p></div><div><p><b>What Kit does.</b> Kit drafts the SBAR shift handover from the nurse's notes, writes discharge teaching in plain language and in the patient's language, checks the medication list against the order and answers protocol questions with a source.</p><p class="cont">The nurse reviews, edits and charts.</p></div><div><p><b>Published evidence.</b> With AI drafting, outpatient letters went from 7.9 days to 14 minutes to finalize (median; 131 clinicians including 6 nurse practitioners; Journal of Paediatrics and Child Health, 2026).</p></div><div><p><b>Kit's measured result.</b> On NOHARM, Kit scores 80.0.</p><p class="cont">On MedAgentBench v2, advanced electronic health record tasks, Kit scores 82.0 over 300 tasks.</p><p class="cont">The highest model on the MAST board scores 74.1 (Opus 4.6).</p></div></div>
+<div class="notes notes--cols" style="margin-top:var(--s3)"><p><b>Illustrative estimate, inputs shown.</b> 61,547 RNs, LPNs and RPNs × 50% using Kit × 150 shifts a year × 10 minutes saved ÷ 60 = about 769,338 hours ÷ 1,950 hours per full-time nurse = about 395</p><p>About C$39.6 million of nursing time a year at C$51.41 an hour (Statistics Canada, BC 2025 average, nursing and allied health professionals).</p><p class="cont">Ten minutes is 6.8% of the 147.5 documentation minutes measured in the 36-hospital analysis.</p></div>
+</div>
+<div class="showcase">
+<div class="showcase-head">
+<div class="sh-text">
+<p class="sounding">Patients</p>
+<h3>Clear next steps at any hour</h3>
+<p class="showcase-estimate">Estimated: about 3,200 emergency visits moved to primary care a year, at neutral total cost</p>
+</div>
+<div class="sh-fig">
+<figure class="fig fig--has-wide" id="fig-estimate-4"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 178" role="img" aria-labelledby="fig-estimate-4-wide-t fig-estimate-4-wide-td" data-fig="fig-estimate-4-wide">
+<title id="fig-estimate-4-wide-t">The arithmetic of estimate 4</title>
+<desc id="fig-estimate-4-wide-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="155.2" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">200,000</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">patient contacts a year</text>
+<text x="17.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">supported by Kit</text>
+<text x="177.5" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="193.8" y="8.0" width="139.5" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="204.8" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">16.14</text>
+<text x="204.8" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">emergency visits</text>
+<text x="204.8" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">redirected per 1,000</text>
+<text x="349.7" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="366.0" y="8.0" width="119.8" height="70.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="377.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">3,228</text>
+<text x="377.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">emergency visits</text>
+<text x="377.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">redirected</text>
+<text x="24.5" y="132.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">plus</text>
+<rect x="50.9" y="92.0" width="174.7" height="70.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="61.9" y="116.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">21,228</text>
+<text x="61.9" y="134.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">primary-care follow-ups at</text>
+<text x="61.9" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">106.14 per 1,000</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 278" role="img" aria-labelledby="fig-estimate-4-phone-t fig-estimate-4-phone-td" data-fig="fig-estimate-4-phone">
+<title id="fig-estimate-4-phone-t">The arithmetic of estimate 4</title>
+<desc id="fig-estimate-4-phone-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="145.4" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">200,000</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">patient contacts a</text>
+<text x="17.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">year supported by Kit</text>
+<text x="167.7" y="48.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="184.0" y="8.0" width="139.5" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="195.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">16.14</text>
+<text x="195.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">emergency visits</text>
+<text x="195.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">redirected per 1,000</text>
+<text x="14.3" y="132.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="30.6" y="92.0" width="119.8" height="70.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="41.6" y="116.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">3,228</text>
+<text x="41.6" y="134.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">emergency visits</text>
+<text x="41.6" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">redirected</text>
+<text x="24.5" y="224.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">plus</text>
+<rect x="50.9" y="176.0" width="141.0" height="86.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="61.9" y="200.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">21,228</text>
+<text x="61.9" y="218.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">primary-care</text>
+<text x="61.9" y="234.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">follow-ups at 106.14</text>
+<text x="61.9" y="250.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">per 1,000</text>
+</svg>
+</div></div><figcaption>The arithmetic of the estimate.</figcaption></figure>
+</div>
+</div>
+<div class="cols-4"><div><p><b>The need in BC.</b> 29% of BC respondents had no regular family doctor or nurse practitioner in 2022.</p><p class="cont">HealthLink BC 8-1-1 nurses answer around the clock.</p><p class="cont">Its physicians answer from 9 a.m. to 11 p.m.</p></div><div><p><b>What Kit does.</b> Kit supports the licensed nurses and physicians who answer patients.</p><p class="cont">When the words describe an emergency, fixed code puts the 9-1-1, poison-centre or 9-8-8 instruction first, before any AI text.</p><p class="cont">Otherwise Kit gives the nurse sourced options to discuss: care at home, 8-1-1, a pharmacist, an urgent and primary care centre or the emergency department.</p><p class="cont">The nurse decides and advises.</p><p class="cont">Kit drafts a plain summary the patient brings to the visit.</p></div><div><p><b>Published evidence.</b> BC's 8-1-1 virtual physicians meant 16.14 fewer emergency visits and 106.14 more primary-care visits per 1,000 users within 30 days, with health-system costs neutral over a year (Cressman et al., npj Digital Medicine, 2025).</p><p class="cont">Of 1,834 callers advised home treatment, none died (CMAJ Open, 2023).</p></div><div><p><b>Kit's measured result.</b> On today's service, 312 of 312 BC medical test questions went to Kit Think Medical (11–15 November 2026), and 56 of 56 emergency test answers named 9-1-1 in their opening (13–15 November 2026).</p></div><div><p><b>Trust line.</b> 84% of Canadians surveyed would not use a virtual care service that sold their de-identified health data.</p><p class="cont">Patient records are never sold and never used to train any model.</p></div></div>
+<div class="notes notes--cols" style="margin-top:var(--s3)"><p><b>Illustrative estimate, inputs shown.</b> 200,000 patient contacts a year supported by Kit (4% of BC's 5,000,879 people) × 16.14 emergency visits redirected per 1,000 = 3,228.</p><p class="cont">Plus 21,228 primary-care follow-ups at 106.14 per 1,000</p><p>The redirected visits equal about C$1.63 million of emergency-department cost at C$504 a visit.</p><p class="cont">BC's own evidence shows the shift is cost-neutral overall: the value is the right care in the right place.</p></div>
+</div>
+<div class="showcase">
+<div class="showcase-head">
+<div class="sh-text">
+<p class="sounding">Safety net</p>
+<h3>A safety net for every prescription and diagnosis</h3>
+<p class="showcase-estimate">Estimated: about 2,800 hospital bed-days a year, about 7.7 beds open all year</p>
+</div>
+<div class="sh-fig">
+<figure class="fig fig--has-wide" id="fig-estimate-5"><div class="fig-panel"><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 246" role="img" aria-labelledby="fig-estimate-5-wide-t fig-estimate-5-wide-td" data-fig="fig-estimate-5-wide">
+<title id="fig-estimate-5-wide-t">The arithmetic of estimate 5</title>
+<desc id="fig-estimate-5-wide-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="160.8" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">70,000</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">potentially preventable</text>
+<text x="17.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">adverse events a year in</text>
+<text x="17.0" y="82.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Canada</text>
+<text x="183.1" y="56.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="199.4" y="8.0" width="139.0" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="210.4" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">13.5%</text>
+<text x="210.4" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">BC population share</text>
+<text x="354.7" y="56.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="371.0" y="8.0" width="60.3" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="382.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">9,463</text>
+<text x="382.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">in BC</text>
+<text x="447.6" y="56.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="463.9" y="8.0" width="128.9" height="86.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="474.9" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">5%</text>
+<text x="474.9" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">prevented with Kit</text>
+<text x="14.3" y="140.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="30.6" y="108.0" width="91.6" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="132.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">about 473</text>
+<text x="41.6" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">events</text>
+<text x="138.5" y="140.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="154.8" y="108.0" width="162.4" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="165.8" y="132.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">5.96</text>
+<text x="165.8" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">extra hospital days each</text>
+<text x="333.5" y="140.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="349.9" y="108.0" width="104.0" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="360.9" y="132.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 2,820</text>
+<text x="360.9" y="150.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">bed-days</text>
+<text x="35.1" y="208.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷ 365 =</text>
+<rect x="72.2" y="176.0" width="126.4" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="83.2" y="200.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 7.7</text>
+<text x="83.2" y="218.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">beds open all year</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 346" role="img" aria-labelledby="fig-estimate-5-phone-t fig-estimate-5-phone-td" data-fig="fig-estimate-5-phone">
+<title id="fig-estimate-5-phone-t">The arithmetic of estimate 5</title>
+<desc id="fig-estimate-5-phone-td">Each input, the operation and the result, in order.</desc>
+<rect x="6.0" y="8.0" width="139.5" height="102.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="17.0" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">70,000</text>
+<text x="17.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">potentially</text>
+<text x="17.0" y="66.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">preventable adverse</text>
+<text x="17.0" y="82.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">events a year in</text>
+<text x="17.0" y="98.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Canada</text>
+<text x="161.8" y="64.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="178.1" y="8.0" width="139.0" height="102.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="189.1" y="32.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">13.5%</text>
+<text x="189.1" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">BC population share</text>
+<text x="14.3" y="156.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="30.6" y="124.0" width="60.3" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="148.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">9,463</text>
+<text x="41.6" y="166.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">in BC</text>
+<text x="107.2" y="156.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="123.5" y="124.0" width="128.9" height="54.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="134.5" y="148.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">5%</text>
+<text x="134.5" y="166.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">prevented with Kit</text>
+<text x="14.3" y="232.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="30.6" y="192.0" width="91.6" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="41.6" y="216.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">about 473</text>
+<text x="41.6" y="234.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">events</text>
+<text x="138.5" y="232.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">×</text>
+<rect x="154.8" y="192.0" width="131.7" height="70.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="165.8" y="216.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">5.96</text>
+<text x="165.8" y="234.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">extra hospital days</text>
+<text x="165.8" y="250.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">each</text>
+<text x="14.3" y="308.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">=</text>
+<rect x="30.6" y="276.0" width="104.0" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="41.6" y="300.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 2,820</text>
+<text x="41.6" y="318.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">bed-days</text>
+<text x="171.7" y="308.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--ink)">÷ 365 =</text>
+<rect x="208.9" y="276.0" width="126.4" height="54.0" rx="4" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<text x="219.9" y="300.0" style="font-family:var(--font-text);font-stretch:88%;font-size:15px;font-weight:600;fill:var(--core-text)">about 7.7</text>
+<text x="219.9" y="318.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">beds open all year</text>
+</svg>
+</div></div><figcaption>The arithmetic of the estimate.</figcaption></figure>
+</div>
+</div>
+<div class="cols-4"><div><p><b>The need in BC.</b> Canadian hospitals recorded 7.5 adverse events per 100 admissions, and 36.9% were preventable.</p><p class="cont">BC hospitals were in the sample.</p><p class="cont">In the NOHARM evaluation, omissions made up more than 80% of severe errors.</p></div><div><p><b>What Kit does.</b> Before an order is signed or a diagnosis is final, Kit lists what is missing: a monitoring lab, a contraindication, a renal dose adjustment, an interaction, a diagnosis that must not be missed.</p><p class="cont">It shows a short checklist with BC or Canadian sources, not an essay, because the NOHARM authors found that “AI-assisted physicians frequently omitted valuable AI-generated recommendations.”</p></div><div><p><b>Published evidence.</b> Across 25 published reports and 44,640 participants, computerized decision support cut potentially inappropriate prescribing for older emergency patients by 40% (JAMA Network Open, 2025).</p><p class="cont">In 39,849 primary-care visits at 15 clinics in Nairobi, clinicians with an AI consult tool made 16% fewer diagnostic errors and 13% fewer treatment errors (Korom et al., 2025).</p></div><div><p><b>Kit's measured result.</b> On NOHARM, Kit scores 80.0 over 330 cases.</p><p class="cont">The highest general-purpose model on the public NOHARM board scores 79.7 (Muse Spark 1.1), and 101 US physicians scored 42.2.</p></div></div>
+<div class="notes notes--cols" style="margin-top:var(--s3)"><p><b>Illustrative estimate, inputs shown.</b> 70,000 potentially preventable adverse events a year in Canada × BC's 13.5% population share = 9,463 × 5% prevented with Kit = about 473 × 5.96 extra hospital days each = about 2,820 bed-days ÷ 365 = about 7.7 beds</p><p>No dollar value is given, because no sourced BC cost per bed-day is used.</p><p class="cont">The adverse-event rates come from fiscal-2000 hospital charts and set the scale only.</p><p class="cont">The 5% input sits well below the 13% and 16% error reductions measured in Nairobi.</p></div>
+</div>
+
+<div class="prose" style="margin-top:var(--s5)">
+<p><b>This is capacity returned to care, not a budget cut.</b> Freed time becomes more visits, faster handovers and safer orders.</p><p class="cont">Physician and nurse capacity together come to about C$96.7 million a year, 0.27% of BC's C$36.1 billion 2026/27 health budget.</p><p class="cont">BC replaces every input above with its own data at go-live, and the quarterly measures below track the result.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="rural">
+<div class="wrap">
+<h2 class="section-title">One question from a remote health centre, followed to the decision.</h2>
+<figure class="fig fig--has-full fig--has-wide" id="fig-rural"><div class="fig-panel"><div class="fig-v fig-v--full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 262" role="img" aria-labelledby="fig-rural-full-t fig-rural-full-td" data-fig="fig-rural-full">
+<title id="fig-rural-full-t">A rural clinician&#x27;s question, end to end</title>
+<desc id="fig-rural-full-td">Five steps: the nurse asks; the question travels on the private network; the regional Deep Cove answers; sources are shown; the clinician decides.</desc>
+<path d="M198.0,100.0 L242.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="242.0,100.0 232.9,94.8 232.9,105.2" style="fill:var(--ink)"/>
+<path d="M434.0,100.0 L478.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="478.0,100.0 468.9,94.8 468.9,105.2" style="fill:var(--ink)"/>
+<path d="M670.0,100.0 L714.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="714.0,100.0 704.9,94.8 704.9,105.2" style="fill:var(--ink)"/>
+<circle cx="692.0" cy="100.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="692.0" y="34.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:600;fill:var(--ink)">Kit Think Medical</text>
+<line x1="692.0" y1="40.0" x2="692.0" y2="92.0" style="stroke:var(--magenta);stroke-width:1.5;stroke-linecap:round"/>
+<path d="M906.0,100.0 L950.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="950.0,100.0 940.9,94.8 940.9,105.2" style="fill:var(--ink)"/>
+<rect x="6.0" y="64.0" width="192.0" height="104.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="8.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">1</text>
+<text x="20.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Nurse at a rural health</text>
+<text x="20.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">centre</text>
+<text x="20.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">asks Kit a clinical question</text>
+<rect x="242.0" y="64.0" width="192.0" height="104.0" rx="4" style="fill:var(--shoal-2);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<circle cx="244.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="244.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="244.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">2</text>
+<text x="256.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Health authority&#x27;s private</text>
+<text x="256.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">network</text>
+<text x="256.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">encrypted, never the public</text>
+<text x="256.0" y="146.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">internet</text>
+<rect x="478.0" y="64.0" width="192.0" height="104.0" rx="6" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<circle cx="480.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="480.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="480.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">3</text>
+<text x="492.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--core-text)">Regional Deep Cove</text>
+<text x="492.0" y="113.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">in a BC health-authority</text>
+<text x="492.0" y="129.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">facility</text>
+<rect x="714.0" y="64.0" width="192.0" height="104.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="716.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="716.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="716.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">4</text>
+<text x="728.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Answer with sources</text>
+<text x="728.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">shown</text>
+<text x="728.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">BC resources first</text>
+<rect x="950.0" y="64.0" width="192.0" height="104.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="952.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="952.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="952.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">5</text>
+<text x="964.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">The clinician decides</text>
+<text x="964.0" y="113.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">and records the decision</text>
+<path d="M744.0,168.0 L744.0,190.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<path d="M812.0,168.0 L812.0,190.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<rect x="694.0" y="190.0" width="98.3" height="30.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<text x="743.1" y="210.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">BC Guidelines</text>
+<rect x="802.3" y="190.0" width="100.2" height="30.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<text x="852.4" y="210.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">HealthLink BC</text>
+</svg>
+</div><div class="fig-v fig-v--wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 290" role="img" aria-labelledby="fig-rural-wide-t fig-rural-wide-td" data-fig="fig-rural-wide">
+<title id="fig-rural-wide-t">A rural clinician&#x27;s question, end to end</title>
+<desc id="fig-rural-wide-td">Five steps: the nurse asks; the question travels on the private network; the regional Deep Cove answers; sources are shown; the clinician decides.</desc>
+<path d="M132.0,100.0 L158.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="158.0,100.0 148.9,94.8 148.9,105.2" style="fill:var(--ink)"/>
+<path d="M284.0,100.0 L310.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="310.0,100.0 300.9,94.8 300.9,105.2" style="fill:var(--ink)"/>
+<path d="M436.0,100.0 L462.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="462.0,100.0 452.9,94.8 452.9,105.2" style="fill:var(--ink)"/>
+<circle cx="449.0" cy="100.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="449.0" y="34.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:600;fill:var(--ink)">Kit Think Medical</text>
+<line x1="449.0" y1="40.0" x2="449.0" y2="92.0" style="stroke:var(--magenta);stroke-width:1.5;stroke-linecap:round"/>
+<path d="M588.0,100.0 L614.0,100.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="614.0,100.0 604.9,94.8 604.9,105.2" style="fill:var(--ink)"/>
+<rect x="6.0" y="64.0" width="126.0" height="132.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="8.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">1</text>
+<text x="20.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Nurse at a rural</text>
+<text x="20.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">health centre</text>
+<text x="20.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">asks Kit a clinical</text>
+<text x="20.0" y="146.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">question</text>
+<rect x="158.0" y="64.0" width="126.0" height="132.0" rx="4" style="fill:var(--shoal-2);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<circle cx="160.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="160.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="160.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">2</text>
+<text x="172.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Health</text>
+<text x="172.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">authority&#x27;s</text>
+<text x="172.0" y="128.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">private</text>
+<text x="172.0" y="145.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">network</text>
+<text x="172.0" y="164.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">encrypted, never</text>
+<text x="172.0" y="180.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">the public</text>
+<text x="172.0" y="196.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">internet</text>
+<rect x="310.0" y="64.0" width="126.0" height="132.0" rx="6" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<circle cx="312.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="312.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="312.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">3</text>
+<text x="324.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--core-text)">Regional Deep</text>
+<text x="324.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--core-text)">Cove</text>
+<text x="324.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">in a BC</text>
+<text x="324.0" y="146.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">health-authority</text>
+<text x="324.0" y="162.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">facility</text>
+<rect x="462.0" y="64.0" width="126.0" height="132.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="464.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="464.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="464.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">4</text>
+<text x="476.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Answer with</text>
+<text x="476.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">sources shown</text>
+<text x="476.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">BC resources</text>
+<text x="476.0" y="146.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">first</text>
+<rect x="614.0" y="64.0" width="126.0" height="132.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="616.0" cy="66.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="616.0" cy="66.0" r="11" style="fill:var(--ink)"/>
+<text x="616.0" y="70.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">5</text>
+<text x="628.0" y="94.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">The clinician</text>
+<text x="628.0" y="111.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">decides</text>
+<text x="628.0" y="130.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">and records the</text>
+<text x="628.0" y="146.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">decision</text>
+<path d="M492.0,196.0 L492.0,218.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<path d="M560.0,196.0 L560.0,218.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<rect x="442.0" y="218.0" width="98.3" height="30.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<text x="491.1" y="238.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">BC Guidelines</text>
+<rect x="550.3" y="218.0" width="100.2" height="30.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<text x="600.4" y="238.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">HealthLink BC</text>
+</svg>
+</div><div class="fig-v fig-v--phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 636" role="img" aria-labelledby="fig-rural-phone-t fig-rural-phone-td" data-fig="fig-rural-phone">
+<title id="fig-rural-phone-t">A rural clinician&#x27;s question, end to end</title>
+<desc id="fig-rural-phone-td">Five steps: the nurse asks; the question travels on the private network; the regional Deep Cove answers; sources are shown; the clinician decides.</desc>
+<path d="M46.0,100.0 L46.0,134.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="46.0,134.0 40.8,124.9 51.2,124.9" style="fill:var(--ink)"/>
+<path d="M46.0,210.0 L46.0,244.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="46.0,244.0 40.8,234.9 51.2,234.9" style="fill:var(--ink)"/>
+<path d="M46.0,320.0 L46.0,354.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="46.0,354.0 40.8,344.9 51.2,344.9" style="fill:var(--ink)"/>
+<circle cx="46.0" cy="337.0" r="6" style="fill:var(--magenta);stroke:none;stroke-width:1.5"/>
+<text x="60.0" y="342.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:600;fill:var(--ink)">Kit Think Medical</text>
+<path d="M46.0,430.0 L46.0,464.0" style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+<polygon points="46.0,464.0 40.8,454.9 51.2,454.9" style="fill:var(--ink)"/>
+<rect x="6.0" y="24.0" width="338.0" height="76.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="8.0" cy="26.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="26.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="30.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">1</text>
+<text x="20.0" y="50.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Nurse at a rural health centre</text>
+<text x="20.0" y="69.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">asks Kit a clinical question</text>
+<rect x="6.0" y="134.0" width="338.0" height="76.0" rx="4" style="fill:var(--shoal-2);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<circle cx="8.0" cy="136.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="136.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="140.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">2</text>
+<text x="20.0" y="160.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Health authority&#x27;s private network</text>
+<text x="20.0" y="179.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">encrypted, never the public internet</text>
+<rect x="6.0" y="244.0" width="338.0" height="76.0" rx="6" style="fill:var(--core-fill);stroke:none;stroke-width:1.5"/>
+<circle cx="8.0" cy="246.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="246.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="250.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">3</text>
+<text x="20.0" y="270.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--core-text)">Regional Deep Cove</text>
+<text x="20.0" y="289.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--core-text)">in a BC health-authority facility</text>
+<rect x="6.0" y="354.0" width="338.0" height="76.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="8.0" cy="356.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="356.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="360.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">4</text>
+<text x="20.0" y="380.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">Answer with sources shown</text>
+<text x="20.0" y="399.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">BC resources first</text>
+<rect x="6.0" y="464.0" width="338.0" height="76.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<circle cx="8.0" cy="466.0" r="13" style="fill:var(--shoal)"/>
+<circle cx="8.0" cy="466.0" r="11" style="fill:var(--ink)"/>
+<text x="8.0" y="470.8" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--paper)">5</text>
+<text x="20.0" y="490.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">The clinician decides</text>
+<text x="20.0" y="509.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">and records the decision</text>
+<text x="6.0" y="580.0" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--sounding)">Sources shown:</text>
+<rect x="106.6" y="560.0" width="98.3" height="30.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<text x="155.7" y="580.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">BC Guidelines</text>
+<rect x="212.9" y="560.0" width="100.2" height="30.0" rx="4" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5" stroke-dasharray="5 4"/>
+<text x="262.9" y="580.0" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">HealthLink BC</text>
+</svg>
+</div></div><figcaption><b>Figure 2.</b> A rural clinician's question, end to end. The question travels encrypted on the health authority's private network to the regional Deep Cove, in a BC health-authority facility. It never crosses the public internet. Kit answers with its sources shown, BC resources first. The clinician decides and records the decision.</figcaption></figure>
+<div class="cols-2" style="margin-top:var(--s4)">
+<div><p><b>Patient records never leave the facility.</b> The Core that writes the answer has no internet path. It reaches the chart only through the Records Librarian, read-only and within the clinician's own access rights. It reaches the web only by asking the Web Librarian, whose fetcher holds the one controlled line and never holds patient data.</p></div>
+<div><p><b>If the outside internet goes down, Kit keeps answering.</b> Only web lookups pause.</p><p class="cont">A site that wants no outside line at all chooses the Sealed Library: a medical library kept on site and refreshed through the Delivery Bay with signed, sterilized updates.</p><p><a class="link" href="../security/">See every crossing in the security architecture</a></p></div>
+</div>
+<details class="more"><summary>Speed, sources and rural reach</summary><div class="more-body">
+<ul class="dash-list"><li><p><b>Speed on Kit's current hosted service, measured with test questions (no BC patient data).</b> Kit Think shows its first progress line in about half a second and finishes a hard medical question in about one to two minutes.</p><p>Medians from the hourly live probe, 11–15 November 2026, n = 104 per question type: first progress line 0.5 s.</p><p>Emergency answers 52.1 s, dose answers 90.7 s, symptom answers 109.2 s. Kit Ask streams its first words in about 1.5 s (median 1.51 s, n = 690, 8–15 November 2026).</p></li><li><p><b>Speed on Deep Cove, guaranteed at acceptance.</b> Kit Ask: first words in 1 s or less at the 95th percentile at the guaranteed capacity.</p><p>Streaming: 100 tokens per second or more for 9 in 10 users, in the range of the fastest cloud AI services.</p><p>Kit Think: first progress line within 1 s. Kit Think Medical completion time: contracted per size (see Investment).</p></li><li><b>BC sources by default.</b> Kit Think Medical points to HealthLink BC 8-1-1, BC Drug and Poison Information, BC Guidelines and BCCDC.</li><li><p><b>What crosses, exactly.</b> The Core cannot address the outside world.</p><p>It writes an order in a fixed form.</p><p>Two independent checks refuse any search with a name, an identifying number, a full date or a place (doses and lab values pass only with their units), and the Web Librarian rebuilds the query from approved medical terms and sends only those words out.</p><p>Pages come back as cleaned text.</p></li><li><p><b>Rural reach.</b> A regional Deep Cove serves rural health centres over the health authority's private network, encrypted, because the traffic is text.</p><p>Questions never cross the public internet.</p><p>No server sits in the health centre.</p></li><li><p><b>Alongside BC's networks.</b> Real-Time Virtual Support has run almost 20,000 encounters in 129 rural, remote and First Nations communities (Ho et al., CMAJ, 2025).</p><p>Kit drafts the case summary for that call.</p><p>The virtual physician and the local clinician decide.</p><p>BC programs are named as public evidence; naming them implies no partnership.</p></li></ul>
+</div></details>
+</div>
+</section>
+
+<section class="section" id="roles">
+<div class="wrap">
+<h2 class="section-title">Kit drafts and checks. People decide.</h2>
+<div class="table-wrap"><table class="table table--stack">
+<thead><tr><th scope="col">Who</th><th scope="col">What Kit does</th><th scope="col">An example question</th><th scope="col">Kit's measured result</th></tr></thead>
+<tbody>
+<tr><th scope="row">Patients<span class="sub">Patients meet Kit through their care team.</span></th><td data-label="What Kit does"><ul class="dash-list"><li><b>Directs.</b> Sourced next-step options for the care team to discuss with the patient: home care, 8-1-1, a pharmacist, an urgent and primary care centre or the emergency department.</li><li><b>Explains.</b> After-visit instructions in plain language, reviewed by the care team before they reach the patient.</li><li><b>Translates.</b> The same instructions in the patient's language.</li></ul></td><td data-label="An example question"><p>“Turn these discharge instructions into plain language, in Punjabi.”</p></td><td data-label="Kit's measured result"><p><b>Kit's measured result.</b> Emergency instructions come first, written by fixed code.</p><p class="cont">56 of 56 emergency test answers named 9-1-1 in their opening (13–15 November 2026).</p></td></tr>
+<tr><th scope="row">Nurses</th><td data-label="What Kit does"><ul class="dash-list"><li><b>Hands over.</b> An SBAR shift handover drafted from the nurse's notes.</li><li><b>Teaches.</b> Discharge teaching at a plain reading level, ready to check and hand over.</li><li><b>Checks.</b> The medication list against the order: dose, route and interactions, each line with its source.</li></ul></td><td data-label="An example question"><p>“Turn my notes into an SBAR handover for the night shift.”</p></td><td data-label="Kit's measured result"><p><b>Kit's measured result.</b> NOHARM 80.0 over 330 cases; MedAgentBench v2 82.0 over 300 tasks.</p></td></tr>
+<tr><th scope="row">Physicians</th><td data-label="What Kit does"><ul class="dash-list"><li><b>Drafts.</b> The chart note, the patient's instructions and the referral letter, from the physician's summary or the clinic's existing transcript.</li><li><b>Checks.</b> An omission checklist before an order is signed: monitoring labs, contraindications, renal dose adjustments, interactions.</li><li><b>Lists.</b> Red flags first, then the diagnoses that must not be missed, each with its source.</li></ul></td><td data-label="An example question"><p>“Chest pain, age 58, normal first troponin. What must I rule out?”</p></td><td data-label="Kit's measured result"><p><b>Kit's measured result.</b> HealthBench Professional 61.9 over 525 tasks, against 43.7 for specialist physicians.</p><p class="cont">NOHARM 80.0, against 42.2 for 101 US physicians.</p></td></tr>
+<tr><th scope="row">Rural clinicians</th><td data-label="What Kit does"><ul class="dash-list"><li><b>Flags.</b> Red flags first, at any hour.</li><li><b>Guides.</b> BC-guideline next steps, weight-based dose checks and transfer criteria.</li><li><b>Summarizes.</b> A one-page case summary for Real-Time Virtual Support or the transport team.</li></ul></td><td data-label="An example question"><p>“Summarize this case for the Real-Time Virtual Support physician.”</p></td><td data-label="Kit's measured result"><p><b>Kit's measured result.</b> Script Concordance Testing 72.8 over 174 items, reasoning under uncertainty judged against expert panels; NOHARM 80.0.</p></td></tr>
+<tr><th scope="row">Administrators</th><td data-label="What Kit does"><ul class="dash-list"><li><b>Assembles.</b> The referral package a specialist's intake asks for, read-only through the Records Librarian with the requesting clinician's rights, for that clinician to review.</li><li><p><b>Reads.</b> Scanned forms and documents, then drafts the reply.</p><p>Image and document reading is non-diagnostic and runs on a dedicated server from the Hospital size up.</p></li><li><b>Researches.</b> Cited reports for planning and policy from Deep Cove Research: up to three clarifying questions, a plan you approve, then a report you can export to Word, PDF, Excel or HTML.</li></ul></td><td data-label="An example question"><p>“Compare published approaches to reducing emergency department waits in rural regions.”</p></td><td data-label="Kit's measured result"><p><b>Kit's measured result.</b> MedAgentBench v1 94.3 and v2 82.0, 300 health-record tasks each.</p></td></tr>
+</tbody></table></div>
+<details class="more"><summary>Modes, routing and scope</summary><div class="more-body">
+<ul class="dash-list"><li><b>Kit Ask</b> keeps simple, quick asks and streams its first words in about 1.5 s (median 1.51 s, n = 690, hosted service).</li><li><p><b>Kit Think Medical</b> takes every medical, health, symptom, drug, dose and emergency question.</p><p>It reads full pages in a bounded research loop of up to 12 tool steps, tests its draft against the leading alternatives, holds dose answers until a deterministic dose check runs and appends one computed safety line.</p><p>The model's sentences are never edited.</p></li><li><b>Kit Think General</b> takes other complex work: documents, multi-step analysis, planning, comparisons and code.</li><li><p><b>Deep Cove Research</b> writes full cited reports in a median of 21.8 minutes (68 runs, hosted service).</p><p>On DeepResearch Bench (board of 2026-10-28), Deep Cove Research Pro ranks #5 of 18 at US$2.50 per report and Deep Cove Research #6 of 18 at US$1.04 per report.</p></li><li><p><b>Medical questions never take the quick path.</b> In validation, 0 of 47,110 medical benchmark prompts and conversation turns left the medical path.</p><p>On the hosted service, 312 of 312 BC medical test questions went to Kit Think Medical (11–15 November 2026).</p></li><li><p><b>Health records on Deep Cove.</b> The Records Librarian is read-only by default and acts with the requesting clinician's own access rights, so Kit sees only records that clinician may already open.</p><p>Write actions such as placing orders come in a later release and always need clinician approval.</p><p>The MedAgentBench results were run against the standard health-record interface (FHIR) in a test record system.</p></li><li><b>Notes.</b> Kit drafts from the clinician's summary or the clinic's existing transcript. It does not record visits.</li><li><p><b>Images and documents.</b> Reading is non-diagnostic: documents, forms and general photographs, never medical images for interpretation.</p><p>It runs on a dedicated server from the Hospital size up.</p><p>Diagnostic imaging follows Health Canada's medical-device pathway in a later phase.</p></li></ul>
+</div></details>
+</div>
+</section>
+
+<section class="section" id="measure">
+<div class="wrap">
+<h2 class="section-title">BC sets the pass marks and holds the data.</h2>
+<div class="cols-2">
+<div><p>BC sets the pass marks and holds the data.</p><p class="cont">Acceptance happens once, on site, before go-live.</p><p class="cont">The value measures run every quarter after it, against a baseline BC records first.</p></div>
+<div><p><b>Every measure comes from systems BC holds.</b> NHS England asks that AI monitoring data be “collected and analysed independently from the manufacturer's.”</p><p class="cont">Deep Cove is built for that: the audit log sits on site with BC's keys, and the clinical data stays in BC's own records and surveys.<sup>5</sup></p></div>
+</div>
+<p class="lead-line" style="margin-top:var(--s4)">Table 1. The seven acceptance gates.</p><p class="cont">Deep Cove goes live only when all seven pass and BC signs.</p>
+<div class="table-wrap"><table class="table">
+<thead><tr><th scope="col">Gate</th><th scope="col">On-site measurement</th><th scope="col">Signer for BC</th></tr></thead>
+<tbody>
+<tr><th scope="row">1. Capacity</th><td>Recorded Kit Ask and Kit Think sessions replayed at the contracted number of simultaneous streams: 9 in 10 users stream at 100 tokens per second or more, and no answer fails</td><td>Technical lead</td></tr>
+<tr><th scope="row">2. Speed</th><td><p>Kit Ask: first words within 1 second for 95% of questions at the guaranteed capacity.</p><p>Kit Think: first progress line within 1 second.</p><p>Kit Think Medical: completion within the 95th-percentile figure contracted for the size</p></td><td>Technical lead</td></tr>
+<tr><th scope="row">3. Scores</th><td>An on-site re-run of the published boards on the installed system, against pass marks BC sets</td><td>Clinical lead</td></tr>
+<tr><th scope="row">4. Clinical Safety</th><td>The release safety suite passes on the test system: dose rules, emergency-first ordering, crisis lines, red-team cases and reference clinical questions</td><td>Clinical safety officer</td></tr>
+<tr><th scope="row">5. Security</th><td>An independent penetration test of the system, the Gates and the update path, with a review of the gate software</td><td>Security officer</td></tr>
+<tr><th scope="row">6. Recovery</th><td>A timed rollback drill and an emergency lock drill: pause Kit, cut the Gates, power off</td><td>Security officer</td></tr>
+<tr><th scope="row">7. Privacy</th><td>The privacy impact assessment is complete, and BC checks a sample of outbound search words for patient identifiers</td><td>Privacy officer</td></tr>
+</tbody></table></div>
+<div class="notes" style="margin-top:12px"><p>An ISO/IEC 27001 and 42001 programme is part of the delivery plan.</p></div>
+<p class="lead-line" style="margin-top:var(--s4)">Table 2. Measured every quarter, against a baseline BC records before go-live.</p>
+<div class="table-wrap"><table class="table">
+<thead><tr><th scope="col">Showcase</th><th scope="col">Measure</th><th scope="col">Data source, held by BC</th></tr></thead>
+<tbody>
+<tr><th scope="row">Physicians</th><td>Time in notes per encounter; after-hours charting time</td><td>Electronic health record audit logs</td></tr>
+<tr><th scope="row">Physicians and nurses</th><td>Burnout, on the Professional Fulfillment Index</td><td>Staff survey run by the health authority</td></tr>
+<tr><th scope="row">Nurses</th><td>Documentation minutes per shift, for handover and discharge</td><td>Electronic health record audit logs</td></tr>
+<tr><th scope="row">Rural and remote teams</th><td>Emergency diversion hours and transfers from rural sites</td><td>Health authority operations data</td></tr>
+<tr><th scope="row">Patients</th><td>Emergency visits and primary-care follow-ups after a supported contact</td><td>Health authority and Ministry data</td></tr>
+<tr><th scope="row">Safety Net</th><td>Patient-safety reports that involve a Kit answer</td><td>The health authority's existing safety reporting</td></tr>
+<tr><th scope="row">Records and referrals</th><td>Referrals returned for missing information</td><td>Specialist intake records</td></tr>
+<tr><th scope="row">All roles</th><td><p>Use by role and by mode.</p><p>A monthly sample of answers rated by BC clinicians for safety and sources</p></td><td>Deep Cove's on-site audit log; BC's clinical review panel</td></tr>
+</tbody></table></div>
+<div class="notes" style="margin-top:12px"><p>Each update passes a safety gate before BC accepts it: the medical boards re-run, and BC's change board signs off.</p></div>
+<div style="margin-top:8px"><div class="notes"><p><sup>5</sup> NHS England, Guidance on the use of AI-enabled ambient scribing products in health and care settings, version 3, updated 29 July 2026.</p></div></div>
+<p class="notice" style="margin-top:var(--s4)"><b>Kit drafts, checks and cites. The clinician decides.</b> Kit is clinical decision-support software for licensed professionals: every answer shows its sources.</p><p class="cont">Image and document reading is non-diagnostic, and diagnostic imaging follows the Health Canada medical-device pathway.</p>
+</div>
+</section>
+
+<section class="section" id="questions">
+<div class="wrap">
+<h2 class="section-title">Questions officials ask.</h2>
+<div class="qa-list">
+<details class="qa"><summary>Is this a budget saving?</summary><div class="more-body">
+<p><b>No. It is capacity returned to care.</b> Freed physician and nurse time becomes more visits, faster handovers and safer orders.</p><p class="cont">BC's own 8-1-1 evidence shows the same pattern for patients: care moves to the right place at neutral total cost.</p>
+</div></details>
+<details class="qa"><summary>Does Kit record the visit?</summary><div class="more-body">
+<p><b>No.</b> Kit drafts the note from the clinician's summary or the clinic's existing transcript.</p><p class="cont">The published time savings were measured with AI scribes that listen to the visit, so the physician estimate uses 1 minute per visit, between the 0.91 and 1.21 minutes measured in large health systems.</p>
+</div></details>
+<details class="qa"><summary>What does a rural site need on day one?</summary><div class="more-body">
+<p><b>A managed device and the health authority's private network.</b> A regional Deep Cove serves rural health centres because the traffic is text, and questions never cross the public internet.</p><p class="cont">If the outside internet goes down, Kit keeps answering; only web lookups pause.</p>
+</div></details>
+<details class="qa"><summary>Why use other programs' results for the estimates?</summary><div class="more-body">
+<p><b>They are the best published measures of this kind of work,</b> and each estimate shows its inputs in full.</p><p class="cont">At go-live BC replaces our inputs with its own data, records a baseline, and measures the result every quarter from systems it holds.</p>
+</div></details>
+</div>
+<details class="more"><summary>Inputs, sensitivity and sources</summary><div class="more-body wide">
+<div class="table-wrap"><table class="table">
+<thead><tr><th scope="col">Input</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead>
+<tbody>
+<tr><th scope="row">BC family physicians</th><td>8,263 (of 16,438 physicians)</td><td>CIHI, Supply, Distribution and Migration of Physicians in Canada 2025, Table A</td></tr>
+<tr><th scope="row">BC regulated nurses</th><td>62,538 (RN 43,711; LPN 14,377; RPN 3,459; NP 991). RN + LPN + RPN = 61,547</td><td>CIHI, Health Workforce in Canada 2020–2024, Table 1</td></tr>
+<tr><th scope="row">Physician hour</th><td>C$207.42</td><td>CIHI National Physician Database 2024–25: average gross clinical payment C$414,845 ÷ 2,000 hours</td></tr>
+<tr><th scope="row">Nurse hour</th><td>C$51.41</td><td>Statistics Canada Table 14-10-0417-01, BC 2025, nursing and allied health professionals</td></tr>
+<tr><th scope="row">Hours per full-time nurse</th><td>1,950</td><td>37.5 hours × 52 weeks</td></tr>
+<tr><th scope="row">Rural residents</th><td>634,976 of 5,000,879 (12.7%)</td><td>Statistics Canada Table 98-10-0008, 2021 Census</td></tr>
+<tr><th scope="row">Emergency visit cost</th><td>C$504 (physician C$138 + facility C$366)</td><td>Cressman et al., npj Digital Medicine 2025</td></tr>
+<tr><th scope="row">Emergency visits avoided per 1,000</th><td>16.14</td><td>Same</td></tr>
+<tr><th scope="row">Extra primary-care visits per 1,000</th><td>106.14</td><td>Same</td></tr>
+<tr><th scope="row">Preventable adverse events, Canada</th><td>About 70,000 a year</td><td>Baker et al., CMAJ 2004</td></tr>
+<tr><th scope="row">BC population share</th><td>13.5% (5,000,879 ÷ 36,991,981)</td><td>2021 Census</td></tr>
+<tr><th scope="row">Extra Hospital days per adverse event</th><td>5.96 (1,521 days ÷ 255 charts)</td><td>Baker et al., CMAJ 2004</td></tr>
+<tr><th scope="row">Set by Deep Cove, replaced with BC data at go-live</th><td>50% use; 20 visits a day; 200 clinic days; 150 shifts; 10 minutes per shift; 10% rural contact rate; 200,000 patient contacts (4%); 5% of preventable adverse events</td><td>Medical Services Plan and health-authority data, requested under NDA</td></tr>
 </tbody></table></div>
 <p><b>Sensitivity, physician showcase.</b></p>
-<div class="table-wrap"><table class="plain left rt"><thead><tr><th scope="col">Minutes Saved per Visit</th><th scope="col">Basis</th><th scope="col">Hours a Year</th><th scope="col">15-Minute Visit Slots</th></tr></thead><tbody>
-<tr><th scope="row">0.37</th><td data-label="Basis">Kaiser Permanente totals: 15,791 hours over 2,576,627 encounters</td><td data-label="Hours a Year">About 101,000</td><td data-label="Visit Slots">About 405,000</td></tr>
-<tr><th scope="row">1.0 (Base)</th><td data-label="Basis">Between 0.91 (Stults et al., 2025) and 1.21 (Booth et al., 2026)</td><td data-label="Hours a Year">About 275,000</td><td data-label="Visit Slots">About 1.1 million</td></tr>
-<tr><th scope="row">2.5</th><td data-label="Basis">High users in the 14-hospital system</td><td data-label="Hours a Year">About 689,000</td><td data-label="Visit Slots">About 2.75 million</td></tr>
+<div class="table-wrap"><table class="table table--stack">
+<thead><tr><th scope="col">Minutes saved per visit</th><th scope="col">Basis</th><th scope="col">Hours a year</th><th scope="col">15-minute visit slots</th></tr></thead>
+<tbody>
+<tr><th scope="row">0.37</th><td data-label="Basis">Kaiser Permanente totals: 15,791 hours over 2,576,627 encounters</td><td data-label="Hours a year">About 101,000</td><td data-label="15-minute visit slots">About 405,000</td></tr>
+<tr><th scope="row">1.0 (Base)</th><td data-label="Basis">Between 0.91 (Stults et al., 2025) and 1.21 (Booth et al., 2026)</td><td data-label="Hours a year">About 275,000</td><td data-label="15-minute visit slots">About 1.1 million</td></tr>
+<tr><th scope="row">2.5</th><td data-label="Basis">High users in the 14-hospital system</td><td data-label="Hours a year">About 689,000</td><td data-label="15-minute visit slots">About 2.75 million</td></tr>
 </tbody></table></div>
 <p><b>What the evidence measures.</b></p>
-<ul>
-<li>The documentation trials measured listening AI scribes. Kit drafts from a summary or an existing transcript, so the base case uses the conservative 1 minute.</li>
-<li>In the randomized trial of 238 physicians, a second scribe showed no significant change (−1.7%). The base case does not depend on the larger result.</li>
-<li>Physician comparison lines were measured under their own conditions: on NOHARM, 101 US physicians answered 100 base cases with conventional resources, while Kit answered the 330 public items (30 cases × 11 variants); on HealthBench Professional, specialist physicians wrote answers with unlimited time and web search.</li>
-<li>HealthBench Professional rival scores are independent evaluations by Artificial Analysis; the publishers' own figures differ. Kit's graders and every Kit answer are in each board's audit pack.</li>
-</ul>
-<p class="src">Sources: BC Budget and Fiscal Plan 2026/27–2028/29, pp. 13, 14, 38 · CMA and CFIB, Patients Before Paperwork, January 2026 · CIHI physician supply 2025, workforce 2020–2024 and National Physician Database 2024–25 · Statistics Canada Tables 98-10-0008, 13-10-0961, 14-10-0417-01 · Booth et al., Annals of Internal Medicine 2026, doi:10.7326/ANNALS-25-05294 · Lukac et al., NEJM AI 2025, doi:10.1056/aioa2501000 · Stults et al., JAMA Network Open 2025, doi:10.1001/jamanetworkopen.2025.8614 · Kaiser Permanente via the American Medical Association · Hendrich et al., Permanente Journal 2008, doi:10.7812/tpp/08-021 · ICE-AID, Journal of Paediatrics and Child Health 2026, doi:10.1111/jpc.70419 · Cressman et al., npj Digital Medicine 2025, PMC12615700 · Ho et al., CMAJ 2025, PMC12316695 · Novak Lauscher et al., JMIR 2023, doi:10.2196/45451 · CMAJ Open 2023, doi:10.9778/cmajo.20220196 · Korom et al., 2025, arXiv:2507.16947 · JAMA Network Open 2025, doi:10.1001/jamanetworkopen.2025.0814 · Baker et al., CMAJ 2004, doi:10.1503/cmaj.1040498 · First, Do NOHARM, 2025, arXiv:2512.01241 · OurCare survey 2022 · HealthLink BC · NHS England AI scribing guidance, version 3</p>
-</div></details></div></section><section class="cta-band" aria-labelledby="cta-h">
-  <div class="wrap inner">
-    <div>
-      <h2 class="h2" id="cta-h">Start with one site.<span class="second">Measure it with BC's own data.</span></h2>
-      <p>We propose a First Site Deployment at one BC site, sized to its clinicians and accepted against pass marks BC sets: one rural health network or one urban clinic network. From acceptance day its clinicians have Kit Ask, Kit Think Medical, Kit Think General and Deep Cove Research, and BC starts the quarterly measures above. Hardware investment for every size is on the Investment page; software licence and support per agreement.</p>
-    </div>
-    <div class="btn-row"><a class="btn btn-primary" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20briefing%20pack">Request the briefing pack <span class="arrow" aria-hidden="true">→</span></a><a class="btn btn-secondary" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20technical%20session">Book a technical session</a></div>
-  </div>
-</section><div class="wrap page-foot">
-  <a class="next-page" href="../index.html">
-    <span><span class="k">Next · Page 1 of 6</span><span class="t" style="display:block">Overview</span><span class="sub">Back to the start: what BC owns, what never leaves, and the results.</span></span>
-    <span class="arrow" aria-hidden="true">→</span>
-  </a>
-  <a class="prev-link" href="../investment/index.html">← Investment</a>
+<ul class="dash-list"><li><p>The documentation trials measured listening AI scribes.</p><p>Kit drafts from a summary or an existing transcript, so the base case uses the conservative 1 minute.</p></li><li><p>In the randomized trial of 238 physicians, a second scribe showed no significant change (−1.7%).</p><p>The base case does not depend on the larger result.</p></li><li><p>Physician comparison lines were measured under their own conditions: on NOHARM, 101 US physicians answered 100 base cases with conventional resources, while Kit answered the 330 public items (30 cases × 11 variants).</p><p>On HealthBench Professional, specialist physicians wrote answers with unlimited time and web search.</p></li><li><p>HealthBench Professional rival scores are independent evaluations by Artificial Analysis; the publishers' own figures differ.</p><p>Kit's graders and every Kit answer are in each board's audit pack.</p></li></ul>
+<p>Sources: BC Budget and Fiscal Plan 2026/27–2028/29, pp. 13, 14, 38, CMA and CFIB, Patients Before Paperwork, January 2026, CIHI physician supply 2025, workforce 2020–2024 and National Physician Database 2024–25, Statistics Canada Tables 98-10-0008, 13-10-0961, 14-10-0417-01, Booth et al., Annals of Internal Medicine 2026, doi:10.7326/ANNALS-25-05294, Lukac et al., NEJM AI 2025, doi:10.1056/aioa2501000, Stults et al., JAMA Network Open 2025, doi:10.1001/jamanetworkopen.2025.8614, Kaiser Permanente via the American Medical Association, Hendrich et al., Permanente Journal 2008, doi:10.7812/tpp/08-021, ICE-AID, Journal of Paediatrics and Child Health 2026, doi:10.1111/jpc.70419, Cressman et al., npj Digital Medicine 2025, PMC12615700, Ho et al., CMAJ 2025, PMC12316695, Novak Lauscher et al., JMIR 2023, doi:10.2196/45451, CMAJ Open 2023, doi:10.9778/cmajo.20220196, Korom et al., 2025, arXiv:2507.16947, JAMA Network Open 2025, doi:10.1001/jamanetworkopen.2025.0814, Baker et al., CMAJ 2004, doi:10.1503/cmaj.1040498, First, Do NOHARM, 2025, arXiv:2512.01241, OurCare survey 2022, HealthLink BC, NHS England AI scribing guidance, version 3</p>
+</div></details>
 </div>
+</section>
+
+<section class="band">
+<div class="wrap">
+<div class="band-text">
+<h2 class="section-title">Start with one site. Measure it with BC's own data.</h2>
+<p>We propose a First Site Deployment at one BC site, sized to its clinicians and accepted against pass marks BC sets: one rural health network or one urban clinic network.</p><p class="cont">From acceptance day its clinicians have Kit Ask, Kit Think Medical, Kit Think General and Deep Cove Research, and BC starts the quarterly measures above.</p><p class="cont">Hardware investment for every size is on the Investment page.</p><p class="cont">Software licence and support per agreement.</p>
+</div>
+<div class="band-actions">
+<p class="actions"><a class="btn" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20briefing%20pack">Request the briefing pack</a><a class="btn btn--quiet" href="mailto:hello@deepcove.tech?subject=Deep%20Cove%20technical%20session">Book a technical session</a></p>
+</div>
+</div>
+</section>
+
 </main>
-
-<footer class="site-foot">
-  <div class="wrap foot-grid">
-    <nav class="foot-nav" aria-label="Briefing pages, footer"><ol><li><a href="../index.html"><span class="n">01</span>Overview</a></li><li><a href="../performance/index.html"><span class="n">02</span>Performance and Audit</a></li><li><a href="../security/index.html"><span class="n">03</span>Security and Architecture</a></li><li><a href="../privacy/index.html"><span class="n">04</span>Privacy and Governance</a></li><li><a href="../investment/index.html"><span class="n">05</span>Investment</a></li><li><a href="../value/index.html" aria-current="page"><span class="n">06</span>Value for BC Health</a></li></ol></nav>
-    <p class="foot-contact">Questions about this briefing<br><a href="mailto:hello@deepcove.tech">hello@deepcove.tech</a></p>
-  </div>
-  <div class="wrap"><div class="foot-base">
-    <div class="origin"><span>Built in North Vancouver, British Columbia · Runs in your facility</span></div>
-    <span>© 2026 Deep Cove Intelligence, Inc.</span>
-  </div></div>
+<nav class="next wrap" aria-label="Next page"><a href=".././"><span class="next-label">Back to the Overview</span><span class="next-text">What BC owns, what never leaves, and the results.</span></a></nav>
+<footer class="site-footer">
+<div class="wrap site-footer-row">
+<p>Questions about this briefing: <a class="link" href="mailto:hello@deepcove.tech">hello@deepcove.tech</a></p>
+<p>Built in North Vancouver, British Columbia. Runs in your facility.</p>
+<p>© 2026 Deep Cove Intelligence, Inc.</p>
+</div>
 </footer>
-
-<script>
-(function(){
-  var root=document.documentElement;
-  var tb=document.getElementById("theme");
-  function isDark(){
-    var t=root.getAttribute("data-theme");
-    if(t) return t==="dark";
-    try{return matchMedia("(prefers-color-scheme: dark)").matches}catch(e){return false}
-  }
-  function label(){ if(tb) tb.setAttribute("aria-label", isDark()?"Switch to light theme":"Switch to dark theme"); }
-  if(tb){
-    label();
-    tb.addEventListener("click",function(){
-      var t=isDark()?"light":"dark";
-      root.setAttribute("data-theme",t);
-      try{localStorage.setItem("dc-briefing-theme",t)}catch(e){}
-      label();
-    });
-  }
-  /* page menu: close on outside click, Escape, or link */
-  var menu=document.querySelector(".menu");
-  if(menu){
-    document.addEventListener("click",function(e){ if(menu.open && !menu.contains(e.target)) menu.open=false; });
-    document.addEventListener("keydown",function(e){ if(e.key==="Escape" && menu.open){ menu.open=false; menu.querySelector("summary").focus(); } });
-    menu.addEventListener("click",function(e){ if(e.target.closest("a")) menu.open=false; });
-  }
-  /* expert detail and FAQ print open */
-  var opened=[];
-  window.addEventListener("beforeprint",function(){
-    document.querySelectorAll("details:not([open])").forEach(function(d){ if(!d.classList.contains("menu")){ d.open=true; opened.push(d);} });
-  });
-  window.addEventListener("afterprint",function(){ opened.forEach(function(d){d.open=false}); opened=[]; });
-})();
-</script>
-
+<script src="../assets/site.js?v=20261116a"></script>
 </body>
 </html>

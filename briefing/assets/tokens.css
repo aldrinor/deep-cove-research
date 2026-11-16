@@ -1,0 +1,71 @@
+/* Deep Cove briefing tokens: Direction A "Day chart" (DESIGN.md). The boss owns this file. Lanes: read-only.
+   Rules: sentence case everywhere; no all caps; no monospace; no italics; no shadows; no gradients;
+   magenta only for Kit's marks and the five crossings; shoal only for "inside the BC facility" and figure grounds. */
+
+@font-face { font-family: "Radio Canada Big"; src: url("fonts/radio-canada-big.woff2") format("woff2");
+  font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Radio Canada"; src: url("fonts/radio-canada.woff2") format("woff2");
+  font-weight: 300 700; font-stretch: 75% 100%; font-style: normal; font-display: swap; }
+
+:root {
+  color-scheme: light;
+  /* colour: day */
+  --ink: #0F2B3D;          /* text, lines, the Core block, the closing band */
+  --paper: #FFFFFF;        /* page ground */
+  --shoal: #DCEBF3;        /* inside the BC facility; figure ground */
+  --shoal-2: #EEF5F9;      /* table stripe for the Kit column, quiet fills inside figures */
+  --water: #2E7FB0;        /* rival marks in charts */
+  --link: #1F6A99;         /* text links (AA on paper) */
+  --magenta: #B3206C;      /* Kit's marks; the five crossings */
+  --sounding: #5B7385;     /* secondary text, axes */
+  --grid: #C9D6DE;         /* chart grid, table rules */
+  --core-fill: #0F2B3D;    /* the Core block */
+  --core-text: #FFFFFF;
+  --band-fill: #0F2B3D;    /* closing band */
+  --band-text: #FFFFFF;
+  --focus: #B3206C;
+
+  /* type */
+  --font-display: "Radio Canada Big", "Radio Canada", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Radio Canada", "Helvetica Neue", Arial, sans-serif;
+  --data-stretch: 88%;     /* chart text, table heads, notes with numbers: font-stretch: var(--data-stretch) */
+  --t-title: 3.75rem;      /* 60 page title */
+  --t-section: 2.5rem;     /* 40 section title */
+  --t-sub: 1.5rem;         /* 24 lead, sub-heads */
+  --t-body: 1.125rem;      /* 18 */
+  --t-note: 0.9375rem;     /* 15 captions, notes, chart text */
+  --lh-display: 1.04;
+  --lh-body: 1.55;
+  --track-display: -0.02em;
+  --measure: 68ch;
+
+  /* space: 8 px base */
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 40px; --s5: 64px; --s6: 80px;
+  --page: 1200px;          /* content width */
+  --gutter: 24px;
+  --margin: 24px;          /* page side margin (min) */
+  --radius: 6px;           /* things you press; figures use 0 */
+  --figure-edge: 2px;      /* ink top edge on every figure */
+}
+
+@media (max-width: 720px) {
+  :root { --t-title: 2.5rem; --t-section: 1.75rem; --t-sub: 1.3125rem; --t-body: 1.0625rem; --t-note: 0.875rem;
+    --s6: 64px; --s5: 48px; --margin: 20px; }
+}
+
+/* night: chosen values, not an automatic flip. Applies when the visitor's system is dark and they have not
+   picked day, or when they picked night with the switch (data-theme on <html>). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="day"]) {
+    color-scheme: dark;
+    --ink: #E6EEF3; --paper: #0B1C28; --shoal: #14364B; --shoal-2: #102A3B; --water: #4A9BD1; --link: #7DB9E0;
+    --magenta: #E0559B; --sounding: #9DB2C1; --grid: #2A4558;
+    --core-fill: #E6EEF3; --core-text: #0B1C28; --band-fill: #14364B; --band-text: #E6EEF3; --focus: #E0559B;
+  }
+}
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --ink: #E6EEF3; --paper: #0B1C28; --shoal: #14364B; --shoal-2: #102A3B; --water: #4A9BD1; --link: #7DB9E0;
+  --magenta: #E0559B; --sounding: #9DB2C1; --grid: #2A4558;
+  --core-fill: #E6EEF3; --core-text: #0B1C28; --band-fill: #14364B; --band-text: #E6EEF3; --focus: #E0559B;
+}
