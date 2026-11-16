@@ -944,6 +944,10 @@ tbody tr:last-child td{border-bottom:none}
 .nd-stage{height:356px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,#000 0,#000 334px,transparent 356px);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,#000 0,#000 334px,transparent 356px)}
 @media (max-width:760px){.nd-stage{height:356px}}
 .nd-ctl{margin-top:4px}
+/* scoreboard: a vertical rule between every score column, so names and numbers never run together (operator 11-16) */
+.sbt.pf th:nth-child(n+3),.sbt.pf td:nth-child(n+3){border-left:1px solid var(--dc-border);padding-inline:10px}
+.sbt.pf td.pf-kit,.sbt.pf th:nth-child(3){background:color-mix(in srgb,var(--dc-primary) 6%,transparent)}
+.sbt.pf .pf-m+.pf-m{margin-top:4px}
 </style>
 
 </head>
