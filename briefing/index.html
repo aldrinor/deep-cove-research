@@ -939,6 +939,11 @@ tbody tr:last-child td{border-bottom:none}
 .tg-ok{border:1px solid color-mix(in srgb,var(--dc-primary) 45%,transparent);color:var(--dc-primary)}
 .tg-ok::before{content:"\2713";font-size:10px}
 .arch-col>.grp{margin-inline:0;padding:12px 16px 14px}
+/* deck v3: side cards tilt around their own bottom edge, so they stay inside the stage; controls sit below it, never on the cards */
+.nd-card{transform-origin:50% 100%}
+.nd-stage{height:356px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,#000 0,#000 334px,transparent 356px);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,#000 0,#000 334px,transparent 356px)}
+@media (max-width:760px){.nd-stage{height:356px}}
+.nd-ctl{margin-top:4px}
 </style>
 
 </head>
