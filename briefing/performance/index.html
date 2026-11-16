@@ -9,8 +9,8 @@
 <meta name="color-scheme" content="light dark">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../favicon.png">
-<link rel="stylesheet" href="../assets/tokens.css?v=20261116a">
-<link rel="stylesheet" href="../assets/base.css?v=20261116a">
+<link rel="stylesheet" href="../assets/tokens.css?v=20261116b">
+<link rel="stylesheet" href="../assets/base.css?v=20261116b">
 <script>try{var t=localStorage.getItem('dc-briefing-theme');if(t==='day'||t==='night')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
 <body class="page-performance">
@@ -43,10 +43,6 @@
 <section class="section" id="results">
 <div class="wrap">
 <h2 class="section-title">Kit leads on four medical boards and trails on seven.</h2>
-<div class="cols-2" style="margin-bottom:var(--s4)">
-<div><p><b>Kit posts the highest score shown on 4 of the 11 medical boards scored on the same scale as their rivals.</b> They are the two health-record boards (94.3 and 82.0), clinical safety on NOHARM (80.0) and reasoning under uncertainty on SCT (72.8).</p><p class="cont">On MAST Chest X-Ray, Kit's 67.8 uses our stated conversion of the CRIMSON score.</p><p class="cont">MAST does not publish its own, so that row is shown but not counted.</p></div>
-<div><p><b>A rival model posts the top score on the other seven.</b> The widest gaps are diagnosis from published case reports, where GPT-6.1 Sol scores 86.7 on MedCaseReasoning against Kit's 63.3, and sequential diagnosis on SDBench, 97.5 against 88.0.</p><p class="cont">On MedQA and PhysicianBench the gap is under two points.</p></div>
-</div>
 <figure class="fig fig--has-full fig--has-wide" id="chart-medical"><div class="fig-panel"><div class="fig-v fig-v--full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 679" role="img" aria-labelledby="chart-medical-full-t chart-medical-full-td" data-fig="chart-medical-full">
 <title id="chart-medical-full-t">Kit Think and the newest Anthropic and OpenAI models on 12 medical benchmarks</title>
 <desc id="chart-medical-full-td">Dot plot, one row per benchmark, score out of 100, rows ordered by Kit Think&#x27;s lead over the best listed rival.</desc>
@@ -856,9 +852,13 @@
 <tr><th>SDBench: Sequential diagnosis</th><td>88.0</td><td>Opus 5.5 93.5</td><td>GPT-6.1 Sol 97.5</td><td>no published baseline</td></tr>
 <tr><th>MedCaseReasoning: Case-report diagnosis</th><td>63.3</td><td>Opus 5.5 59.3</td><td>GPT-6.1 Sol 86.7</td><td>no published baseline</td></tr>
 <tr><th>MAST Chest X-Ray: Chest X-ray reports</th><td>67.8</td><td>Fable 5 51.0</td><td>GPT-5.6 Sol 51.7</td><td>no published baseline</td></tr></tbody></table></div>
-<figcaption><b>Figure 1.</b> Kit Think against the higher-scoring listed Anthropic model and OpenAI model on 12 medical benchmarks. Kit Think's difference from the best listed rival sets the row order. Rings are the published physician baselines (NOHARM 42.2, HealthBench Professional 43.7). A grey diamond is the highest published score by any model, where it is higher than the models shown. Chest X-Ray sits apart: Kit is on our stated CRIMSON conversion and the rivals on MAST's unpublished one. Score out of 100. Higher is better. The axis starts at 0.</figcaption></figure>
-<div class="notes notes--cols" style="margin:var(--s2) 0 var(--s5)">
-<p>Each cell shows the newest model from that company with a published score on that board. HealthBench Professional rival scores are independent evaluations by Artificial Analysis; the publishers' own figures differ. PhysicianBench, SDBench and MedCaseReasoning rival scores are our runs of those models on the same items; MedQA shows OpenAI's highest published figure. Kit's graders and every Kit answer are in each board's audit pack.</p>
+<figcaption><b>Figure 1.</b> Kit Think against the higher-scoring listed Anthropic model and OpenAI model on 12 medical benchmarks.<details class="fig-more"><summary>About this figure</summary><p>Kit Think's difference from the best listed rival sets the row order.</p><p class="cont">Rings are the published physician baselines (NOHARM 42.2, HealthBench Professional 43.7).</p><p class="cont">A grey diamond is the highest published score by any model, where it is higher than the models shown.</p><p class="cont">Chest X-Ray sits apart: Kit is on our stated CRIMSON conversion and the rivals on MAST's unpublished one.</p><p class="cont">Score out of 100.</p><p class="cont">Higher is better.</p><p class="cont">The axis starts at 0.</p></details></figcaption></figure>
+<div class="cols-2" style="margin:var(--s4) 0 var(--s3)">
+<div><p><b>Kit posts the highest score shown on 4 of the 11 medical boards scored on the same scale as their rivals.</b> They are the two health-record boards (94.3 and 82.0), clinical safety on NOHARM (80.0) and reasoning under uncertainty on SCT (72.8).</p><p class="cont">On MAST Chest X-Ray, Kit's 67.8 uses our stated conversion of the CRIMSON score.</p><p class="cont">MAST does not publish its own, so that row is shown but not counted.</p></div>
+<div><p><b>A rival model posts the top score on the other seven.</b> The widest gaps are diagnosis from published case reports, where GPT-6.1 Sol scores 86.7 on MedCaseReasoning against Kit's 63.3, and sequential diagnosis on SDBench, 97.5 against 88.0.</p><p class="cont">On MedQA and PhysicianBench the gap is under two points.</p></div>
+</div>
+<div class="notes notes--cols" style="margin:0 0 var(--s5)">
+<p>Each cell shows the newest model from that company with a published score on that board.</p><p class="cont">HealthBench Professional rival scores are independent evaluations by Artificial Analysis; the publishers' own figures differ.</p><p class="cont">PhysicianBench, SDBench and MedCaseReasoning rival scores are our runs of those models on the same items.</p><p class="cont">MedQA shows OpenAI's highest published figure.</p><p class="cont">Kit's graders and every Kit answer are in each board's audit pack.</p>
 <p>Other kinds of system score higher on two boards.</p><p class="cont">Clinical answer products lead the public NOHARM board: AMBOSS LiSA 2.5 86.2, Doximity 84.5, OpenEvidence 80.0.</p><p class="cont">The highest published result on the MedAgentBench v1 tasks is 98.0, from a research agent with memory.</p><p class="cont">Both are in the board-by-board detail below.</p>
 </div>
 <figure class="fig fig--has-full fig--has-wide" id="chart-general"><div class="fig-panel"><div class="fig-v fig-v--full"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 361" role="img" aria-labelledby="chart-general-full-t chart-general-full-td" data-fig="chart-general-full">
@@ -1160,7 +1160,7 @@
 <tr><th>LegalBench: Legal reasoning</th><td>79.5</td><td>Fable 5.1 88.5</td><td>GPT-5.6 Sol 87.0</td><td>no published baseline</td></tr>
 <tr><th>BrokenArXiv: Research-level proofs</th><td>88.7</td><td>Fable 5.2 80.5</td><td>GPT-6.1 Sol 83.1</td><td>no published baseline</td></tr>
 <tr><th>Vals Finance Agent: Financial filing analysis</th><td>73.8</td><td>Fable 5.2 69.5</td><td>GPT-6.1 Sol 61.8</td><td>no published baseline</td></tr></tbody></table></div>
-<figcaption><b>Figure 2.</b> Kit Think against the higher-scoring listed Anthropic and OpenAI model on four general benchmarks. BrokenArXiv (53 problems) and Vals Finance Agent (27 public tasks) are complete public sets under 100 items, and their grading also differs from the rivals'. See the board-by-board detail.</figcaption></figure>
+<figcaption><b>Figure 2.</b> Kit Think against the higher-scoring listed Anthropic and OpenAI model on four general benchmarks.<details class="fig-more"><summary>About this figure</summary><p>BrokenArXiv (53 problems) and Vals Finance Agent (27 public tasks) are complete public sets under 100 items, and their grading also differs from the rivals'.</p><p class="cont">See the board-by-board detail.</p></details></figcaption></figure>
 </div>
 </section>
 
@@ -1168,7 +1168,7 @@
 <div class="wrap">
 <h2 class="section-title">Every score, beside the newest rival models.</h2>
 <div class="prose" style="margin-bottom:var(--s4)">
-<p>Sixteen boards, each shown with the newest Anthropic and OpenAI models with a published score, or run by us on the same items where the detail below says so (PhysicianBench, SDBench and MedCaseReasoning). On MedQA the OpenAI cell is OpenAI's highest published figure. Every row links to its audit pack. The two MAST image boards measure reading of public research images; as delivered, Kit does not interpret medical images, and its image and document reading runs on a dedicated server from the Hospital size up.</p>
+<p>Sixteen boards, each shown with the newest Anthropic and OpenAI models with a published score, or run by us on the same items where the detail below says so (PhysicianBench, SDBench and MedCaseReasoning).</p><p class="cont">On MedQA the OpenAI cell is OpenAI's highest published figure.</p><p class="cont">Every row links to its audit pack.</p><p class="cont">The two MAST image boards measure reading of public research images; as delivered, Kit does not interpret medical images, and its image and document reading runs on a dedicated server from the Hospital size up.</p>
 </div>
 <h3>Medical performance</h3>
 <p class="sounding" style="margin:4px 0 var(--s2)">Table 1. 12 boards, score out of 100.</p>
@@ -1468,7 +1468,7 @@
 <text x="332.0" y="530.5" text-anchor="middle" style="font-family:var(--font-text);font-stretch:88%;font-size:13px;font-weight:400;fill:var(--ink)">Out</text>
 <text x="4.0" y="642.0" style="font-family:var(--font-text);font-stretch:88%;font-size:14px;font-weight:600;fill:var(--ink)">(c) Deep Cove Research</text>
 </svg>
-</div></div><figcaption><b>Figure 3.</b> How Kit answers. (a) The router sends each question to Kit Ask, Kit Think Medical or Kit Think General. (b) Kit Think's team mode for hard questions: a planner gives work to workers, and a checker sends drafts back until they pass. (c) Deep Cove Research: parallel searches merge into one report. Magenta boxes are model calls; dashed boxes are the librarians and sources.</figcaption></figure>
+</div></div><figcaption><b>Figure 3.</b> How Kit answers. (a) The router sends each question to Kit Ask, Kit Think Medical or Kit Think General. (b) Kit Think's team mode for hard questions: a planner gives work to workers, and a checker sends drafts back until they pass. (c) Deep Cove Research: parallel searches merge into one report.<details class="fig-more"><summary>About this figure</summary><p>Magenta boxes are model calls; dashed boxes are the librarians and sources.</p></details></figcaption></figure>
 <p class="lead-line" style="margin-top:var(--s5)">Table 3. Kit's router and four modes, named in the shared vocabulary of agent design.</p>
 <div class="table-wrap"><table class="table table--stack">
 <thead><tr><th scope="col">Mode</th><th scope="col">Pattern</th><th scope="col">What happens</th><th scope="col">Speed</th></tr></thead>
@@ -1504,7 +1504,7 @@ python3 -c "import json, statistics as s
 r = [json.loads(l) for l in open('results.jsonl')]
 print(round(100 * s.mean(float(x['F1_weighted']) for x in r), 1))"
 # prints 80.0</code></pre>
-<div class="notes"><p><b>Listing 1.</b> Checking and recomputing the NOHARM score in a few lines; every other pack's README gives its own formula, most of them 100 × the rows graded 1 ÷ the item count.</p><p><a href="../audit/INDEX.json?v=b125acf">audit/INDEX.json</a> (machine-readable index) lists each pack's slug, item count, score and zip checksum; <a href="../audit/SHA256SUMS?v=b125acf">audit/SHA256SUMS</a> covers every zip.</p></div>
+<div class="notes"><p><b>Listing 1.</b> Checking and recomputing the NOHARM score in a few lines.</p><p class="cont">Every other pack's README gives its own formula, most of them 100 × the rows graded 1 ÷ the item count.</p><p><a href="../audit/INDEX.json?v=b125acf">audit/INDEX.json</a> (machine-readable index) lists each pack's slug, item count, score and zip checksum; <a href="../audit/SHA256SUMS?v=b125acf">audit/SHA256SUMS</a> covers every zip.</p></div>
 <p><b>A board can be re-run, not only recomputed.</b> Each README names the benchmark release, the grader and the settings, so a team holding the benchmark can run it again on BC's own Deep Cove installation and compare item by item.</p>
 </div>
 </div>
@@ -1590,6 +1590,6 @@ print(round(100 * s.mean(float(x['F1_weighted']) for x in r), 1))"
 <p>© 2026 Deep Cove Intelligence, Inc.</p>
 </div>
 </footer>
-<script src="../assets/site.js?v=20261116a"></script>
+<script src="../assets/site.js?v=20261116b"></script>
 </body>
 </html>

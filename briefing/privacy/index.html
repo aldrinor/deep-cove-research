@@ -9,8 +9,8 @@
 <meta name="color-scheme" content="light dark">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../favicon.png">
-<link rel="stylesheet" href="../assets/tokens.css?v=20261116a">
-<link rel="stylesheet" href="../assets/base.css?v=20261116a">
+<link rel="stylesheet" href="../assets/tokens.css?v=20261116b">
+<link rel="stylesheet" href="../assets/base.css?v=20261116b">
 <script>try{var t=localStorage.getItem('dc-briefing-theme');if(t==='day'||t==='night')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
 <body class="page-privacy">
@@ -52,13 +52,13 @@
 <div class="prose" style="margin-bottom:var(--s4)">
 <p>Each statement below is literally true of Deep Cove as delivered to a BC facility.</p><p class="cont">Each one names the mechanism that makes it true and how BC checks it, so none of them rests on our word.</p>
 </div>
-<div class="cols-3">
-<div><h3>Records kept in the facility</h3><p><b>Patient records never leave the facility.</b><sup>2</sup> The Core has no internet path, and the only outbound crossing in the whole system is a cleaned search query, with the requests for the public pages it returns, carrying no patient identifiers.</p><p><b>How BC checks it.</b> Every outbound query, and every blocked one, is written to the log.</p><p class="cont">BC's privacy officer receives a daily sample and a weekly report.</p></div>
-<div><h3>No training on patient records</h3><p><b>Patient records are never used to train any model.</b> Deep Cove ships with no training system, and Deep Cove Intelligence never receives the records.</p><p><b>How BC checks it.</b> The software inventory shipped with every release, and the model fingerprint checked at every start (section 3).</p></div>
-<div><h3>No vendor copy, no remote access</h3><p><b>Deep Cove Intelligence holds no copy of patient data and has no remote access.</b> Our engineers work on site only, escorted, with every entry logged.</p><p><b>How BC checks it.</b> The access log records every entry and every console session.</p><p class="cont">There is no remote path to audit because none is built.</p></div>
-<div><h3>No reporting home</h3><p><b>Nothing reports back to Deep Cove Intelligence.</b> No vendor telemetry, no usage analytics and no licence check leave the facility.</p><p class="cont">Alarms go one way to BC's own security team and carry no patient text.</p><p><b>How BC checks it.</b> The outbound allow-list and the Web Librarian's log show every destination the system can reach.</p></div>
-<div><h3>No action without a Gate check</h3><p><b>The AI never reaches the internet or a database by itself.</b> It can only place fixed-form orders through the Gates, and separate machines check each order before they fetch anything.</p><p><b>How BC checks it.</b> The independent penetration test before go-live covers the Core, the Gates and the update path.</p></div>
-<div><h3>Only records the clinician may open</h3><p><b>Kit never reads a record the signed-in clinician is not allowed to see.</b> The Records Librarian checks every request against that clinician's own access rights, never a broad service account.</p><p><b>How BC checks it.</b> The log records each record request with the clinician, the purpose and the fields returned.</p></div>
+<div class="grows">
+<div class="grow grow--fold"><div class="grow-name"><span class="mark-no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></svg></span><h3>Records kept in the facility</h3></div><div><p><b>Patient records never leave the facility.</b><sup>2</sup></p></div><details class="row-check"><summary>Mechanism and check</summary><div class="row-check-body"><p class="cont">The Core has no internet path, and the only outbound crossing in the whole system is a cleaned search query, with the requests for the public pages it returns, carrying no patient identifiers.</p><p><b>How BC checks it.</b> Every outbound query, and every blocked one, is written to the log.</p><p class="cont">BC's privacy officer receives a daily sample and a weekly report.</p></div></details></div>
+<div class="grow grow--fold"><div class="grow-name"><span class="mark-no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></svg></span><h3>No training on patient records</h3></div><div><p><b>Patient records are never used to train any model.</b></p></div><details class="row-check"><summary>Mechanism and check</summary><div class="row-check-body"><p class="cont">Deep Cove ships with no training system, and Deep Cove Intelligence never receives the records.</p><p><b>How BC checks it.</b> The software inventory shipped with every release, and the model fingerprint checked at every start (section 3).</p></div></details></div>
+<div class="grow grow--fold"><div class="grow-name"><span class="mark-no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></svg></span><h3>No vendor copy, no remote access</h3></div><div><p><b>Deep Cove Intelligence holds no copy of patient data and has no remote access.</b></p></div><details class="row-check"><summary>Mechanism and check</summary><div class="row-check-body"><p class="cont">Our engineers work on site only, escorted, with every entry logged.</p><p><b>How BC checks it.</b> The access log records every entry and every console session.</p><p class="cont">There is no remote path to audit because none is built.</p></div></details></div>
+<div class="grow grow--fold"><div class="grow-name"><span class="mark-no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></svg></span><h3>No reporting home</h3></div><div><p><b>Nothing reports back to Deep Cove Intelligence.</b></p></div><details class="row-check"><summary>Mechanism and check</summary><div class="row-check-body"><p class="cont">No vendor telemetry, no usage analytics and no licence check leave the facility.</p><p class="cont">Alarms go one way to BC's own security team and carry no patient text.</p><p><b>How BC checks it.</b> The outbound allow-list and the Web Librarian's log show every destination the system can reach.</p></div></details></div>
+<div class="grow grow--fold"><div class="grow-name"><span class="mark-no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></svg></span><h3>No action without a Gate check</h3></div><div><p><b>The AI never reaches the internet or a database by itself.</b></p></div><details class="row-check"><summary>Mechanism and check</summary><div class="row-check-body"><p class="cont">It can only place fixed-form orders through the Gates, and separate machines check each order before they fetch anything.</p><p><b>How BC checks it.</b> The independent penetration test before go-live covers the Core, the Gates and the update path.</p></div></details></div>
+<div class="grow grow--fold"><div class="grow-name"><span class="mark-no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></svg></span><h3>Only records the clinician may open</h3></div><div><p><b>Kit never reads a record the signed-in clinician is not allowed to see.</b></p></div><details class="row-check"><summary>Mechanism and check</summary><div class="row-check-body"><p class="cont">The Records Librarian checks every request against that clinician's own access rights, never a broad service account.</p><p><b>How BC checks it.</b> The log records each record request with the clinician, the purpose and the fields returned.</p></div></details></div>
 </div>
 <div class="split" style="margin-top:var(--s5)">
 <div class="split-text prose">
@@ -246,7 +246,7 @@
 <rect x="251.0" y="296.0" width="28.0" height="8.0" rx="2" style="fill:var(--paper);stroke:var(--magenta);stroke-width:2"/>
 <rect x="274.0" y="426.0" width="28.0" height="8.0" rx="2" style="fill:var(--magenta);stroke:var(--paper);stroke-width:1.5"/>
 </svg>
-</div></div><figcaption><b>Figure 1.</b> What crosses the wall around the Core, and what never does. Magenta lines are the crossings: questions in and answers out at the Chat Gate, record orders out and records in at the Records Gate, cleaned search words out and cleaned pages in through the Web Librarian, signed updates in through the Delivery Bay. A fifth, one-way monitoring link carries health and security events to the hospital's security operations, never patient text.</figcaption></figure>
+</div></div><figcaption><b>Figure 1.</b> What crosses the wall around the Core, and what never does.<details class="fig-more"><summary>About this figure</summary><p>Magenta lines are the crossings: questions in and answers out at the Chat Gate, record orders out and records in at the Records Gate, cleaned search words out and cleaned pages in through the Web Librarian, signed updates in through the Delivery Bay.</p><p class="cont">A fifth, one-way monitoring link carries health and security events to the hospital's security operations, never patient text.</p></details></figcaption></figure>
 </div>
 </div>
 </div>
@@ -256,7 +256,7 @@
 <div class="wrap">
 <h2 class="section-title">One line crosses outward. It carries search words only.</h2>
 <div class="cols-3">
-<div><p><b>Kit reads current medical guidance, so one controlled line reaches the internet: the Web Librarian's.</b> It carries short search words out and public pages back; the Web Librarian rebuilds each page as plain text before anything reaches the Core. The line never holds patient data, and the Core never touches the internet.</p></div>
+<div><p><b>Kit reads current medical guidance, so one controlled line reaches the internet: the Web Librarian's.</b> It carries short search words out and public pages back.</p><p class="cont">The Web Librarian rebuilds each page as plain text before anything reaches the Core.</p><p class="cont">The line never holds patient data, and the Core never touches the internet.</p></div>
 <div><p><b>A mechanism blocks identifiers, not a policy.</b> A check inside the Core and a second, independently written check on the Web Librarian refuse any search that contains the patient's name, Personal Health Number, date of birth, address, phone or chart number.</p><p class="cont">The Web Librarian then rebuilds the query from an approved medical vocabulary, so the AI's own words are never sent as written.</p></div>
 <div><p><b>Sites that want no outbound line at all choose the Sealed Library.</b> A curated medical library is kept on site and refreshed through the Delivery Bay, so no search words leave the facility.</p></div>
 </div>
@@ -483,6 +483,6 @@
 <p>© 2026 Deep Cove Intelligence, Inc.</p>
 </div>
 </footer>
-<script src="../assets/site.js?v=20261116a"></script>
+<script src="../assets/site.js?v=20261116b"></script>
 </body>
 </html>
