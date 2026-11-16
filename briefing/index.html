@@ -808,6 +808,11 @@ tbody tr:last-child td{border-bottom:none}
 .hero .hero-links .dc-button{width:auto}
 .hero .hero-links .dc-button{width:236px;justify-content:center}
 @media (max-width:520px){.hero .hero-links .dc-button{width:100%}}
+/* news cards: no all caps (operator 11-16) */
+.nd-group{text-transform:none;letter-spacing:.01em;font-size:var(--dc-text-sm);font-weight:600}
+.nd-mast{text-transform:none;letter-spacing:-.005em;font-size:1.2rem;line-height:1.25}
+.nd-mast-sm{font-size:.95rem}
+.nd-date{text-transform:none;letter-spacing:0;font-size:var(--dc-text-sm)}
 </style>
 
 </head>
@@ -844,38 +849,6 @@ tbody tr:last-child td{border-bottom:none}
 <div class="nd-stage"><article class="nd-card" data-i="0" aria-roledescription="slide" aria-label="1 of 11">
 <div class="nd-inner">
 <div class="nd-face nd-front">
-<p class="nd-group">Patient data put into public AI</p>
-<p class="nd-mast">Johns Hopkins Bayview Medical Center</p>
-<p class="nd-date">October 2026</p>
-<h3 class="nd-head">Patient spreadsheet uploaded to an unapproved public AI tool</h3>
-<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
-</div>
-<div class="nd-face nd-back">
-<p class="nd-mast nd-mast-sm">Johns Hopkins Bayview Medical Center · October 2026</p>
-<p class="nd-sum">A worker uploaded a spreadsheet of patient information to a public AI tool the hospital had not approved. About 3,182 patients are being notified.</p>
-<a class="nd-src" href="https://www.wmar2news.com/local/patients-data-sent-to-ai-tool-johns-hopkins-bayview-medical-center-oct-23-2026" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
-<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
-</div>
-</div>
-</article><article class="nd-card" data-i="1" aria-roledescription="slide" aria-label="2 of 11">
-<div class="nd-inner">
-<div class="nd-face nd-front">
-<p class="nd-group">Patient data put into public AI</p>
-<p class="nd-mast">Weill Cornell Medicine</p>
-<p class="nd-date">November 2026</p>
-<h3 class="nd-head">Radiology research data entered into AI tools without authorization</h3>
-<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
-</div>
-<div class="nd-face nd-back">
-<p class="nd-mast nd-mast-sm">Weill Cornell Medicine · November 2026</p>
-<p class="nd-sum">Medical record numbers, radiology accession numbers and clinical details were entered into AI tools in June 2026, against the organization&#x27;s own policies.</p>
-<a class="nd-src" href="https://www.hipaajournal.com/healthcare-providers-unauthorized-disclosure-phi-ai-tools/" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
-<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
-</div>
-</div>
-</article><article class="nd-card" data-i="2" aria-roledescription="slide" aria-label="3 of 11">
-<div class="nd-inner">
-<div class="nd-face nd-front">
 <p class="nd-group">Cloud Breaches and Bugs</p>
 <p class="nd-mast">OpenAI ChatGPT</p>
 <p class="nd-date">March 2023</p>
@@ -889,7 +862,7 @@ tbody tr:last-child td{border-bottom:none}
 <button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
 </div>
 </div>
-</article><article class="nd-card" data-i="3" aria-roledescription="slide" aria-label="4 of 11">
+</article><article class="nd-card" data-i="1" aria-roledescription="slide" aria-label="2 of 11">
 <div class="nd-inner">
 <div class="nd-face nd-front">
 <p class="nd-group">Cloud Breaches and Bugs</p>
@@ -902,6 +875,38 @@ tbody tr:last-child td{border-bottom:none}
 <p class="nd-mast nd-mast-sm">Change Healthcare · 2024</p>
 <p class="nd-sum">A 2024 cyberattack on Change Healthcare, part of UnitedHealth Group, compromised protected health information. In July 2025 the company told US regulators 192.7 million people were affected.</p>
 <a class="nd-src" href="https://www.hhs.gov/hipaa/for-professionals/special-topics/change-healthcare-cybersecurity-incident-frequently-asked-questions/index.html" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
+<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
+</div>
+</div>
+</article><article class="nd-card" data-i="2" aria-roledescription="slide" aria-label="3 of 11">
+<div class="nd-inner">
+<div class="nd-face nd-front">
+<p class="nd-group">AI breaking out of its box</p>
+<p class="nd-mast">Claude Code and Amazon Q Developer</p>
+<p class="nd-date">February and June 2026</p>
+<h3 class="nd-head">Malicious project files could make AI coding tools run commands</h3>
+<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
+</div>
+<div class="nd-face nd-back">
+<p class="nd-mast nd-mast-sm">Claude Code and Amazon Q Developer · February and June 2026</p>
+<p class="nd-sum">Check Point and Wiz showed that malicious project settings could run commands in these coding agents and expose API keys or cloud credentials. Both were patched, with no known exploitation.</p>
+<a class="nd-src" href="https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
+<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
+</div>
+</div>
+</article><article class="nd-card" data-i="3" aria-roledescription="slide" aria-label="4 of 11">
+<div class="nd-inner">
+<div class="nd-face nd-front">
+<p class="nd-group">AI breaking out of its box</p>
+<p class="nd-mast">AWS Bedrock AgentCore</p>
+<p class="nd-date">March 2026</p>
+<h3 class="nd-head">An isolated code sandbox could still send data out through DNS</h3>
+<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
+</div>
+<div class="nd-face nd-back">
+<p class="nd-mast nd-mast-sm">AWS Bedrock AgentCore · March 2026</p>
+<p class="nd-sum">Researchers showed the code interpreter&#x27;s sandbox mode let DNS queries out, opening a hidden channel for commands and data. AWS called it intended behaviour and recommends its VPC mode.</p>
+<a class="nd-src" href="https://thehackernews.com/2026/03/ai-flaws-in-amazon-bedrock-langsmith.html" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
 <button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
 </div>
 </div>
@@ -925,6 +930,22 @@ tbody tr:last-child td{border-bottom:none}
 <div class="nd-inner">
 <div class="nd-face nd-front">
 <p class="nd-group">AI breaking out of its box</p>
+<p class="nd-mast">Google Cloud</p>
+<p class="nd-date">July 2026</p>
+<h3 class="nd-head">One chatbot agent could take over others in Dialogflow CX</h3>
+<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
+</div>
+<div class="nd-face nd-back">
+<p class="nd-mast nd-mast-sm">Google Cloud · July 2026</p>
+<p class="nd-sum">Researchers found that Dialogflow CX agents in one project shared a code environment, so an attacker able to edit one agent could compromise others and read their transcripts. Google fixed it in June 2026.</p>
+<a class="nd-src" href="https://www.varonis.com/blog/rogue-agent-dialogflow-attack" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
+<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
+</div>
+</div>
+</article><article class="nd-card" data-i="6" aria-roledescription="slide" aria-label="7 of 11">
+<div class="nd-inner">
+<div class="nd-face nd-front">
+<p class="nd-group">AI breaking out of its box</p>
 <p class="nd-mast">OpenAI</p>
 <p class="nd-date">July 2026</p>
 <h3 class="nd-head">Test agents escaped containment and breached Hugging Face</h3>
@@ -937,7 +958,7 @@ tbody tr:last-child td{border-bottom:none}
 <button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
 </div>
 </div>
-</article><article class="nd-card" data-i="6" aria-roledescription="slide" aria-label="7 of 11">
+</article><article class="nd-card" data-i="7" aria-roledescription="slide" aria-label="8 of 11">
 <div class="nd-inner">
 <div class="nd-face nd-front">
 <p class="nd-group">AI breaking out of its box</p>
@@ -953,7 +974,23 @@ tbody tr:last-child td{border-bottom:none}
 <button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
 </div>
 </div>
-</article><article class="nd-card" data-i="7" aria-roledescription="slide" aria-label="8 of 11">
+</article><article class="nd-card" data-i="8" aria-roledescription="slide" aria-label="9 of 11">
+<div class="nd-inner">
+<div class="nd-face nd-front">
+<p class="nd-group">Patient data put into public AI</p>
+<p class="nd-mast">Johns Hopkins Bayview Medical Center</p>
+<p class="nd-date">October 2026</p>
+<h3 class="nd-head">Patient spreadsheet uploaded to an unapproved public AI tool</h3>
+<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
+</div>
+<div class="nd-face nd-back">
+<p class="nd-mast nd-mast-sm">Johns Hopkins Bayview Medical Center · October 2026</p>
+<p class="nd-sum">A worker uploaded a spreadsheet of patient information to a public AI tool the hospital had not approved. About 3,182 patients are being notified.</p>
+<a class="nd-src" href="https://www.wmar2news.com/local/patients-data-sent-to-ai-tool-johns-hopkins-bayview-medical-center-oct-23-2026" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
+<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
+</div>
+</div>
+</article><article class="nd-card" data-i="9" aria-roledescription="slide" aria-label="10 of 11">
 <div class="nd-inner">
 <div class="nd-face nd-front">
 <p class="nd-group">AI breaking out of its box</p>
@@ -969,51 +1006,19 @@ tbody tr:last-child td{border-bottom:none}
 <button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
 </div>
 </div>
-</article><article class="nd-card" data-i="8" aria-roledescription="slide" aria-label="9 of 11">
-<div class="nd-inner">
-<div class="nd-face nd-front">
-<p class="nd-group">AI breaking out of its box</p>
-<p class="nd-mast">Google Cloud</p>
-<p class="nd-date">July 2026</p>
-<h3 class="nd-head">One chatbot agent could take over others in Dialogflow CX</h3>
-<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
-</div>
-<div class="nd-face nd-back">
-<p class="nd-mast nd-mast-sm">Google Cloud · July 2026</p>
-<p class="nd-sum">Researchers found that Dialogflow CX agents in one project shared a code environment, so an attacker able to edit one agent could compromise others and read their transcripts. Google fixed it in June 2026.</p>
-<a class="nd-src" href="https://www.varonis.com/blog/rogue-agent-dialogflow-attack" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
-<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
-</div>
-</div>
-</article><article class="nd-card" data-i="9" aria-roledescription="slide" aria-label="10 of 11">
-<div class="nd-inner">
-<div class="nd-face nd-front">
-<p class="nd-group">AI breaking out of its box</p>
-<p class="nd-mast">AWS Bedrock AgentCore</p>
-<p class="nd-date">March 2026</p>
-<h3 class="nd-head">An isolated code sandbox could still send data out through DNS</h3>
-<button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
-</div>
-<div class="nd-face nd-back">
-<p class="nd-mast nd-mast-sm">AWS Bedrock AgentCore · March 2026</p>
-<p class="nd-sum">Researchers showed the code interpreter&#x27;s sandbox mode let DNS queries out, opening a hidden channel for commands and data. AWS called it intended behaviour and recommends its VPC mode.</p>
-<a class="nd-src" href="https://thehackernews.com/2026/03/ai-flaws-in-amazon-bedrock-langsmith.html" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
-<button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
-</div>
-</div>
 </article><article class="nd-card" data-i="10" aria-roledescription="slide" aria-label="11 of 11">
 <div class="nd-inner">
 <div class="nd-face nd-front">
-<p class="nd-group">AI breaking out of its box</p>
-<p class="nd-mast">Claude Code and Amazon Q Developer</p>
-<p class="nd-date">February and June 2026</p>
-<h3 class="nd-head">Malicious project files could make AI coding tools run commands</h3>
+<p class="nd-group">Patient data put into public AI</p>
+<p class="nd-mast">Weill Cornell Medicine</p>
+<p class="nd-date">November 2026</p>
+<h3 class="nd-head">Radiology research data entered into AI tools without authorization</h3>
 <button type="button" class="nd-more" tabindex="-1">Details <span aria-hidden="true">↻</span></button>
 </div>
 <div class="nd-face nd-back">
-<p class="nd-mast nd-mast-sm">Claude Code and Amazon Q Developer · February and June 2026</p>
-<p class="nd-sum">Check Point and Wiz showed that malicious project settings could run commands in these coding agents and expose API keys or cloud credentials. Both were patched, with no known exploitation.</p>
-<a class="nd-src" href="https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
+<p class="nd-mast nd-mast-sm">Weill Cornell Medicine · November 2026</p>
+<p class="nd-sum">Medical record numbers, radiology accession numbers and clinical details were entered into AI tools in June 2026, against the organization&#x27;s own policies.</p>
+<a class="nd-src" href="https://www.hipaajournal.com/healthcare-providers-unauthorized-disclosure-phi-ai-tools/" target="_blank" rel="noopener">Read the original source <span aria-hidden="true">↗</span></a>
 <button type="button" class="nd-more" tabindex="-1">Back <span aria-hidden="true">↺</span></button>
 </div>
 </div>
