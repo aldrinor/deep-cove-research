@@ -99,12 +99,12 @@
   "slug": "simpleqa-verified",
   "n": 1000,
   "score": 94.7,
-  "zip_sha256": "978990291aee7e859a08984e51e04afe28985c597f56d7fa8917f220b6986bfb"
+  "zip_sha256": "8c489c0f895d405711e24fda14665052c625a114bdb48cb49cfcd4d11dfe3871"
  },
  {
   "slug": "frames",
   "n": 824,
   "score": 86.4,
-  "zip_sha256": "f5d15b1541d6ddae0968c8ab73749d65b63c62d69243b66728039ea4cffbd1c0"
+  "zip_sha256": "5983a8586b390888e4e18882de3fee14f59b4149a022bab0cc521c01c5deed84"
  }
 ]
