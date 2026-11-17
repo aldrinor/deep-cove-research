@@ -1902,7 +1902,7 @@ function drawTop(){
 }
 var _d=draw;draw=function(){["ln-cu","ln-ou"].forEach(function(id){var e=$(id);if(e){e.style.marginLeft="";e.style.width="";e.style.alignSelf=""}});_d();drawTop()};
 var t;function later(){clearTimeout(t);t=setTimeout(draw,60)}
-window.addEventListener("resize",later);window.addEventListener("load",draw);
+window.addEventListener("resize",later);window.addEventListener("load",draw);if(window.ResizeObserver){var ro=new ResizeObserver(later);[two].concat([].slice.call(two.querySelectorAll(".arch-frame,.st,.pill"))).forEach(function(e){ro.observe(e)})}document.addEventListener("visibilitychange",later);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);draw();
 })();</script>
 </body>
