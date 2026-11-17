@@ -1118,6 +1118,10 @@ tbody tr:last-child td{border-bottom:none}
  .sbt.cost td:first-child,.sbt.cost th:first-child{width:36%}
 }
 @media (max-width:640px){.sbt.cost td:first-child,.sbt.cost th:first-child{width:34%}}
+/* model name and score on one line in every scoreboard cell, on wider screens (operator 11-17: "make them one line") */
+@media (min-width:641px){
+ .sbt.pf .pf-m{flex-wrap:nowrap;white-space:nowrap;align-items:baseline}
+}
 </style>
 
 </head>
