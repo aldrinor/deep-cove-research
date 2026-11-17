@@ -94,5 +94,11 @@
   "n": 590,
   "score": 67.8,
   "zip_sha256": "9a01b81a2d52f221484fb30ed919d2568de519b47d2edbd3044137f7e7649f84"
+ },
+ {
+  "slug": "simpleqa-verified",
+  "n": 1000,
+  "score": 94.7,
+  "zip_sha256": "d4d457712dc6397a5015a70998f6a6a8068ca5810bc5a1998605f0f9b4a8cda6"
  }
 ]
