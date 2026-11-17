@@ -1,3 +1,71 @@
+User-agent: GPTBot
+Disallow: /briefing/
+
+User-agent: ChatGPT-User
+Disallow: /briefing/
+
+User-agent: OAI-SearchBot
+Disallow: /briefing/
+
+User-agent: ClaudeBot
+Disallow: /briefing/
+
+User-agent: Claude-User
+Disallow: /briefing/
+
+User-agent: Claude-SearchBot
+Disallow: /briefing/
+
+User-agent: anthropic-ai
+Disallow: /briefing/
+
+User-agent: PerplexityBot
+Disallow: /briefing/
+
+User-agent: Perplexity-User
+Disallow: /briefing/
+
+User-agent: Google-Extended
+Disallow: /briefing/
+
+User-agent: GoogleOther
+Disallow: /briefing/
+
+User-agent: Applebot-Extended
+Disallow: /briefing/
+
+User-agent: Bytespider
+Disallow: /briefing/
+
+User-agent: CCBot
+Disallow: /briefing/
+
+User-agent: Amazonbot
+Disallow: /briefing/
+
+User-agent: meta-externalagent
+Disallow: /briefing/
+
+User-agent: FacebookBot
+Disallow: /briefing/
+
+User-agent: cohere-ai
+Disallow: /briefing/
+
+User-agent: Diffbot
+Disallow: /briefing/
+
+User-agent: YouBot
+Disallow: /briefing/
+
+User-agent: MistralAI-User
+Disallow: /briefing/
+
+User-agent: DuckAssistBot
+Disallow: /briefing/
+
 User-agent: *
+Disallow: /briefing/
 Allow: /
+
 Sitemap: https://deepcove.tech/sitemap.xml
