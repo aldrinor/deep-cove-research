@@ -106,5 +106,11 @@
   "n": 824,
   "score": 86.4,
   "zip_sha256": "5983a8586b390888e4e18882de3fee14f59b4149a022bab0cc521c01c5deed84"
+ },
+ {
+  "slug": "mmlu-pro",
+  "n": 12032,
+  "score": 84.2,
+  "zip_sha256": "7d7cc265f58449c50bdaf00c3afbb7308d1e65942ddc712c1bcfda7faac70157"
  }
 ]
