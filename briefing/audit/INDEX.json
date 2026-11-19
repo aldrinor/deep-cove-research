@@ -44,8 +44,8 @@
  {
   "slug": "cpc-first-answer-diagnosis",
   "n": 100,
-  "score": 54.0,
-  "zip_sha256": "d1053b4f860060d29c810f21057a53d89eda6d6b2252906b6e1da79509de1837"
+  "score": 55.0,
+  "zip_sha256": "49826c807c4c7df3ef8bdc2b8285a5c6de727b6ba78affcba8a1616da8f08b71"
  },
  {
   "slug": "sdbench",
@@ -86,8 +86,8 @@
  {
   "slug": "medcasereasoning",
   "n": 150,
-  "score": 63.3,
-  "zip_sha256": "5c1d5524f58643760f730fabb7a168fbef135c02adcc53294a870a4f05b9df06"
+  "score": 71.3,
+  "zip_sha256": "12f191d555d99defeed05c9771f192197cddeda10fecdf0f917373083c6f77ea"
  },
  {
   "slug": "mast-chest-x-ray",
