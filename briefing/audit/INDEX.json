@@ -2,14 +2,14 @@
  {
   "slug": "medagentbench-v1",
   "n": 100,
-  "score": 97.0,
-  "zip_sha256": "bccb2a9a4772028f28058cef57bea7e140b58b993b80b058eec7373adf1bcfac"
+  "score": 98.0,
+  "zip_sha256": "78c2b11f4f6d5d65ca72f422aeabefca1c7a9838a665eba395f2ca567c531943"
  },
  {
   "slug": "medagentbench-v2",
-  "n": 100,
-  "score": 88.0,
-  "zip_sha256": "cfd771e945a5af71ebc459f602cfea601559f55f4f2f7a62990ad142100e0821"
+  "n": 98,
+  "score": 96.9,
+  "zip_sha256": "2c3d21da6063ec92cc620dda3cea23fb33602832448e80741ca5a9a0ca3934f4"
  },
  {
   "slug": "physicianbench",
